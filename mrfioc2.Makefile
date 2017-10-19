@@ -1,6 +1,16 @@
 
 include ${REQUIRE_TOOLS}/driver.makefile
 
+
+# mrfioc2/configure/CONFIG_SITE
+USR_CPPFLAGS += -DUSE_TYPED_RSET
+
+# mrfCommon/Makefile 
+USR_CFLAGS   += -DDEBUG_PRINT
+USR_CPPFLAGS += -DDEBUG_PRINT
+
+
+
 MRFCOMMOM:= mrfCommon/src
 
 ## USR_INCLUDES can be used, however, have to define the absolute path
@@ -42,6 +52,7 @@ SOURCES += $(MRFCOMMOM)/spi.cpp
 SOURCES += $(MRFCOMMOM)/flash.cpp
 SOURCES += $(MRFCOMMOM)/flashiocsh.cpp
 
+
 DBDS    += $(MRFCOMMOM)/mrfCommon.dbd
 
 
@@ -56,46 +67,14 @@ HEADERS += $(MRMSHAREDSRC)/mrmSeq.h
 HEADERS += $(MRMSHAREDSRC)/mrmpci.h
 HEADERS += $(MRMSHAREDSRC)/sfp.h
 
+
+DBDS    += $(MRMSHAREDSRC)/mrmShared.dbd
+
 SOURCES += $(MRMSHAREDSRC)/mrmDataBufTx.cpp
 SOURCES += $(MRMSHAREDSRC)/mrmSeq.cpp
 SOURCES += $(MRMSHAREDSRC)/devMrfBufTx.cpp
 SOURCES += $(MRMSHAREDSRC)/sfp.cpp
 SOURCES += $(MRMSHAREDSRC)/mrmtimesrc.cpp
-
-DBDS    += $(MRMSHAREDSRC)/mrmShared.dbd
-
-
-
-
-# COMMUNITY Dependency
-
-# mrfCommon
-EVRAPP:= evrApp
-EVRAPPSRC:=${EVRAPP}/src
-EVRAPPDB:=${EVRAPP}/Db
-
-HEADERS += $(EVRAPPSRC)/evr/pulser.h
-HEADERS += $(EVRAPPSRC)/evr/output.h
-HEADERS += $(EVRAPPSRC)/evr/delay.h
-HEADERS += $(EVRAPPSRC)/evr/input.h
-HEADERS += $(EVRAPPSRC)/evr/prescaler.h
-HEADERS += $(EVRAPPSRC)/evr/evr.h
-HEADERS += $(EVRAPPSRC)/evr/cml.h
-HEADERS += $(EVRAPPSRC)/evrGTIF.h
-
-SORUCES += $(EVRAPPSRC)/evr.cpp
-SORUCES += $(EVRAPPSRC)/evrGTIF.cpp
-SORUCES += $(EVRAPPSRC)/devEvrStringIO.cpp
-SORUCES += $(EVRAPPSRC)/devEvrEvent.cpp
-SORUCES += $(EVRAPPSRC)/devEvrMapping.cpp
-SORUCES += $(EVRAPPSRC)/devEvrPulserMapping.cpp
-SORUCES += $(EVRAPPSRC)/asub.c
-SORUCES += $(EVRAPPSRC)/devWfMailbox.c
-
-SOURCES_Linux   += $(EVRAPPSRC)/ntpShm.cpp
-SOURCES_DEFAULT += $(EVRAPPSRC)/ntpShmNull.cpp
-
-DBDS    += $(EVRAPPSRC)/evrSupport.dbd
 
 
 # COMMUNITY Dependency 
@@ -103,6 +82,7 @@ DBDS    += $(EVRAPPSRC)/evrSupport.dbd
 EVGMRMAPP:= evgMrmApp
 EVGMRMAPPSRC:=$(EVGMRMAPP)/src
 EVGMRMAPPDB:=$(EVGMRMAPP)/Db
+
 
 HEADERS += $(EVGMRMAPPSRC)/evgMrm.h
 HEADERS += $(EVGMRMAPPSRC)/evgRegMap.h
@@ -134,44 +114,66 @@ SOURCES += $(EVGMRMAPPSRC)/seqnsls2.c
 DBDS    += $(EVGMRMAPPSRC)/evgInit.dbd
 
 
-# COMMUNITY Dependency
-# mrfCommon (mrfioc2), mrmShared (mrfioc2), evr (mrfioc2), epicsvme (devlib2), epicspci (devlib2)
-EVRMRMAPP:= evrMrmApp
-EVRMRMAPPSRC:=$(EVRMRMAPP)/src
-EVRMRMAPPDB:=$(EVRMRMAPP)Db
-
-# HEADERS += $(EVRMRMAPPSRC)/drvemIocsh.h
-# HEADERS += $(EVRMRMAPPSRC)/drvem.h
-# HEADERS += $(EVRMRMAPPSRC)/drvemOutput.h
-# HEADERS += $(EVRMRMAPPSRC)/drvemInput.h
-# HEADERS += $(EVRMRMAPPSRC)/drvemPrescaler.h
-# HEADERS += $(EVRMRMAPPSRC)/drvemPulser.h
-# HEADERS += $(EVRMRMAPPSRC)/drvemCML.h
-# HEADERS += $(EVRMRMAPPSRC)/delayModule.h
-# HEADERS += $(EVRMRMAPPSRC)/drvemRxBuf.h
-# HEADERS += $(EVRMRMAPPSRC)/mrmevrseq.h
-# HEADERS += $(EVRMRMAPPSRC)/bufrxmgr.h
-# HEADERS += $(EVRMRMAPPSRC)/mrmGpio.h
 
 
-SOURCES += $(EVRMRMAPPSRC)/drvemIocsh.cpp
-SOURCES += $(EVRMRMAPPSRC)/drvemSetup.cpp
-SOURCES += $(EVRMRMAPPSRC)/drvem.cpp
-SOURCES += $(EVRMRMAPPSRC)/drvemOutput.cpp
-SOURCES += $(EVRMRMAPPSRC)/drvemInput.cpp
-SOURCES += $(EVRMRMAPPSRC)/drvemPrescaler.cpp
-SOURCES += $(EVRMRMAPPSRC)/drvemPulser.cpp
-SOURCES += $(EVRMRMAPPSRC)/drvemCML.cpp
-SOURCES += $(EVRMRMAPPSRC)/delayModule.cpp
-SOURCES += $(EVRMRMAPPSRC)/drvemRxBuf.cpp
-SOURCES += $(EVRMRMAPPSRC)/devMrmBuf.cpp
-SOURCES += $(EVRMRMAPPSRC)/mrmevrseq.cpp
-SOURCES += $(EVRMRMAPPSRC)/bufrxmgr.cpp
-SOURCES += $(EVRMRMAPPSRC)/devMrmBufRx.cpp
-SOURCES += $(EVRMRMAPPSRC)/mrmGpio.cpp
-SOURCES_DEFAULT += $(EVRMRMAPPSRC)/os/default/irqHack.cpp
+# # COMMUNITY Dependency
 
-DBDS    += $(EVRMRMAPPSRC)/drvemSupport.dbd
+# # mrfCommon
+# EVRAPP:= evrApp
+# EVRAPPSRC:=${EVRAPP}/src
+# EVRAPPDB:=${EVRAPP}/Db
+
+# HEADERS += $(EVRAPPSRC)/evr/pulser.h
+# HEADERS += $(EVRAPPSRC)/evr/output.h
+# HEADERS += $(EVRAPPSRC)/evr/delay.h
+# HEADERS += $(EVRAPPSRC)/evr/input.h
+# HEADERS += $(EVRAPPSRC)/evr/prescaler.h
+# HEADERS += $(EVRAPPSRC)/evr/evr.h
+# HEADERS += $(EVRAPPSRC)/evr/cml.h
+# HEADERS += $(EVRAPPSRC)/evrGTIF.h
+
+
+
+# SORUCES += $(EVRAPPSRC)/evr.cpp
+# SORUCES += $(EVRAPPSRC)/evrGTIF.cpp
+# SORUCES += $(EVRAPPSRC)/devEvrStringIO.cpp
+# SORUCES += $(EVRAPPSRC)/devEvrEvent.cpp
+# SORUCES += $(EVRAPPSRC)/devEvrMapping.cpp
+# SORUCES += $(EVRAPPSRC)/devEvrPulserMapping.cpp
+# SORUCES += $(EVRAPPSRC)/asub.c
+# SORUCES += $(EVRAPPSRC)/devWfMailbox.c
+# SOURCES += $(EVRAPPSRC)/ntpShm.cpp
+
+
+
+
+# DBDS    += $(EVRAPPSRC)/evrSupport.dbd
+
+# # COMMUNITY Dependency
+# # mrfCommon (mrfioc2), mrmShared (mrfioc2), evr (mrfioc2), epicsvme (devlib2), epicspci (devlib2)
+# EVRMRMAPP:= evrMrmApp
+# EVRMRMAPPSRC:=$(EVRMRMAPP)/src
+# EVRMRMAPPDB:=$(EVRMRMAPP)Db
+
+
+# SOURCES += $(EVRMRMAPPSRC)/drvemIocsh.cpp
+# SOURCES += $(EVRMRMAPPSRC)/drvemSetup.cpp
+# SOURCES += $(EVRMRMAPPSRC)/drvem.cpp
+# SOURCES += $(EVRMRMAPPSRC)/drvemOutput.cpp
+# SOURCES += $(EVRMRMAPPSRC)/drvemInput.cpp
+# SOURCES += $(EVRMRMAPPSRC)/drvemPrescaler.cpp
+# SOURCES += $(EVRMRMAPPSRC)/drvemPulser.cpp
+# SOURCES += $(EVRMRMAPPSRC)/drvemCML.cpp
+# SOURCES += $(EVRMRMAPPSRC)/delayModule.cpp
+# SOURCES += $(EVRMRMAPPSRC)/drvemRxBuf.cpp
+# SOURCES += $(EVRMRMAPPSRC)/devMrmBuf.cpp
+# SOURCES += $(EVRMRMAPPSRC)/mrmevrseq.cpp
+# SOURCES += $(EVRMRMAPPSRC)/bufrxmgr.cpp
+# SOURCES += $(EVRMRMAPPSRC)/devMrmBufRx.cpp
+# SOURCES += $(EVRMRMAPPSRC)/os/default/irqHack.cpp
+# SOURCES += $(EVRMRMAPPSRC)/mrmGpio.cpp
+
+# DBDS    += $(EVRMRMAPPSRC)/drvemSupport.dbd
 
 
 TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.db)
