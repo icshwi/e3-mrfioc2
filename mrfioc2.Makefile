@@ -1,7 +1,6 @@
 
 include ${REQUIRE_TOOLS}/driver.makefile
 
-
 MRFCOMMOM:= mrfCommon/src
 
 ## USR_INCLUDES can be used, however, have to define the absolute path
@@ -13,12 +12,9 @@ HEADERS += $(MRFCOMMOM)/mrfCommonIO.h
 HEADERS += $(MRFCOMMOM)/mrfFracSynth.h
 HEADERS += $(MRFCOMMOM)/linkoptions.h
 HEADERS += $(MRFCOMMOM)/mrfcsr.h
-
 HEADERS += $(MRFCOMMOM)/mrf/databuf.h
 HEADERS += $(MRFCOMMOM)/mrf/object.h
-
 HEADERS += $(MRFCOMMOM)/mrf/version.h
-
 HEADERS += $(MRFCOMMOM)/devObj.h
 HEADERS += $(MRFCOMMOM)/configurationInfo.h
 HEADERS += $(MRFCOMMOM)/plx9030.h
@@ -176,7 +172,6 @@ SOURCES += $(EVRMRMAPPSRC)/mrmGpio.cpp
 SOURCES_DEFAULT += $(EVRMRMAPPSRC)/os/default/irqHack.cpp
 
 DBDS    += $(EVRMRMAPPSRC)/drvemSupport.dbd
-
 
 
 TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.db)

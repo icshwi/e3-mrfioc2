@@ -19,19 +19,12 @@
 # Date    : Thursday, October 19 11:36:26 CEST 2017
 # version : 0.2.1
 #
-# This makefile isn't generic anymore, please look at others
-# 
 
 TOP:=$(CURDIR)
 
 include $(TOP)/configure/CONFIG
 
 -include $(TOP)/$(E3_ENV_NAME)/$(E3_ENV_NAME)
-
-
-export PERL5LIB=$(EPICS_BASE)/lib/perl
-
-PERL = perl -CSD
 
 
 ifndef VERBOSE
@@ -91,9 +84,10 @@ help:
 default: help
 
 
-
-
+## install  EPICS Module
 install: uninstall
+	$(QUIET) m4 -D_VERSION_="$(EPICS_MODULE_TAG)" $(TOP)/configure/version_h.m4 | m4 -D_DEFINE_="#define" \
+	> $(EPICS_MODULE_SRC_PATH)/mrfCommon/src/mrf/version.h
 	$(QUIET) sudo -E bash -c 'make $(M_OPTIONS) install'
 
 ## Uninstall "Require" Module in order not to use it
@@ -103,7 +97,7 @@ uninstall: conf
 
 
 ## Build the EPICS Module
-build: version.h conf
+build: conf
 	$(QUIET) make $(M_OPTIONS) build
 
 ## clean, build, and install again.
@@ -164,14 +158,6 @@ env:
 
 conf:
 	$(QUIET) install -m 644 $(TOP)/$(ESS_MODULE_MAKEFILE)  $(EPICS_MODULE_SRC_PATH)/
-
-
-# This is the very special case for mrfioc2.
-# Not good idea, however, I am focusing to deploy it easily
-#
-version.h:
-	$(PERL) $(EPICS_MODULE_SRC_PATH)/mrfCommon/src/genVersionHeader.pl -V "$(EPICS_MODULE_TAG)" -N MRF_VERSION $@
-	$(QUIET) mv -f $@ $(EPICS_MODULE_SRC_PATH)/mrfCommon/src/mrf/  
 
 
 .PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild
