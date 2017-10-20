@@ -25,6 +25,7 @@ TOP:=$(CURDIR)
 include $(TOP)/configure/CONFIG
 
 -include $(TOP)/$(E3_ENV_NAME)/$(E3_ENV_NAME)
+-include $(TOP)/$(E3_ENV_NAME)/epics-community-env
 
 
 ifndef VERBOSE
@@ -159,15 +160,12 @@ version.h:
 	m4 -D_VERSION_="$(EPICS_MODULE_TAG)" $(TOP)/configure/version_h.m4 | m4 -D_DEFINE_="#define" 	> $(EPICS_MODULE_SRC_PATH)/mrfCommon/src/mrf/version.h
 
 
-
-M_DEVLIB2=$(TOP)/../e3-devlib2/devlib2
-
-
 epics:
-	@echo "DEVLIB2=$(M_DEVLIB2)"                  > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local
-	@echo "EPICS_BASE=/epics/bases/base-3.15.4"  >> $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local
-	$(MAKE) -C $(EPICS_MODULE_SRC_PATH)
+	@echo "DEVLIB2=$(M_DEVLIB2)"                 > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local
+	@echo "EPICS_BASE=$(COMMUNITY_EPICS_BASE)"  >> $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local
+	@echo "INSTALL_LOCATION=$(M_MRFIOC2)"        > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/CONFIG_SITE	
+	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH)"
 
 
 
-.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild version.h
+.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild version.h epics
