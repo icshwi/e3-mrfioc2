@@ -108,6 +108,10 @@ clean: conf
 help2:
 	$(QUIET) make $(M_OPTIONS) help
 
+## Show driver.makefile help
+debug:
+	$(QUIET) make $(M_OPTIONS) debug
+
 #
 ## Initialize EPICS BASE and E3 ENVIRONMENT Module
 init: git-submodule-sync $(EPICS_MODULE_NAME) $(E3_ENV_NAME)
@@ -170,4 +174,4 @@ epics-clean:
 	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH) clean"
 
 
-.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild version.h epics
+.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild version.h epics epics-clean debug
