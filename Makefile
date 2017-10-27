@@ -166,6 +166,8 @@ epics:
 	@echo "INSTALL_LOCATION=$(M_MRFIOC2)"        > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/CONFIG_SITE	
 	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH)"
 
+epics-clean:
+	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH) clean"
 
 
 .PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild version.h epics
