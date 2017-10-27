@@ -1,0 +1,260 @@
+Step 1) : compile all (not quite all) sources in the reverse-order which I defined in mrfioc2.Makefile as SORUCES +=
+
+          With -MD option, it is defined in driver.makefile (Note that EPICS 3.15 uses -MM -MF instead of -MD
+
+/usr/bin/g++  
+-D_GNU_SOURCE 
+-D_DEFAULT_SOURCE                        
+-DUSE_TYPED_RSET 
+-DDEBUG_PRINT   
+-D_X86_64_  
+-DUNIX  
+-Dlinux                 
+-MD   
+-O3 -g   -Wall
+-mtune=generic                   
+-m64 -fPIC               
+-I. -I../mrfCommon/src/ 
+-I../mrfCommon/src//os/default 
+-I../mrmShared/src/ 
+-I../evgMrmApp/src/ 
+-I../evgMrmApp/src/devSupport/ 
+-I../evrApp/src/ 
+-I../evrMrmApp/src/ 
+-I../evrMrmApp/src//os/default 
+-I../evrMrmApp/src/os/default/ 
+-I../mrfCommon/src/mrf/ 
+-I../evrApp/src/evr/  
+-I/epics/modules/require/0.0.1/R3.15.4/include      
+-I/epics/modules/devlib2/2.9.0/R3.15.4/include   
+-I/epics/bases/base-3.15.4/include  
+-I/epics/bases/base-3.15.4/include/compiler/gcc 
+-I/epics/bases/base-3.15.4/include/os/Linux                                    
+-c  
+../evrMrmApp/src/mrmGpio.cpp
+
+
+
+Step 2) Combining dbd file from all DBDs I define in mrfioc2.Makefile
+
+Define in the following order
+* mrfCommon.dbd
+* mrfShared.dbd
+* evgInit.dbd
+* evrSupport.dbd
+* drvemSupport.dbd
+
+
+
+
+/epics/modules/require/0.0.1/tools/expandDBD.tcl 
+-3.15 
+-I ../evgMrmApp/src/ 
+-I ../evrApp/src/ 
+-I ../evrMrmApp/src/ 
+-I ../mrfCommon/src/ 
+-I ../mrmShared/src/ 
+-I /epics/bases/base-3.15.4/dbd 
+../mrfCommon/src/mrfCommon.dbd 
+../mrmShared/src/mrmShared.dbd 
+../evgMrmApp/src/evgInit.dbd 
+../evrApp/src/evrSupport.dbd 
+../evrMrmApp/src/drvemSupport.dbd 
+> mrfioc2.dbd
+
+
+
+
+rm -f mrfioc2_registerRecordDeviceDriver.cpp temp.cpp
+
+
+
+perl -CSD 
+/epics/bases/base-3.15.4/bin/linux-x86_64/registerRecordDeviceDriver.pl
+
+mrfioc2.dbd mrfioc2_registerRecordDeviceDriver 
+grep -v iocshRegisterCommon > temp.cpp
+
+Remove #include "iocshRegisterCommon.h" header and 
+Remove iocshRegisterCommon() function call in 
+static int Registration() function 
+
+mv temp.cpp mrfioc2_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++  
+-D_GNU_SOURCE 
+-D_DEFAULT_SOURCE                        
+-DUSE_TYPED_RSET 
+-DDEBUG_PRINT   
+-D_X86_64_  
+-DUNIX  
+-Dlinux                 
+-MD   -O3 -g   
+-Wall                    
+-mtune=generic                   
+-m64 -fPIC               
+-I. -I../mrfCommon/src/ 
+-I../mrfCommon/src//os/default 
+-I../mrmShared/src/ 
+-I../evgMrmApp/src/ 
+-I../evgMrmApp/src/devSupport/ 
+-I../evrApp/src/ 
+-I../evrMrmApp/src/ 
+-I../evrMrmApp/src//os/default 
+-I../evrMrmApp/src/os/default/ 
+-I../mrfCommon/src/mrf/ 
+-I../evrApp/src/evr/  
+-I/epics/modules/require/0.0.1/R3.15.4/include      
+-I/epics/modules/devlib2/2.9.0/R3.15.4/include   
+-I/epics/bases/base-3.15.4/include  
+-I/epics/bases/base-3.15.4/include/compiler/gcc 
+-I/epics/bases/base-3.15.4/include/os/Linux
+-c mrfioc2_registerRecordDeviceDriver.cpp
+
+
+Create an version file as c source
+
+echo "char _mrfioc2LibRelease[] = \"2.2.0\";" >> mrfioc2_version_2.2.0.c
+
+Compile it with the same option
+
+/usr/bin/gcc  
+-D_GNU_SOURCE 
+-D_DEFAULT_SOURCE                        
+-DUSE_TYPED_RSET -DDEBUG_PRINT   
+-D_X86_64_  -DUNIX  -Dlinux                 
+-MD   -O3 -g   -Wall                   
+-DDEBUG_PRINT  -mtune=generic     
+-m64 -fPIC                
+-I. -I../mrfCommon/src/ 
+-I../mrfCommon/src//os/default 
+-I../mrmShared/src/ 
+-I../evgMrmApp/src/ 
+-I../evgMrmApp/src/devSupport/ 
+-I../evrApp/src/ 
+-I../evrMrmApp/src/ 
+-I../evrMrmApp/src//os/default 
+-I../evrMrmApp/src/os/default/ 
+-I../mrfCommon/src/mrf/ 
+-I../evrApp/src/evr/  
+-I/epics/modules/require/0.0.1/R3.15.4/include      
+-I/epics/modules/devlib2/2.9.0/R3.15.4/include   
+-I/epics/bases/base-3.15.4/include  
+-I/epics/bases/base-3.15.4/include/compiler/gcc 
+-I/epics/bases/base-3.15.4/include/os/Linux     
+-c mrfioc2_version_2.2.0.c
+
+
+rm -f mrfioc2_exportAddress.c
+
+Hack all object files with nm command 
+
+nm devEvgDbus.o devEvgTrigEvt.o evg.o evgAcTrig.o evgDbus.o evgEvtClk.o evgInit.o evgInput.o evgMrm.o evgMxc.o evgOutput.o evgTrigEvt.o mrmevgseq.o seqconst.o seqnsls2.o ntpShm.o bufrxmgr.o delayModule.o devMrmBuf.o devMrmBufRx.o drvem.o drvemCML.o drvemInput.o drvemIocsh.o drvemOutput.o drvemPrescaler.o drvemPulser.o drvemRxBuf.o drvemSetup.o mrmGpio.o mrmevrseq.o irqHack.o databuf.o devMbboDirectSoft.o devObj.o devObjAnalog.o devObjBinary.o devObjCommand.o devObjLong.o devObjMBB.o devObjMBBDirect.o devObjString.o devObjWf.o devlutstring.o flash.o flashiocsh.o linkoptions.o mrfCommon.o mrfFracSynth.o object.o spi.o devMrfBufTx.o mrmDataBufTx.o mrmSeq.o mrmtimesrc.o sfp.o mrfioc2_registerRecordDeviceDriver.o mrfioc2_version_2.2.0.o   
+| awk 'BEGIN {
+print "/* This is a generated file. Do not modify! */"; 
+print "#include <drvSup.h>"; 
+print "#include <devSup.h>"; 
+print "#include <recSup.h>"; 
+print "#include <registryFunction.h>"; 
+print "#include <epicsExport.h>"; 
+print "/* These are the RegisterFunction and ExportAddress calls missing for 3.14 compatible code. */"; }
+/ U pvar_func_register_func_/ 
+{name=substr($2,25); func_missing[name]=1; next;} 
+/ [A-Z] pvar_func_register_func_/ 
+{name=substr($3,25); func_found[name]=1; next;} 
+/ U pvar_func_/ 
+{name=substr($2,11); reg_missing[name]=1; next;} 
+/ [A-Z] pvar_func_/ {name=substr($3,11); 
+reg_found[name]=1; next;} 
+/ U pvar_/ 
+{i=index(substr($2,6),"_"); type=substr($2,6,i-1); name=substr($2,i+6); var_missing[name]=type; next;} 
+/ [A-Z] pvar_/ 
+{i=index(substr($3,6),"_"); name=substr($3,i+6); var_found[name]=1; next;} 
+END 
+{
+	for  (name in func_missing) if (!func_found[name]) 
+		{ print "void " name "();"; print "epicsRegisterFunction(" name ");"}
+ 	for (name in reg_missing) 	if (!reg_found[name]) 
+		{ print "extern REGISTRYFUNCTION " name ";"; print "epicsExportRegistrar(" name");"}
+	for (name in var_missing) if (!var_found[name]) 
+		{ type = var_missing[name]; print "extern " type " " name ";"; print "epicsExportAddress(" type ", " name ");"}
+}'
+
+ > mrfioc2_exportAddress.c
+
+
+Compile mrfioc2_exportAddress.c
+
+
+/usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE                        -DUSE_TYPED_RSET -DDEBUG_PRINT   -D_X86_64_  -DUNIX  -Dlinux                 -MD   -O3 -g   -Wall                   -DDEBUG_PRINT  -mtune=generic     -m64 -fPIC                -I. -I../mrfCommon/src/ -I../mrfCommon/src//os/default -I../mrmShared/src/ -I../evgMrmApp/src/ -I../evgMrmApp/src/devSupport/ -I../evrApp/src/ -I../evrMrmApp/src/ -I../evrMrmApp/src//os/default -I../evrMrmApp/src/os/default/ -I../mrfCommon/src/mrf/ -I../evrApp/src/evr/  -I/epics/modules/require/0.0.1/R3.15.4/include      -I/epics/modules/devlib2/2.9.0/R3.15.4/include   -I/epics/bases/base-3.15.4/include  -I/epics/bases/base-3.15.4/include/compiler/gcc -I/epics/bases/base-3.15.4/include/os/Linux                                    
+
+-c mrfioc2_exportAddress.c
+
+
+
+
+
+Collecting dependencies 
+
+
+rm -f mrfioc2.dep
+# Check dependencies on other module headers.
+cat *.d 2>/dev/null | sed 's/ /\n/g' | sed -n 's%/epics/modules/*\([^/]*\)/\([0-9]*\.[0-9]*\)\.[0-9]*/.*%\1 \2%p;s%/epics/modules/*\([^/]*\)/\([^/]*\)/.*%\1 \2%p'| sort -u >> mrfioc2.dep
+
+
+Build the shared library 
+
+
+/usr/bin/g++ 
+-o libmrfioc2.so 
+-shared 
+-fPIC -Wl,-hlibmrfioc2.so 
+-L/epics/modules/mrfioc2/2.2.0/R3.15.4/lib/linux-x86_64 
+-Wl,-rpath,/epics/modules/mrfioc2/2.2.0/R3.15.4/lib/linux-x86_64                         
+-rdynamic -m64
+-Wl,--defsym,mrfioc2Lib_2.0=0
+-Wl,--defsym,mrfioc2Lib_2.1=0
+-Wl,--defsym,mrfioc2Lib_2.2=0
+devEvgDbus.o devEvgTrigEvt.o evg.o evgAcTrig.o evgDbus.o evgEvtClk.o evgInit.o evgInput.o evgMrm.o evgMxc.o evgOutput.o evgTrigEvt.o mrmevgseq.o seqconst.o seqnsls2.o ntpShm.o bufrxmgr.o delayModule.o devMrmBuf.o devMrmBufRx.o drvem.o drvemCML.o drvemInput.o drvemIocsh.o drvemOutput.o drvemPrescaler.o drvemPulser.o drvemRxBuf.o drvemSetup.o mrmGpio.o mrmevrseq.o irqHack.o databuf.o devMbboDirectSoft.o devObj.o devObjAnalog.o devObjBinary.o devObjCommand.o devObjLong.o devObjMBB.o devObjMBBDirect.o devObjString.o devObjWf.o devlutstring.o flash.o flashiocsh.o linkoptions.o mrfCommon.o mrfFracSynth.o object.o spi.o devMrfBufTx.o mrmDataBufTx.o mrmSeq.o mrmtimesrc.o sfp.o mrfioc2_registerRecordDeviceDriver.o mrfioc2_exportAddress.o mrfioc2_version_2.2.0.o      
+-lpthread    
+-lm 
+-lrt 
+-ldl 
+-lgcc
+
+
+rm -f MakefileInclude
+make[4]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2/O.3.15.4_linux-x86_64'
+make[3]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+make[2]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+make[1]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+make[1]: Entering directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+rm -rf /epics/modules/mrfioc2/2.2.0
+make[1]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+make[1]: Entering directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+for VERSION in 3.15.4; do make -f mrfioc2.Makefile LIBVERSION=2.2.0 EPICSVERSION=$VERSION install; done
+make[2]: Entering directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+MAKING EPICS VERSION R3.15.4
+make[3]: Entering directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+make[4]: Entering directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2/O.3.15.4_linux-x86_64'
+rm -f MakefileInclude
+make[4]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2/O.3.15.4_linux-x86_64'
+make[4]: Entering directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2/O.3.15.4_linux-x86_64'
+rm -f MakefileInclude
+mkdir /epics/modules/mrfioc2/2.2.0
+mkdir /epics/modules/mrfioc2/2.2.0/R3.15.4
+mkdir /epics/modules/mrfioc2/2.2.0/R3.15.4/include
+Installing module dbd file /epics/modules/mrfioc2/2.2.0/R3.15.4/dbd/mrfioc2.dbd
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/installEpics.pl  -d -m444 mrfioc2.dbd /epics/modules/mrfioc2/2.2.0/R3.15.4/dbd
+mkdir /epics/modules/mrfioc2/2.2.0/R3.15.4/dbd
+Installing module library /epics/modules/mrfioc2/2.2.0/R3.15.4/lib/linux-x86_64/libmrfioc2.so
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/installEpics.pl  -d -m555 libmrfioc2.so /epics/modules/mrfioc2/2.2.0/R3.15.4/lib/linux-x86_64
+mkdir /epics/modules/mrfioc2/2.2.0/R3.15.4/lib
+mkdir /epics/modules/mrfioc2/2.2.0/R3.15.4/lib/linux-x86_64
+Installing module dependency file /epics/modules/mrfioc2/2.2.0/R3.15.4/lib/linux-x86_64/mrfioc2.dep
+perl -CSD /epics/bases/base-3.15.4/bin/linux-x86_64/installEpics.pl  -d -m444 mrfioc2.dep /epics/modules/mrfioc2/2.2.0/R3.15.4/lib/linux-x86_64
+make[4]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2/O.3.15.4_linux-x86_64'
+make[3]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+make[2]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+make[1]: Leaving directory '/home/jhlee/e3/e3-mrfioc2/mrfioc2'
+

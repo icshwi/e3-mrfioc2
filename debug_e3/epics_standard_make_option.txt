@@ -1,0 +1,266 @@
+1)  Making Dependency files for sources
+
+ntpShm.cpp
+devWfMailbox.c
+asub.c
+devEvrPulserMapping.cpp
+devEvrMapping.cpp
+devEvrEvent.cpp
+devEvrStringIO.cpp
+evrGTIF.cpp
+evr.cpp
+
+
+/usr/bin/g++  
+-D_GNU_SOURCE 
+-D_DEFAULT_SOURCE         
+-DUSE_TYPED_RSET
+D_X86_64_  
+-DUNIX  
+-Dlinux     
+-O3 
+-g   
+-Wall      
+-mtune=generic     
+-m64 
+-fPIC 
+-I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc
+-I../../../include/os/Linux 
+-I../../../include   
+-I/home/jhlee/epics_env/epics-modules/devlib2/include  
+-I/home/jhlee/epics_env/epics-modules/iocStats/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/iocStats/include  
+-I/home/jhlee/epics_env/epics-modules/autosave/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/autosave/include 
+-I/home/jhlee/epics_env/epics-base/include/compiler/gcc 
+-I/home/jhlee/epics_env/epics-base/include/os/Linux 
+-I/home/jhlee/epics_env/epics-base/include        
+-MM 
+-MF 
+ntpShm.d  
+../ntpShm.cpp
+
+-M
+
+    Instead of outputting the result of preprocessing, output a rule suitable for make describing the dependencies of the main source file. The preprocessor outputs one make rule containing the object file name for that source file, a colon, and the names of all the included files, including those coming from -include or -imacros command-line options.
+
+    Unless specified explicitly (with -MT or -MQ), the object file name consists of the name of the source file with any suffix replaced with object file suffix and with any leading directory parts removed. If there are many included files then the rule is split into several lines using ‘\’-newline. The rule has no commands.
+
+    This option does not suppress the preprocessor’s debug output, such as -dM. To avoid mixing such debug output with the dependency rules you should explicitly specify the dependency output file with -MF, or use an environment variable like DEPENDENCIES_OUTPUT (see Environment Variables). Debug output is still sent to the regular output stream as normal.
+
+    Passing -M to the driver implies -E, and suppresses warnings with an implicit -w.
+
+
+
+
+-MM
+
+    Like -M but do not mention header files that are found in system header directories, nor header files that are included, directly or indirectly, from such a header.
+
+    This implies that the choice of angle brackets or double quotes in an ‘#include’ directive does not in itself determine whether that header appears in -MM dependency output. 
+
+
+-MF file
+
+    When used with -M or -MM, specifies a file to write the dependencies to. If no -MF switch is given the preprocessor sends the rules to the same place it would send preprocessed output.
+
+    When used with the driver options -MD or -MMD, -MF overrides the default dependency output file.
+
+    If file is -, then the dependencies are written to stdout.
+
+
+
+
+2) Creating dbd file evrtest.dbd
+
+
+perl -CSD /home/jhlee/epics_env/epics-base/bin/linux-x86_64/dbdExpand.pl   -I. -I.. -I../O.Common -Ievr -I../../../dbd -I/home/jhlee/epics_env/epics-modules/devlib2/dbd -I/home/jhlee/epics_env/epics-modules/iocStats/dbd -I/home/jhlee/epics_env/epics-modules/autosave/dbd -I/home/jhlee/epics_env/epics-base/dbd -o evrtest.dbd base.dbd evrSupport.dbd
+
+
+perl -CSD /home/jhlee/epics_env/epics-base/bin/linux-x86_64/registerRecordDeviceDriver.pl   -I. -I.. -I../O.Common -Ievr -I../../../dbd -I/home/jhlee/epics_env/epics-modules/devlib2/dbd -I/home/jhlee/epics_env/epics-modules/iocStats/dbd -I/home/jhlee/epics_env/epics-modules/autosave/dbd -I/home/jhlee/epics_env/epics-base/dbd    -o evrtest_registerRecordDeviceDriver.cpp ../O.Common/evrtest.dbd evrtest_registerRecordDeviceDriver /home/jhlee/epics_env/epics-modules/mrfioc2
+
+>> Dependency file for evrtest_registerRecordDeviceDriver.cpp
+
+
+/usr/bin/g++  
+-D_GNU_SOURCE 
+-D_DEFAULT_SOURCE         
+-DUSE_TYPED_RSET   
+-D_X86_64_  
+-DUNIX  
+-Dlinux     
+-O3 -g   -Wall      
+-mtune=generic     
+-m64  -I. -I../O.Common -I. -I. -I.. 
+-I../../../include/compiler/gcc 
+-I../../../include/os/Linux -I../../../include   
+-I/home/jhlee/epics_env/epics-modules/devlib2/include  
+-I/home/jhlee/epics_env/epics-modules/iocStats/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/iocStats/include  -I/home/jhlee/epics_env/epics-modules/autosave/include/os/Linux -I/home/jhlee/epics_env/epics-modules/autosave/include 
+-I/home/jhlee/epics_env/epics-base/include/compiler/gcc 
+-I/home/jhlee/epics_env/epics-base/include/os/Linux 
+-I/home/jhlee/epics_env/epics-base/include        
+-MM -MF 
+evrtest_registerRecordDeviceDriver.d  
+evrtest_registerRecordDeviceDriver.cpp
+
+>> Dependency file for evrMain.cpp
+
+/usr/bin/g++  -D_GNU_SOURCE -D_DEFAULT_SOURCE         -DUSE_TYPED_RSET   -D_X86_64_  -DUNIX  -Dlinux     -O3 -g   -Wall      -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc -I../../../include/os/Linux -I../../../include   -I/home/jhlee/epics_env/epics-modules/devlib2/include  -I/home/jhlee/epics_env/epics-modules/iocStats/include/os/Linux -I/home/jhlee/epics_env/epics-modules/iocStats/include  -I/home/jhlee/epics_env/epics-modules/autosave/include/os/Linux -I/home/jhlee/epics_env/epics-modules/autosave/include -I/home/jhlee/epics_env/epics-base/include/compiler/gcc -I/home/jhlee/epics_env/epics-base/include/os/Linux -I/home/jhlee/epics_env/epics-base/include        -MM -MF evrMain.d  ../evrMain.cpp
+
+
+
+3) Compile source again..
+
+/usr/bin/g++  
+-D_GNU_SOURCE 
+-D_DEFAULT_SOURCE         
+-DUSE_TYPED_RSET   
+-D_X86_64_  
+-DUNIX  
+-Dlinux     
+-O3 -g   -Wall      
+-mtune=generic     
+-m64 -fPIC 
+-I. -I../O.Common -I. -I. -I.. -I../../../include/compiler/gcc 
+-I../../../include/os/Linux -I../../../include   
+-I/home/jhlee/epics_env/epics-modules/devlib2/include  
+-I/home/jhlee/epics_env/epics-modules/iocStats/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/iocStats/include  
+-I/home/jhlee/epics_env/epics-modules/autosave/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/autosave/include 
+-I/home/jhlee/epics_env/epics-base/include/compiler/gcc 
+-I/home/jhlee/epics_env/epics-base/include/os/Linux 
+-I/home/jhlee/epics_env/epics-base/include        
+-c ../evr.cpp
+
+
+evr.cpp
+evrGTIF.cpp
+devEvrStringIO.cpp
+devEvrEvent.cpp
+devEvrMapping.cpp
+devEvrPulserMapping.cpp
+asub.c
+devWfMailbox.c
+ntpShm.cpp
+
+>> Create archives for all objects
+
+/usr/bin/ar -rc    libevr.a        evr.o evrGTIF.o devEvrStringIO.o devEvrEvent.o devEvrMapping.o devEvrPulserMapping.o asub.o devWfMailbox.o ntpShm.o 
+
+>> Generate an index for libevr.a
+
+
+/usr/bin/ranlib libevr.a
+
+
+>> 
+/usr/bin/g++ 
+-o libevr.so 
+-shared 
+-fPIC 
+-Wl,-hlibevr.so 
+-L/home/jhlee/epics_env/epics-modules/mrfioc2/lib/linux-x86_64 
+-L/home/jhlee/epics_env/epics-base/lib/linux-x86_64 
+-Wl,-rpath,/home/jhlee/epics_env/epics-modules/mrfioc2/lib/linux-x86_64 
+-Wl,-rpath,/home/jhlee/epics_env/epics-base/lib/linux-x86_64           
+-rdynamic 
+-m64            
+evr.o 
+evrGTIF.o 
+devEvrStringIO.o 
+devEvrEvent.o 
+devEvrMapping.o 
+devEvrPulserMapping.o 
+asub.o 
+devWfMailbox.o 
+ntpShm.o    
+-lmrfCommon 
+-ldbRecStd 
+-ldbCore 
+-lca 
+-lCom   
+-lpthread   
+-lreadline 
+-lm 
+lrt 
+-ldl 
+-lgcc
+
+
+Installing shared library ../../../lib/linux-x86_64/libevr.so
+Installing library ../../../lib/linux-x86_64/libevr.a
+
+
+
+
+
+/usr/bin/g++  
+-D_GNU_SOURCE 
+-D_DEFAULT_SOURCE         
+-DUSE_TYPED_RSET   
+-D_X86_64_  
+-DUNIX  
+-Dlinux     
+-O3 -g   -Wall      
+-mtune=generic     
+-m64  
+-I. -I../O.Common -I. -I. -I.. 
+-I../../../include/compiler/gcc 
+-I../../../include/os/Linux -I../../../include   
+-I/home/jhlee/epics_env/epics-modules/devlib2/include  
+-I/home/jhlee/epics_env/epics-modules/iocStats/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/iocStats/include  
+-I/home/jhlee/epics_env/epics-modules/autosave/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/autosave/include 
+-I/home/jhlee/epics_env/epics-base/include/compiler/gcc 
+-I/home/jhlee/epics_env/epics-base/include/os/Linux 
+-I/home/jhlee/epics_env/epics-base/include        
+-c ../evrMain.cpp
+
+
+/usr/bin/g++  
+-D_GNU_SOURCE -D_DEFAULT_SOURCE         
+-DUSE_TYPED_RSET   
+-D_X86_64_  
+-DUNIX  
+-Dlinux     
+-O3 -g   -Wall      
+-mtune=generic     
+-m64  
+-I. -I../O.Common -I. -I. -I.. 
+-I../../../include/compiler/gcc 
+-I../../../include/os/Linux -I../../../include   
+-I/home/jhlee/epics_env/epics-modules/devlib2/include  
+-I/home/jhlee/epics_env/epics-modules/iocStats/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/iocStats/include  
+-I/home/jhlee/epics_env/epics-modules/autosave/include/os/Linux 
+-I/home/jhlee/epics_env/epics-modules/autosave/include 
+-I/home/jhlee/epics_env/epics-base/include/compiler/gcc 
+-I/home/jhlee/epics_env/epics-base/include/os/Linux 
+-I/home/jhlee/epics_env/epics-base/include        
+-c evrtest_registerRecordDeviceDriver.cpp
+
+
+
+/usr/bin/g++ -o evrtest  
+-L/home/jhlee/epics_env/epics-modules/mrfioc2/lib/linux-x86_64 
+
+-L/home/jhlee/epics_env/epics-base/lib/linux-x86_64 
+-Wl,-rpath,/home/jhlee/epics_env/epics-modules/mrfioc2/lib/linux-x86_64 
+-Wl,-rpath,/home/jhlee/epics_env/epics-base/lib/linux-x86_64           
+-rdynamic 
+-m64            
+evrMain.o 
+evrtest_registerRecordDeviceDriver.o    
+-levr 
+-lmrfCommon 
+-ldbRecStd 
+-ldbCore 
+-lca 
+-lCom   
+
+
+Installing created executable ../../../bin/linux-x86_64/evrtest
+make[1]: Leaving directory '/home/jhlee/epics_env/epics-modules/mrfioc2/evrApp/src/O.linux-x86_64'
