@@ -16,8 +16,8 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Thursday, October 19 11:36:26 CEST 2017
-# version : 0.2.1
+# Date    : Friday, November  3 16:49:11 CET 2017
+# version : 0.2.2
 #
 
 TOP:=$(CURDIR)
@@ -94,7 +94,7 @@ uninstall: conf
 	$(QUIET) sudo -E bash -c 'make $(M_OPTIONS) uninstall'
 
 ## Build the EPICS Module
-build: conf version.h
+build: conf version.h db
 	$(QUIET) make $(M_OPTIONS) build
 
 ## clean, build, and install again.
@@ -163,6 +163,14 @@ conf:
 version.h:
 	m4 -D_VERSION_="$(EPICS_MODULE_TAG)" $(TOP)/configure/version_h.m4 | m4 -D_DEFINE_="#define" 	> $(EPICS_MODULE_SRC_PATH)/mrfCommon/src/mrf/version.h
 
+
+
+### We have to think how to find $(EPICS_BASE) and
+### $(EPICS_HOST_ARCH) during driver.makefile
+### Friday, November  3 16:44:55 CET 2017, jhlee
+
+db: 
+	$(QUIET) make $(M_OPTIONS) db
 
 epics:
 	@echo "DEVLIB2=$(M_DEVLIB2)"                 > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local

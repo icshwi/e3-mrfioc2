@@ -1,3 +1,25 @@
+#
+#  Copyright (c) 2017 - Present  European Spallation Source ERIC
+#
+#  The program is free software: you can redistribute
+#  it and/or modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation, either version 2 of the
+#  License, or any newer version.
+#
+#  This program is distributed in the hope that it will be useful, but WITHOUT
+#  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+#  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+#  more details.
+#
+#  You should have received a copy of the GNU General Public License along with
+#  this program. If not, see https://www.gnu.org/licenses/gpl-2.0.txt
+#
+# Author  : Jeong Han Lee
+# email   : han.lee@esss.se
+# Date    : Friday, November  3 16:51:48 CET 2017
+# version : 0.0.1
+#
+
 
 include ${REQUIRE_TOOLS}/driver.makefile
 #include /home/jhlee/e3/e3-require/require/App/tools/driver.makefile
@@ -59,7 +81,7 @@ HEADERS += $(EVGMRMAPPSRC)/mrmevgseq.h
 # mrfCommon (mrfioc2), mrmShared (mrfioc2), evr (mrfioc2), epicsvme (devlib2), epicspci (devlib2)
 EVRMRMAPP:= evrMrmApp
 EVRMRMAPPSRC:=$(EVRMRMAPP)/src
-EVRMRMAPPDB:=$(EVRMRMAPP)Db
+EVRMRMAPPDB:=$(EVRMRMAPP)/Db
 
 
 SOURCES += $(EVRMRMAPPSRC)/drvemIocsh.cpp
@@ -194,15 +216,71 @@ HEADERS += $(MRFCOMMOM)/latticeEC30.h
 
 
 TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.db)
-TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.template)
-TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.substitutions)
 TEMPLATES += $(wildcard $(EVRAPPDB)/*.db)
-TEMPLATES += $(wildcard $(EVRAPPDB)/*.template)
-TEMPLATES += $(wildcard $(EVRAPPDB)/*.substitutions)
 TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.db)
-TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.template)
-TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.substitutions)
 TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.db)
+
+TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.template)
+TEMPLATES += $(wildcard $(EVRAPPDB)/*.template)
+TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.template)
 TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.template)
+
+TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.substitutions)
+TEMPLATES += $(wildcard $(EVRAPPDB)/*.substitutions)
+TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.substitutions)
 TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.substitutions)
 
+
+
+
+
+### We have to think how to find $(EPICS_BASE) and
+### $(EPICS_HOST_ARCH) during driver.makefile
+### Friday, November  3 16:44:55 CET 2017, jhlee
+### This step can be done when we "installing..." ?
+
+
+MSI:= $(EPICS_BASE)/bin/$(EPICS_HOST_ARCH)/msi
+
+
+USR_DBFLAGS += -I . -I ..
+USR_DBFLAGS += -I $(MRMSHAREDDB)
+USR_DBFLAGS += -I $(EVGMRMAPPDB)
+USR_DBFLAGS += -I $(EVRMRMAPPDB)
+USR_DBFLAGS += -I $(EVRAPPDB)
+
+
+EVG_SUB = vme-evg230.substitutions
+EVG_SUB += evgSoftSeq.template
+EVG_SUB += cpci-evg-300.substitutions
+EVG_SUB += vme-evg230-nsls2.substitutions
+EVG_SUB += nsls2-inj-seqs.substitutions
+
+
+EVR_SUB = evr-cpci-230.substitutions
+EVR_SUB += evr-cpci-300.substitutions
+EVR_SUB += evr-vmerf-230.substitutions
+EVR_SUB += evr-tg-300.substitutions
+EVR_SUB += evr-mtca-300.substitutions
+EVR_SUB += evr-pcie-300dc.substitutions
+
+
+EVG_SUBS:=$(addprefix $(EVGMRMAPPDB)/, $(EVG_SUB))
+EVR_SUBS:=$(addprefix $(EVRMRMAPPDB)/, $(EVR_SUB))
+
+
+db: $(basename $(EVG_SUBS)) $(basename $(EVR_SUBS))
+
+
+$(basename $(EVG_SUBS)): $(EVG_SUBS)
+	@echo "Inflating EVG database ..... "	
+	@$(MSI) -D $(USR_DBFLAGS) -o $@.db -S $<  > $@.db.d
+	@$(MSI)    $(USR_DBFLAGS) -o $@.db -S $<
+
+
+$(basename $(EVR_SUBS)): $(EVR_SUBS)
+	@echo "Inflating EVR database ..... "	
+	@$(MSI) -D $(USR_DBFLAGS) -o $@.db -S $<  > $@.db.d
+	@$(MSI)    $(USR_DBFLAGS) -o $@.db -S $<
+
+.PHONY: db $(basename $(EVG_SUBS)) $(basename $(EVR_SUBS))
