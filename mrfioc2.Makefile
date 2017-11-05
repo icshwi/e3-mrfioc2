@@ -1,4 +1,5 @@
 #
+#  Copyright (c) 2017 - Present  Jeong Han Lee
 #  Copyright (c) 2017 - Present  European Spallation Source ERIC
 #
 #  The program is free software: you can redistribute
@@ -16,8 +17,8 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Friday, November  3 16:51:48 CET 2017
-# version : 0.0.1
+# Date    : Sunday, November  5 01:46:08 CET 2017
+# version : 0.0.2
 #
 
 
@@ -240,7 +241,11 @@ TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.substitutions)
 ### This step can be done when we "installing..." ?
 
 
-MSI:= $(EPICS_BASE)/bin/$(EPICS_HOST_ARCH)/msi
+# MSI:= $(EPICS_BASE)/bin/$(EPICS_HOST_ARCH)/msi
+
+
+EPICS_BASE_HOST_BIN = $(EPICS_BASE)/bin/$(EPICS_HOST_ARCH)
+MSI =  $(EPICS_BASE_HOST_BIN)/msi
 
 
 USR_DBFLAGS += -I . -I ..

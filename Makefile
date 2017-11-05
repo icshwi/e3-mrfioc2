@@ -1,4 +1,5 @@
 #
+#  Copyright (c) 2017 - Present  Jeong Han Lee
 #  Copyright (c) 2017 - Present  European Spallation Source ERIC
 #
 #  The program is free software: you can redistribute
@@ -16,8 +17,8 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Friday, November  3 16:49:11 CET 2017
-# version : 0.2.2
+# Date    : Sunday, November  5 01:44:45 CET 2017
+# version : 0.2.3
 #
 
 TOP:=$(CURDIR)
@@ -94,7 +95,7 @@ uninstall: conf
 	$(QUIET) sudo -E bash -c 'make $(M_OPTIONS) uninstall'
 
 ## Build the EPICS Module
-build: conf version.h db
+build: conf version.h 
 	$(QUIET) make $(M_OPTIONS) build
 
 ## clean, build, and install again.
@@ -168,8 +169,15 @@ version.h:
 ### We have to think how to find $(EPICS_BASE) and
 ### $(EPICS_HOST_ARCH) during driver.makefile
 ### Friday, November  3 16:44:55 CET 2017, jhlee
-
-db: 
+### Currently feasible solutoin without touching driver.makefile
+### is the following:
+###
+### 0) source setE3Env.bash 3.15.4
+### 1) make db
+### 2) source setE3Env.bash 3.15.5
+### 3) make db
+###   ..... 
+db: conf
 	$(QUIET) make $(M_OPTIONS) db
 
 epics:
