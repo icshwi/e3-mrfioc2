@@ -256,26 +256,9 @@ USR_DBFLAGS += -I $(EVRMRMAPPDB)
 USR_DBFLAGS += -I $(EVRAPPDB)
 
 
-
-EVG_SUB = vme-evg230.substitutions
-#EVG_SUB += evgSoftSeq.template
-EVG_SUB += cpci-evg-300.substitutions
-EVG_SUB += vme-evg230-nsls2.substitutions
-EVG_SUB += nsls2-inj-seqs.substitutions
-
-EVG_TMP = evgSoftSeq.template
-
-EVR_SUB = evr-cpci-230.substitutions
-EVR_SUB += evr-cpci-300.substitutions
-EVR_SUB += evr-vmerf-230.substitutions
-EVR_SUB += evr-tg-300.substitutions
-EVR_SUB += evr-mtca-300.substitutions
-EVR_SUB += evr-pcie-300dc.substitutions
-
-
-EVG_SUBS:=$(addprefix $(EVGMRMAPPDB)/, $(EVG_SUB))
-EVG_TMPS:=$(addprefix $(EVGMRMAPPDB)/, $(EVG_TMP))
-EVR_SUBS:=$(addprefix $(EVRMRMAPPDB)/, $(EVR_SUB))
+EVG_SUBS=$(wildcard $(EVGMRMAPPDB)/*.substitutions)
+EVG_TMPS=$(wildcard $(EVGMRMAPPDB)/*.template)
+EVR_SUBS=$(wildcard $(EVRMRMAPPDB)/*.substitutions)
 
 
 db: $(EVG_SUBS) $(EVR_SUBS) $(EVG_TMPS)
