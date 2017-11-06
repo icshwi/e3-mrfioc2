@@ -87,7 +87,7 @@ default: help
 
 
 ## install  EPICS Module
-install: uninstall
+install: uninstall 
 	$(QUIET) sudo -E bash -c 'make $(M_OPTIONS) install'
 
 ## Uninstall "Require" Module in order not to use it
@@ -174,9 +174,11 @@ version.h:
 ###
 ### 0) source setE3Env.bash 3.15.4
 ### 1) make db
-### 2) source setE3Env.bash 3.15.5
-### 3) make db
-###   ..... 
+### 2) make install
+### 3) source setE3Env.bash 3.15.5
+### 4) make db
+### 5) make install
+
 db: conf
 	$(QUIET) make $(M_OPTIONS) db
 

@@ -17,8 +17,8 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Sunday, November  5 01:46:08 CET 2017
-# version : 0.0.2
+# Date    : Monday, November  6 09:50:47 CET 2017
+# version : 0.0.3
 #
 
 
@@ -226,10 +226,10 @@ TEMPLATES += $(wildcard $(EVRAPPDB)/*.template)
 TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.template)
 TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.template)
 
-TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.substitutions)
-TEMPLATES += $(wildcard $(EVRAPPDB)/*.substitutions)
-TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.substitutions)
-TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.substitutions)
+#TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.substitutions)
+#TEMPLATES += $(wildcard $(EVRAPPDB)/*.substitutions)
+#TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.substitutions)
+#TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.substitutions)
 
 
 
@@ -249,18 +249,21 @@ MSI =  $(EPICS_BASE_HOST_BIN)/msi
 
 
 USR_DBFLAGS += -I . -I ..
+USR_DBFLAGS += -I $(EPICS_BASE)/db
 USR_DBFLAGS += -I $(MRMSHAREDDB)
 USR_DBFLAGS += -I $(EVGMRMAPPDB)
 USR_DBFLAGS += -I $(EVRMRMAPPDB)
 USR_DBFLAGS += -I $(EVRAPPDB)
 
 
+
 EVG_SUB = vme-evg230.substitutions
-EVG_SUB += evgSoftSeq.template
+#EVG_SUB += evgSoftSeq.template
 EVG_SUB += cpci-evg-300.substitutions
 EVG_SUB += vme-evg230-nsls2.substitutions
 EVG_SUB += nsls2-inj-seqs.substitutions
 
+EVG_TMP = evgSoftSeq.template
 
 EVR_SUB = evr-cpci-230.substitutions
 EVR_SUB += evr-cpci-300.substitutions
@@ -271,21 +274,31 @@ EVR_SUB += evr-pcie-300dc.substitutions
 
 
 EVG_SUBS:=$(addprefix $(EVGMRMAPPDB)/, $(EVG_SUB))
+EVG_TMPS:=$(addprefix $(EVGMRMAPPDB)/, $(EVG_TMP))
 EVR_SUBS:=$(addprefix $(EVRMRMAPPDB)/, $(EVR_SUB))
 
 
-db: $(basename $(EVG_SUBS)) $(basename $(EVR_SUBS))
+db: $(EVG_SUBS) $(EVR_SUBS) $(EVG_TMPS)
+
+$(EVG_SUBS):
+	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
+	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
+	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@  > $(basename $(@)).db.d
+	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db -S $@
+
+$(EVG_TMPS):
+	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
+	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
+	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db $@  > $(basename $(@)).db.d
+	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db $@
 
 
-$(basename $(EVG_SUBS)): $(EVG_SUBS)
-	@echo "Inflating EVG database ..... "	
-	@$(MSI) -D $(USR_DBFLAGS) -o $@.db -S $<  > $@.db.d
-	@$(MSI)    $(USR_DBFLAGS) -o $@.db -S $<
+$(EVR_SUBS):
+	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
+	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
+	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@  > $(basename $(@)).db.d
+	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db -S $@
 
 
-$(basename $(EVR_SUBS)): $(EVR_SUBS)
-	@echo "Inflating EVR database ..... "	
-	@$(MSI) -D $(USR_DBFLAGS) -o $@.db -S $<  > $@.db.d
-	@$(MSI)    $(USR_DBFLAGS) -o $@.db -S $<
+.PHONY: db $(EVG_SUBS) $(EVR_SUBS) $(EVG_TMPS)
 
-.PHONY: db $(basename $(EVG_SUBS)) $(basename $(EVR_SUBS))
