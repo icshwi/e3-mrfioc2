@@ -9,4 +9,5 @@
 [submodule "mrfioc2-debug"]
 	path = mrfioc2-debug
 	url = https://github.com/jeonghanlee/mrfioc2-debug
+	ignore=dirty
 	

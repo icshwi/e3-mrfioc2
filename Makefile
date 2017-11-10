@@ -184,6 +184,7 @@ version.h:
 
 db: conf
 
+	install -m 644 $(TOP)/template/cpci-evg230-ess.substitutions $(EPICS_MODULE_SRC_PATH)/evgMrmApp/Db/
 ifndef $(EPICS_BASE)
 	$(QUIET) echo ""
 	$(QUIET) echo "No EPICS_BASE is defined. Sourcing.... "
@@ -191,6 +192,7 @@ ifndef $(EPICS_BASE)
 	$(QUIET) bash -c "source $(TOP)/$(E3_ENV_NAME)/setE3Env.bash && make $(M_OPTIONS) db"
 
 else
+
 	$(QUIET) make $(M_OPTIONS) db
 endif
 

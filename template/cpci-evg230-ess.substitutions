@@ -1,7 +1,3 @@
-file evgAcTrig.db {
-pattern { P, OBJ }
-{ "$(SYS)-$(D):AcTrig-", "$(DEVICE):AcTrig" }
-}
 
 file evgDbus.db {
 pattern { P, OBJ, EVG, dbusBit }
@@ -15,9 +11,12 @@ pattern { P, OBJ, EVG, dbusBit }
 { "$(SYS)-$(D):Dbus7-", "$(DEVICE):Dbus7", $(DEVICE), 7 }
 }
 
+
 file evgEvtClk.db {
 {P="$(SYS)-$(D):EvtClk-", OBJ="$(DEVICE):EvtClk", FRF="\$(FRF=499.68)", FDIV="\$(FDIV=4)", FEVT="\$(FEVT=124.916)"}
 }
+
+
 
 file evgInput.db {
 pattern { P, OBJ, , SYS, D, Num }
@@ -31,38 +30,25 @@ file evgMrm.db {
 { P="$(SYS)-$(D):", SOFTEVT="$(SYS)-$(D):SoftEvt-", OBJ="$(DEVICE)", EVG="$(DEVICE)" }
 }
 
+
 file evgMxc.db {
-pattern { P, OBJ, SYS, D }
-{ "$(SYS)-$(D):Mxc0-", "$(DEVICE):Mxc0", $(SYS), $(D) }
-{ "$(SYS)-$(D):Mxc1-", "$(DEVICE):Mxc1", $(SYS), $(D) }
-{ "$(SYS)-$(D):Mxc2-", "$(DEVICE):Mxc2", $(SYS), $(D) }
-{ "$(SYS)-$(D):Mxc3-", "$(DEVICE):Mxc3", $(SYS), $(D) }
-{ "$(SYS)-$(D):Mxc4-", "$(DEVICE):Mxc4", $(SYS), $(D) }
-{ "$(SYS)-$(D):Mxc5-", "$(DEVICE):Mxc5", $(SYS), $(D) }
-{ "$(SYS)-$(D):Mxc6-", "$(DEVICE):Mxc6", $(SYS), $(D) }
-{ "$(SYS)-$(D):Mxc7-", "$(DEVICE):Mxc7", $(SYS), $(D) }
+pattern { P, OBJ, EVTCLKP }
+{ "$(SYS)-$(D):Mxc0-", "$(DEVICE):Mxc0", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc1-", "$(DEVICE):Mxc1", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc2-", "$(DEVICE):Mxc2", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc3-", "$(DEVICE):Mxc3", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc4-", "$(DEVICE):Mxc4", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc5-", "$(DEVICE):Mxc5", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc6-", "$(DEVICE):Mxc6", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc7-", "$(DEVICE):Mxc7", "$(SYS)-$(D):EvtClk-" }
 }
 
-file evgOutput.db {
-pattern { P, OBJ }
-{ "$(SYS)-$(D):OutFront0-", "$(DEVICE):FrontOut0" }
-{ "$(SYS)-$(D):OutFront1-", "$(DEVICE):FrontOut1" }
-{ "$(SYS)-$(D):OutFront2-", "$(DEVICE):FrontOut2" }
-{ "$(SYS)-$(D):OutFront3-", "$(DEVICE):FrontOut3" }
-}
-
-file mrmSoftSeq.template {
-pattern { P, EVG, seqNum, NELM }
-{ "$(SYS)-$(D):SoftSeq0-", $(DEVICE), 0, 2047 }
-{ "$(SYS)-$(D):SoftSeq1-", $(DEVICE), 1, 2047 }
-{ "$(SYS)-$(D):SoftSeq2-", $(DEVICE), 2, 2047 }
-}
 
 file evgSoftSeq.template {
-pattern { P, EVG, seqNum, NELM }
-{ "$(SYS)-$(D):SoftSeq0-", $(DEVICE), 0, 2047 }
-{ "$(SYS)-$(D):SoftSeq1-", $(DEVICE), 1, 2047 }
-{ "$(SYS)-$(D):SoftSeq2-", $(DEVICE), 2, 2047 }
+pattern { P, EVG, seqNum, NELM , EVTCLKP }
+{ "$(SYS)-$(D):SoftSeq0-", $(DEVICE), 0, 2047, "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):SoftSeq1-", $(DEVICE), 1, 2047, "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):SoftSeq2-", $(DEVICE), 2, 2047, "$(SYS)-$(D):EvtClk-" }
 }
 
 file evgTrigEvt.db {
