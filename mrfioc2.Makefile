@@ -234,7 +234,6 @@ TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.template)
 
 
 
-
 ### We have to think how to find $(EPICS_BASE) and
 ### $(EPICS_HOST_ARCH) during driver.makefile
 ### Friday, November  3 16:44:55 CET 2017, jhlee
@@ -284,4 +283,5 @@ $(EVR_SUBS):
 
 
 .PHONY: db $(EVG_SUBS) $(EVR_SUBS) $(EVG_TMPS)
+
 

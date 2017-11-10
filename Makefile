@@ -121,7 +121,7 @@ git-submodule-sync:
 	$(QUIET) git submodule sync
 
 
-$(EPICS_MODULE_NAME): 
+$(EPICS_MODULE_SRC_PATH):
 	$(QUIET) $(git_update)
 	cd $@ && git checkout $(EPICS_MODULE_TAG)
 
@@ -166,6 +166,7 @@ version.h:
 
 
 
+
 ### We have to think how to find $(EPICS_BASE) and
 ### $(EPICS_HOST_ARCH) during driver.makefile
 ### Friday, November  3 16:44:55 CET 2017, jhlee
@@ -179,17 +180,29 @@ version.h:
 ### 4) make db
 ### 5) make install
 
+#SHELL := /bin/bash
+
 db: conf
+
+ifndef $(EPICS_BASE)
+	$(QUIET) echo ""
+	$(QUIET) echo "No EPICS_BASE is defined. Sourcing.... "
+	$(QUIET) echo "We are using the default and only one EPICS base in order to inflat sub files to db files"
+	$(QUIET) bash -c "source $(TOP)/$(E3_ENV_NAME)/setE3Env.bash && make $(M_OPTIONS) db"
+
+else
 	$(QUIET) make $(M_OPTIONS) db
+endif
+
 
 epics:
-	@echo "DEVLIB2=$(M_DEVLIB2)"                 > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local
-	@echo "EPICS_BASE=$(COMMUNITY_EPICS_BASE)"  >> $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local
-	@echo "INSTALL_LOCATION=$(M_MRFIOC2)"        > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/CONFIG_SITE	
+	$(QUIET)echo "DEVLIB2=$(M_DEVLIB2)"                 > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local
+	$(QUIET)echo "EPICS_BASE=$(COMMUNITY_EPICS_BASE)"  >> $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/RELEASE.local
+	$(QUIET)echo "INSTALL_LOCATION=$(M_MRFIOC2)"        > $(TOP)/$(EPICS_MODULE_SRC_PATH)/configure/CONFIG_SITE	
 	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH)"
 
 epics-clean:
 	sudo -E bash -c "$(MAKE) -C $(EPICS_MODULE_SRC_PATH) clean"
 
 
-.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_NAME) git-submodule-sync init help help2 build clean install uninstall conf rebuild version.h epics epics-clean debug
+.PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_SRC_PATH) git-submodule-sync init help help2 build clean install uninstall conf rebuild version.h epics epics-clean debug
