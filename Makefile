@@ -115,7 +115,7 @@ debug:
 
 #
 ## Initialize EPICS BASE and E3 ENVIRONMENT Module
-init: git-submodule-sync $(EPICS_MODULE_NAME) $(E3_ENV_NAME)
+init: git-submodule-sync $(EPICS_MODULE_SRC_PATH) $(E3_ENV_NAME)
 
 git-submodule-sync:
 	$(QUIET) git submodule sync
