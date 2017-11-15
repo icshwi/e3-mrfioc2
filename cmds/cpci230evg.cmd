@@ -1,4 +1,4 @@
-require devlib2, 2.9.0
+#require devlib2, 2.9.0
 require mrfioc2, 0.0.0
 require iocStats, 1856ef5
 require autosave, 5.8.0
@@ -14,8 +14,8 @@ epicsEnvSet("IOC", "FREIA-CPCI:EVG0")
 
 epicsEnvSet("DEVICE" "EVG0")
 
-mrmEvgSetupPCI("DEVICE", "10:e.0")
-
+mrmEvgSetupPCI("DEVICE", "16:0e.0")
+#mrmEvrSetupPCI("DEVICE", "16:09.0")
 dbLoadRecords("cpci-evg230-ess.db", "SYS=TST, D=evg0, DEVICE=DEVICE")
 
 iocInit()
