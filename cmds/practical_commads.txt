@@ -1,0 +1,22 @@
+Put the following PVs in archappl
+
+
+
+TS01-CPCI:IocStats:MEM_USED
+TS01-CPCI:IocStats:MEM_FREE
+TS01-CPCI:IocStats:MEM_MAX
+TS01-CPCI:IocStats:SYS_CPU_LOAD
+TS01-CPCI:IocStats:IOC_CPU_LOAD
+TS01-CPCI:IocStats:HEARTBEAT
+TS01-CPCI{evr:4}Link-Sts
+TS01-CPCI{evr:4}Time:Valid-Sts
+
+
+
+
+
+bash ~/e3/caget_pvs.bash TS01-CPCI_PVs.list "Valid"
+bash ~/e3/caget_pvs.bash TS01-CPCI_PVs.list "Link"
+
+
+
