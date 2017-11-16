@@ -35,7 +35,9 @@ dbLoadRecords("iocAdminSoft.db", "IOC=$(IOC):IocStats")
 
 # Directory should be existent before IOC runing
 epicsEnvSet("AUTOSAVE", "/home/timinguser/autosave")
-save_restoreDebug(2)
+
+var save_restoreDebug 1
+
 dbLoadRecords("save_restoreStatus.db", "P=$(IOC):Autosave")
 save_restoreSet_status_prefix("$(IOC):Autosave")
 set_savefile_path("${AUTOSAVE}")
