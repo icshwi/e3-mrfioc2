@@ -1,14 +1,14 @@
 
 file evgDbus.db {
-pattern { P, OBJ, EVG, dbusBit }
-{ "$(SYS)-$(D):Dbus0-", "$(DEVICE):Dbus0", $(DEVICE), 0 }
-{ "$(SYS)-$(D):Dbus1-", "$(DEVICE):Dbus1", $(DEVICE), 1 }
-{ "$(SYS)-$(D):Dbus2-", "$(DEVICE):Dbus2", $(DEVICE), 2 }
-{ "$(SYS)-$(D):Dbus3-", "$(DEVICE):Dbus3", $(DEVICE), 3 }
-{ "$(SYS)-$(D):Dbus4-", "$(DEVICE):Dbus4", $(DEVICE), 4 }
-{ "$(SYS)-$(D):Dbus5-", "$(DEVICE):Dbus5", $(DEVICE), 5 }
-{ "$(SYS)-$(D):Dbus6-", "$(DEVICE):Dbus6", $(DEVICE), 6 }
-{ "$(SYS)-$(D):Dbus7-", "$(DEVICE):Dbus7", $(DEVICE), 7 }
+pattern { P, PSRC, OBJ, EVG, dbusBit }
+{ "$(SYS)-$(D):Dbus0-", "$(SYS)-$(D):Dbus0-Src-", "$(DEVICE):Dbus0", $(DEVICE), 0 }
+{ "$(SYS)-$(D):Dbus1-", "$(SYS)-$(D):Dbus1-Src-", "$(DEVICE):Dbus1", $(DEVICE), 1 }
+{ "$(SYS)-$(D):Dbus2-", "$(SYS)-$(D):Dbus2-Src-", "$(DEVICE):Dbus2", $(DEVICE), 2 }
+{ "$(SYS)-$(D):Dbus3-", "$(SYS)-$(D):Dbus3-Src-", "$(DEVICE):Dbus3", $(DEVICE), 3 }
+{ "$(SYS)-$(D):Dbus4-", "$(SYS)-$(D):Dbus4-Src-", "$(DEVICE):Dbus4", $(DEVICE), 4 }
+{ "$(SYS)-$(D):Dbus5-", "$(SYS)-$(D):Dbus5-Src-", "$(DEVICE):Dbus5", $(DEVICE), 5 }
+{ "$(SYS)-$(D):Dbus6-", "$(SYS)-$(D):Dbus6-Src-", "$(DEVICE):Dbus6", $(DEVICE), 6 }
+{ "$(SYS)-$(D):Dbus7-", "$(SYS)-$(D):Dbus7-Src-", "$(DEVICE):Dbus7", $(DEVICE), 7 }
 }
 
 
@@ -19,11 +19,11 @@ file evgEvtClk.db {
 
 
 file evgInput.db {
-pattern { P, OBJ, , SYS, D, Num }
-{ "$(SYS)-$(D):InpUniv0-",  "$(DEVICE):UnivInp0",  $(SYS), $(D), 2 }
-{ "$(SYS)-$(D):InpUniv1-",  "$(DEVICE):UnivInp1",  $(SYS), $(D), 3 }
-{ "$(SYS)-$(D):InpUniv2-",  "$(DEVICE):UnivInp2",  $(SYS), $(D), 4 }
-{ "$(SYS)-$(D):InpUniv3-",  "$(DEVICE):UnivInp3",  $(SYS), $(D), 5 }
+pattern { P, OBJ, SYS, D, SYSD, Num }
+{ "$(SYS)-$(D):InpUniv0-",  "$(DEVICE):UnivInp0",  $(SYS), $(D), "$(SYS)-$(D):", 2 }
+{ "$(SYS)-$(D):InpUniv1-",  "$(DEVICE):UnivInp1",  $(SYS), $(D), "$(SYS)-$(D):", 3 }
+{ "$(SYS)-$(D):InpUniv2-",  "$(DEVICE):UnivInp2",  $(SYS), $(D), "$(SYS)-$(D):", 4 }
+{ "$(SYS)-$(D):InpUniv3-",  "$(DEVICE):UnivInp3",  $(SYS), $(D), "$(SYS)-$(D):", 5 }
 }
 
 file evgMrm.db {
@@ -32,46 +32,46 @@ file evgMrm.db {
 
 
 file evgMxc.db {
-pattern { P, OBJ, EVTCLKP }
-{ "$(SYS)-$(D):Mxc0-", "$(DEVICE):Mxc0", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc1-", "$(DEVICE):Mxc1", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc2-", "$(DEVICE):Mxc2", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc3-", "$(DEVICE):Mxc3", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc4-", "$(DEVICE):Mxc4", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc5-", "$(DEVICE):Mxc5", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc6-", "$(DEVICE):Mxc6", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc7-", "$(DEVICE):Mxc7", "$(SYS)-$(D):EvtClk-" }
+pattern { P, OBJ, SYS, D, SYSD, SYSDEVTCLK }
+{ "$(SYS)-$(D):Mxc0-", "$(DEVICE):Mxc0", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc1-", "$(DEVICE):Mxc1", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc2-", "$(DEVICE):Mxc2", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc3-", "$(DEVICE):Mxc3", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc4-", "$(DEVICE):Mxc4", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc5-", "$(DEVICE):Mxc5", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc6-", "$(DEVICE):Mxc6", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
+{ "$(SYS)-$(D):Mxc7-", "$(DEVICE):Mxc7", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
 }
 
 
 file evgSoftSeq.template {
-pattern { P, EVG, seqNum, NELM , EVTCLKP }
-{ "$(SYS)-$(D):SoftSeq0-", $(DEVICE), 0, 2047, "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):SoftSeq1-", $(DEVICE), 1, 2047, "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):SoftSeq2-", $(DEVICE), 2, 2047, "$(SYS)-$(D):EvtClk-" }
+pattern { P, PTRIGSRC, PEVTCLKFREQ, SYSDEVTCLK, EVG, seqNum, NELM }
+{ "$(SYS)-$(D):SoftSeq0-", $(SYS)-$(D):SoftSeq0-TrigSrc-", "$(SYS)-$(D):SoftSeq0-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 0, 2047 }
+{ "$(SYS)-$(D):SoftSeq1-", $(SYS)-$(D):SoftSeq1-TrigSrc-", "$(SYS)-$(D):SoftSeq1-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 1, 2047 }
+{ "$(SYS)-$(D):SoftSeq2-", $(SYS)-$(D):SoftSeq2-TrigSrc-", "$(SYS)-$(D):SoftSeq2-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 2, 2047 }
 }
 
 file evgTrigEvt.db {
-pattern { P, OBJ, EVG, trigEvtNum }
-{ "$(SYS)-$(D):TrigEvt0-", "$(DEVICE):TrigEvt0", $(DEVICE), 0 }
-{ "$(SYS)-$(D):TrigEvt1-", "$(DEVICE):TrigEvt1", $(DEVICE), 1 }
-{ "$(SYS)-$(D):TrigEvt2-", "$(DEVICE):TrigEvt2", $(DEVICE), 2 }
-{ "$(SYS)-$(D):TrigEvt3-", "$(DEVICE):TrigEvt3", $(DEVICE), 3 }
-{ "$(SYS)-$(D):TrigEvt4-", "$(DEVICE):TrigEvt4", $(DEVICE), 4 }
-{ "$(SYS)-$(D):TrigEvt5-", "$(DEVICE):TrigEvt5", $(DEVICE), 5 }
-{ "$(SYS)-$(D):TrigEvt6-", "$(DEVICE):TrigEvt6", $(DEVICE), 6 }
-{ "$(SYS)-$(D):TrigEvt7-", "$(DEVICE):TrigEvt7", $(DEVICE), 7 }
+pattern { P, PTRIGSRC, POMSL, OBJ, EVG, trigEvtNum }
+{ "$(SYS)-$(D):TrigEvt0-", "$(SYS)-$(D):TrigEvt0-TrigSrc-", "$(SYS)-$(D):TrigEvt0-Omsl-", "$(DEVICE):TrigEvt0", $(DEVICE), 0 }
+{ "$(SYS)-$(D):TrigEvt1-", "$(SYS)-$(D):TrigEvt1-TrigSrc-", "$(SYS)-$(D):TrigEvt1-Omsl-", "$(DEVICE):TrigEvt1", $(DEVICE), 1 }
+{ "$(SYS)-$(D):TrigEvt2-", "$(SYS)-$(D):TrigEvt2-TrigSrc-", "$(SYS)-$(D):TrigEvt2-Omsl-", "$(DEVICE):TrigEvt2", $(DEVICE), 2 }
+{ "$(SYS)-$(D):TrigEvt3-", "$(SYS)-$(D):TrigEvt3-TrigSrc-", "$(SYS)-$(D):TrigEvt3-Omsl-", "$(DEVICE):TrigEvt3", $(DEVICE), 3 }
+{ "$(SYS)-$(D):TrigEvt4-", "$(SYS)-$(D):TrigEvt4-TrigSrc-", "$(SYS)-$(D):TrigEvt4-Omsl-", "$(DEVICE):TrigEvt4", $(DEVICE), 4 }
+{ "$(SYS)-$(D):TrigEvt5-", "$(SYS)-$(D):TrigEvt5-TrigSrc-", "$(SYS)-$(D):TrigEvt5-Omsl-", "$(DEVICE):TrigEvt5", $(DEVICE), 5 }
+{ "$(SYS)-$(D):TrigEvt6-", "$(SYS)-$(D):TrigEvt6-TrigSrc-", "$(SYS)-$(D):TrigEvt6-Omsl-", "$(DEVICE):TrigEvt6", $(DEVICE), 6 }
+{ "$(SYS)-$(D):TrigEvt7-", "$(SYS)-$(D):TrigEvt7-TrigSrc-", "$(SYS)-$(D):TrigEvt7-Omsl-", "$(DEVICE):TrigEvt7", $(DEVICE), 7 }
 }
 
 file databuftx.db
 {pattern
 { P, OBJ, PROTO }
-{ "$(SYS)-$(D)-", "$(DEVICE):BUFTX", 1 }
+{ "$(SYS)-$(D):dbus-send-", "$(DEVICE):BUFTX", 1 }
 }
 
 file "databuftxCtrl.db"
 {pattern
 { P, OBJ }
-{ "$(SYS)-$(D)-", "$(DEVICE):BUFTX" }
+{ "$(SYS)-$(D):Link-", "$(DEVICE):BUFTX" }
 }
 
