@@ -46,9 +46,9 @@ pattern { P, OBJ, SYS, D, SYSD, SYSDEVTCLK }
 
 file evgSoftSeq.template {
 pattern { P, PTRIGSRC, PEVTCLKFREQ, SYSDEVTCLK, EVG, seqNum, NELM }
-{ "$(SYS)-$(D):SoftSeq0-", $(SYS)-$(D):SoftSeq0-TrigSrc-", "$(SYS)-$(D):SoftSeq0-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 0, 2047 }
-{ "$(SYS)-$(D):SoftSeq1-", $(SYS)-$(D):SoftSeq1-TrigSrc-", "$(SYS)-$(D):SoftSeq1-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 1, 2047 }
-{ "$(SYS)-$(D):SoftSeq2-", $(SYS)-$(D):SoftSeq2-TrigSrc-", "$(SYS)-$(D):SoftSeq2-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 2, 2047 }
+{ "$(SYS)-$(D):SoftSeq0-", "$(SYS)-$(D):SoftSeq0-TrigSrc-", "$(SYS)-$(D):SoftSeq0-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 0, 2047 }
+{ "$(SYS)-$(D):SoftSeq1-", "$(SYS)-$(D):SoftSeq1-TrigSrc-", "$(SYS)-$(D):SoftSeq1-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 1, 2047 }
+{ "$(SYS)-$(D):SoftSeq2-", "$(SYS)-$(D):SoftSeq2-TrigSrc-", "$(SYS)-$(D):SoftSeq2-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(DEVICE), 2, 2047 }
 }
 
 file evgTrigEvt.db {

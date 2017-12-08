@@ -23,7 +23,13 @@
 
 TOP:=$(CURDIR)
 
+
+ifneq (,$(findstring dev,$(MAKECMDGOALS)))
+include $(TOP)/configure/CONFIG_DEV
+else
 include $(TOP)/configure/CONFIG
+endif
+
 
 -include $(TOP)/$(E3_ENV_NAME)/$(E3_ENV_NAME)
 -include $(TOP)/$(E3_ENV_NAME)/epics-community-env
@@ -56,12 +62,12 @@ endef
 M_OPTIONS := -C $(EPICS_MODULE_SRC_PATH)
 M_OPTIONS += -f $(ESS_MODULE_MAKEFILE)
 M_OPTIONS += LIBVERSION="$(LIBVERSION)"
-M_OPTIONS += PROJECT="$(EPICS_MODULE_NAME)"
+M_OPTIONS += PROJECT="$(PROJECT)"
 M_OPTIONS += EPICS_MODULES="$(EPICS_MODULES)"
 M_OPTIONS += EPICS_LOCATION="$(EPICS_LOCATION)"
 M_OPTIONS += DEFAULT_EPICS_VERSIONS="$(DEFAULT_EPICS_VERSIONS)"
 M_OPTIONS += BUILDCLASSES="Linux"
-M_OPTIONS += USR_DEPENDENCIES="$(USR_DEPENDENCIES)"
+
 
 # # help is defined in 
 # # https://gist.github.com/rcmachado/af3db315e31383502660
@@ -187,8 +193,9 @@ version.h:
 #SHELL := /bin/bash
 
 db: conf
-
-	install -m 644 $(TOP)/template/cpci-evg230-ess.substitutions $(EPICS_MODULE_SRC_PATH)/evgMrmApp/Db/
+	install -m 644 $(TOP)/template/cpci-evg230-ess.substitutions    $(EPICS_MODULE_SRC_PATH)/evgMrmApp/Db/
+	install -m 644 $(TOP)/template/evr-mtca-300-ess.substitutions   $(EPICS_MODULE_SRC_PATH)/evrMrmApp/Db/
+	install -m 644 $(TOP)/template/evr-pcie-300dc-ess.substitutions $(EPICS_MODULE_SRC_PATH)/evrMrmApp/Db/
 ifndef $(EPICS_BASE)
 	$(QUIET) echo ""
 	$(QUIET) echo "No EPICS_BASE is defined. Sourcing.... "
@@ -212,3 +219,19 @@ epics-clean:
 
 
 .PHONY: env $(E3_ENV_NAME) $(EPICS_MODULE_SRC_PATH) git-submodule-sync init help help2 build clean install uninstall conf rebuild version.h epics epics-clean debug checkout
+
+
+.PHONY: devinit devenv devbuild devclean devrebuild devuninstall devdb
+
+##
+devinit: git-submodule-sync  $(E3_ENV_NAME)
+	git clone $(DEV_GIT_URL) $(EPICS_MODULE_SRC_PATH)
+
+devenv: env
+devbuild: build
+devclean: clean
+devinstall: install
+devrebuild: rebuild
+devuninstall : uninstall
+devdb: db
+
