@@ -4,7 +4,7 @@
 	ignore=dirty
 [submodule "mrfioc2"]
 	path = mrfioc2
-	url = https://github.com/epics-modules/mrfioc2
+	url = https://github.com/javicereijo/mrfioc2
 	ignore=all
 [submodule "mrfioc2-debug"]
 	path = mrfioc2-debug

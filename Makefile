@@ -46,12 +46,11 @@ endif
 
 # Keep always the module up-to-date
 define git_update =
-@git submodule deinit -f $@/
 git submodule deinit -f $@/
 sed -i '/submodule/,$$d'  $(TOP)/.git/config
 rm -rf $(TOP)/.git/modules/$@
 git submodule init $@/
-git submodule update --init --recursive --recursive $@/.
+git submodule update --init --recursive $@/.
 git submodule update --remote --merge $@/
 endef
 
