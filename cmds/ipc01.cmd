@@ -20,7 +20,9 @@ epicsEnvSet("ESSEvtClockRate"  "88.0525")
 
 mrmEvrSetupPCI("EVR1",  "01:00.0")
 mrmEvrSetupPCI("EVR2",  "02:00.0")
-#dbLoadRecords("evr-pcie-300dc-ess.db","SYS=$(IOC), D=evr:1")
+dbLoadRecords("evr-pcie-300dc-ess.db","EVR=EVR1, SYS=$(IOC), D=evr1, FEVT=$(ESSEvtClockRate)")
+dbLoadRecords("evr-pcie-300dc-ess.db","EVR=EVR2, SYS=$(IOC), D=evr2, FEVT=$(ESSEvtClockRate)")
+
 
 # needed with software timestamp source w/o RT thread scheduling
 var evrMrmTimeNSOverflowThreshold 100000
