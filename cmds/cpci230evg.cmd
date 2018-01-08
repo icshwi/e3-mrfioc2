@@ -1,5 +1,5 @@
 #require devlib2, 2.9.0
-require mrfioc2, 0.0.0
+require mrfioc2, 2.2.0
 require iocStats, 1856ef5
 require autosave, 5.8.0
 
@@ -10,21 +10,38 @@ epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES","10000000")
 
 epicsEnvSet("AUTOSAVE", "/home/timinguser/autosave")
 
-epicsEnvSet("IOC", "FREIA-CPCI:EVG0")
+epicsEnvSet("IOC", "FREIA-CPCI")
+epicsEnvSet("DEV1", "EVG0")
 
-epicsEnvSet("DEVICE" "EVG0")
+epicsEnvSet("MainEvtCODE" "14")
+epicsEnvSet("HeartBeatEvtCODE"   "122")
+epicsEnvSet("ESSEvtClockRate"  "88.0525")
 
 mrmEvgSetupPCI("DEVICE", "16:0e.0")
-#mrmEvrSetupPCI("DEVICE", "16:09.0")
-dbLoadRecords("cpci-evg230-ess.db", "SYS=TST, D=evg0, DEVICE=DEVICE")
+
+dbLoadRecords("cpci-evg230-ess.db", "SYS=$(IOC), D=$(DEV1), EVG=$(DEV1), FEVT=$(ESSEvtClockRate), FRF=352.21, FDIV=4")
+
+# needed with software timestamp source w/o RT thread scheduling
+var evrMrmTimeNSOverflowThreshold 100000
+
 
 iocInit()
 
+
 dbl > "${IOC}_PVs.list"
 
+dbpf "$(IOC)-$(DEV1):1ppsInp-Sel" "Sys Clk"
 
-dbpf("TST-evg0:Mxc0-Prescaler-SP" "12491350")
-## Frequency should be 1Hz
-dbpr("TST-evg0:Mxc0-Frequency-RB",1)
-dbpf("TST-evg0:TrigEvt1-EvtCode-SP","122")
-dbpf("TST-evg0:TrigEvt1-TrigSrc-Sel","Mxc0")
+# # Master Event Rate 14 Hz
+dbpf $(IOC)-$(DEV1):Mxc0-Prescaler-SP 6289464
+dbpf $(IOC)-$(DEV1):TrigEvt0-EvtCode-SP $(MainEvtCODE)
+dbpf $(IOC)-$(DEV1):TrigEvt0-TrigSrc-Sel "Mxc0"
+
+# # Heart Beat 1 Hz
+dbpf $(IOC)-$(DEV1):Mxc7-Prescaler-SP 88052496
+dbpf $(IOC)-$(DEV1):TrigEvt7-EvtCode-SP $(HeartBeatEvtCODE)
+dbpf $(IOC)-$(DEV1):TrigEvt7-TrigSrc-Sel "Mxc7"
+
+# Is there something similar to sleep(5)????
+dbpf $(IOC)-$(DEV1):SyncTimestamp-Cmd 1
+
