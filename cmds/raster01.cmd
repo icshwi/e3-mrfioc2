@@ -54,3 +54,11 @@ dbpf $(IOC)-$(DEV1):SoftSeq0-Enable-Cmd 1
 dbpf $(IOC)-$(DEV1):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 dbpf $(IOC)-$(DEV1):DlyGen0-Width-SP 1000 # Time in us, as selected with $(IOC)-$(DEV1):SoftSeq0-TsResolution-Sel
 dbpf $(IOC)-$(DEV1):OutRB08-Src-SP 0 # Delay generator 0
+
+dbpf $(IOC)-$(DEV1):OutRB09-Src-SP 41
+dbpf $(IOC)-$(DEV1):PS1-Div-SP 10000000
+
+pcidiagset 1 0 0 
+#pciread 32 0x50 100
+pciwrite 32 0x50 42000200
+
