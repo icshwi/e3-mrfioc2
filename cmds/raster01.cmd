@@ -60,5 +60,5 @@ dbpf $(IOC)-$(DEV1):PS1-Div-SP 10000000
 
 pcidiagset 1 0 0 
 #pciread 32 0x50 100
-pciwrite 32 0x50 42000200
+#pciwrite 32 0x50 42000200
 
