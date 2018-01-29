@@ -1,0 +1,24 @@
+# Keep always the module up-to-date
+define git_update =
+git submodule deinit -f $@/
+sed -i '/submodule/,24465d'  $(TOP)/.git/config
+rm -rf $(TOP)/.git/modules/$@
+git submodule init $@/
+git submodule update --init --recursive $@/.
+git submodule update --remote --merge $@/
+endef
+
+ifndef VERBOSE
+  QUIET := @
+endif
+
+ifdef DEBUG_SHELL
+  SHELL = /bin/sh -x
+endif
+
+
+### Exclude the following variables to display 
+VARS_EXCLUDES+=git_update
+VARS_EXCLUDES+=QUIET
+VARS_EXCLUDES+=SHELL
+
