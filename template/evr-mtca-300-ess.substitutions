@@ -54,7 +54,7 @@ pattern { P, PTRIGSRC, PEVTCLKFREQ, SYSDEVTCLK, EVG, seqNum, NELM }
 
 file "sfp.db"
 {
-{P="$(SYS)-$(D):SFP-", PPWR="$(SYS)-$(D):SFP-Pwr-", PSPEED="$(SYS)-$(D):SFP-Speed-", PDATE="$(SYS)-$(D)-:SFP-Date-", OBJ="$(EVR):SFP"}
+{P="$(SYS)-$(D):SFP-", PPWR="$(SYS)-$(D):SFP-Pwr-", PSPEED="$(SYS)-$(D):SFP-Speed-", PDATE="$(SYS)-$(D):SFP-Date-", OBJ="$(EVR):SFP"}
 }
 
 file "mrmevrdc.template"
