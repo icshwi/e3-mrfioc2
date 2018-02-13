@@ -1,6 +1,6 @@
 # -*- mode: Makefile;-*-
 
-.PHONY: devvars devenv devinit devbuild devclean devinstall devrebuild devuninstall devdistclean
+.PHONY: devvars devenv devinit devbuild devclean devinstall devrebuild devuninstall devdistclean  devepics devepics-clean
 
 devvars: vars
 
@@ -19,6 +19,8 @@ devinstall: nonexists
 devrebuild: nonexists
 devuninstall: nonexists
 devdistclean: nonexists
+devepics: nonexists
+devepics-clean: nonexists
 nonexists:
 	$(QUIET)echo ""
 	$(QUIET)echo "------------------------------------------------------------"
@@ -36,6 +38,8 @@ devuninstall: uninstall
 devdistclean: clean
 	$(QUIET)echo "Removing $(E3_MODULE_SRC_PATH) ......... "
 	rm -rf $(E3_MODULE_SRC_PATH)
+devepics: epics
+devepics-clean: epics-clean
 endif
 
 
