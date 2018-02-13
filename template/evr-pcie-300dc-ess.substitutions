@@ -117,6 +117,10 @@ pattern
 {"$(SYS)-$(D):OutRB09-", "$(SYS)-$(D):OutRB09-Src-", "$(EVR):FrontUnivOut9", "UNIV9", 61}
 {"$(SYS)-$(D):OutRB10-", "$(SYS)-$(D):OutRB10-Src-", "$(EVR):FrontUnivOut10","UNIV10", 61}
 {"$(SYS)-$(D):OutRB11-", "$(SYS)-$(D):OutRB11-Src-", "$(EVR):FrontUnivOut11","UNIV11", 61}
+{"$(SYS)-$(D):OutRB12-", "$(SYS)-$(D):OutRB12-Src-", "$(EVR):FrontUnivOut12","UNIV12", 61}
+{"$(SYS)-$(D):OutRB13-", "$(SYS)-$(D):OutRB13-Src-", "$(EVR):FrontUnivOut13","UNIV13", 61}
+{"$(SYS)-$(D):OutRB14-", "$(SYS)-$(D):OutRB14-Src-", "$(EVR):FrontUnivOut14","UNIV14", 61}
+{"$(SYS)-$(D):OutRB15-", "$(SYS)-$(D):OutRB15-Src-", "$(EVR):FrontUnivOut15","UNIV15", 61}
 }
 
 file "mrmevroutint.db"
