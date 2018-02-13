@@ -192,9 +192,8 @@ version.h:
 #SHELL := /bin/bash
 
 db: conf
-	install -m 644 $(TOP)/template/cpci-evg230-ess.substitutions    $(EPICS_MODULE_SRC_PATH)/evgMrmApp/Db/
+	install -m 644 $(TOP)/template/evg-*-ess.substitutions   $(EPICS_MODULE_SRC_PATH)/evgMrmApp/Db/
 	install -m 644 $(TOP)/template/evr-*-ess.substitutions   $(EPICS_MODULE_SRC_PATH)/evrMrmApp/Db/
-#	install -m 644 $(TOP)/template/evr-pcie-300dc-ess.substitutions $(EPICS_MODULE_SRC_PATH)/evrMrmApp/Db/
 ifndef $(EPICS_BASE)
 	$(QUIET) echo ""
 	$(QUIET) echo "No EPICS_BASE is defined. Sourcing.... "
