@@ -25,6 +25,7 @@ E3_MODULES_INSTALL_LOCATION_DBD_LINK:=$(E3_SITELIBS_PATH)/$(E3_MODULE_NAME).dbd.
 # It is a bit weird, it would be better to implement within driver.makefile later
 # Assumption : we are using the same lib name from driver.makefile 
 E3_MODULES_LIBNAME:=lib$(E3_MODULE_NAME).so
+E3_MODULES_LIBLINKNAME:=$(E3_MODULES_LIBNAME).$(E3_MODULE_VERSION)
 
 INSTALLED_EPICS_BASE_ARCHS_PATHS=$(sort $(dir $(wildcard $(EPICS_BASE)/bin/*/)))
 TEMP_INSTALLED_EPICS_BASE_ARCHS=$(INSTALLED_EPICS_BASE_ARCHS_PATHS:$(EPICS_BASE)/bin/%=%)
