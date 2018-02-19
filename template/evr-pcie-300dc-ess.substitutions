@@ -101,26 +101,25 @@ file "mrmevrout.db"
 {pattern
 {ON, ONSRC, OBJ, DESC}
 {"$(SYS)-$(D):OutInt-", "$(SYS)-$(D):OutInt-Src-", "$(EVR):Int", "Internal"}
-# IFB appears in reg map as FPUV, by we name it as RTM
-# default to tri-state
+# default to tri-state for IFB
 pattern
 {ON, ONSRC, OBJ, DESC, DEFAULT}
-{"$(SYS)-$(D):OutRB00-", "$(SYS)-$(D):OutRB00-Src-", "$(EVR):FrontUnivOut0", "UNIV0", 61}
-{"$(SYS)-$(D):OutRB01-", "$(SYS)-$(D):OutRB01-Src-", "$(EVR):FrontUnivOut1", "UNIV1", 61}
-{"$(SYS)-$(D):OutRB02-", "$(SYS)-$(D):OutRB02-Src-", "$(EVR):FrontUnivOut2", "UNIV2", 61}
-{"$(SYS)-$(D):OutRB03-", "$(SYS)-$(D):OutRB03-Src-", "$(EVR):FrontUnivOut3", "UNIV3", 61}
-{"$(SYS)-$(D):OutRB04-", "$(SYS)-$(D):OutRB04-Src-", "$(EVR):FrontUnivOut4", "UNIV4", 61}
-{"$(SYS)-$(D):OutRB05-", "$(SYS)-$(D):OutRB05-Src-", "$(EVR):FrontUnivOut5", "UNIV5", 61}
-{"$(SYS)-$(D):OutRB06-", "$(SYS)-$(D):OutRB06-Src-", "$(EVR):FrontUnivOut6", "UNIV6", 61}
-{"$(SYS)-$(D):OutRB07-", "$(SYS)-$(D):OutRB07-Src-", "$(EVR):FrontUnivOut7", "UNIV7", 61}
-{"$(SYS)-$(D):OutRB08-", "$(SYS)-$(D):OutRB08-Src-", "$(EVR):FrontUnivOut8", "UNIV8", 61}
-{"$(SYS)-$(D):OutRB09-", "$(SYS)-$(D):OutRB09-Src-", "$(EVR):FrontUnivOut9", "UNIV9", 61}
-{"$(SYS)-$(D):OutRB10-", "$(SYS)-$(D):OutRB10-Src-", "$(EVR):FrontUnivOut10","UNIV10", 61}
-{"$(SYS)-$(D):OutRB11-", "$(SYS)-$(D):OutRB11-Src-", "$(EVR):FrontUnivOut11","UNIV11", 61}
-{"$(SYS)-$(D):OutRB12-", "$(SYS)-$(D):OutRB12-Src-", "$(EVR):FrontUnivOut12","UNIV12", 61}
-{"$(SYS)-$(D):OutRB13-", "$(SYS)-$(D):OutRB13-Src-", "$(EVR):FrontUnivOut13","UNIV13", 61}
-{"$(SYS)-$(D):OutRB14-", "$(SYS)-$(D):OutRB14-Src-", "$(EVR):FrontUnivOut14","UNIV14", 61}
-{"$(SYS)-$(D):OutRB15-", "$(SYS)-$(D):OutRB15-Src-", "$(EVR):FrontUnivOut15","UNIV15", 61}
+{"$(SYS)-$(D):OutFPUV00-", "$(SYS)-$(D):OutFPUV00-Src-", "$(EVR):FrontUnivOut0", "UNIV0", 61}
+{"$(SYS)-$(D):OutFPUV01-", "$(SYS)-$(D):OutFPUV01-Src-", "$(EVR):FrontUnivOut1", "UNIV1", 61}
+{"$(SYS)-$(D):OutFPUV02-", "$(SYS)-$(D):OutFPUV02-Src-", "$(EVR):FrontUnivOut2", "UNIV2", 61}
+{"$(SYS)-$(D):OutFPUV03-", "$(SYS)-$(D):OutFPUV03-Src-", "$(EVR):FrontUnivOut3", "UNIV3", 61}
+{"$(SYS)-$(D):OutFPUV04-", "$(SYS)-$(D):OutFPUV04-Src-", "$(EVR):FrontUnivOut4", "UNIV4", 61}
+{"$(SYS)-$(D):OutFPUV05-", "$(SYS)-$(D):OutFPUV05-Src-", "$(EVR):FrontUnivOut5", "UNIV5", 61}
+{"$(SYS)-$(D):OutFPUV06-", "$(SYS)-$(D):OutFPUV06-Src-", "$(EVR):FrontUnivOut6", "UNIV6", 61}
+{"$(SYS)-$(D):OutFPUV07-", "$(SYS)-$(D):OutFPUV07-Src-", "$(EVR):FrontUnivOut7", "UNIV7", 61}
+{"$(SYS)-$(D):OutFPUV08-", "$(SYS)-$(D):OutFPUV08-Src-", "$(EVR):FrontUnivOut8", "UNIV8", 61}
+{"$(SYS)-$(D):OutFPUV09-", "$(SYS)-$(D):OutFPUV09-Src-", "$(EVR):FrontUnivOut9", "UNIV9", 61}
+{"$(SYS)-$(D):OutFPUV10-", "$(SYS)-$(D):OutFPUV10-Src-", "$(EVR):FrontUnivOut10","UNIV10", 61}
+{"$(SYS)-$(D):OutFPUV11-", "$(SYS)-$(D):OutFPUV11-Src-", "$(EVR):FrontUnivOut11","UNIV11", 61}
+{"$(SYS)-$(D):OutFPUV12-", "$(SYS)-$(D):OutFPUV12-Src-", "$(EVR):FrontUnivOut12","UNIV12", 61}
+{"$(SYS)-$(D):OutFPUV13-", "$(SYS)-$(D):OutFPUV13-Src-", "$(EVR):FrontUnivOut13","UNIV13", 61}
+{"$(SYS)-$(D):OutFPUV14-", "$(SYS)-$(D):OutFPUV14-Src-", "$(EVR):FrontUnivOut14","UNIV14", 61}
+{"$(SYS)-$(D):OutFPUV15-", "$(SYS)-$(D):OutFPUV15-Src-", "$(EVR):FrontUnivOut15","UNIV15", 61}
 }
 
 file "mrmevroutint.db"
