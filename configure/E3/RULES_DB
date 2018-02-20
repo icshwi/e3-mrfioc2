@@ -9,9 +9,8 @@
 ###   ..... 
 
 db: conf
-	install -m 644 $(TOP)/template/cpci-evg230-ess.substitutions    $(E3_MODULE_SRC_PATH)/evgMrmApp/Db/
-	install -m 644 $(TOP)/template/evr-mtca-300-ess.substitutions   $(E3_MODULE_SRC_PATH)/evrMrmApp/Db/
-	install -m 644 $(TOP)/template/evr-pcie-300dc-ess.substitutions $(E3_MODULE_SRC_PATH)/evrMrmApp/Db/
+	install -m 644 $(TOP)/template/evg-*-ess.substitutions  $(E3_MODULE_SRC_PATH)/evgMrmApp/Db/
+	install -m 644 $(TOP)/template/evr-*-ess.substitutions  $(E3_MODULE_SRC_PATH)/evrMrmApp/Db/
 	$(QUIET) $(E3_MODULE_MAKE_CMDS) db
 
 
