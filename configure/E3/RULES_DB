@@ -1,0 +1,17 @@
+
+## This RULE should be used in case of inflating DB files
+## In this case, one should add db: rule in $(EPICS_MODULE_NAME).makefile
+## And add db in RULES_E3 also as follows:
+## install_module: uninstall db
+
+.PHONY: db
+
+###   ..... 
+
+db: conf
+	install -m 644 $(TOP)/template/cpci-evg230-ess.substitutions    $(E3_MODULE_SRC_PATH)/evgMrmApp/Db/
+	install -m 644 $(TOP)/template/evr-mtca-300-ess.substitutions   $(E3_MODULE_SRC_PATH)/evrMrmApp/Db/
+	install -m 644 $(TOP)/template/evr-pcie-300dc-ess.substitutions $(E3_MODULE_SRC_PATH)/evrMrmApp/Db/
+	$(QUIET) $(E3_MODULE_MAKE_CMDS) db
+
+

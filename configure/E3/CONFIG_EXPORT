@@ -1,0 +1,8 @@
+# Variables should be transferred to module_name.makefile
+
+EPICS_HOST_ARCH:=$(shell $(EPICS_BASE)/startup/EpicsHostArch.pl)
+
+export EPICS_BASE
+export EPICS_HOST_ARCH
+export E3_REQUIRE_TOOLS
+export E3_MODULE_VERSION

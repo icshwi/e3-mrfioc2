@@ -1,0 +1,15 @@
+# One should define the any dependency modules and EPICS base path
+# in the following directory
+
+.PHONY: epics epics-clean
+
+epics:
+	$(QUIET)echo "DEVLIB2=$(M_DEVLIB2)"            > $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE.local
+	$(QUIET)echo "EPICS_BASE=$(EPICS_BASE)"       >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE.local
+	$(QUIET)echo "INSTALL_LOCATION=$(M_MRFIOC2)"   > $(TOP)/$(E3_MODULE_SRC_PATH)/configure/CONFIG_SITE.local
+	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH)"
+
+epics-clean:
+	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH) clean"
+
+

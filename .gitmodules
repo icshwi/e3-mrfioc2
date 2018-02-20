@@ -1,13 +1,4 @@
-[submodule "e3-env"]
-	path = e3-env
-	url = https://github.com/icshwi/e3-env
-	ignore=dirty
 [submodule "mrfioc2"]
 	path = mrfioc2
 	url = https://github.com/javicereijo/mrfioc2
 	ignore=all
-[submodule "mrfioc2-debug"]
-	path = mrfioc2-debug
-	url = https://github.com/jeonghanlee/mrfioc2-debug
-	ignore=dirty
-	

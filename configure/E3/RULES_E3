@@ -1,0 +1,91 @@
+
+.PHONY: help default install uninstall build rebuild clean conf
+
+default: help
+
+
+# # help is defined in 
+# # https://gist.github.com/rcmachado/af3db315e31383502660
+help:
+	$(info --------------------------------------- )	
+	$(info Available targets)
+	$(info --------------------------------------- )
+	$(QUIET) awk '/^[a-zA-Z\-\_0-9]+:/ {            \
+	  nb = sub( /^## /, "", helpMsg );              \
+	  if(nb == 0) {                                 \
+	    helpMsg = $$0;                              \
+	    nb = sub( /^[^:]*:.* ## /, "", helpMsg );   \
+	  }                                             \
+	  if (nb)                                       \
+	    print  $$1 "\t" helpMsg;                    \
+	}                                               \
+	{ helpMsg = $$0 }'                              \
+	$(MAKEFILE_LIST) | column -ts:	
+
+
+
+## Install : $(E3_MODULE_NAME)
+install: install_module install_links
+
+install_module: uninstall db
+#install_module: uninstall 
+	$(QUIET) $(SUDOBASH) '$(E3_MODULE_MAKE_CMDS) install'
+
+## Uninstall : $(E3_MODULE_NAME)
+uninstall: conf
+	$(QUIET) $(SUDOBASH) '$(E3_MODULE_MAKE_CMDS) uninstall'
+
+## Build the EPICS Module : $(E3_MODULE_NAME)
+# Build always the Module with the EPICS_MODULES_TAG
+build: conf checkout
+	$(QUIET) $(E3_MODULE_MAKE_CMDS) build
+
+
+## Clean, build, and install the EPICS Module : $(E3_MODULE_NAME)
+rebuild: clean build install
+
+
+## Clean : $(E3_MODULE_NAME)
+clean: conf
+	$(QUIET) $(E3_MODULE_MAKE_CMDS) clean
+
+
+## Copy $(E3_MODULE_MAKEFILE) into $(E3_MODULE_SRC_PATH)
+conf: 
+	$(QUIET) install -m 644 $(TOP)/$(E3_MODULE_MAKEFILE)  $(E3_MODULE_SRC_PATH)/
+
+
+.PHONY: init git-submodule-sync $(E3_MODULE_SRC_PATH)  checkout
+
+## Initialize : $(E3_MODULE_SRC_PATH) 
+init: git-submodule-sync $(E3_MODULE_SRC_PATH)  checkout
+
+git-submodule-sync:
+	$(QUIET) git submodule sync
+
+
+$(E3_MODULE_SRC_PATH): 
+	$(QUIET) $(git_update)
+
+checkout: 
+	cd $(E3_MODULE_SRC_PATH) && git checkout $(EPICS_MODULE_TAG)
+
+
+
+# Create symbolic links in siteLibs
+
+.PHONY: install_links $(INSTALLED_EPICS_BASE_ARCHS)
+
+
+install_links: $(INSTALLED_EPICS_BASE_ARCHS)
+	$(SUDO) ln -snf $(E3_MODULES_INSTALL_LOCATION_INC) $(E3_MODULES_INSTALL_LOCATION_INC_LINK)
+	$(SUDO) ln -snf $(E3_MODULES_INSTALL_LOCATION_DB)  $(E3_MODULES_INSTALL_LOCATION_DB_LINK)
+	$(SUDO) ln -snf $(E3_MODULES_INSTALL_LOCATION_BIN) $(E3_MODULES_INSTALL_LOCATION_BIN_LINK)
+	$(SUDO) ln -sf  $(E3_MODULES_INSTALL_LOCATION_DBD) $(E3_MODULES_INSTALL_LOCATION_DBD_LINK)
+
+
+$(INSTALLED_EPICS_BASE_ARCHS):
+	$(SUDO) mkdir -p $(E3_SITELIBS_PATH)/$@
+	$(SUDO) ln -sf $(E3_MODULES_INSTALL_LOCATION)/lib/$@/$(E3_MODULES_LIBNAME) $(E3_SITELIBS_PATH)/$@/$(E3_MODULES_LIBLINKNAME)
+
+

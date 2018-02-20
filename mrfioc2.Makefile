@@ -21,9 +21,10 @@
 # version : 0.0.3
 #
 
+where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-include ${REQUIRE_TOOLS}/driver.makefile
-#include /home/jhlee/e3/e3-require/require/App/tools/driver.makefile
+include ${E3_REQUIRE_TOOLS}/driver.makefile
+
 
 # mrfioc2/configure/CONFIG_SITE
 USR_CPPFLAGS += -DUSE_TYPED_RSET
@@ -169,10 +170,27 @@ HEADERS += $(MRMSHAREDSRC)/sfp.h
 
 #USR_LDFLAGS  += -Wl,-rpath=
 
+
+
 MRFCOMMOM:= mrfCommon/src
 
-## USR_INCLUDES can be used, however, have to define the absolute path
-## 
+HEADERS += $(MRFCOMMOM)/mrfBitOps.h
+HEADERS += $(MRFCOMMOM)/mrfCommon.h
+HEADERS += $(MRFCOMMOM)/mrfCommonIO.h
+HEADERS += $(MRFCOMMOM)/mrfFracSynth.h
+HEADERS += $(MRFCOMMOM)/linkoptions.h
+HEADERS += $(MRFCOMMOM)/mrfcsr.h
+HEADERS += $(MRFCOMMOM)/mrf/databuf.h
+HEADERS += $(MRFCOMMOM)/mrf/object.h
+HEADERS += $(MRFCOMMOM)/mrf/version.h
+HEADERS += $(MRFCOMMOM)/devObj.h
+HEADERS += $(MRFCOMMOM)/configurationInfo.h
+HEADERS += $(MRFCOMMOM)/plx9030.h
+HEADERS += $(MRFCOMMOM)/plx9056.h
+HEADERS += $(MRFCOMMOM)/latticeEC30.h
+
+
+DBDS    += $(MRFCOMMOM)/mrfCommon.dbd
 
 SOURCES += $(MRFCOMMOM)/mrfFracSynth.c
 SOURCES += $(MRFCOMMOM)/linkoptions.c
@@ -195,23 +213,13 @@ SOURCES += $(MRFCOMMOM)/flash.cpp
 SOURCES += $(MRFCOMMOM)/flashiocsh.cpp
 
 
-DBDS    += $(MRFCOMMOM)/mrfCommon.dbd
-
-
-HEADERS += $(MRFCOMMOM)/mrfBitOps.h
-HEADERS += $(MRFCOMMOM)/mrfCommon.h
-HEADERS += $(MRFCOMMOM)/mrfCommonIO.h
-HEADERS += $(MRFCOMMOM)/mrfFracSynth.h
-HEADERS += $(MRFCOMMOM)/linkoptions.h
-HEADERS += $(MRFCOMMOM)/mrfcsr.h
-HEADERS += $(MRFCOMMOM)/mrf/databuf.h
-HEADERS += $(MRFCOMMOM)/mrf/object.h
 HEADERS += $(MRFCOMMOM)/mrf/version.h
-HEADERS += $(MRFCOMMOM)/devObj.h
-HEADERS += $(MRFCOMMOM)/configurationInfo.h
-HEADERS += $(MRFCOMMOM)/plx9030.h
-HEADERS += $(MRFCOMMOM)/plx9056.h
-HEADERS += $(MRFCOMMOM)/latticeEC30.h
+
+flashiocsh$(DEP): version.h
+
+version.h: 
+	$(RM) $@
+	$(PERL) -I$(EPICS_BASE)/lib/perl $(where_am_I)/$(MRFCOMMOM)/genVersionHeader.pl -t "" -V $(E3_MODULE_VERSION) -N MRF_VERSION $(where_am_I)/$(MRFCOMMOM)/mrf/$@
 
 
 
@@ -230,8 +238,6 @@ TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.template)
 #TEMPLATES += $(wildcard $(EVRAPPDB)/*.substitutions)
 #TEMPLATES += $(wildcard $(EVGMRMAPPDB)/*.substitutions)
 #TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.substitutions)
-
-
 
 
 ### We have to think how to find $(EPICS_BASE) and

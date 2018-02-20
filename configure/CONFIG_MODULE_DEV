@@ -1,0 +1,17 @@
+#
+EPICS_MODULE_NAME:=mrfioc2
+EPICS_MODULE_TAG:=master
+#
+E3_MODULE_VERSION:=master
+
+
+#
+# In most case, we don't need to touch the following variables.
+#
+E3_MODULE_NAME:=$(EPICS_MODULE_NAME)
+E3_MODULE_SRC_PATH:=$(EPICS_MODULE_NAME)-dev
+E3_MODULE_MAKEFILE:=$(EPICS_MODULE_NAME).Makefile
+
+#export DEV_GIT_URL:="https://where your git repo"
+E3_MODULE_DEV_GITURL:="https://github.com/epics-modules/mrfioc2"
+
