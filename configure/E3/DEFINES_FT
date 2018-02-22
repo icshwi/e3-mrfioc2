@@ -8,6 +8,23 @@ git submodule update --init --recursive $@/.
 git submodule update --remote --merge $@/
 endef
 
+define patch_site
+for i in $(wildcard $(TOP)/patch/Site/*p0.patch); do\
+	printf "\nPatching %s with the file : %s\n" "$(E3_MODULE_SRC_PATH)" "$$i"; \
+	patch -d $(E3_MODULE_SRC_PATH) --ignore-whitespace -p0 < $$i;\
+done
+endef
+
+
+define patch_revert_site
+for i in $(wildcard $(TOP)/patch/Site/*p0.patch); do\
+	printf "\nPatching %s with the file : %s\n" "$(E3_MODULE_SRC_PATH)" "$$i"; \
+	patch -R -d $(E3_MODULE_SRC_PATH) --ignore-whitespace -p0 < $$i;\
+done
+
+endef
+
+
 ifndef VERBOSE
   QUIET := @
 endif
@@ -19,6 +36,8 @@ endif
 
 ### Exclude the following variables to display 
 VARS_EXCLUDES+=git_update
+VARS_EXCLUDES+=patch_site
+VARS_EXCLUDES+=patch_revert_site
 VARS_EXCLUDES+=QUIET
 VARS_EXCLUDES+=SHELL
 
