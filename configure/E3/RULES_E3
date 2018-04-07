@@ -25,7 +25,7 @@ help:
 default: help
 
 
-## Install : $(E3_MODULE_NAME)
+## Install   : $(E3_MODULE_NAME)
 install: install_module install_links
 
 #install_module: uninstall 
@@ -35,6 +35,7 @@ install_module: uninstall db
 ## Uninstall : $(E3_MODULE_NAME)
 uninstall: conf
 	$(QUIET) $(SUDOBASH) '$(E3_MODULE_MAKE_CMDS) uninstall'
+	$(SUDO) find $(E3_SITELIBS_PATH) -xtype l -delete 
 
 ## Build the EPICS Module : $(E3_MODULE_NAME)
 # Build always the Module with the EPICS_MODULES_TAG
@@ -58,7 +59,7 @@ conf:
 
 .PHONY: init git-submodule-sync $(E3_MODULE_SRC_PATH)  checkout
 
-## Initialize : $(E3_MODULE_SRC_PATH) 
+## Initialize and Checkout : $(E3_MODULE_SRC_PATH) 
 init: git-submodule-sync $(E3_MODULE_SRC_PATH)  checkout
 
 git-submodule-sync:
