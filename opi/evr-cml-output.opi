@@ -140,7 +140,7 @@
       <height>19</height>
       <label></label>
       <name>Menu Button</name>
-      <pv_name>$(SYS){$(D)-Out:$(O)}Mode-Sel</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-Mode-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -185,7 +185,7 @@ $(pv_value)</tooltip>
       <horizontal>true</horizontal>
       <items_from_pv>true</items_from_pv>
       <name>Choice Button_2</name>
-      <pv_name>$(SYS){$(D)-Out:$(O)}Rst-Sel</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-Rst-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -280,7 +280,7 @@ $(pv_value)</tooltip>
       <name>Text Input</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(SYS){$(D)-Out:$(O)}Delay-SP</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-Delay-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -373,7 +373,7 @@ $(pv_value)</tooltip>
       <name>Text Update</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(SYS){$(D)-Out:$(O)}Delay-RB</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-Width-RB</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -463,7 +463,7 @@ $(pv_value)</tooltip>
       <horizontal>true</horizontal>
       <items_from_pv>true</items_from_pv>
       <name>Choice Button_1</name>
-      <pv_name>$(SYS){$(D)-Out:$(O)}Pwr-Sel</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-Pwr-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -550,7 +550,7 @@ $(pv_value)</tooltip>
       <horizontal>true</horizontal>
       <items_from_pv>true</items_from_pv>
       <name>Choice Button</name>
-      <pv_name>$(SYS){$(D)-Out:$(O)}Ena-Sel</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-Ena-Sel</pv_name>
       <pv_value />
       <rules />
       <scale_options>
@@ -757,10 +757,10 @@ $(trace_0_y_pv_value)</tooltip>
       <trace_0_update_mode>0</trace_0_update_mode>
       <trace_0_visible>true</trace_0_visible>
       <trace_0_x_axis_index>0</trace_0_x_axis_index>
-      <trace_0_x_pv>$(SYS){$(D)-Out:$(O)}Pat:WfX-I</trace_0_x_pv>
+      <trace_0_x_pv>$(SYS)-$(D):Out$(O)-Pat-WfX-I</trace_0_x_pv>
       <trace_0_x_pv_value />
       <trace_0_y_axis_index>1</trace_0_y_axis_index>
-      <trace_0_y_pv>$(SYS){$(D)-Out:$(O)}Pat:Wf-SP</trace_0_y_pv>
+      <trace_0_y_pv>$(SYS)-$(D):Out$(O)-Pat-Wf-SP</trace_0_y_pv>
       <trace_0_y_pv_value />
       <trace_1_anti_alias>true</trace_1_anti_alias>
       <trace_1_buffer_size>10000</trace_1_buffer_size>
@@ -778,10 +778,10 @@ $(trace_0_y_pv_value)</tooltip>
       <trace_1_update_mode>0</trace_1_update_mode>
       <trace_1_visible>true</trace_1_visible>
       <trace_1_x_axis_index>0</trace_1_x_axis_index>
-      <trace_1_x_pv>$(SYS){$(D)-Out:$(O)}Pat:WfX-I</trace_1_x_pv>
+      <trace_1_x_pv>$(SYS)-$(D):Out$(O)-Pat-WfX-I</trace_1_x_pv>
       <trace_1_x_pv_value />
       <trace_1_y_axis_index>1</trace_1_y_axis_index>
-      <trace_1_y_pv>$(SYS){$(D)-Out:$(O)}Pat:Wf-RB</trace_1_y_pv>
+      <trace_1_y_pv>$(SYS)-$(D):Out$(O)-Pat-Wf-RB</trace_1_y_pv>
       <trace_1_y_pv_value />
       <trace_count>2</trace_count>
       <transparent>false</transparent>
@@ -868,7 +868,7 @@ $(trace_0_y_pv_value)</tooltip>
       <name>Text Input_1</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(SYS){$(D)-Out:$(O)}WfCalc:Width-SP</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-WfCalc-Width-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -920,7 +920,7 @@ $(pv_value)</tooltip>
       <name>Text Update</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(SYS){$(D)-Out:$(O)}WfCalc:Delay-SP.EGU</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-WfCalc-Delay-SP.EGU</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -972,7 +972,7 @@ $(pv_value)</tooltip>
       <name>Text Update_1</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(SYS){$(D)-Out:$(O)}WfCalc:Width-SP.EGU</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-WfCalc-Width-SP.EGU</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1074,7 +1074,7 @@ $(pv_value)</tooltip>
       <on_label>ON</on_label>
       <password></password>
       <push_action_index>0</push_action_index>
-      <pv_name>$(SYS){$(D)-Out:$(O)}WfCalc:Ena-SP</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-WfCalc-Ena-SP</pv_name>
       <pv_value />
       <released_action_index>0</released_action_index>
       <rules />
@@ -1131,7 +1131,7 @@ $(pv_value)</tooltip>
       <name>Text Input</name>
       <precision>0</precision>
       <precision_from_pv>true</precision_from_pv>
-      <pv_name>$(SYS){$(D)-Out:$(O)}WfCalc:Delay-SP</pv_name>
+      <pv_name>$(SYS)-$(D):Out$(O)-WfCalc-Delay-SP</pv_name>
       <pv_value />
       <rotation_angle>0.0</rotation_angle>
       <rules />
@@ -1317,7 +1317,7 @@ $(pv_value)</tooltip>
       <height>50</height>
       <macros>
         <include_parent_macros>true</include_parent_macros>
-        <PAT>$(SYS){$(D)-Out:$(O)}Pat:Low</PAT>
+        <PAT>$(SYS)-$(D):Out$(O)-Pat-Low</PAT>
       </macros>
       <name>Linking Container</name>
       <opi_file>evr-cml-pat40.opi</opi_file>
@@ -1399,7 +1399,7 @@ $(pv_value)</tooltip>
       <height>50</height>
       <macros>
         <include_parent_macros>true</include_parent_macros>
-        <PAT>$(SYS){$(D)-Out:$(O)}Pat:Rise</PAT>
+        <PAT>$(SYS)-$(D):Out$(O)-Pat-Rise</PAT>
       </macros>
       <name>Linking Container_1</name>
       <opi_file>evr-cml-pat40.opi</opi_file>
@@ -1481,7 +1481,7 @@ $(pv_value)</tooltip>
       <height>50</height>
       <macros>
         <include_parent_macros>true</include_parent_macros>
-        <PAT>$(SYS){$(D)-Out:$(O)}Pat:High</PAT>
+        <PAT>$(SYS)-$(D):Out$(O)-Pat-High</PAT>
       </macros>
       <name>Linking Container_2</name>
       <opi_file>evr-cml-pat40.opi</opi_file>
@@ -1563,7 +1563,7 @@ $(pv_value)</tooltip>
       <height>50</height>
       <macros>
         <include_parent_macros>true</include_parent_macros>
-        <PAT>$(SYS){$(D)-Out:$(O)}Pat:Fall</PAT>
+        <PAT>$(SYS)-$(D):Out$(O)-Pat-Fall</PAT>
       </macros>
       <name>Linking Container_3</name>
       <opi_file>evr-cml-pat40.opi</opi_file>
