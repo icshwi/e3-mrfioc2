@@ -4,7 +4,8 @@ EPICS_MODULE_TAG:=master
 #
 E3_MODULE_VERSION:=master
 
-
+# DEPENDENT MODULE VERSION
+#DEVLIB2_DEP_VERSION:=2.9.0
 #
 # In most case, we don't need to touch the following variables.
 #

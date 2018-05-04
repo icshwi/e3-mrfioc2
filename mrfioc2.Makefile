@@ -17,14 +17,17 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Monday, November  6 09:50:47 CET 2017
-# version : 0.0.3
+# Date    : Friday, May  4 13:33:47 CEST 2018
+# version : 0.0.4
 #
 
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 include ${E3_REQUIRE_TOOLS}/driver.makefile
 
+ifneq ($(strip $(DEVLIB2_DEP_VERSION)),)
+devlib2_VERSION=$(DEVLIB2_DEP_VERSION)
+endif
 
 # mrfioc2/configure/CONFIG_SITE
 USR_CPPFLAGS += -DUSE_TYPED_RSET

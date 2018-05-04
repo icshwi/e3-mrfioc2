@@ -5,6 +5,8 @@ EPICS_MODULE_TAG:=tags/2.2.0
 E3_MODULE_VERSION:=2.2.0
 
 
+# DEPENDENT MODULE VERSION
+DEVLIB2_DEP_VERSION:=2.9.0
 
 #
 # In most case, we don't need to touch the following variables.
