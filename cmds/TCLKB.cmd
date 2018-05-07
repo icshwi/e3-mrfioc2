@@ -1,8 +1,8 @@
 # This the full setup for the Timing System with E3.
 #
 #require require,2.5.4
-require devlib2,2.9.0
-require mrfioc2,2.2.0
+#require devlib2,2.9.0
+require mrfioc2,2.2.0-rc1
 require iocStats,1856ef5
 # require autosave, 5.8.0
 
