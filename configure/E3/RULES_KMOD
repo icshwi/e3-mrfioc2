@@ -1,0 +1,33 @@
+
+KMOD_NAME := mrf
+
+modules:
+	$(MAKE) -C $(E3_KMOD_SRC_PATH) $@
+
+
+# Always SUDO is needed
+modules_install:
+	sudo -E bash -c "$(MAKE) -C $(E3_KMOD_SRC_PATH) $@"
+
+modules_clean: 
+	$(MAKE) -C $(E3_KMOD_SRC_PATH) clean
+	
+setup:
+	$(QUIET) sudo -E bash -c "echo \"KERNEL==\"uio*\", ATTR{name}==\"mrf-pci\", MODE=\"0666\"\" | tee  /etc/udev/rules.d/99-$(KMOD_NAME)ioc2.rules"
+	$(QUIET) sudo /bin/udevadm control --reload-rules
+	$(QUIET) sudo /bin/udevadm trigger
+	$(QUIET) sudo -E bash -c "echo "$(KMOD_NAME)" | tee /etc/modules-load.d/$(KMOD_NAME).conf"
+	$(QUIET) sudo depmod --quick
+	$(QUIET) sudo modprobe -rv $(KMOD_NAME)
+	$(QUIET) sudo modprobe -v $(KMOD_NAME)
+
+setup_clean:
+	$(QUIET) sudo modprobe -rv $(KMOD_NAME)
+	sudo rm -f /lib/modules/$(shell uname -r)/extra/$(KMOD_NAME).ko
+	sudo rm -f /etc/modules-load.d/$(KMOD_NAME).conf
+	sudo rm -f /etc/udev/rules.d/99-$(KMOD_NAME)ioc2.rules
+
+
+.PHONY: modules modules_install modules_clean setup setup_clean
+
+
