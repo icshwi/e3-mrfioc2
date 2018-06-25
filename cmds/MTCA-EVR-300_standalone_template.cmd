@@ -53,8 +53,7 @@ dbpf $(IOC)-$(DEV1):SoftSeq0-Enable-Cmd 1
 
 ### Trigger backplane trigger line X at 14 Hz ###
 # dbpf $(IOC)-$(DEV1):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
-# dbpf $(IOC)-$(DEV1):DlyGen0-Width-SP 1000 # time in us, as
-# selected with $(IOC)-$(DEV1):SoftSeq0-TsResolution-Sel
+# dbpf $(IOC)-$(DEV1):DlyGen0-Width-SP 1000 # time in us, as selected with $(IOC)-$(DEV1):SoftSeq0-TsResolution-Sel
 # dbpf $(IOC)-$(DEV1):OutBackX-Src-SP 0 # trigger from delay generator 0
 
 ### Send event clock over backplane clock line TCLKB, MCH should be configured to send the clock back to the AMCs over TCLKA ###
