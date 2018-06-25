@@ -11,23 +11,27 @@ modules_install:
 
 modules_clean: 
 	$(MAKE) -C $(E3_KMOD_SRC_PATH) clean
+
+modules_uninstall:
+	sudo rm -f /lib/modules/$(shell uname -r)/extra/$(KMOD_NAME).ko
 	
 setup:
-	$(QUIET) sudo -E bash -c "echo \"KERNEL==\"uio*\", ATTR{name}==\"mrf-pci\", MODE=\"0666\"\" | tee  /etc/udev/rules.d/99-$(KMOD_NAME)ioc2.rules"
+	$(QUIET) sudo -E bash -c 'echo KERNEL==\"uio*\", ATTR{name}==\"mrf-pci\", MODE=\"0666\" | tee  /etc/udev/rules.d/99-$(KMOD_NAME)ioc2.rules'
 	$(QUIET) sudo /bin/udevadm control --reload-rules
 	$(QUIET) sudo /bin/udevadm trigger
-	$(QUIET) sudo -E bash -c "echo "$(KMOD_NAME)" | tee /etc/modules-load.d/$(KMOD_NAME).conf"
+	$(QUIET) sudo -E bash -c 'echo $(KMOD_NAME) | tee /etc/modules-load.d/$(KMOD_NAME).conf'
 	$(QUIET) sudo depmod --quick
 	$(QUIET) sudo modprobe -rv $(KMOD_NAME)
 	$(QUIET) sudo modprobe -v $(KMOD_NAME)
+	$(QUIET) ls -ltar /dev/uio*
 
 setup_clean:
 	$(QUIET) sudo modprobe -rv $(KMOD_NAME)
-	sudo rm -f /lib/modules/$(shell uname -r)/extra/$(KMOD_NAME).ko
+#	sudo rm -f /lib/modules/$(shell uname -r)/extra/$(KMOD_NAME).ko
 	sudo rm -f /etc/modules-load.d/$(KMOD_NAME).conf
 	sudo rm -f /etc/udev/rules.d/99-$(KMOD_NAME)ioc2.rules
 
 
-.PHONY: modules modules_install modules_clean setup setup_clean
+.PHONY: modules modules_install modules_uninstall modules_clean setup setup_clean
 
 
