@@ -83,10 +83,19 @@ dbpf $(IOC)-$(DEV1):1ppsInp-Sel "Univ0"
 dbpf $(IOC)-$(DEV1):1ppsInp-MbbiDir_.TPRO 1
 ############## Configure front panel for evr 125 1 Hz ##############
 
-# # Master Event Rate 14 Hz
+############## Master Event Rate 14 Hz ##############
 dbpf $(IOC)-$(DEV1):Mxc0-Prescaler-SP 6289464
-dbpf $(IOC)-$(DEV1):TrigEvt0-EvtCode-SP $(MainEvtCODE)
-dbpf $(IOC)-$(DEV1):TrigEvt0-TrigSrc-Sel "Mxc0"
+#dbpf $(IOC)-$(DEV1):TrigEvt0-EvtCode-SP $(MainEvtCODE)
+#dbpf $(IOC)-$(DEV1):TrigEvt0-TrigSrc-Sel "Mxc0"
+# Setup of sequencer
+dbpf $(IOC)-$(DEV1):SoftSeq0-RunMode-Sel "Normal"
+dbpf $(IOC)-$(DEV1):SoftSeq0-TrigSrc-Sel "Mxc0"
+dbpf $(IOC)-$(DEV1):SoftSeq0-TsResolution-Sel "uSec"
+dbpf $(IOC)-$(DEV1):SoftSeq0-Load-Cmd 1
+dbpf $(IOC)-$(DEV1):SoftSeq0-Enable-Cmd 1
+# Load the sequence
+system("/bin/sh ./configure_sequencer_14Hz.sh $(IOC) $(DEV1)")
+############## Master Event Rate 14 Hz ##############
 
 # # Heart Beat 1 Hz
 dbpf $(IOC)-$(DEV1):Mxc7-Prescaler-SP 88052500
@@ -99,6 +108,8 @@ dbpf $(IOC)-$(DEV1):TrigEvt7-TrigSrc-Sel "Mxc7"
 #dbpf $(IOC)-$(DEV1):TrigEvt6-TrigSrc-Sel "Mxc6"
 
 # # EVR configuration
+# # Set delay compensation to 70 ns, needed to avoid timesptamp issue
+# dbpf $(IOC)-$(DEV1):DC-Tgt-SP 70
 # dbpf $(IOC)-$(DEV2):DlyGen0-Width-SP 10000
 # dbpf $(IOC)-$(DEV2):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 # dbpf $(IOC)-$(DEV2):OutFPUV0-Src-Pulse-SP "Pulser 0"

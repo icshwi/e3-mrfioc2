@@ -39,21 +39,24 @@ iocInit()
 # dbl > "${IOC}_PVs.list"
 
 ### Get current time from system clock ###
-dbpf $(IOC)-$(DEV1):TimeSrc-Sel 2
+dbpf $(IOC)-$(DEV1):TimeSrc-Sel "Sys. Clock"
+
+### Set delay compensation to 70 ns, needed to avoid timesptamp issue ###
+dbpf $(IOC)-$(DEV1):DC-Tgt-SP 70
 
 ### Set up the prescaler that will trigger the sequencer at 14 Hz ###
 dbpf $(IOC)-$(DEV1):PS0-Div-SP 6289424 # in standalone mode because real freq from synthsiezer is 88.05194802 MHz, otherwise 6289464
 
 ### Set up the sequencer ###
-dbpf $(IOC)-$(DEV1):SoftSeq0-RunMode-Sel 0 # normal mode, rearm after finish
-dbpf $(IOC)-$(DEV1):SoftSeq0-TrigSrc-2-Sel 2 # trigger the sequence from prescaler 0
-dbpf $(IOC)-$(DEV1):SoftSeq0-TsResolution-Sel 2 # select us as the units of the timestamp array of the seuqncer
+dbpf $(IOC)-$(DEV1):SoftSeq0-RunMode-Sel "Normal"
+dbpf $(IOC)-$(DEV1):SoftSeq0-TrigSrc-2-Sel "Prescaler 0"
+dbpf $(IOC)-$(DEV1):SoftSeq0-TsResolution-Sel "uSec"
 dbpf $(IOC)-$(DEV1):SoftSeq0-Load-Cmd 1
 dbpf $(IOC)-$(DEV1):SoftSeq0-Enable-Cmd 1
 
 ### Trigger backplane trigger line X at 14 Hz ###
 # dbpf $(IOC)-$(DEV1):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
-# dbpf $(IOC)-$(DEV1):DlyGen0-Width-SP 1000 # time in us, as selected with $(IOC)-$(DEV1):SoftSeq0-TsResolution-Sel
+# dbpf $(IOC)-$(DEV1):DlyGen0-Width-SP 1000 # time in us
 # dbpf $(IOC)-$(DEV1):OutBackX-Src-SP 0 # trigger from delay generator 0
 
 ### Send event clock over backplane clock line TCLKB, MCH should be configured to send the clock back to the AMCs over TCLKA ###
