@@ -58,7 +58,7 @@ dbpf $(IOC)-$(DEV1):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 dbpf $(IOC)-$(DEV1):DlyGen0-Width-SP 1000 # Time in us
 dbpf $(IOC)-$(DEV1):OutRB08-Src-SP 0 # Delay generator 0
 
-dbpf $(IOC)-$(DEV1):OutRB09-Src-SP 41 Prescaler 1
+dbpf $(IOC)-$(DEV1):OutRB09-Src-SP 41 # Prescaler 1
 dbpf $(IOC)-$(DEV1):PS1-Div-SP 10000000
 
 pcidiagset 1 0 0 
