@@ -34,13 +34,17 @@ $ make setup_clean
 ```
 
 ## Notice
-Even if we buid the kernel DKMS, one needs the following commands after new Kernel install.
-```
-$ sudo dkms autoinstall
-```
+If one has already the running dkms.service in systemd, the next reboot with new kernl image will make the kernel module be ready. However, if one doesn't have one, please run bash dkms/dkms_setup.bash in order to enable dkms.service.
 
-Or put dkms/dkms.service in your system dependent systemd service directory, and run
 ```
-$ sudo systemctl enable dkms.service
-$ sudo systemctrl start dkms.service
+$ bash dkms/dkms_setup.bash
+$ systemctl status dkms
+● dkms.service - Builds and install new kernel modules through DKMS
+   Loaded: loaded (/etc/systemd/system/dkms.service; enabled; vendor preset: ena
+   Active: active (exited) since Sun 2018-07-29 01:13:59 CEST; 4s ago
+     Docs: man:dkms(8)
+  Process: 3271 ExecStart=/bin/sh -c dkms autoinstall --verbose --kernelver $(un
+ Main PID: 3271 (code=exited, status=0/SUCCESS)
+
+
 ```
