@@ -1,16 +1,15 @@
-
 # Kernel Module Compile Results
 *.mod*
 .tmp_versions/
 modules.order
 Module.symvers
 Mkfile.old
-dkms.conf
 *~
 core.*
 #*
 .#*
 \#*
-
 mrfioc2-debug
 mrfioc2-dev
+dkms/dkms.conf
+dkms/dkms_with_msi.conf

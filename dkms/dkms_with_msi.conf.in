@@ -1,0 +1,5 @@
+PACKAGE_NAME="$(name)"
+PACKAGE_VERSION="$(version)"
+
+BUILT_MODULE_NAME[0]="$(kmod_name)"
+DEST_MODULE_NAME[0]="$(kmod_name)"

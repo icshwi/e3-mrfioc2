@@ -1,18 +1,20 @@
 # e3-mrfioc2
 
 
-## Kernel modules compiliation and installation
+## Kernel module (mrf.ko) can be installed via DKMS
 
 
 ```sh
-$ make modules
-$ make modules_install
+$ make dkms_add
+$ make dkms_build
+$ make dkms_install
 ```
 
-In order to remove the mrf.ko from the system.
+In order to remove them
 
 ```sh
-$ make modules_uninstall
+$ make dkms_uninstall
+$ make dkms_remove
 ```
 
 ## Kernel modules configuration
@@ -29,4 +31,16 @@ In order to clean the configuration,
 
 ```sh
 $ make setup_clean
+```
+
+## Notice
+Even if we buid the kernel DKMS, one needs the following commands after new Kernel install.
+```
+$ sudo dkms autoinstall
+```
+
+Or put dkms/dkms.service in your system dependent systemd service directory, and run
+```
+$ sudo systemctl enable dkms.service
+$ sudo systemctrl start dkms.service
 ```
