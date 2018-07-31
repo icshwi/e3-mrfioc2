@@ -1,0 +1,59 @@
+
+SUDO2:=sudo -E bash -c
+DKMS:=/usr/sbin/dkms
+DKMS_ARGS:=-m $(E3_MODULE_NAME) -v $(E3_MODULE_VERSION)
+KMOD_NAME := mrf
+
+.PHONY: dkms_add dkms_build dkms_remove dkms_install dkms_uninstall
+
+dkms_add: conf
+	$(MSI) -M name="$(E3_MODULE_NAME)" -M  version="$(E3_MODULE_VERSION)" -M kmod_name="$(KMOD_NAME)" $(TOP)/dkms/dkms_with_msi.conf.in > $(TOP)/dkms/dkms_with_msi.conf
+	$(QUIET) cat $(TOP)/dkms/dkms_with_msi.conf $(TOP)/dkms/dkms_without_msi.conf > $(TOP)/dkms/dkms.conf
+	$(QUIET) install -m 644 $(TOP)/dkms/dkms.conf  $(E3_KMOD_SRC_PATH)/
+	$(SUDO2) 'ln -sf $(TOP)/$(E3_KMOD_SRC_PATH) /usr/src/$(E3_MODULE_NAME)-$(E3_MODULE_VERSION)'
+	$(SUDO) $(DKMS) add $(DKMS_ARGS)
+
+
+dkms_build:
+	$(SUDO) $(DKMS) build $(DKMS_ARGS)
+
+
+dkms_remove:
+	$(SUDO) $(DKMS) remove $(E3_MODULE_NAME)/$(E3_MODULE_VERSION) --all
+
+
+dkms_install:
+	$(SUDO) $(DKMS) install $(DKMS_ARGS)
+	$(QUIET)$(SUDO) depmod
+
+dkms_uninstall:
+	$(SUDO) $(DKMS) uninstall $(DKMS_ARGS)
+	$(QUIET)$(SUDO) depmod	
+
+.PHONY: dkms_add dkms_build dkms_install dkms_remove dkms_uninstall
+
+
+setup:
+	$(QUIET) $(SUDO2) 'echo KERNEL==\"uio*\", ATTR{name}==\"mrf-pci\", MODE=\"0666\" | tee  /etc/udev/rules.d/99-$(KMOD_NAME)ioc2.rules'
+	$(QUIET) $(SUDO) /bin/udevadm control --reload-rules
+	$(QUIET) $(SUDO) /bin/udevadm trigger
+	$(QUIET) $(SUDO2) 'echo $(KMOD_NAME) | tee /etc/modules-load.d/$(KMOD_NAME).conf'
+	$(QUIET) $(SUDO) depmod --quick
+	$(QUIET) $(SUDO) modprobe -rv $(KMOD_NAME)
+	$(QUIET) $(SUDO) modprobe -v $(KMOD_NAME)
+	$(QUIET) -ls /dev/uio* 2>/dev/null
+
+
+setup_clean:
+	$(QUIET) $(SUDO) modprobe -rv $(KMOD_NAME)
+	$(SUDO) rm -f /etc/modules-load.d/$(KMOD_NAME).conf
+	$(SUDO) rm -f /etc/udev/rules.d/99-$(KMOD_NAME)ioc2.rules
+
+
+.PHONY: setup setup_clean
+
+
+VARS_EXCLUDES+=KMOD_NAME
+VARS_EXCLUDES+=DKMS_ARGS
+VARS_EXCLUDES+=DKMS
+VARS_EXCLUDES+=SUDO2
