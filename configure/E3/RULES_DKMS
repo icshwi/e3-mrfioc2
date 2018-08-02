@@ -41,7 +41,13 @@ setup:
 	$(QUIET) $(SUDO) depmod --quick
 	$(QUIET) $(SUDO) modprobe -rv $(KMOD_NAME)
 	$(QUIET) $(SUDO) modprobe -v $(KMOD_NAME)
+	$(QUIET) echo ""
+	$(QUIET) echo ""
+	$(QUIET) echo "It is OK to see \"E3/RULES_DKMS:37: recipe for target 'setup' failed\""
+	$(QUIET) echo "---------------------------------------------------------------------"
 	$(QUIET) -ls /dev/uio* 2>/dev/null
+	$(QUIET) echo "---------------------------------------------------------------------"
+
 
 
 setup_clean:
