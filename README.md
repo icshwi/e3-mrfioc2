@@ -5,6 +5,7 @@
 
 
 ```sh
+$ make init
 $ make dkms_add
 $ make dkms_build
 $ make dkms_install
