@@ -13,3 +13,4 @@ mrfioc2-debug
 mrfioc2-dev
 dkms/dkms.conf
 dkms/dkms_with_msi.conf
+core*
