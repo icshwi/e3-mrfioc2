@@ -243,19 +243,6 @@ TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.template)
 #TEMPLATES += $(wildcard $(EVRMRMAPPDB)/*.substitutions)
 
 
-### We have to think how to find $(EPICS_BASE) and
-### $(EPICS_HOST_ARCH) during driver.makefile
-### Friday, November  3 16:44:55 CET 2017, jhlee
-### This step can be done when we "installing..." ?
-
-
-# MSI:= $(EPICS_BASE)/bin/$(EPICS_HOST_ARCH)/msi
-
-
-EPICS_BASE_HOST_BIN = $(EPICS_BASE)/bin/$(EPICS_HOST_ARCH)
-MSI =  $(EPICS_BASE_HOST_BIN)/msi
-
-
 USR_DBFLAGS += -I . -I ..
 USR_DBFLAGS += -I $(EPICS_BASE)/db
 USR_DBFLAGS += -I $(MRMSHAREDDB)

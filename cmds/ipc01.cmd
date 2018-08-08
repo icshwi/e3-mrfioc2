@@ -1,7 +1,7 @@
 # This the full setup for the Timing System with E3.
 # 
 #require require,2.5.4
-require devlib2,2.9.0
+#require devlib2,2.9.0
 require mrfioc2,2.2.0
 require iocStats,1856ef5
 # require autosave, 5.8.0
@@ -37,4 +37,7 @@ iocInit()
 
 
 dbl > "${IOC}_PVs.list"
+
+# Set delay compensation to 70 ns, needed to avoid timesptamp issue
+dbpf $(IOC)-$(DEV1):DC-Tgt-SP 70
 
