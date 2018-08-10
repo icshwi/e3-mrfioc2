@@ -114,7 +114,7 @@ dbpf $(IOC)-$(DEV1):TrigEvt7-TrigSrc-Sel "Mxc7"
 # dbpf $(IOC)-$(DEV2):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 # dbpf $(IOC)-$(DEV2):OutFPUV0-Src-Pulse-SP "Pulser 0"
 
-# Is there something similar to sleep(5)????
+epicsThreadSleep 5
 dbpf $(IOC)-$(DEV1):SyncTimestamp-Cmd 1
 
 
