@@ -17,8 +17,8 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Friday, May  4 13:33:47 CEST 2018
-# version : 0.0.4
+# Date    : Monday, August 20 18:43:39 CEST 2018
+# version : 0.0.5
 #
 
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
@@ -48,14 +48,21 @@ SOURCES += $(EVGMRMAPPSRC)/evg.cpp
 SOURCES += $(EVGMRMAPPSRC)/evgMrm.cpp
 SOURCES += $(EVGMRMAPPSRC)/evgAcTrig.cpp
 SOURCES += $(EVGMRMAPPSRC)/evgEvtClk.cpp
+
 SOURCES += $(EVGMRMAPPSRC)/evgTrigEvt.cpp
 SOURCES += $(EVGMRMAPPSRC)/devSupport/devEvgTrigEvt.cpp
+
 SOURCES += $(EVGMRMAPPSRC)/evgMxc.cpp
+
 SOURCES += $(EVGMRMAPPSRC)/evgDbus.cpp
 SOURCES += $(EVGMRMAPPSRC)/devSupport/devEvgDbus.cpp
+
 SOURCES += $(EVGMRMAPPSRC)/evgInput.cpp
+
 SOURCES += $(EVGMRMAPPSRC)/evgOutput.cpp
+
 SOURCES += $(EVGMRMAPPSRC)/mrmevgseq.cpp
+
 SOURCES += $(EVGMRMAPPSRC)/seqconst.c
 SOURCES += $(EVGMRMAPPSRC)/seqnsls2.c
 
@@ -72,14 +79,6 @@ HEADERS += $(EVGMRMAPPSRC)/evgInput.h
 HEADERS += $(EVGMRMAPPSRC)/evgOutput.h
 HEADERS += $(EVGMRMAPPSRC)/mrmevgseq.h
 
-
-
-# HEADERS += pev.h
-# # find the pev library from IOxOS
-# PEVDIR = /opt/eldk-5.2/ifc
-# USR_INCLUDES += -I$(PEVDIR)/include
-# USR_LDFLAGS += -L$(PEVDIR)/lib
-# LIB_SYS_LIBS += pev
 
 
 # COMMUNITY Dependency
@@ -155,13 +154,6 @@ MRMSHARED:= mrmShared
 MRMSHAREDSRC:=${MRMSHARED}/src
 MRMSHAREDDB:=${MRMSHARED}/Db
 
-SOURCES += $(MRMSHAREDSRC)/mrmDataBufTx.cpp
-SOURCES += $(MRMSHAREDSRC)/mrmSeq.cpp
-SOURCES += $(MRMSHAREDSRC)/devMrfBufTx.cpp
-SOURCES += $(MRMSHAREDSRC)/sfp.cpp
-SOURCES += $(MRMSHAREDSRC)/mrmtimesrc.cpp
-
-DBDS    += $(MRMSHAREDSRC)/mrmShared.dbd
 
 HEADERS += $(MRMSHAREDSRC)/mrmDataBufTx.h
 HEADERS += $(MRMSHAREDSRC)/mrmSeq.h
@@ -169,9 +161,20 @@ HEADERS += $(MRMSHAREDSRC)/mrmpci.h
 HEADERS += $(MRMSHAREDSRC)/sfp.h
 
 
+SOURCES += $(MRMSHAREDSRC)/mrmDataBufTx.cpp
+SOURCES += $(MRMSHAREDSRC)/mrmSeq.cpp
+SOURCES += $(MRMSHAREDSRC)/devMrfBufTx.cpp
+SOURCES += $(MRMSHAREDSRC)/sfp.cpp
+SOURCES += $(MRMSHAREDSRC)/mrmtimesrc.cpp
 
+# After 2.2.0, 2.2.0-ess-rc3,
+# mrfioc2.Makefile needs to handel new file with the compatibility with
+# old version up to 2.2.0-ess-rc2
+mrmspi_src += $(MRMSHAREDSRC)/mrmspi.cpp
+SOURCES += $(filter $(mrmspi_src), $(wildcard $(MRMSHAREDSRC)/*.cpp))
 
-#USR_LDFLAGS  += -Wl,-rpath=
+DBDS    += $(MRMSHAREDSRC)/mrmShared.dbd
+
 
 
 
@@ -213,7 +216,15 @@ SOURCES += $(MRFCOMMOM)/databuf.cpp
 SOURCES += $(MRFCOMMOM)/mrfCommon.cpp
 SOURCES += $(MRFCOMMOM)/spi.cpp
 SOURCES += $(MRFCOMMOM)/flash.cpp
+
+# After 2.2.0, 2.2.0-ess-rc3,
+# mrfioc2.Makefile needs to handel new file with the compatibility with
+# old version up to 2.2.0-ess-rc2
+pollirq_src += $(MRFCOMMOM)/pollirq.cpp
+SOURCES += $(filter $(pollirq_src), $(wildcard $(MRFCOMMOM)/*.cpp))
+
 SOURCES += $(MRFCOMMOM)/flashiocsh.cpp
+
 
 
 HEADERS += $(MRFCOMMOM)/mrf/version.h
