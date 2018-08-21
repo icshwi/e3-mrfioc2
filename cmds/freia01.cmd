@@ -12,23 +12,24 @@ epicsEnvSet("LOCATION","Rack 1 at ICS Tuna Lab")
 
 epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES","10000000")
 
-epicsEnvSet("IOC", "FREIA")
-epicsEnvSet("DEV1", "EVG0")
+epicsEnvSet("IOC", "FREIA:")
+epicsEnvSet("EVG", "EVG0")
+epicsEnvSet("DEV1", "$(EVG):")
 
 epicsEnvSet("MainEvtCODE" "14")
 epicsEnvSet("HeartBeatEvtCODE"   "122")
 epicsEnvSet("ESSEvtClockRate"  "88.0525")
 
-mrmEvgSetupPCI("$(DEV1)", "10:0e.0")
+mrmEvgSetupPCI("$(EVG)", "10:0e.0")
 
-dbLoadRecords("cpci-evg230-ess.db",  "SYS=$(IOC), D=$(DEV1), EVG=$(DEV1), FEVT=$(ESSEvtClockRate), FRF=352.21, FDIV=4")
+dbLoadRecords("cpci-evg230-ess.db",  "SYS=$(IOC), D=$(DEV1), EVG=$(EVG), FEVT=$(ESSEvtClockRate), FRF=352.21, FDIV=4")
 
 # needed with software timestamp source w/o RT thread scheduling
 var evrMrmTimeNSOverflowThreshold 100000
 
 
 # iocStats
-dbLoadRecords("iocAdminSoft.db", "IOC=$(IOC)-IocStats")
+dbLoadRecords("iocAdminSoft.db", "IOC=$(IOC)IocStats")
 
 
 # # Auto save/restore
@@ -38,7 +39,7 @@ dbLoadRecords("iocAdminSoft.db", "IOC=$(IOC)-IocStats")
 
 # var save_restoreDebug 1
 
-# dbLoadRecords("save_restoreStatus.db", "P=$(IOC)-Autosave")
+# dbLoadRecords("save_restoreStatus.db", "P=$(IOC)Autosave")
 # save_restoreSet_status_prefix("$(IOC):Autosave")
 # set_savefile_path("${AUTOSAVE}")
 # set_requestfile_path("${AUTOSAVE}")
@@ -64,23 +65,23 @@ dbl > "${IOC}_PVs.list"
 
 
 
-dbpf "$(IOC)-$(DEV1):1ppsInp-Sel" "Sys Clk"
+dbpf "$(IOC)$(DEV1)1ppsInp-Sel" "Sys Clk"
 
 # # Master Event Rate 14 Hz
-dbpf $(IOC)-$(DEV1):Mxc0-Prescaler-SP 6289464
-dbpf $(IOC)-$(DEV1):TrigEvt0-EvtCode-SP $(MainEvtCODE)
-dbpf $(IOC)-$(DEV1):TrigEvt0-TrigSrc-Sel "Mxc0"
+dbpf $(IOC)$(DEV1)Mxc0-Prescaler-SP 6289464
+dbpf $(IOC)$(DEV1)TrigEvt0-EvtCode-SP $(MainEvtCODE)
+dbpf $(IOC)$(DEV1)TrigEvt0-TrigSrc-Sel "Mxc0"
 
 # # Heart Beat 1 Hz
-dbpf $(IOC)-$(DEV1):Mxc7-Prescaler-SP 88052496
-dbpf $(IOC)-$(DEV1):TrigEvt7-EvtCode-SP $(HeartBeatEvtCODE)
-dbpf $(IOC)-$(DEV1):TrigEvt7-TrigSrc-Sel "Mxc7"
+dbpf $(IOC)$(DEV1)Mxc7-Prescaler-SP 88052496
+dbpf $(IOC)$(DEV1)TrigEvt7-EvtCode-SP $(HeartBeatEvtCODE)
+dbpf $(IOC)$(DEV1)TrigEvt7-TrigSrc-Sel "Mxc7"
 
 # # EVR configuration
-# dbpf $(IOC)-$(DEV2):DlyGen0-Width-SP 10000
-# dbpf $(IOC)-$(DEV2):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
-# dbpf $(IOC)-$(DEV2):OutFPUV0-Src-Pulse-SP "Pulser 0"
+# dbpf $(IOC)$(DEV2)DlyGen0-Width-SP 10000
+# dbpf $(IOC)$(DEV2)DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
+# dbpf $(IOC)$(DEV2)OutFPUV0-Src-Pulse-SP "Pulser 0"
 
 # Is there something similar to sleep(5)????
-dbpf $(IOC)-$(DEV1):SyncTimestamp-Cmd 1
+dbpf $(IOC)$(DEV1)SyncTimestamp-Cmd 1
 
