@@ -7,254 +7,254 @@
 #  FEVT = Event link frequency (default 124.916 MHz)
 #
 # Record names have the general forms:
-#  $(SYS)-$(D):Signal-SD
-#  $(SYS)-$(D):SubDev-Signal-SD
+#  $(SYS)$(D)Signal-SD
+#  $(SYS)$(D)SubDev-Signal-SD
 
 file "evrbase.db"
 {
-{P="$(SYS)-$(D):", PCNT="$(SYS)-$(D):Cnt-", PLINK="$(SYS)-$(D):Link-", PRATE="$(SYS)-$(D):Rate-", PTIME="$(SYS)-$(D):Time-", OBJ="$(EVR)", OBJBUFRX="$(EVR):BUFRX", EVNT1HZ="\$(EVNT1HZ=125)", FEVT="\$(FEVT=124.916)"}
+{P="$(SYS)$(D)", PCNT="$(SYS)$(D)Cnt-", PLINK="$(SYS)$(D)Link-", PRATE="$(SYS)$(D)Rate-", PTIME="$(SYS)$(D)Time-", OBJ="$(EVR)", OBJBUFRX="$(EVR)$(SEP=:)BUFRX", EVNT1HZ="\$(EVNT1HZ=125)", FEVT="\$(FEVT=124.916)"}
 }
 
 file "databuftx.db"
 {pattern
 {P, OBJ, PROTO}
-{"$(SYS)-$(D):dbus-send-", "$(EVR):BUFTX", 1}
+{"$(SYS)$(D)dbus-send-", "$(EVR)$(SEP=:)BUFTX", 1}
 }
 
 file "evrSoftEvt.template"
 {
-{P="$(SYS)-$(D):", OBJ="$(EVR)"}
+{P="$(SYS)$(D)", OBJ="$(EVR)"}
 }
 
 file "databuftxCtrl.db"
 {pattern
 {P, OBJ}
-{"$(SYS)-$(D):Link-", "$(EVR):BUFTX"}
+{"$(SYS)$(D)Link-", "$(EVR)$(SEP=:)BUFTX"}
 }
 
 file "mrmevrbufrx.db"
 {pattern
 {P, OBJ, PROTO}
-{"$(SYS)-$(D):dbus-recv-", $(EVR):BUFRX, 0xff00}
+{"$(SYS)$(D)dbus-recv-", $(EVR)$(SEP=:)BUFRX, 0xff00}
 }
 
 file mrmSoftSeq.template {
 pattern { P, PINITSEQ, PTRIGSRC, EVG, seqNum, NELM }
-{ "$(SYS)-$(D):SoftSeq0-", "$(SYS)-$(D):SoftSeq0-InitSeq-", "$(SYS)-$(D):SoftSeq0-TrigSrc-", "$(EVR)", 0, 2047 }
-{ "$(SYS)-$(D):SoftSeq1-", "$(SYS)-$(D):SoftSeq1-InitSeq-", "$(SYS)-$(D):SoftSeq1-TrigSrc-", "$(EVR)", 1, 2047 }
-{ "$(SYS)-$(D):SoftSeq2-", "$(SYS)-$(D):SoftSeq2-InitSeq-", "$(SYS)-$(D):SoftSeq2-TrigSrc-", "$(EVR)", 2, 2047 }
+{ "$(SYS)$(D)SoftSeq0-", "$(SYS)$(D)SoftSeq0-InitSeq-", "$(SYS)$(D)SoftSeq0-TrigSrc-", "$(EVR)", 0, 2047 }
+{ "$(SYS)$(D)SoftSeq1-", "$(SYS)$(D)SoftSeq1-InitSeq-", "$(SYS)$(D)SoftSeq1-TrigSrc-", "$(EVR)", 1, 2047 }
+{ "$(SYS)$(D)SoftSeq2-", "$(SYS)$(D)SoftSeq2-InitSeq-", "$(SYS)$(D)SoftSeq2-TrigSrc-", "$(EVR)", 2, 2047 }
 }
 
 file evrSoftSeq.template {
 pattern { P, PTRIGSRC, PEVTCLKFREQ, SYSDEVTCLK, EVG, seqNum, NELM }
-{ "$(SYS)-$(D):SoftSeq0-", "$(SYS)-$(D):SoftSeq0-TrigSrc-", "$(SYS)-$(D):SoftSeq0-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", "$(EVR)", 0, 2047 }
-{ "$(SYS)-$(D):SoftSeq1-", "$(SYS)-$(D):SoftSeq1-TrigSrc-", "$(SYS)-$(D):SoftSeq1-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", "$(EVR)", 1, 2047 }
-{ "$(SYS)-$(D):SoftSeq2-", "$(SYS)-$(D):SoftSeq2-TrigSrc-", "$(SYS)-$(D):SoftSeq2-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", "$(EVR)", 2, 2047 }
+{ "$(SYS)$(D)SoftSeq0-", "$(SYS)$(D)SoftSeq0-TrigSrc-", "$(SYS)$(D)SoftSeq0-EvtClkFreq-", "$(SYS)$(D)EvtClk-", "$(EVR)", 0, 2047 }
+{ "$(SYS)$(D)SoftSeq1-", "$(SYS)$(D)SoftSeq1-TrigSrc-", "$(SYS)$(D)SoftSeq1-EvtClkFreq-", "$(SYS)$(D)EvtClk-", "$(EVR)", 1, 2047 }
+{ "$(SYS)$(D)SoftSeq2-", "$(SYS)$(D)SoftSeq2-TrigSrc-", "$(SYS)$(D)SoftSeq2-EvtClkFreq-", "$(SYS)$(D)EvtClk-", "$(EVR)", 2, 2047 }
 }
 
 file "sfp.db"
 {
-{P="$(SYS)-$(D):SFP-", PPWR="$(SYS)-$(D):SFP-Pwr-", PSPEED="$(SYS)-$(D):SFP-Speed-", PDATE="$(SYS)-$(D):SFP-Date-", OBJ="$(EVR):SFP"}
+{P="$(SYS)$(D)SFP-", PPWR="$(SYS)$(D)SFP-Pwr-", PSPEED="$(SYS)$(D)SFP-Speed-", PDATE="$(SYS)$(D)SFP-Date-", OBJ="$(EVR)$(SEP=:)SFP"}
 }
 
 file "mrmevrdc.template"
 {
-{P="$(SYS)-$(D):DC-", OBJ="$(EVR)"}
+{P="$(SYS)$(D)DC-", OBJ="$(EVR)"}
 }
 
 file "evrmap.db"
 {pattern
 {NAME, OBJ, func, EVT}
-{"$(SYS)-$(D):Evt-Blink0-SP", "$(EVR)", Blink, 15}
-{"$(SYS)-$(D):Evt-Blink1-SP", "$(EVR)", Blink, 0}
-{"$(SYS)-$(D):Evt-ResetPS-SP","$(EVR)", "Reset PS", 123}
+{"$(SYS)$(D)Evt-Blink0-SP", "$(EVR)", Blink, 15}
+{"$(SYS)$(D)Evt-Blink1-SP", "$(EVR)", Blink, 0}
+{"$(SYS)$(D)Evt-ResetPS-SP","$(EVR)", "Reset PS", 123}
 }
 
 file "evrevent.db"
 {pattern
 {EN, OBJ, CODE, EVNT}
-{"$(SYS)-$(D):1hz",  "$(EVR)", 0x7d, 125}
-{"$(SYS)-$(D):EvtA", "$(EVR)", 10, 10}
-{"$(SYS)-$(D):EvtB", "$(EVR)", 11, 11}
-{"$(SYS)-$(D):EvtC", "$(EVR)", 12, 12}
-{"$(SYS)-$(D):EvtD", "$(EVR)", 13, 13}
-{"$(SYS)-$(D):EvtE", "$(EVR)", 14, 14}
-{"$(SYS)-$(D):EvtF", "$(EVR)", 15, 15}
-{"$(SYS)-$(D):EvtG", "$(EVR)", 16, 16}
-{"$(SYS)-$(D):EvtH", "$(EVR)", 17, 17}
+{"$(SYS)$(D)1hz",  "$(EVR)", 0x7d, 125}
+{"$(SYS)$(D)EvtA", "$(EVR)", 10, 10}
+{"$(SYS)$(D)EvtB", "$(EVR)", 11, 11}
+{"$(SYS)$(D)EvtC", "$(EVR)", 12, 12}
+{"$(SYS)$(D)EvtD", "$(EVR)", 13, 13}
+{"$(SYS)$(D)EvtE", "$(EVR)", 14, 14}
+{"$(SYS)$(D)EvtF", "$(EVR)", 15, 15}
+{"$(SYS)$(D)EvtG", "$(EVR)", 16, 16}
+{"$(SYS)$(D)EvtH", "$(EVR)", 17, 17}
 }
 
 file "evrscale.db"
 {pattern
 {IDX, P, SN, OBJ, MAX}
-{0, "$(SYS)-$(D):Link-", "$(SYS)-$(D):PS$(IDX)-", "$(EVR):PS$(IDX)", "0xffffffff"}
-{1, "$(SYS)-$(D):Link-", "$(SYS)-$(D):PS$(IDX)-", "$(EVR):PS$(IDX)", "0xffffffff"}
-{2, "$(SYS)-$(D):Link-", "$(SYS)-$(D):PS$(IDX)-", "$(EVR):PS$(IDX)", "0xffffffff"}
-{3, "$(SYS)-$(D):Link-", "$(SYS)-$(D):PS$(IDX)-", "$(EVR):PS$(IDX)", "0xffffffff"}
-{4, "$(SYS)-$(D):Link-", "$(SYS)-$(D):PS$(IDX)-", "$(EVR):PS$(IDX)", "0xffffffff"}
-{5, "$(SYS)-$(D):Link-", "$(SYS)-$(D):PS$(IDX)-", "$(EVR):PS$(IDX)", "0xffffffff"}
-{6, "$(SYS)-$(D):Link-", "$(SYS)-$(D):PS$(IDX)-", "$(EVR):PS$(IDX)", "0xffffffff"}
-{7, "$(SYS)-$(D):Link-", "$(SYS)-$(D):PS$(IDX)-", "$(EVR):PS$(IDX)", "0xffffffff"}
+{0, "$(SYS)$(D)Link-", "$(SYS)$(D)PS$(IDX)-", "$(EVR)$(SEP=:)PS$(IDX)", "0xffffffff"}
+{1, "$(SYS)$(D)Link-", "$(SYS)$(D)PS$(IDX)-", "$(EVR)$(SEP=:)PS$(IDX)", "0xffffffff"}
+{2, "$(SYS)$(D)Link-", "$(SYS)$(D)PS$(IDX)-", "$(EVR)$(SEP=:)PS$(IDX)", "0xffffffff"}
+{3, "$(SYS)$(D)Link-", "$(SYS)$(D)PS$(IDX)-", "$(EVR)$(SEP=:)PS$(IDX)", "0xffffffff"}
+{4, "$(SYS)$(D)Link-", "$(SYS)$(D)PS$(IDX)-", "$(EVR)$(SEP=:)PS$(IDX)", "0xffffffff"}
+{5, "$(SYS)$(D)Link-", "$(SYS)$(D)PS$(IDX)-", "$(EVR)$(SEP=:)PS$(IDX)", "0xffffffff"}
+{6, "$(SYS)$(D)Link-", "$(SYS)$(D)PS$(IDX)-", "$(EVR)$(SEP=:)PS$(IDX)", "0xffffffff"}
+{7, "$(SYS)$(D)Link-", "$(SYS)$(D)PS$(IDX)-", "$(EVR)$(SEP=:)PS$(IDX)", "0xffffffff"}
 }
 
 file "mrmevrout.db"
 {pattern
 {ON, ONSRC, OBJ, DESC}
-{"$(SYS)-$(D):OutInt-", "$(SYS)-$(D):OutInt-Src-", "$(EVR):Int", "Internal"}
-{"$(SYS)-$(D):OutFP0-", "$(SYS)-$(D):OutFP0-Src-", "$(EVR):FrontOut0", "OUT0 (TTL)"}
-{"$(SYS)-$(D):OutFP1-", "$(SYS)-$(D):OutFP1-Src-", "$(EVR):FrontOut1", "OUT1 (TTL)"}
-{"$(SYS)-$(D):OutFP2-", "$(SYS)-$(D):OutFP2-Src-", "$(EVR):FrontOut2", "OUT2 (TTL)"}
-{"$(SYS)-$(D):OutFP3-", "$(SYS)-$(D):OutFP3-Src-", "$(EVR):FrontOut3", "OUT3 (TTL)"}
+{"$(SYS)$(D)OutInt-", "$(SYS)$(D)OutInt-Src-", "$(EVR)$(SEP=:)Int", "Internal"}
+{"$(SYS)$(D)OutFP0-", "$(SYS)$(D)OutFP0-Src-", "$(EVR)$(SEP=:)FrontOut0", "OUT0 (TTL)"}
+{"$(SYS)$(D)OutFP1-", "$(SYS)$(D)OutFP1-Src-", "$(EVR)$(SEP=:)FrontOut1", "OUT1 (TTL)"}
+{"$(SYS)$(D)OutFP2-", "$(SYS)$(D)OutFP2-Src-", "$(EVR)$(SEP=:)FrontOut2", "OUT2 (TTL)"}
+{"$(SYS)$(D)OutFP3-", "$(SYS)$(D)OutFP3-Src-", "$(EVR)$(SEP=:)FrontOut3", "OUT3 (TTL)"}
 # default to tri-state for IFB and backplane lines
 pattern
 {ON, ONSRC, OBJ, DESC, DEFAULT}
-{"$(SYS)-$(D):OutFPUV0-", "$(SYS)-$(D):OutFPUV0-Src-", "$(EVR):FrontUnivOut0", "UNIV0", 61}
-{"$(SYS)-$(D):OutFPUV1-", "$(SYS)-$(D):OutFPUV1-Src-", "$(EVR):FrontUnivOut1", "UNIV1", 61}
-{"$(SYS)-$(D):OutFPUV2-", "$(SYS)-$(D):OutFPUV2-Src-", "$(EVR):FrontUnivOut2", "UNIV2", 61}
-{"$(SYS)-$(D):OutFPUV3-", "$(SYS)-$(D):OutFPUV3-Src-", "$(EVR):FrontUnivOut3", "UNIV3", 61}
-{"$(SYS)-$(D):OutBack0-", "$(SYS)-$(D):OutBack0-Src-", "$(EVR):Backplane0", "RX17 (0)", 61}
-{"$(SYS)-$(D):OutBack1-", "$(SYS)-$(D):OutBack1-Src-", "$(EVR):Backplane1", "TX17 (1)", 61}
-{"$(SYS)-$(D):OutBack2-", "$(SYS)-$(D):OutBack2-Src-", "$(EVR):Backplane2", "RX18 (2)", 61}
-{"$(SYS)-$(D):OutBack3-", "$(SYS)-$(D):OutBack3-Src-", "$(EVR):Backplane3", "TX18 (3)", 61}
-{"$(SYS)-$(D):OutBack4-", "$(SYS)-$(D):OutBack4-Src-", "$(EVR):Backplane4", "RX19 (4)", 61}
-{"$(SYS)-$(D):OutBack5-", "$(SYS)-$(D):OutBack5-Src-", "$(EVR):Backplane5", "TX19 (5)", 61}
-{"$(SYS)-$(D):OutBack6-", "$(SYS)-$(D):OutBack6-Src-", "$(EVR):Backplane6", "RX20 (6)", 61}
-{"$(SYS)-$(D):OutBack7-", "$(SYS)-$(D):OutBack7-Src-", "$(EVR):Backplane7", "TX20 (7)", 61}
-{"$(SYS)-$(D):OutTCLKA-", "$(SYS)-$(D):OutTCLKA-Src-", "$(EVR):FrontUnivOut16", "TCLKA", 61}
-{"$(SYS)-$(D):OutTCLKB-", "$(SYS)-$(D):OutTCLKB-Src-", "$(EVR):FrontUnivOut17", "TCLKB", 61}
+{"$(SYS)$(D)OutFPUV0-", "$(SYS)$(D)OutFPUV0-Src-", "$(EVR)$(SEP=:)FrontUnivOut0", "UNIV0", 61}
+{"$(SYS)$(D)OutFPUV1-", "$(SYS)$(D)OutFPUV1-Src-", "$(EVR)$(SEP=:)FrontUnivOut1", "UNIV1", 61}
+{"$(SYS)$(D)OutFPUV2-", "$(SYS)$(D)OutFPUV2-Src-", "$(EVR)$(SEP=:)FrontUnivOut2", "UNIV2", 61}
+{"$(SYS)$(D)OutFPUV3-", "$(SYS)$(D)OutFPUV3-Src-", "$(EVR)$(SEP=:)FrontUnivOut3", "UNIV3", 61}
+{"$(SYS)$(D)OutBack0-", "$(SYS)$(D)OutBack0-Src-", "$(EVR)$(SEP=:)Backplane0", "RX17 (0)", 61}
+{"$(SYS)$(D)OutBack1-", "$(SYS)$(D)OutBack1-Src-", "$(EVR)$(SEP=:)Backplane1", "TX17 (1)", 61}
+{"$(SYS)$(D)OutBack2-", "$(SYS)$(D)OutBack2-Src-", "$(EVR)$(SEP=:)Backplane2", "RX18 (2)", 61}
+{"$(SYS)$(D)OutBack3-", "$(SYS)$(D)OutBack3-Src-", "$(EVR)$(SEP=:)Backplane3", "TX18 (3)", 61}
+{"$(SYS)$(D)OutBack4-", "$(SYS)$(D)OutBack4-Src-", "$(EVR)$(SEP=:)Backplane4", "RX19 (4)", 61}
+{"$(SYS)$(D)OutBack5-", "$(SYS)$(D)OutBack5-Src-", "$(EVR)$(SEP=:)Backplane5", "TX19 (5)", 61}
+{"$(SYS)$(D)OutBack6-", "$(SYS)$(D)OutBack6-Src-", "$(EVR)$(SEP=:)Backplane6", "RX20 (6)", 61}
+{"$(SYS)$(D)OutBack7-", "$(SYS)$(D)OutBack7-Src-", "$(EVR)$(SEP=:)Backplane7", "TX20 (7)", 61}
+{"$(SYS)$(D)OutTCLKA-", "$(SYS)$(D)OutTCLKA-Src-", "$(EVR)$(SEP=:)FrontUnivOut16", "TCLKA", 61}
+{"$(SYS)$(D)OutTCLKB-", "$(SYS)$(D)OutTCLKB-Src-", "$(EVR)$(SEP=:)FrontUnivOut17", "TCLKB", 61}
 }
 
 file "mrmevroutint.db"
 {{
-    ON="$(SYS)-$(D):OutInt-", OBJ="$(EVR)"
+    ON="$(SYS)$(D)OutInt-", OBJ="$(EVR)"
 }}
 
 file "evrcml.db"
 {pattern
 {PLINK, ON, ONFREQ, ONPAT, ONWFCALC, ONBT, OBJ}
-{"$(SYS)-$(D):Link-", "$(SYS)-$(D):OutTCLKA-", "$(SYS)-$(D):OutTCLKA-Freq-", "$(SYS)-$(D):OutTCLKA-Pat-", "$(SYS)-$(D):OutTCLKA-WfCalc-", "$(SYS)-$(D):OutTCLKA-BunchTrain-", "$(EVR):CML0"}
-{"$(SYS)-$(D):Link-", "$(SYS)-$(D):OutTCLKB-", "$(SYS)-$(D):OutTCLKB-Freq-", "$(SYS)-$(D):OutTCLKB-Pat-", "$(SYS)-$(D):OutTCLKB-WfCalc-", "$(SYS)-$(D):OutTCLKB-BunchTrain-", "$(EVR):CML1"}
+{"$(SYS)$(D)Link-", "$(SYS)$(D)OutTCLKA-", "$(SYS)$(D)OutTCLKA-Freq-", "$(SYS)$(D)OutTCLKA-Pat-", "$(SYS)$(D)OutTCLKA-WfCalc-", "$(SYS)$(D)OutTCLKA-BunchTrain-", "$(EVR)$(SEP=:)CML0"}
+{"$(SYS)$(D)Link-", "$(SYS)$(D)OutTCLKB-", "$(SYS)$(D)OutTCLKB-Freq-", "$(SYS)$(D)OutTCLKB-Pat-", "$(SYS)$(D)OutTCLKB-WfCalc-", "$(SYS)$(D)OutTCLKB-BunchTrain-", "$(EVR)$(SEP=:)CML1"}
 }
 
 # Pulse generators w/o a prescaler set NOPS=1
 file "evrpulser.db"
 {pattern
 {PID, P, PLINK, PN, PNDELAY, PNWIDTH, OBJ, DMAX, WMAX, PMAX, NOPS}
-{0, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
-{1, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
-{2, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
-{3, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
-{4, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{5, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{6, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{7, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{8, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{9, "$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{10,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{11,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{12,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{13,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{14,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{15,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{0, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
+{1, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
+{2, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
+{3, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
+{4, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{5, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{6, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{7, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{8, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{9, "$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{10,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{11,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{12,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{13,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{14,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{15,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
 # gate generators
-{28,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{29,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{30,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{31,"$(SYS)-$(D):", "$(SYS)-$(D):Link-", "$(SYS)-$(D):DlyGen$(PID)-", "$(SYS)-$(D):DlyGen$(PID)-Delay-", "$(SYS)-$(D):DlyGen$(PID)-Width-", "$(EVR):Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{28,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{29,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{30,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{31,"$(SYS)$(D)", "$(SYS)$(D)Link-", "$(SYS)$(D)DlyGen$(PID)-", "$(SYS)$(D)DlyGen$(PID)-Delay-", "$(SYS)$(D)DlyGen$(PID)-Width-", "$(EVR)$(SEP=:)Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
 }
 
 # Default to 3 possible trigger mappings per pulser
 file "evrpulsermap.db"
 {pattern
 {PID, NAME, OBJ, F, EVT}
-{0, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{0, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{0, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{1, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{1, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{1, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{2, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{2, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{2, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{3, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{3, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{3, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{4, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{4, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{4, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{5, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{5, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{5, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{6, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{6, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{6, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{7, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{7, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{7, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{8, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{8, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{8, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{9, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{9, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{9, "$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{10,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{10,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{10,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{11,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{11,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{11,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{12,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{12,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{12,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{13,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{13,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{13,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{14,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{14,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{14,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{15,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{15,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{15,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
+{0, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{0, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{0, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{1, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{1, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{1, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{2, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{2, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{2, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{3, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{3, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{3, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{4, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{4, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{4, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{5, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{5, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{5, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{6, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{6, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{6, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{7, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{7, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{7, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{8, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{8, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{8, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{9, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{9, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{9, "$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{10,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{10,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{10,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{11,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{11,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{11,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{12,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{12,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{12,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{13,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{13,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{13,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{14,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{14,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{14,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{15,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{15,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{15,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
 # gate generators mappings
-{28,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{28,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{28,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{29,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{29,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{29,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{30,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{30,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{30,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{31,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig0-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{31,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig1-SP", "$(EVR):Pul$(PID)", Trig, 0}
-{31,"$(SYS)-$(D):DlyGen$(PID)-Evt-Trig2-SP", "$(EVR):Pul$(PID)", Trig, 0}
+{28,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{28,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{28,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{29,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{29,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{29,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{30,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{30,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{30,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{31,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig0-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{31,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig1-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
+{31,"$(SYS)$(D)DlyGen$(PID)-Evt-Trig2-SP", "$(EVR)$(SEP=:)Pul$(PID)", Trig, 0}
 }
 
 # pulser masking controls
 file "evrdcpulser.template"
 {pattern
 {PID, P, PN, OBJ}
-{0, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{1, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{2, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{3, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{4, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{5, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{6, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{7, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{8, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{9, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{10, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{11, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{12, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{13, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{14, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
-{15, "$(SYS)-$(D):", "$(SYS)-$(D):DlyGen$(PID)-", "$(EVR):Pul$(PID)"}
+{0, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{1, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{2, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{3, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{4, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{5, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{6, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{7, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{8, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{9, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{10, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{11, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{12, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{13, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{14, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
+{15, "$(SYS)$(D)", "$(SYS)$(D)DlyGen$(PID)-", "$(EVR)$(SEP=:)Pul$(PID)"}
 }
 
 file "evrin.db"
 {pattern
 {IN, INTRIG, INCODE, OBJ, DESC}
-{"$(SYS)-$(D):In0-", "$(SYS)-$(D):In0-Trig-", "$(SYS)-$(D):In0-Code-", "$(EVR):FPIn0", "IN0 (TTL)"}
-{"$(SYS)-$(D):In1-", "$(SYS)-$(D):In1-Trig-", "$(SYS)-$(D):In1-Code-", "$(EVR):FPIn1", "IN1 (TTL)"}
+{"$(SYS)$(D)In0-", "$(SYS)$(D)In0-Trig-", "$(SYS)$(D)In0-Code-", "$(EVR)$(SEP=:)FPIn0", "IN0 (TTL)"}
+{"$(SYS)$(D)In1-", "$(SYS)$(D)In1-Trig-", "$(SYS)$(D)In1-Code-", "$(EVR)$(SEP=:)FPIn1", "IN1 (TTL)"}
 }
