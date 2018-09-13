@@ -15,7 +15,11 @@ EXPORT_VARS+=E3_SEQUENCER_NAME
 EXPORT_VARS+=E3_SEQUENCER_VERSION
 
 
+EXPORT_VARS+=QUIET
 EXPORT_VARS+=$(filter %_DEP_VERSION,$(.VARIABLES))
+EXPORT_VARS+=$(filter WITH_%,$(.VARIABLES))
+EXPORT_VARS+=$(filter SUDO%,$(.VARIABLES))
+
 export_version=$(eval export $1)
 $(eval $(foreach v,$(EXPORT_VARS),$(call export_version,$v)))
 
