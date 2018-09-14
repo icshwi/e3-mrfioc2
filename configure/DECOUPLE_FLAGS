@@ -10,7 +10,8 @@ asyn_VERSION=
 busy_VERSION=
 modbus_VERSION=
 ipmiComm_VERSION=
-sequencer_VERSION=
+# Remove sequencer....due to "duplicated" VARIABLES
+#sequencer_VERSION=
 sscan_VERSION=
 
 std_VERSION=
