@@ -12,9 +12,11 @@ ipmiComm_VERSION=
 #sequencer_VERSION=
 sscan_VERSION=
 
+
 std_VERSION=
 ip_VERSION=
 calc_VERSION=
+delaygen_VERSION=
 pcre_VERSION=
 stream_VERSION=
 s7plc_VERSION=
