@@ -18,3 +18,5 @@ header:
 	$(QUIET)echo ""
 
 
+existent:
+	$(QUIET)tree -L 2 $(E3_MODULES_PATH)/$(E3_MODULE_NAME)
