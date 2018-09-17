@@ -7,5 +7,6 @@ E3_REQUIRE_VERSION:=3.0.0
 
 
 # The definitions shown below can also be placed in an untracked RELEASE.local
+-include $(TOP)/../../RELEASE_DEV.local
 -include $(TOP)/../RELEASE_DEV.local
 -include $(TOP)/configure/RELEASE_DEV.local
