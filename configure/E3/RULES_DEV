@@ -1,6 +1,6 @@
 # -*- mode: Makefile;-*-
 
-.PHONY: devvars devenv devinit devbuild devclean devinstall devrebuild devuninstall devdistclean devepics devepics-clean devpatch devpatchrevert
+.PHONY: devvars devenv devinit devbuild devclean devinstall devrebuild devuninstall devdistclean devepics devepics-clean devpatch devpatchrevert devexistent
 
 devvars: vars
 
@@ -23,6 +23,7 @@ devepics: nonexists
 devepics-clean: nonexists
 devpatch: nonexists
 devpatchrevert: nonexists
+devexistent: nonexists
 nonexists:
 	$(QUIET)echo ""
 	$(QUIET)echo "------------------------------------------------------------"
@@ -44,6 +45,7 @@ devepics: epics
 devepics-clean: epics-clean
 devpatch: patch
 devpatchrevert: patchrevert
+devexistent: existent
 endif
 
 
