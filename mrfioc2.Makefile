@@ -29,8 +29,7 @@ ifneq ($(strip $(DEVLIB2_DEP_VERSION)),)
 devlib2_VERSION=$(DEVLIB2_DEP_VERSION)
 endif
 
-
-
+# Duplicated one with 3.0.1
 # mrfioc2/configure/CONFIG_SITE
 USR_CPPFLAGS += -DUSE_TYPED_RSET
 
