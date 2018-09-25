@@ -47,7 +47,7 @@ setup:
 	$(QUIET) echo ""
 	$(QUIET) echo "It is OK to see \"E3/RULES_DKMS:37: recipe for target 'setup' failed\""
 	$(QUIET) echo "---------------------------------------------------------------------"
-	$(QUIET) -ls /dev/uio* 2>/dev/null
+	$(QUIET) -ls -l /dev/uio* 2>/dev/null
 	$(QUIET) echo "---------------------------------------------------------------------"
 
 
