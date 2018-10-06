@@ -1,6 +1,6 @@
 # Variables should be transferred to module_name.makefile
 
-EPICS_HOST_ARCH:=$(shell $(EPICS_BASE)/startup/EpicsHostArch.pl)
+EPICS_HOST_ARCH:=$(-shell $(EPICS_BASE)/startup/EpicsHostArch.pl)
 # In near future, BASE may drop "startup" directory, so
 #
 ifeq ($(strip $(EPICS_HOST_ARCH)),)
