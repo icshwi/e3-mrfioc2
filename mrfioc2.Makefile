@@ -17,7 +17,7 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Thursday, September 13 19:06:31 CEST 2018
+# Date    : Friday, November  9 11:24:10 CET 2018
 # version : 0.0.6
 #
 
@@ -67,7 +67,8 @@ SOURCES += $(EVGMRMAPPSRC)/mrmevgseq.cpp
 SOURCES += $(EVGMRMAPPSRC)/seqconst.c
 SOURCES += $(EVGMRMAPPSRC)/seqnsls2.c
 
-SOURCES += $(EVGMRMAPPSRC)/fct.cpp
+fct_src := $(EVGMRMAPPSRC)/fct.cpp
+SOURCES += $(filter $(fct_src), $(wildcard $(EVGMRMAPPSRC)/*.cpp))
 
 DBDS    += $(EVGMRMAPPSRC)/evgInit.dbd
 
@@ -82,7 +83,8 @@ HEADERS += $(EVGMRMAPPSRC)/evgInput.h
 HEADERS += $(EVGMRMAPPSRC)/evgOutput.h
 HEADERS += $(EVGMRMAPPSRC)/mrmevgseq.h
 HEADERS += $(EVGMRMAPPSRC)/fct.h
-
+fct_hdr := $(EVGMRMAPPSRC)/fct.h
+HEADERS += $(filter $(fct_hdr), $(wildcard $(EVGMRMAPPSRC)/*.h))
 
 
 # COMMUNITY Dependency
@@ -265,8 +267,9 @@ USR_DBFLAGS += -I $(EVGMRMAPPDB)
 USR_DBFLAGS += -I $(EVRMRMAPPDB)
 USR_DBFLAGS += -I $(EVRAPPDB)
 
+evm_300_subs += $(wildcard $(EVGMRMAPPDB)/evm-*-ess.substitutions)
 
-EVG_SUBS=$(wildcard $(EVGMRMAPPDB)/*.substitutions)
+EVG_SUBS=$(filter $(mrmspi_src), $(wildcard $(EVGMRMAPPDB)/*.substitutions))
 EVG_TMPS=$(wildcard $(EVGMRMAPPDB)/*.template)
 EVR_SUBS=$(wildcard $(EVRMRMAPPDB)/*.substitutions)
 
@@ -274,20 +277,20 @@ EVR_SUBS=$(wildcard $(EVRMRMAPPDB)/*.substitutions)
 db: $(EVG_SUBS) $(EVR_SUBS) $(EVG_TMPS)
 
 $(EVG_SUBS):
-	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
+	@printf "Inflating database ... %48s >>> %40s \n" "$@" "$(basename $(@)).db"
 	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
 	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@  > $(basename $(@)).db.d
 	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db -S $@
 
 $(EVG_TMPS):
-	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
+	@printf "Inflating database ... %48s >>> %40s \n" "$@" "$(basename $(@)).db"
 	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
 	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db $@  > $(basename $(@)).db.d
 	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db $@
 
 
 $(EVR_SUBS):
-	@printf "Inflating database ... %44s >>> %40s \n" "$@" "$(basename $(@)).db"
+	@printf "Inflating database ... %48s >>> %40s \n" "$@" "$(basename $(@)).db"
 	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
 	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@  > $(basename $(@)).db.d
 	@$(MSI)    $(USR_DBFLAGS) -o $(basename $(@)).db -S $@
