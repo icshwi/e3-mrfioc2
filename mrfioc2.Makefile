@@ -267,9 +267,11 @@ USR_DBFLAGS += -I $(EVGMRMAPPDB)
 USR_DBFLAGS += -I $(EVRMRMAPPDB)
 USR_DBFLAGS += -I $(EVRAPPDB)
 
-evm_300_subs += $(wildcard $(EVGMRMAPPDB)/evm-*-ess.substitutions)
-
-EVG_SUBS=$(filter $(mrmspi_src), $(wildcard $(EVGMRMAPPDB)/*.substitutions))
+# The file exists in most Module versions, so we need to filter-out when E3_MODULE_VERSION is < 2.2.0-rc4
+# Can we do this? 
+# evm_300_subs += $(wildcard $(EVGMRMAPPDB)/evm-*-ess.substitutions)
+#EVG_SUBS=$(filter-out $(evm_300_subs), $(wildcard $(EVGMRMAPPDB)/*.substitutions))
+EVG_SUBS=$(wildcard $(EVGMRMAPPDB)/*.substitutions)
 EVG_TMPS=$(wildcard $(EVGMRMAPPDB)/*.template)
 EVR_SUBS=$(wildcard $(EVRMRMAPPDB)/*.substitutions)
 
@@ -277,6 +279,7 @@ EVR_SUBS=$(wildcard $(EVRMRMAPPDB)/*.substitutions)
 db: $(EVG_SUBS) $(EVR_SUBS) $(EVG_TMPS)
 
 $(EVG_SUBS):
+	@echo $(E3_MODULE_VERSION)
 	@printf "Inflating database ... %48s >>> %40s \n" "$@" "$(basename $(@)).db"
 	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
 	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@  > $(basename $(@)).db.d
