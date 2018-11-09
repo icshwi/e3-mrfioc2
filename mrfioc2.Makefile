@@ -279,7 +279,6 @@ EVR_SUBS=$(wildcard $(EVRMRMAPPDB)/*.substitutions)
 db: $(EVG_SUBS) $(EVR_SUBS) $(EVG_TMPS)
 
 $(EVG_SUBS):
-	@echo $(E3_MODULE_VERSION)
 	@printf "Inflating database ... %48s >>> %40s \n" "$@" "$(basename $(@)).db"
 	@rm -f  $(basename $(@)).db.d  $(basename $(@)).db
 	@$(MSI) -D $(USR_DBFLAGS) -o $(basename $(@)).db -S $@  > $(basename $(@)).db.d
