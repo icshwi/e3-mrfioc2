@@ -67,6 +67,8 @@ SOURCES += $(EVGMRMAPPSRC)/mrmevgseq.cpp
 SOURCES += $(EVGMRMAPPSRC)/seqconst.c
 SOURCES += $(EVGMRMAPPSRC)/seqnsls2.c
 
+SOURCES += $(EVGMRMAPPSRC)/fct.cpp
+
 DBDS    += $(EVGMRMAPPSRC)/evgInit.dbd
 
 HEADERS += $(EVGMRMAPPSRC)/evgMrm.h
@@ -79,6 +81,7 @@ HEADERS += $(EVGMRMAPPSRC)/evgDbus.h
 HEADERS += $(EVGMRMAPPSRC)/evgInput.h
 HEADERS += $(EVGMRMAPPSRC)/evgOutput.h
 HEADERS += $(EVGMRMAPPSRC)/mrmevgseq.h
+HEADERS += $(EVGMRMAPPSRC)/fct.h
 
 
 
