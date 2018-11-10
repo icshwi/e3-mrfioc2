@@ -23,7 +23,7 @@
 
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include ${E3_REQUIRE_TOOLS}/driver.makefile
-include $(where_am_I)/../configure/DECOUPLE_FLAGS
+include $(E3_REQUIRE_CONFIG)/DECOUPLE_FLAGS
 
 ifneq ($(strip $(DEVLIB2_DEP_VERSION)),)
 devlib2_VERSION=$(DEVLIB2_DEP_VERSION)
@@ -301,3 +301,7 @@ $(EVR_SUBS):
 .PHONY: db $(EVG_SUBS) $(EVR_SUBS) $(EVG_TMPS)
 
 
+#
+.PHONY: vlibs
+vlibs:
+#

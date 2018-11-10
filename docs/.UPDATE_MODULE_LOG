@@ -1,0 +1,14 @@
+
+>>
+Update Log Time    : 2018Nov10-1813-28CET
+>>
+Script is used     : e3TemplateGenerator
+Script Path        : /home/jhlee/gitsrc/e3-tools/e3TemplateGenerator
+User               : jhlee
+e3 repo Hash       : 90415f4
+
+EPICS_MODULE_NAME  :                            mrfioc2
+E3 MODULE VERSION  :                          2.2.0-rc4
+EPICS BASE VERSION :                        base-3.15.5
+E3 REQUIRE VERSION :                              3.0.2
+>>
