@@ -1,10 +1,10 @@
 #
-.PHONY: db pv epics epics-clean
+.PHONY: db hdrs epics epics-clean
 
 db: conf
 	$(QUIET) $(E3_MODULE_MAKE_CMDS) db
 
-pv:
+hdrs:
 #	$(SUDO) install -m 755 -d $(E3_MODULES_INSTALL_LOCATION_INC)/pv
 #	cd $(E3_MODULES_INSTALL_LOCATION_INC) && $(SUDO) mv *.h pv/
 
