@@ -1,15 +1,9 @@
 # This the full setup for the Timing System with E3.
 #
 
-require devlib2, 2.9.0
-require mrfioc2, 2.2.0
-require iocStats, 1856ef5
+require mrfioc2, 2.2.0-rc4
+#require iocStats, 1856ef5
 #require autosave, 5.8.0
-
-epicsEnvSet("ENGINEER","hanlee x3409")
-epicsEnvSet("LOCATION","Rack 1 at ICS Tuna Lab")
-
-epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES","10000000")
 
 epicsEnvSet("IOC", "TS01-CPCI")
 epicsEnvSet("DEV1", "EVG0")
@@ -24,8 +18,8 @@ epicsEnvSet("ESSEvtClockRate"  "88.0525")
 
 mrmEvgSetupPCI($(DEV1), "16:0e.0")
 mrmEvrSetupPCI($(DEV2),  "16:09.0")
-dbLoadRecords("cpci-evg230-ess.db",  "SYS=$(IOC), D=$(DEV1), EVG=$(DEV1), FEVT=$(ESSEvtClockRate), FRF=$(ESSEvtClockRate), FDIV=1")
-dbLoadRecords("evr-cpci-230.db","SYS=$(IOC), D=$(DEV2), EVR=$(DEV2),  FEVT=$(ESSEvtClockRate)")
+dbLoadRecords("evg-cpci-230-ess.db",  "SYS=$(IOC), D=$(DEV1), EVG=$(DEV1), FEVT=$(ESSEvtClockRate), FRF=$(ESSEvtClockRate), FDIV=1")
+dbLoadRecords("evr-cpci-230-ess.db","SYS=$(IOC), D=$(DEV2), EVR=$(DEV2),  FEVT=$(ESSEvtClockRate)")
 
 # needed with software timestamp source w/o RT thread scheduling
 var evrMrmTimeNSOverflowThreshold 100000
@@ -33,7 +27,7 @@ var evrMrmTimeNSOverflowThreshold 100000
 # mrmEvrLoopback($(DEV2),1,0)
 
 # iocStats
-dbLoadRecords("iocAdminSoft.db", "IOC=$(IOC)-IocStats")
+#dbLoadRecords("iocAdminSoft.db", "IOC=$(IOC)-IocStats")
 
 
 # Auto save/restore
@@ -56,7 +50,7 @@ dbLoadRecords("iocAdminSoft.db", "IOC=$(IOC)-IocStats")
 iocInit()
 
 
-dbl > "${IOC}_PVs.list"
+#dbl > "${IOC}_PVs.list"
 
 
 #makeAutosaveFileFromDbInfo("${AUTOSAVE}/mrf_settings.req",  "autosaveFields_pass0")
@@ -68,10 +62,10 @@ dbl > "${IOC}_PVs.list"
 #create_monitor_set("mrf_waveforms.req", 30 , "")
 
 
-dbpf "$(IOC)-$(DEV1):1ppsInp-Sel" "Sys Clk"
+#dbpf "$(IOC)-$(DEV1):1ppsInp-Sel" "Sys Clk"
 
 ############### Configure RF input ##########
-dbpf $(IOC)-$(DEV1):EvtClk-Source-Sel "RF"
+dbpf $(IOC)-$(DEV1):EvtClk-Source-Sel "RF (Ext)"
 dbpf $(IOC)-$(DEV1):EvtClk-RFFreq-SP 88.0525
 dbpf $(IOC)-$(DEV1):EvtClk-RFDiv-SP 1
 ############### Configure RF input ##########
@@ -97,7 +91,7 @@ dbpf $(IOC)-$(DEV1):SoftSeq0-Enable-Cmd 1
 system("/bin/sh ./configure_sequencer_14Hz.sh $(IOC) $(DEV1)")
 ############## Master Event Rate 14 Hz ##############
 
-# # Heart Beat 1 Hz
+# Heart Beat 1 Hz
 dbpf $(IOC)-$(DEV1):Mxc7-Prescaler-SP 88052500
 dbpf $(IOC)-$(DEV1):TrigEvt7-EvtCode-SP $(HeartBeatEvtCODE)
 dbpf $(IOC)-$(DEV1):TrigEvt7-TrigSrc-Sel "Mxc7"
@@ -108,13 +102,9 @@ dbpf $(IOC)-$(DEV1):TrigEvt7-TrigSrc-Sel "Mxc7"
 #dbpf $(IOC)-$(DEV1):TrigEvt6-TrigSrc-Sel "Mxc6"
 
 # # EVR configuration
-# # Set delay compensation to 70 ns, needed to avoid timesptamp issue
-# dbpf $(IOC)-$(DEV1):DC-Tgt-SP 70
 # dbpf $(IOC)-$(DEV2):DlyGen0-Width-SP 10000
 # dbpf $(IOC)-$(DEV2):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 # dbpf $(IOC)-$(DEV2):OutFPUV0-Src-Pulse-SP "Pulser 0"
 
 epicsThreadSleep 5
 dbpf $(IOC)-$(DEV1):SyncTimestamp-Cmd 1
-
-
