@@ -23,7 +23,7 @@ iocInit
 
 ## CPCI EVR 230
 
-We assume that there are more than one EVR in the system. The random_cpci.bash evr generates number of EVRs, which are installed in the system. Thus, please expand DEV numbers according to the exact system number. The following example has the assumption that we have 3 EVRs.
+We assume that there are more than one EVR in the system. The ```random_cpci.bash evr`` generates the configuration for all EVRs, which are installed in the system. Thus, please expand DEV variables according to the total number of EVRs. The following example has the assumption that we have 3 EVRs.
 
 ```
 require mrfioc2, 2.2.0-rc4
