@@ -19,8 +19,8 @@
 #
 #   author  : Jeong Han Lee
 #   email   : jeonghan.lee@gmail.com
-#   date    : Tuesday, December  4 19:09:43 CET 2018
-#   version : 0.0.2
+#   date    : Tuesday, December  4 22:28:45 CET 2018
+#   version : 0.0.3
 
 EXIST=1
 NON_EXIST=0
@@ -33,7 +33,7 @@ declare -i i=0;
 function checkIfVar()
 {
 
-    local var=$1
+    local var=$1;shift;
     local result=""
     if [ -z "$var" ]; then
 	result=$NON_EXIST
@@ -45,10 +45,33 @@ function checkIfVar()
     echo "${result}"
 }
 
+## if [[ $(checkIfFile "${release_file}") -eq "$NON_EXIST" ]]; then
+#   NON_EXIT
+## fi
+
+function checkIfFile
+{
+    local file=$1; shift;
+    local result=""
+    if [ ! -e "$file" ]; then
+	result=$NON_EXIST
+	# doesn't exist
+    else
+	result=$EXIST
+	# exist
+    fi
+    echo "${result}"
+};
+
+
+
 CPCIEVR230="10e6"
 CPCIEVG230="20e6"
-CPCIEVR230="17aa"
-CPCIEVG230="3b64"
+
+# logic test, dummy ids
+#CPCIEVR230="2166"
+#CPCIEVG230="3b64"
+
 EVG_RANDOM_IN="${SC_TOP}/random_cpci_evg.in"
 EVG_RANDOM_OUT="${SC_TOP}/random_cpci_evg.cmd"
 EVR_RANDOM_IN="${SC_TOP}/random_cpci_evr.in"
@@ -77,10 +100,11 @@ case "$1" in
 
 esac
 
-
-printf "Device ID %s\n" "${DEVICEID}"
-printf "In        %s\n" "${RANDOM_IN}"
-printf "Out       %s\n" "${RANDOM_OUT}"
+if [ "$2" == "v" ]; then
+    printf "Device ID %s\n" "${DEVICEID}"
+    printf "In        %s\n" "${RANDOM_IN}"
+    printf "Out       %s\n" "${RANDOM_OUT}"
+fi
 
 list="$(lspci -nm |grep ${DEVICEID} | cut -d' ' -f1)"
 
@@ -88,11 +112,11 @@ if [ "$1" = "evg" ]; then
     sed -e "s\\_deviceid_\\${list}\\g" < ${RANDOM_IN} > ${RANDOM_OUT}
     
 elif  [ "$1" = "evr" ]; then
-    rm ${RANDOM_OUT}
     for rep in  ${list[@]}; do
-	
 	i+=1;
-	echo $i $rep
+	if [ "$2" == "v" ]; then
+	    echo $i $rep
+	fi
 	if [ "$i" -eq 1 ]; then
 	    sed -e "s\\_NUM_\\${i}\\g;s\\_deviceid_\\${rep}\\g" < ${RANDOM_IN} > ${RANDOM_OUT}
 	elif  [ "$i" -gt 1 ]; then
@@ -101,6 +125,9 @@ elif  [ "$1" = "evr" ]; then
     done
 fi
 
-more ${RANDOM_OUT}
+if [ "$2" == "v" ]; then
+    more ${RANDOM_OUT}
+fi
 
+exit
 
