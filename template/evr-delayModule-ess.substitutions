@@ -1,4 +1,4 @@
-# Record set for a cPCI-EVR-230
+# Delay Module control
 #
 # Macros:
 #  EVR = Card name (same as mrmEvrSetupPCI())
