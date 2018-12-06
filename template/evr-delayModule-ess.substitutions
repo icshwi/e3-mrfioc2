@@ -1,0 +1,14 @@
+# Record set for a cPCI-EVR-230
+#
+# Macros:
+#  EVR = Card name (same as mrmEvrSetupPCI())
+#  SYS = System name (ie SR-TM)
+#  D = Device name (ie EVR:Diag2)
+#  SLOT = populated universal module slot
+
+file "mrmevrdlymodule.template"
+{pattern
+{P, OBJ}
+{"$(SYS)-$(D):UnivDlyModule$(SLOT)-", "$(EVR)"}
+}
+

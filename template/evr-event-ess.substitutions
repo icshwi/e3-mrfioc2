@@ -1,0 +1,16 @@
+# Mapping between hardware event code and a software database event
+#
+# Macros:
+#  EVR = Card name (same as mrmEvrSetupPCI())
+#  SYS = System name (ie SR-TM)
+#  D = Device name (ie EVR:Diag2)
+#  OBJ = EVR devObj name
+#  CODE = Event code (hardware)
+#  EVNT = Database event code (software)
+
+file "evrevent.db"
+{pattern
+{EN, OBJ, CODE, EVNT}
+{"$(SYS)-$(D):Evt$(CODE)", "$(EVR)", "$(CODE)", "$(EVNT)"}
+}
+
