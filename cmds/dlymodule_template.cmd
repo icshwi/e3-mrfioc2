@@ -36,6 +36,7 @@ dbpf $(IOC)-$(DEV1):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 dbpf $(IOC)-$(DEV1):DlyGen0-Width-SP 1000 # time in us
 dbpf $(IOC)-$(DEV1):OutFPUV0-Src-SP 0 # trigger from delay generator 0
 dbpf $(IOC)-$(DEV1):OutFPUV2-Src-SP 0 # trigger from delay generator 0
+dbpf $(IOC)-$(DEV1):OutFPUV3-Src-SP 0 # trigger from delay generator 0
 ### This should be run manually after starting the IOC ###
 # dbpf $(IOC)-$(DEV1):UnivDlyModule1-Delay0-SP 5
 # dbpf $(IOC)-$(DEV1):UnivDlyModule1-Delay1-SP 8
