@@ -19,7 +19,7 @@ epicsEnvSet("ESSEvtClockRate"  "88.0525")
 
 mrmEvgSetupPCI("DEVICE", "16:0e.0")
 
-dbLoadRecords("cpci-evg230-ess.db", "SYS=$(IOC), D=$(DEV1), EVG=$(DEV1), FEVT=$(ESSEvtClockRate), FRF=352.21, FDIV=4")
+dbLoadRecords("evg-cpci-230-ess.db", "SYS=$(IOC), D=$(DEV1), EVG=$(DEV1), FEVT=$(ESSEvtClockRate), FRF=352.21, FDIV=4")
 
 # needed with software timestamp source w/o RT thread scheduling
 var evrMrmTimeNSOverflowThreshold 100000
