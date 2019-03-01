@@ -2906,7 +2906,7 @@ $(pv_value)</tooltip>
           <path>evg-seq.opi</path>
           <macros>
             <include_parent_macros>true</include_parent_macros>
-            <SS>SoftSeq:0</SS>
+            <SS>SoftSeq0</SS>
           </macros>
           <mode>1</mode>
           <description>SoftSeq 0</description>
@@ -2915,7 +2915,7 @@ $(pv_value)</tooltip>
           <path>evg-seq.opi</path>
           <macros>
             <include_parent_macros>true</include_parent_macros>
-            <SS>SoftSeq:1</SS>
+            <SS>SoftSeq1</SS>
           </macros>
           <mode>1</mode>
           <description>SoftSeq 1</description>
@@ -2924,7 +2924,7 @@ $(pv_value)</tooltip>
           <path>evg-seq.opi</path>
           <macros>
             <include_parent_macros>true</include_parent_macros>
-            <SS>SoftSeq:2</SS>
+            <SS>SoftSeq2</SS>
           </macros>
           <mode>1</mode>
           <description>SoftSeq 2</description>
