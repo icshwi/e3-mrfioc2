@@ -31,6 +31,9 @@ iocInit()
 ### Set delay compensation to 70 ns, needed to avoid timesptamp issue ###
 dbpf $(IOC)-$(DEV1):DC-Tgt-SP 70
 
+### Set the correct frequency to calculate the timestamp nanosecond part (assuming EVG uses external RF) ###
+dbpf $(IOC)-$(DEV1):Time-Clock-SP $(ESSEvtClockRate)
+
 ### Trigger OutFPUV0, OutFPUV2 and OutFPUV3 at 14 Hz, OutFPUV2 has a delay of 5 ns and OutFPUV3 of 8 ns ###
 dbpf $(IOC)-$(DEV1):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 dbpf $(IOC)-$(DEV1):DlyGen0-Width-SP 1000 # time in us

@@ -31,3 +31,6 @@ iocInit()
 ### Set delay compensation to 70 ns, needed to avoid timesptamp issue ###
 dbpf $(IOC)-$(DEV1):DC-Tgt-SP 70
 
+# Set the correct frequency to calculate the timestamp nanosecond part (assuming EVG uses external RF)
+dbpf $(IOC)-$(DEV1):Time-Clock-SP $(ESSEvtClockRate)
+

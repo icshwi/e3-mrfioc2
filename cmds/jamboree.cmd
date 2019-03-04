@@ -49,10 +49,12 @@ dbpf $(IOC)-$(DEV1):TrigEvt7-TrigSrc-Sel "Mxc7"
 
 # EVR configuration
 dbpf $(IOC)-$(DEV2):DC-Tgt-SP 70
+dbpf $(IOC)-$(DEV2):Time-Clock-SP $(ESSEvtClockRate)
 dbpf $(IOC)-$(DEV2):DlyGen0-Width-SP 10000
 dbpf $(IOC)-$(DEV2):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 dbpf $(IOC)-$(DEV2):OutFPUV0-Src-SP 0
 dbpf $(IOC)-$(DEV3):DC-Tgt-SP 70
+dbpf $(IOC)-$(DEV3):Time-Clock-SP $(ESSEvtClockRate)
 dbpf $(IOC)-$(DEV3):DlyGen0-Width-SP 10000
 dbpf $(IOC)-$(DEV3):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 dbpf $(IOC)-$(DEV3):OutFPUV0-Src-SP 0

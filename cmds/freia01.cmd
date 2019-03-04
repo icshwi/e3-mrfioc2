@@ -80,6 +80,9 @@ dbpf $(IOC)-$(DEV1):TrigEvt7-TrigSrc-Sel "Mxc7"
 # dbpf $(IOC)-$(DEV2):DlyGen0-Width-SP 10000
 # dbpf $(IOC)-$(DEV2):DlyGen0-Evt-Trig0-SP $(MainEvtCODE)
 # dbpf $(IOC)-$(DEV2):OutFPUV0-Src-Pulse-SP "Pulser 0"
+# # Set the correct frequency to calculate the timestamp nanosecond part (assuming EVG uses external RF)
+# dbpf $(IOC)-$(DEV2):Time-Clock-SP $(ESSEvtClockRate)
+
 
 # Is there something similar to sleep(5)????
 dbpf $(IOC)-$(DEV1):SyncTimestamp-Cmd 1
