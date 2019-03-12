@@ -1,0 +1,20 @@
+#- ###   ESS PCIE EVR 300DC Configuration iocsh     ###
+#- ####################################################
+#- >> Mandatory
+#- DEV            - Device Name
+#- PCIID          - PCI Address 
+#- SYS            - SYS prefix for the naming
+#- >> Optional
+#- EVTCLOCKRATE   - Event Clock Rate, ESS 88.0525
+#  RT             - software timestamp source w/o RT thread scheduling
+#                   wtRT : diable software timestamp source
+#                   woRT : Default, enable it. 
+#- ####################################################
+#-iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "DEV=$(DEV), SYS=$(IOC), PCIID=03:00.0")
+#-iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "DEV=$(DEV), SYS=$(IOC), PCIID=03:00.0, RT=wtRT")
+
+mrmEvrSetupPCI("$(DEV)",  "$(PCIID)")
+dbLoadRecords("evr-pcie-300dc-ess.db","EVR=$(DEV), SYS=$(IOC), D=$(DEV), FEVT=$(EVTCLOCKRATE=88.0525)")
+iocshRun('$(SWTIMESTAMP_$(RT=woRT)=) var(evrMrmTimeNSOverflowThreshold, 100000)', "SWTIMESTAMP_wtRT=#") 
+#-
+#- Don't forget the new line

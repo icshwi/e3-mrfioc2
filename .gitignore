@@ -16,3 +16,4 @@ dkms/dkms_with_msi.conf
 core*
 random_cpci_evr.cmd
 random_cpci_evg.cmd
+*.list

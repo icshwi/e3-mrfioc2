@@ -17,8 +17,8 @@
 #
 # Author  : Jeong Han Lee
 # email   : han.lee@esss.se
-# Date    : Friday, November  9 11:24:10 CET 2018
-# version : 0.0.6
+# Date    : Tuesday, March 12 13:41:50 CET 2019
+# version : 0.0.7
 #
 
 where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
@@ -242,7 +242,7 @@ version.h:
 	$(PERL) -I$(EPICS_BASE)/lib/perl $(where_am_I)/$(MRFCOMMOM)/genVersionHeader.pl -t "" -V $(E3_MODULE_VERSION) -N MRF_VERSION $(where_am_I)/$(MRFCOMMOM)/mrf/$@
 
 
-
+SCRIPTS += $(wildcard ../iocsh/*.*sh)
 
 TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.db)
 TEMPLATES += $(wildcard $(EVRAPPDB)/*.db)
