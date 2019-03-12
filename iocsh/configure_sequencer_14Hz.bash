@@ -1,6 +1,9 @@
 #!/bin/bash
 # Bash script to configure the EVG/EVR sequencer
 # All values in us
+# Record names have the general forms:
+# $(SYS)-$(D):Signal-SD
+# $(SYS)-$(D):SubDev-Signal-SD
 
 SYS="$1"
 DEV="$2"

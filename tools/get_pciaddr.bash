@@ -79,39 +79,67 @@ MTCAEVM300="232c"
 #CPCIEVR230="2166"
 #CPCIEVG230="3b64"
 
+EVR_CPCI_220="cpcievr220"
+EVR_CPCI_230="cpcievr230"
+EVR_CPCI_300="cpcievr300"
+EVR_PCIE_300="pcieevr300"
+EVR_MTCA_300="mtcaevr300"
+EVG_CPCI_220="cpcievg220"
+EVG_CPCI_230="cpcievg230"
+EVG_CPCI_300="cpcievg300"
+EVM_MTCA_300="mtcaevm300"
+
+options+=${EVR_CPCI_220}
+options+="|"
+options+=${EVR_CPCI_230}
+options+="|"
+options+=${EVR_CPCI_300}
+options+="|"
+options+=${EVR_PCIE_300}
+options+="|"
+options+=${EVR_MTCA_300}
+options+="|"
+options+=${EVG_CPCI_220}
+options+="|"
+options+=${EVG_CPCI_230}
+options+="|"
+options+=${EVG_CPCI_300}
+options+="|"
+options+=${EVM_MTCA_300}
+
 
 
 case "$1" in
 
-    cpcievr220)
+    ${EVR_CPCI_220})
 	DEVICEID=${CPICEVR220}
 	;;
-    cpcievr230)
+    ${EVR_CPCI_230})
 	DEVICEID=${CPICEVR230}
 	;;
-    cpcievr300)
+    ${EVR_CPCI_300})
 	DEVICEID=${CPICEVR300}
 	;;
-    pcieevr300)
+    ${EVR_PCIE_300})
 	DEVICEID=${PCIEEVR300}
 	;;
-    mtcaevr300)
+    ${EVR_MTCA_300})
 	DEVICEID=${MTCAEVR300}
 	;;
-    cpcievg220)
+    ${EVG_CPCI_220})
 	DEVICEID=${CPICEVG220}
 	;;
-    cpcievg230)
+    ${EVG_CPCI_230})
 	DEVICEID=${CPICEVG230}
 	;;
-    cpcievg300)
+    ${EVG_CPCI_300})
 	DEVICEID=${CPICEVG300}
 	;;
-    mtcaevm300)
+    ${EVM_MTCA_300})
 	DEVICEID=${MTCAEVM300}
 	;;
      *)
-	echo "Usage: $0 {pcieevr300|mtcaevr300|....}"
+	echo "Usage: $0 ${options} "
 	exit 1;
 	;;
 

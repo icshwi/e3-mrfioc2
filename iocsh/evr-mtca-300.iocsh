@@ -1,4 +1,4 @@
-#- ###   ESS PCIE EVR 300DC Configuration iocsh     ###
+#- ###   ESS MTCA EVR 300   Configuration iocsh     ###
 #- ####################################################
 #- >> Mandatory
 #- PCIID          - PCI Address 
@@ -12,11 +12,12 @@
 #                   wtRT : diable software timestamp source
 #                   woRT : Default, enable it. 
 #- ####################################################
-#-iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=03:00.0")
-#-iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=03:00.0, RT=wtRT")
+#-iocshLoad("$(mrfioc2_DIR)evr-mtca-300.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0b:00.0")
+#-iocshLoad("$(mrfioc2_DIR)evr-mtca-300.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0b:00.0, RT=wtRT")
 #-
 mrmEvrSetupPCI("$(DEV)",  "$(PCIID)")
-dbLoadRecords("evr-pcie-300dc-ess.db","EVR=$(DEV), SYS=$(S), D=$(DEV), FEVT=$(EVTCLOCKRATE=88.0525)")
+dbLoadRecords("evr-mtca-300u-ess.db","EVR=$(DEV), SYS=$(S), D=$(DEV), FEVT=$(EVTCLOCKRATE=88.0525)")
 iocshRun('$(SWTIMESTAMP_$(RT=woRT)=) var(evrMrmTimeNSOverflowThreshold, 100000)', "SWTIMESTAMP_wtRT=#") 
 #-
 #- Don't forget the new line
+

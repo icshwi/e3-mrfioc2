@@ -1,33 +1,31 @@
 #- ###   ESS EVR Standalone Mode Configuration iocsh     ###
 #- ####################################################
 #- >> Mandatory
-#- DEV            - Device Name
-#- SYS            - SYS prefix for the naming
+#- S            -  System name for Record 
+#- DEV          -  Record names have the general forms:
+#                  $(S)-$(DEV):Signal-SD
+#                  $(S)-$(DEV):SubDev-Signal-SD
 #- ####################################################
 #- 
-#- iocshLoad("$(mrfioc2_DIR)/evr-standalone-mode.iocsh", "DEV=$(DEV), SYS=$(IOC)")
+#- iocshLoad("$(mrfioc2_DIR)/evr-standalone-mode.iocsh", "S=$(IOC), DEV=$(DEV)")
 #- WARNING : THIS SCRIPT should be called after iocInit
-# Get current time from system clock
-dbpf $(SYS)-$(DEV):TimeSrc-Sel "Sys. Clock"
-
-# Set delay compensation to 70 ns, needed to avoid timesptamp issue
-dbpf $(SYS)-$(DEV):DC-Tgt-SP 70
-
-# Set up the prescaler that will trigger the sequencer at 14 Hz
-dbpf $(SYS)-$(DEV):PS0-Div-SP 6289464
-
-
-# Set up the sequencer
-# Set the runmode to normal, so that the sequencer re-arms after it finishes running
-dbpf $(SYS)-$(DEV):SoftSeq0-RunMode-Sel "Normal"
-# Set the trigger of the sequencer as prescaler 0
-dbpf $(SYS)-$(DEV):SoftSeq0-TrigSrc-2-Sel "Prescaler 0"
-# Set the EGU (msec) for the delay
-dbpf $(SYS)-$(DEV):SoftSeq0-TsResolution-Sel "uSec"
-# Attach the soft sequence to a specific hardware sequence
-dbpf $(SYS)-$(DEV):SoftSeq0-Load-Cmd 1
-# Enable the sequencer
-dbpf $(SYS)-$(DEV):SoftSeq0-Enable-Cmd 1
-
-
-system("/bin/bash $(mrfioc2_DIR)configure_sequencer_14Hz.bash $(IOC) $(DEV)")
+#- 
+#- Get current time from system clock
+dbpf $(S)-$(DEV):TimeSrc-Sel "Sys. Clock"
+#- Set delay compensation to 70 ns, needed to avoid timesptamp issue
+dbpf $(S)-$(DEV):DC-Tgt-SP 70
+#- Set up the prescaler that will trigger the sequencer at 14 Hz
+dbpf $(S)-$(DEV):PS0-Div-SP 6289464
+#- Set up the sequencer
+#- Set the runmode to normal, so that the sequencer re-arms after it finishes running
+dbpf $(S)-$(DEV):SoftSeq0-RunMode-Sel "Normal"
+#- Set the trigger of the sequencer as prescaler 0
+dbpf $(S)-$(DEV):SoftSeq0-TrigSrc-2-Sel "Prescaler 0"
+#- Set the EGU (msec) for the delay
+dbpf $(S)-$(DEV):SoftSeq0-TsResolution-Sel "uSec"
+#- Attach the soft sequence to a specific hardware sequence
+dbpf $(S)-$(DEV):SoftSeq0-Load-Cmd 1
+#- Enable the sequencer
+dbpf $(S)-$(DEV):SoftSeq0-Enable-Cmd 1
+#-
+system("/bin/bash $(mrfioc2_DIR)configure_sequencer_14Hz.bash $(S) $(DEV)")
