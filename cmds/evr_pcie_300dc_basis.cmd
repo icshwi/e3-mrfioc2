@@ -14,7 +14,3 @@ iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "DEV=$(DEV), SYS=$(IOC), PCIID=
 iocInit()
 
 dbl > "${IOC}_PVs.list"
-
-# The following script should be called after iocInit()
-iocshLoad("$(mrfioc2_DIR)/evr-standalone-mode.iocsh", "DEV=$(DEV), SYS=$(IOC)")
-
