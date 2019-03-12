@@ -1,5 +1,16 @@
 # e3-mrfioc2
 
+## Check the PCI Address of MRF HW
+One can find the correct PCI Address by `lspci` command, and e3 also provide a wrapper script for this. 
+```
+$ bash tools/get_pciaddr.bash 
+Usage: tools/get_pciaddr.bash cpcievr220|cpcievr230|cpcievr300|pcieevr300|mtcaevr300|cpcievg220|cpcievg230|cpcievg300|mtcaevm300 
+```
+For example, if one has one MRF PCIE EVR 300DC, one can find 
+```sh
+$ bash tools/get_pciaddr.bash pcieevr300
+1 : Input pcieevr300 ---- PCI ID    03:00.0
+```
 
 ## Kernel module (mrf.ko) can be installed via DKMS
 
