@@ -4,7 +4,10 @@
 One can find the correct PCI Address by `lspci` command, and e3 also provide a wrapper script for this. 
 ```
 $ bash tools/get_pciaddr.bash 
-Usage: tools/get_pciaddr.bash cpcievr220|cpcievr230|cpcievr300|pcieevr300|mtcaevr300|cpcievg220|cpcievg230|cpcievg300|mtcaevm300 
+Usage: get_pciaddr.bash possible_devices [cpcievr220|cpcievr230|cpcievr300|pcieevr300
+                                          |mtcaevr300|cpcievg220|cpcievg230|
+										  cpcievg300|mtcaevm300] 
+
 ```
 For example, if one has one MRF PCIE EVR 300DC, one can find 
 ```sh

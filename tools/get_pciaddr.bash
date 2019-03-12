@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+#  Copyright (c) 2019  Jeong Han Lee
 #  Copyright (c) 2019  European Spallation Source ERIC
 #
 #  The program is free software: you can redistribute
@@ -18,8 +19,8 @@
 #
 #   author  : Jeong Han Lee
 #   email   : jeonghan.lee@gmail.com
-#   date    : Tuesday, March 12 09:47:01 CET 2019
-#   version : 0.0.1
+#   date    : Tuesday, March 12 22:11:36 CET 2019
+#   version : 0.0.2
 
 EXIST=1
 NON_EXIST=0
@@ -139,7 +140,7 @@ case "$1" in
 	DEVICEID=${MTCAEVM300}
 	;;
      *)
-	echo "Usage: $0 ${options} "
+	echo "Usage: ${0##*/} possible_devices [${options}] "
 	exit 1;
 	;;
 
