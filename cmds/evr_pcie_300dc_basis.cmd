@@ -10,8 +10,8 @@ epicsEnvSet("DEV", "EVR")
 # Not use in this script, but it is needed for the expansion. 
 epicsEnvSet("MainEvtCODE" "14")
 
-iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "DEV=$(DEV), IOC=$(IOC), PCIID=03:00.0")
-#iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "DEV=$(DEV), IOC=$(IOC), PCIID=03:00.0, RT=wtRT")
+iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=03:00.0")
+#iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=03:00.0, RT=wtRT")
 
 iocInit()
 
