@@ -1,0 +1,20 @@
+#- ###   ESS EVR Standalone Mode Configuration iocsh     ###
+#- ####################################################
+#- >> Mandatory
+#- S            -  System name for Record 
+#- DEV          -  Record names have the general forms:
+#-                  $(S)-$(DEV):Signal-SD
+#-                  $(S)-$(DEV):SubDev-Signal-SD
+#- >> Optional
+#- EVENTCODE    -  14
+#- WIDTH        -  Pulse Width 1000 (unit ms)
+#- ####################################################
+#- 
+#- iocshLoad("$(mrfioc2_DIR)/univ0-ttl-output.iocsh", "S=$(IOC), DEV=$(DEV)")
+#- WARNING : THIS SCRIPT should be called after iocInit
+#- 
+dbpf $(S)-$(DEV):DlyGen0-Evt-Trig0-SP $(EVENTCODE=14)
+dbpf $(S)-$(DEV):DlyGen0-Width-SP $(WIDTH=1000)
+dbpf $(S)-$(DEV):OutFPUV00-Src-SP 0 
+
+
