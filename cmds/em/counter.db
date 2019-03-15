@@ -1,0 +1,4 @@
+record(calc, "counter") {
+  field(SCAN, ".1 second")
+  field(CALC, "VAL+1")
+}

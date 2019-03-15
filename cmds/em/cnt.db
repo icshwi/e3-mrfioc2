@@ -1,0 +1,17 @@
+record(calc, "$(SYS,undefined)-$(D,undefined):Cnt-Active-RB") {
+  field(SCAN, ".1 second")
+  field(CALC, "VAL+1")
+}
+
+record(calc, "$(SYS,undefined)-$(D,undefined):Cnt-Passive-RB") {
+  field(SCAN, "Passive")
+  field(CALC, "VAL+1")
+}
+
+record(ai, "$(SYS,undefined)-$(D,undefined):Ai") {
+  field(SCAN, "Passive")
+  field(VAL , "0")
+#  field(CALC, "VAL/10")
+  field(INP , "$(SYS,undefined)-$(D,undefined):Cnt-Active-RB CPP")
+}
+
