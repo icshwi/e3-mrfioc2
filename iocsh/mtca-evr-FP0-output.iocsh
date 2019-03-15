@@ -1,0 +1,55 @@
+#- ###   ESS MTCA TRIGGER   Configuration iocsh     ###
+#- ####################################################
+#- >> Mandatory
+#- S            -  System name for Record 
+#- DEV          -  Record names have the general forms:
+#-                  $(S)-$(DEV):Signal-SD
+#-                  $(S)-$(DEV):SubDev-Signal-SD
+#- >> Optional
+#- EVENTCODE    -  14
+#- WIDTH        -  Pulse Width 1000 (unit ms)
+#- ####################################################
+#- 
+#- iocshLoad("$(mrfioc2_DIR)/mtca-evr-FP0-output.iocsh", "S=$(IOC), DEV=$(DEV)")
+#- iocshLoad("$(mrfioc2_DIR)/mtca-evr-FP0-output.iocsh", "S=$(IOC), DEV=$(DEV), EVENTCODE=$(MainEvtCODE)")
+#- WARNING : THIS SCRIPT should be called after iocInit
+#- 
+dbpf $(S)-$(DEV):DlyGen0-Evt-Trig0-SP $(EVENTCODE=14)
+dbpf $(S)-$(DEV):DlyGen0-Width-SP $(WIDTH=1000)
+#- MTCA EVR Front Panel OUT0 trigger from DlyGen0 (delay generator 0)
+dbpf $(S)-$(DEV):OutFP0-Src-SP 0 
+#- MTCA EVR Front Panel OUT1
+#dbpf $(S)-$(DEV):OutFP1-Src-SP 0 
+#- MTCA EVR Front Panel OUT2
+#dbpf $(S)-$(DEV):OutFP2-Src-SP 0 
+#- MTCA EVR Front Panel OUT3
+#dbpf $(S)-$(DEV):OutFP3-Src-SP 0 
+#-
+#-  
+#- MTCA EVR Backplane0, RX17 (0)
+#dbpr $(S)-$(DEV):OutBack0-Src-SP 0
+#- MTCA EVR Backplane1, TX17 (1)
+#dbpr $(S)-$(DEV):OutBack0-Src-SP 0
+#- MTCA EVR Backplane2, RX18 (2)
+#dbpr $(S)-$(DEV):OutBack0-Src-SP 0
+#- MTCA EVR Backplane3, TX18 (3)
+#dbpr $(S)-$(DEV):OutBack0-Src-SP 0
+#- MTCA EVR Backplane4, RX19 (4)
+#dbpr $(S)-$(DEV):OutBack0-Src-SP 0
+#- MTCA EVR Backplane5, TX19 (5)
+#dbpr $(S)-$(DEV):OutBack0-Src-SP 0
+#- MTCA EVR Backplane6, RX20 (6)
+#dbpr $(S)-$(DEV):OutBack0-Src-SP 0
+#- MTCA EVR Backplane7, TX20 (7)
+#dbpr $(S)-$(DEV):OutBack0-Src-SP 0
+#- 
+#-
+#- MTCA EVR Front Panel UNIV00
+#dbpr $(S)-$(DEV):OutFPUV00-Src-SP 0
+#- MTCA EVR Front Panel UNIV01
+#dbpr $(S)-$(DEV):OutFPUV01-Src-SP 0
+#- MTCA EVR Front Panel UNIV02
+#dbpr $(S)-$(DEV):OutFPUV02-Src-SP 0
+#- MTCA EVR Front Panel UNIV03
+#dbpr $(S)-$(DEV):OutFPUV03-Src-SP 0
+
