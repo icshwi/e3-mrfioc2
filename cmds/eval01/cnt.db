@@ -1,0 +1,26 @@
+record(calcout, "$(IOC,undefined):HEARTBEAT")
+{
+    field(DESC, "1 Hz counter since startup")
+    field(CALC, "(A<2147483647)?A+1:1")
+    field(SCAN, "1 second")
+    field(INPA, "$(IOC,undefined):HEARTBEAT")
+}
+
+
+record(calc, "$(IOC,undefined):Cnt-Active-RB") {
+  field(SCAN, ".1 second")
+  field(CALC, "VAL+1")
+}
+
+record(calc, "$(IOC,undefined):Cnt-Passive-RB") {
+  field(SCAN, "Passive")
+  field(CALC, "VAL+1")
+}
+
+record(ai, "$(IOC,undefined):Ai") {
+  field(SCAN, "Passive")
+  field(VAL , "0")
+#  field(CALC, "VAL/10")
+  field(INP , "$(IOC,undefined):Cnt-Active-RB CPP")
+}
+
