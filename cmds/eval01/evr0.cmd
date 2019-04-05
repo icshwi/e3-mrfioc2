@@ -1,7 +1,7 @@
 require mrfioc2,2.2.0-rc5
 #require iocStats,ae5d083
 
-epicsEnvSet("IOC", "EMMTCAEVR300")
+epicsEnvSet("IOC", "MTCA")
 epicsEnvSet("DEV1", "EVR0")
 epicsEnvSet("ESSEvtClockRate", "88.0525")
 mrmEvrSetupPCI("$(DEV1)", "09:00.0")
