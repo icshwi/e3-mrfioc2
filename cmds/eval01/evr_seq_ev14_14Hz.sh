@@ -5,7 +5,7 @@
 ### The first event in the its list is sent with the first delay in its list, the second event after the second delay (the start of time is always the moment when the sequencer is triggered) and so on
 ### The timestamps should be monotonically increasing
 
-# Event code 14 (14 Hz), 127 is the end of sequence 
+# Event code 14 (14 Hz), 127 is the end of sequence
 # caput -a $1-$2:SoftSeq0-EvtCode-SP 2 14 127
 caput -a $1-$2:SoftSeq0-EvtCode-SP 2 14 127
 
