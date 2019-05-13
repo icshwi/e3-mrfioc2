@@ -20,7 +20,7 @@ pattern { P, PSRC, OBJ, EVG, dbusBit }
 }
 
 file evgEvtClk.db {
-{P="$(SYS)-$(D):EvtClk-", OBJ="$(EVG)", FRF="\$(FRF=352.21)", FDIV="\$(FDIV=4)", FEVT="\$(FEVT=88.0525)"}
+{P="$(SYS)-$(D):EvtClk-", OBJ="$(EVG)", FRF="\$(FRF=88.0525)", RFDIV="\$(RFDIV=1)", FEVT="\$(FEVT=88.0525)"}
 }
 
 file evgInput.db {
