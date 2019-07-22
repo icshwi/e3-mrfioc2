@@ -4,13 +4,13 @@ epicsEnvSet("ENGINEER","Han")
 epicsEnvSet("LOCATION","Table at ICS Tuna Lab")
 epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES","10000000")
 
-epicsEnvSet("IOC", "MTCA")
+epicsEnvSet("IOC", "MTCA5U")
 epicsEnvSet("DEV", "EVR")
 
-# Not use in this script, but it is needed for the expansion. 
+# Not use in this script, but it is needed for the expansion.
 epicsEnvSet("MainEvtCODE" "14")
 
-iocshLoad("$(mrfioc2_DIR)/evr-mtca-300.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0b:00.0")
+iocshLoad("$(mrfioc2_DIR)/evr-mtca-300.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=09:00.0")
 #-iocshLoad("$(mrfioc2_DIR)/evr-mtca-300.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0b:00.0, RT=wtRT")
 
 iocInit()
