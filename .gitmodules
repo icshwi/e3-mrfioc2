@@ -1,4 +1,4 @@
 [submodule "mrfioc2"]
 	path = mrfioc2
-	url = git@github.com:jerjam/mrfioc2.git
+	url = https://github.com/jerjam/mrfioc2.git
 	ignore=all
