@@ -82,6 +82,18 @@ file "evrevent.db"
 {"$(SYS)-$(D):EvtF", "$(EVR)", 15, 15}
 {"$(SYS)-$(D):EvtG", "$(EVR)", 16, 16}
 {"$(SYS)-$(D):EvtH", "$(EVR)", 17, 17}
+{"$(SYS)-$(D):EvtI", "$(EVR)", 18, 18}
+{"$(SYS)-$(D):EvtJ", "$(EVR)", 19, 19}
+{"$(SYS)-$(D):EvtK", "$(EVR)", 20, 20}
+{"$(SYS)-$(D):EvtL", "$(EVR)", 21, 21}
+{"$(SYS)-$(D):EvtM", "$(EVR)", 22, 22}
+{"$(SYS)-$(D):EvtN", "$(EVR)", 23, 23}
+{"$(SYS)-$(D):EvtO", "$(EVR)", 24, 24}
+{"$(SYS)-$(D):EvtP", "$(EVR)", 25, 25}
+{"$(SYS)-$(D):EvtQ", "$(EVR)", 26, 26}
+{"$(SYS)-$(D):EvtR", "$(EVR)", 27, 27}
+{"$(SYS)-$(D):EvtS", "$(EVR)", 28, 28}
+{"$(SYS)-$(D):EvtT", "$(EVR)", 29, 29}
 }
 
 file "evrscale.db"
