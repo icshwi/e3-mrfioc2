@@ -76,14 +76,14 @@ file "evrevent.db"
 {pattern
 {EN, OBJ, CODE, EVNT}
 {"$(SYS)-$(D):1hz",  "$(EVR)", 0x7d, 125}
-# {"$(SYS)-$(D):EvtA", "$(EVR)", 255, 255}
-# {"$(SYS)-$(D):EvtB", "$(EVR)", 255, 255}
-# {"$(SYS)-$(D):EvtC", "$(EVR)", 255, 255}
-# {"$(SYS)-$(D):EvtD", "$(EVR)", 255, 255}
-# {"$(SYS)-$(D):EvtE", "$(EVR)", 255, 255}
-# {"$(SYS)-$(D):EvtF", "$(EVR)", 255, 255}
-# {"$(SYS)-$(D):EvtG", "$(EVR)", 255, 255}
-# {"$(SYS)-$(D):EvtH", "$(EVR)", 255, 255}
+{"$(SYS)-$(D):EvtA", "$(EVR)", 255, 255}
+{"$(SYS)-$(D):EvtB", "$(EVR)", 255, 255}
+{"$(SYS)-$(D):EvtC", "$(EVR)", 255, 255}
+{"$(SYS)-$(D):EvtD", "$(EVR)", 255, 255}
+{"$(SYS)-$(D):EvtE", "$(EVR)", 255, 255}
+{"$(SYS)-$(D):EvtF", "$(EVR)", 255, 255}
+{"$(SYS)-$(D):EvtG", "$(EVR)", 255, 255}
+{"$(SYS)-$(D):EvtH", "$(EVR)", 255, 255}
 }
 
 file "evrscale.db"
