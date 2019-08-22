@@ -1,1 +1,15 @@
-<html><body>You are being <a href="https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/blob/master/iocsh/evr-mtca-init.iocsh">redirected</a>.</body></html>
+# .init.iocsh
+# ===========
+
+# ESS AMC EVR command file for mrfioc2
+# ====================================
+
+require mrfioc2,2.2.0-rc5
+
+mrmEvrSetupPCI("$(DEV)", $(PCIID))
+dbLoadRecords("evr-mtca-300u-ess.db","EVR=$(DEV), SYS=$(IOC), D=$(DEV), FEVT=$(ESSEvtClockRate)")
+
+# needed with software timestamp source w/o RT thread scheduling
+var evrMrmTimeNSOverflowThreshold 100000
+
+#EOF

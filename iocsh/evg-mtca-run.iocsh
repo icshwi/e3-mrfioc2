@@ -1,1 +1,58 @@
-<html><body>You are being <a href="https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/blob/master/iocsh/evg-mtca-run.iocsh">redirected</a>.</body></html>
+# .run.iocsh
+# ==========
+
+# ESS EVG command file for mrfioc2
+# ================================
+# The file runs the EVG functionality.
+#
+# The debug mode can be enabled with LABDEBUG = "" flag
+# The production mode can be enabled with PROD = "" flag
+
+# Select the RF input
+$(LABDEBUG=#)dbpf $(IOC)-$(DEV):EvtClk-Source-Sel "FracSyn (Int)"
+# Dute to a bug, RF (Ext) cannot be applied twice as it blocks EVG (reboot required)
+$(PROD=#)dbpf $(IOC)-$(DEV):EvtClk-Source-Sel "RF (Ext)"
+# PLL needs time in order to synchronize
+epicsThreadSleep 1
+
+# Change to PPS once connected
+$(PROD=#)dbpf $(IOC)-$(DEV):1ppsInp-Sel "Front0"
+$(PROD=#)dbpf $(IOC)-$(DEV):1ppsInp-MbbiDir_.TPRO 1
+$(PROD=#)dbpf $(IOC)-$(DEV):TrigEvt4-TrigSrc-Sel "Front0"
+$(PROD=#)dbpf $(IOC)-$(DEV):TrigEvt4-EvtCode-SP $(EVT_PPS)
+$(LABDEBUG=#)dbpf $(IOC)-$(DEV):1ppsInp-Sel "Sys Clk"
+dbpf $(IOC)-$(DEV):SyncTimestamp-Cmd 1
+
+# Heart Beat 1 Hz
+dbpf $(IOC)-$(DEV):Mxc7-Prescaler-SP $(MXC_1HZ)
+dbpf $(IOC)-$(DEV):TrigEvt7-EvtCode-SP $(EVT_HBEAT)
+dbpf $(IOC)-$(DEV):TrigEvt7-TrigSrc-Sel "Mxc7"
+
+## Set up the sequencer
+dbpf $(IOC)-$(DEV):SoftSeq0-RunMode-Sel "Normal"
+dbpf $(IOC)-$(DEV):SoftSeq0-TrigSrc-Sel "Mxc0"
+dbpf $(IOC)-$(DEV):SoftSeq0-TsResolution-Sel "uSec"
+dbpf $(IOC)-$(DEV):SoftSeq0-Load-Cmd 1
+dbpf $(IOC)-$(DEV):SoftSeq0-Enable-Cmd 1
+
+# Master Event Rate 14 Hz
+dbpf $(IOC)-$(DEV):Mxc0-Prescaler-SP $(MXC_14HZ)
+
+# EVT_14HZ can be in use instead of the sequence which can be stopped
+dbpf $(IOC)-$(DEV):TrigEvt0-EvtCode-SP $(EVT_14HZ)
+dbpf $(IOC)-$(DEV):TrigEvt0-TrigSrc-Sel "Mxc0"
+
+# SEQUENCE
+# ========
+## Select the basic sequence
+## EVT_14HZ = 14, 127 is the end of sequence
+#system("caput -a $(IOC)-$(DEV):SoftSeq0-EvtCode-SP 2 $(EVT_14HZ) $(EVT_SEQ_END)")
+## Defining time at which the event codes are sent in us (timestamps), as configured with $1-$2:SoftSeq0-TsResolution-Sel
+#system("caput -a $(IOC)-$(DEV):SoftSeq0-Timestamp-SP 2 0 1")
+# Commit the sequence to HW
+#dbpf $(IOC)-$(DEV):SoftSeq0-Commit-Cmd 1
+
+# Set EVM as master (EVG) and run sequences
+dbpf $(IOC)-$(DEV):Enable-Sel "Ena Master"
+
+#EOF

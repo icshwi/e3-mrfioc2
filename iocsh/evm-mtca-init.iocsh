@@ -1,1 +1,38 @@
-<html><body>You are being <a href="https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/blob/master/iocsh/evm-mtca-init.iocsh">redirected</a>.</body></html>
+# .init.iocsh
+# ===========
+
+require mrfioc2, 2.2.0-rc5
+
+# Use AMCX - to define EVM name in the equivalent AMC slot
+# Use AMCX_EN - to enable the equivalent AMC slot
+
+# PCIID-s
+# AMC1 is always CPU card
+#$(AMC1_EN=#) mrmEvgSetupPCI($(AMC1),  $(9U_PCIID1))
+$(AMC2_EN=#) mrmEvgSetupPCI($(AMC2),  $(9U_PCIID2))
+$(AMC3_EN=#) mrmEvgSetupPCI($(AMC3),  $(9U_PCIID3))
+$(AMC4_EN=#) mrmEvgSetupPCI($(AMC4),  $(9U_PCIID4))
+$(AMC5_EN=#) mrmEvgSetupPCI($(AMC5),  $(9U_PCIID5))
+$(AMC6_EN=#) mrmEvgSetupPCI($(AMC6),  $(9U_PCIID6))
+$(AMC7_EN=#) mrmEvgSetupPCI($(AMC7),  $(9U_PCIID7))
+$(AMC8_EN=#) mrmEvgSetupPCI($(AMC8),  $(9U_PCIID8))
+$(AMC9_EN=#) mrmEvgSetupPCI($(AMC9),  $(9U_PCIID9))
+$(AMC10_EN=#)mrmEvgSetupPCI($(AMC10), $(9U_PCIID10))
+$(AMC11_EN=#)mrmEvgSetupPCI($(AMC11), $(9U_PCIID11))
+$(AMC12_EN=#)mrmEvgSetupPCI($(AMC12), $(9U_PCIID12))
+
+
+#$(AMC1_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC1),  EVG=$(AMC1),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC2_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC2),  EVG=$(AMC2),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC3_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC3),  EVG=$(AMC3),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC4_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC4),  EVG=$(AMC4),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC5_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC5),  EVG=$(AMC5),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC6_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC6),  EVG=$(AMC6),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC7_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC7),  EVG=$(AMC7),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC8_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC8),  EVG=$(AMC8),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC9_EN=#) dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC9),  EVG=$(AMC9),  FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC10_EN=#)dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC10), EVG=$(AMC10), FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC11_EN=#)dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC11), EVG=$(AMC11), FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+$(AMC12_EN=#)dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(AMC12), EVG=$(AMC12), FEVT=$(ESSEvtClockRate='88.0525'), FRF=$(ESSEvtClockRate='88.0525'), RFDIV=1")
+
+#EOF

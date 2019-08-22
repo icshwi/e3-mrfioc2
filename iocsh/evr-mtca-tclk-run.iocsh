@@ -1,1 +1,34 @@
-<html><body>You are being <a href="https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/blob/master/iocsh/evr-mtca-tclk-run.iocsh">redirected</a>.</body></html>
+# .run.iocsh
+# ==========
+
+# Configure CLKA backplane clock
+# ==============================
+### Set TCLKA to low, enable it and power it up
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Src-SP 63
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Ena-Sel 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pwr-Sel 1
+## Generate CLKA event clock, so 88MHz
+#### TCLKA is 40-bit pattern, set the starting 20 bits to 1 (and the rest to 0 - default)
+## it does not work dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP 0xffff
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BF 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BE 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BD 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BC 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BB 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.BA 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B9 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B8 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B7 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B6 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B5 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B4 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B3 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B2 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B1 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low00_15-SP.B0 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BF 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BE 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BD 1
+$(PROD=#)dbpf $(IOC)-$(DEV):OutTCLKA-Pat-Low16_31-SP.BC 1
+
+#EOF
