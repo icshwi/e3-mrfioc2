@@ -1,32 +1,26 @@
 #!/bin/bash
 
-REPO=https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/blob/master/iocsh
+# Author: Jerzy Jamroz
+#
+# Description:
+#   It downloads the latest .iocsh files for this project.
+# Run Information:
+#   It has to be executed manually at the moment.
 
-#declare -a arr=(\
-#"_evg-seq0-run.iocsh" \
-#"_evg-seq0-smoke.iocsh" \
-#"_evg-seq01-run.iocsh" \
-#"_evr-seq-run.iocsh" \
-#"env-init.iocsh" \
-#"evg-mtca-init.iocsh" \
-#"evg-mtca-run.iocsh" \
-#"evm-mtca-init.iocsh" \
-#"evr-mtca-init.iocsh" \
-#"evr-mtca-run.iocsh" \
-#"img.iocsh" \
-#)
+# define the .iocsh weblink
+REPO=https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/tree/master/iocsh
+
+## curl -s https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/tree/master/iocsh | grep -i .iocsh | grep -i span | sed -e "s/<span>//g" | sed -e "s/<\/span>//g"
+## arr_tmp=`curl -s https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/tree/master/iocsh | grep -i .iocsh | grep -i span | sed -e "s/<span>//g" | sed -e "s/<\/span>//g"`
 
 # get the repo .iocsh files
-# curl -s https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/tree/master/iocsh | grep -i .iocsh | grep -i span | sed -e "s/<span>//g" | sed -e "s/<\/span>//g"
-arr_tmp=`curl -s https://gitlab.esss.lu.se/icshwi/hwi-tim-prod/tree/master/iocsh | grep -i .iocsh | grep -i span | sed -e "s/<span>//g" | sed -e "s/<\/span>//g"`
+arr_tmp=`curl -s $REPO | grep -i .iocsh | grep -i span | sed -e "s/<span>//g" | sed -e "s/<\/span>//g"`
+arr=($arr_tmp)
 
 for el in "${arr[@]}"
 do
-   echo "$el"
-   echo "---"
-   curl ${REPO}/${el} > ${el}
+    if [[ $el != _* ]]; then
+        echo "$el"
+        curl ${REPO}/${el} > ${el}
+    fi
 done
-
-
-#file_tmp=env-init.iocsh
-#curl ${REPO}/${file_tmp} > ${file_tmp}
