@@ -1,8 +1,10 @@
 EPICS_MODULE_NAME:=mrfioc2
 #
-EPICS_MODULE_TAG:=master
+EPICS_MODULE_TAG:=devel
 #
-E3_MODULE_VERSION:=master
+E3_MODULE_VERSION:=devel
+#
+DEVLIB2_DEP_VERSION:=2.9.0
 #
 E3_MODULE_NAME:=$(EPICS_MODULE_NAME)
 #
@@ -10,7 +12,7 @@ E3_MODULE_SRC_PATH:=$(EPICS_MODULE_NAME)-dev
 #
 E3_MODULE_MAKEFILE:=$(EPICS_MODULE_NAME).Makefile
 #
-E3_MODULE_DEV_GITURL:="https://github.com/javicereijo/mrfioc2"
+E3_MODULE_DEV_GITURL:="https://github.com/icshwi/mrfioc2"
 #
 -include $(TOP)/configure/CONFIG_OPTIONS
 # The definitions shown below can also be placed in an untracked CONFIG_MODULE*.local
