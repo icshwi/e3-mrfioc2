@@ -1,0 +1,41 @@
+#.img.iocsh
+
+# EVM img size: 11443722
+# EVR img size: 3011417
+# MTCA-EVR and PCIe FPGA: Kintex7 7K70T, bits=24,090,592 page=32 and in .bit size: 3011417
+
+# Bit file examples
+# mTCA-EVM-300-28070207.bit
+# mTCA-EVR-300-18070207.bit
+# PCIe-EVR-300DC-17050207.bit
+
+# All flags:
+# DEV, EVM, EVR, BIN_RD, BIN_WR, BIN_FILE, PCIID
+# Example:
+# iocsh.bash -c 'epicsEnvSet("PCIID", "08:00.0")'
+
+# Limits to only one DEV, so commented out
+# $(EVM=#)epicsEnvSet("DEV", "EVM")
+# $(EVR=#)epicsEnvSet("DEV", "EVR")
+
+$(EVM=#)epicsEnvSet("BIN_SIZE", 11443722)
+$(EVR=#)epicsEnvSet("BIN_SIZE", 3011417)
+
+# If EVM update
+$(EVM=#)mrmEvgSetupPCI("$(DEV)", "$(PCIID)")
+# If EVR update:
+$(EVR=#)mrmEvrSetupPCI("$(DEV)", "$(PCIID)")
+
+# iocInit()
+
+$(BIN_RD=#)flashread("$(DEV):FLASH", 0, $(BIN_SIZE), "$(DEV)_bak.bin")
+$(BIN_WR=#)flashwrite("$(DEV):FLASH", 0, "$(BIN_FILE)")
+
+# Info
+# The EVM image is around 12MB
+# Backup the image:
+# flashread("$(DEV):FLASH", 0, 11443722, "$(BINR).bit")
+# Update the image:
+# flashwrite("$(DEV):FLASH", 0, "$(BINW).bit")
+
+# EOF

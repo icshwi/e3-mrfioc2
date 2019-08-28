@@ -1,0 +1,118 @@
+# .init.iocsh
+# ===========
+
+# GLOBAL TIMING SETTINGS
+# ======================
+epicsEnvSet("ENGINEER","ICS_HWI_WP04")
+epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES","10000000")
+# .cmd file defines the working directory
+# epicsEnvSet("mrfioc2_DIR", "..")
+# epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
+
+# Configure Event codes:
+
+epicsEnvSet("EVT_ION_ST", 10)
+epicsEnvSet("EVT_ION_END", 11)
+epicsEnvSet("EVT_BPULSE_ST", 12)
+epicsEnvSet("EVT_BPULSE_END", 13)
+epicsEnvSet("EVT_14HZ", 14)
+epicsEnvSet("EVT_BPULSE_CM", 15)
+epicsEnvSet("EVT_PMORTEM", 40)
+epicsEnvSet("EVT_PMORTEMI", 41)
+epicsEnvSet("EVT_DOD", 42)
+epicsEnvSet("EVT_DODI", 43)
+epicsEnvSet("EVT_HBEAT", 122)
+epicsEnvSet("EVT_PPS", 125)
+epicsEnvSet("EVT_SEQ_END", 127)
+epicsEnvSet("EVT_BEACON", 126)
+
+# Configure other defaults
+epicsEnvSet("DFT_WIDTH", 100)
+epicsEnvSet("ESSEvtClockRate", "88.0525") #[MHz]
+epicsEnvSet("DLY_COMPENSATION", 10000) #[ns]
+# epicsEnvSet("MainEvtCODE", "14")
+# epicsEnvSet("HeartBeatEvtCODE", "122")
+
+# Prescallers
+epicsEnvSet("MXC_14HZ", 6289464)
+epicsEnvSet("MXC_1HZ", 88052500)
+
+# GLOBAL MTCA ENVIRONMENT
+# =======================
+
+# 9U MTCA create (production)
+# AMC	Slot	Addr
+# AMC1	CPU	CPU
+# AMC2	2-1	0e:00.0
+# AMC3	3	08:00.0
+# AMC4	4	06:00.0
+# AMC5	5	09:00.0
+# AMC6	6	0b:00.0
+# AMC7	7	0f:00.0
+# AMC8	8	0d:00.0
+# AMC9	9	07:00.0
+# AMC10	10	05:00.0
+# AMC11	11	0a:00.0
+# AMC12	12	0c:00.0
+
+#epicsEnvSet("MTCA_9U_PCIID1", "")
+epicsEnvSet("MTCA_9U_PCIID2",  "0e:00.0")
+epicsEnvSet("MTCA_9U_PCIID3",  "08:00.0")
+epicsEnvSet("MTCA_9U_PCIID4",  "06:00.0")
+epicsEnvSet("MTCA_9U_PCIID5",  "09:00.0")
+epicsEnvSet("MTCA_9U_PCIID6",  "0b:00.0")
+epicsEnvSet("MTCA_9U_PCIID7",  "0f:00.0")
+epicsEnvSet("MTCA_9U_PCIID8",  "0d:00.0")
+epicsEnvSet("MTCA_9U_PCIID9",  "07:00.0")
+epicsEnvSet("MTCA_9U_PCIID10", "05:00.0")
+epicsEnvSet("MTCA_9U_PCIID11", "0a:00.0")
+epicsEnvSet("MTCA_9U_PCIID12", "0c:00.0")
+
+
+# 3U MTCA create (production)
+# TODO
+# AMC Slot Addr
+# AMC1 CPU CPU
+# AMC2 2 xx
+# AMC3 3 xx
+# AMC4 4 xx
+# AMC5 5 xx
+# AMC6 6 xx
+
+
+# 5U MTCA create (lab works)
+# AMC Slot Addr
+# AMC1 CPU CPU
+# AMC2 1 0a:00.0
+# AMC3 2 09:00.0
+# AMC4 3 06:00.0
+# AMC5 4 05:00.0
+# AMC6 5 07:00.0
+# AMC7 6 08:00.0
+
+#epicsEnvSet("MTCA_5U_PCIID1", "")
+epicsEnvSet("MTCA_5U_PCIID2", "0a:00.0")
+epicsEnvSet("MTCA_5U_PCIID3", "09:00.0")
+epicsEnvSet("MTCA_5U_PCIID4", "06:00.0")
+epicsEnvSet("MTCA_5U_PCIID5", "05:00.0")
+epicsEnvSet("MTCA_5U_PCIID6", "07:00.0")
+epicsEnvSet("MTCA_5U_PCIID7", "08:00.0")
+
+
+# 6U Elma MTCA create (not standard)
+# AMC Slot Addr
+# AMC1 CPU CPU
+# AMC2 2 07:00.0
+# AMC3 3 06:00.0
+# AMC4 4 05:00.0
+# AMC5 5 08:00.0
+# AMC6 6 09:00.0
+
+#epicsEnvSet("MTCA_6U_ELMA_PCIID1", "")
+epicsEnvSet("MTCA_6U_ELMA_PCIID2", "07:00.0")
+epicsEnvSet("MTCA_6U_ELMA_PCIID3", "06:00.0")
+epicsEnvSet("MTCA_6U_ELMA_PCIID4", "05:00.0")
+epicsEnvSet("MTCA_6U_ELMA_PCIID5", "08:00.0")
+epicsEnvSet("MTCA_6U_ELMA_PCIID6", "09:00.0")
+
+#EOF
