@@ -4,8 +4,6 @@
 # ESS AMC EVR command file for mrfioc2
 # ====================================
 
-require mrfioc2,2.2.0-rc5
-
 mrmEvrSetupPCI("$(DEV)", $(PCIID))
 dbLoadRecords("evr-mtca-300u-ess.db","EVR=$(DEV), SYS=$(IOC), D=$(DEV), FEVT=$(ESSEvtClockRate)")
 

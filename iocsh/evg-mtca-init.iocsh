@@ -4,8 +4,6 @@
 # ESS EVG command file for mrfioc2
 # ================================
 
-require mrfioc2, 2.2.0-rc5
-
 # PCIID address
 mrmEvgSetupPCI($(DEV), $(PCIID))
 

@@ -21,4 +21,5 @@ random_cpci_evg.cmd
 
 # useless
 .DS_Store
+.vscode
 
