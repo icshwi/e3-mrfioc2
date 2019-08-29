@@ -258,10 +258,10 @@ file "evrin.db"
 {pattern
 {IN, INTRIG, INCODE, OBJ, DESC}
 # Front panel inputs 4
-{"$(SYS)-$(D):In0-", "$(SYS)-$(D):In0-Trig-", "$(SYS)-$(D):In0-Code-", "$(EVR):FPIn0", "IN0 (TTL)"}
-{"$(SYS)-$(D):In1-", "$(SYS)-$(D):In1-Trig-", "$(SYS)-$(D):In1-Code-", "$(EVR):FPIn1", "IN1 (TTL)"}
-{"$(SYS)-$(D):In2-", "$(SYS)-$(D):In2-Trig-", "$(SYS)-$(D):In2-Code-", "$(EVR):FPIn2", "IN2 (TTL)"}
-{"$(SYS)-$(D):In3-", "$(SYS)-$(D):In3-Trig-", "$(SYS)-$(D):In3-Code-", "$(EVR):FPIn3", "IN3 (TTL)"}
+{"$(SYS)-$(D):In0-", "$(SYS)-$(D):In0-Trig-", "$(SYS)-$(D):In0-Code-", "$(EVR):FPIn0", "FPIN0 (TTL)"}
+{"$(SYS)-$(D):In1-", "$(SYS)-$(D):In1-Trig-", "$(SYS)-$(D):In1-Code-", "$(EVR):FPIn1", "FPIN1 (TTL)"}
+{"$(SYS)-$(D):In2-", "$(SYS)-$(D):In2-Trig-", "$(SYS)-$(D):In2-Code-", "$(EVR):FPIn2", "FPIN2 (TTL)"}
+{"$(SYS)-$(D):In3-", "$(SYS)-$(D):In3-Trig-", "$(SYS)-$(D):In3-Code-", "$(EVR):FPIn3", "FPIN3 (TTL)"}
 # Univ inputs 20
 {"$(SYS)-$(D):UnivIn0-", "$(SYS)-$(D):UnivIn0-Trig-", "$(SYS)-$(D):UnivIn0-Code-", "$(EVR):FPIn4", "UnivIN0 (TTL)"}
 {"$(SYS)-$(D):UnivIn1-", "$(SYS)-$(D):UnivIn1-Trig-", "$(SYS)-$(D):UnivIn1-Code-", "$(EVR):FPIn5", "UnivIN1 (TTL)"}
@@ -284,12 +284,12 @@ file "evrin.db"
 {"$(SYS)-$(D):UnivIn18-", "$(SYS)-$(D):UnivIn18-Trig-", "$(SYS)-$(D):UnivIn18-Code-", "$(EVR):FPIn22", "UnivIN18 (TTL)"}
 {"$(SYS)-$(D):UnivIn19-", "$(SYS)-$(D):UnivIn19-Trig-", "$(SYS)-$(D):UnivIn19-Code-", "$(EVR):FPIn23", "UnivIN19 (TTL)"}
 ## Backplane inputs 8
-{"$(SYS)-$(D):BPIn0-", "$(SYS)-$(D):BPIn0-Trig-", "$(SYS)-$(D):BPIn0-Code-", "$(EVR):FPIn24", "BPIN0 (TTL)"}
-{"$(SYS)-$(D):BPIn1-", "$(SYS)-$(D):BPIn1-Trig-", "$(SYS)-$(D):BPIn1-Code-", "$(EVR):FPIn25", "BPIN1 (TTL)"}
-{"$(SYS)-$(D):BPIn2-", "$(SYS)-$(D):BPIn2-Trig-", "$(SYS)-$(D):BPIn2-Code-", "$(EVR):FPIn26", "BPIN2 (TTL)"}
-{"$(SYS)-$(D):BPIn3-", "$(SYS)-$(D):BPIn3-Trig-", "$(SYS)-$(D):BPIn3-Code-", "$(EVR):FPIn27", "BPIN3 (TTL)"}
-{"$(SYS)-$(D):BPIn4-", "$(SYS)-$(D):BPIn4-Trig-", "$(SYS)-$(D):BPIn4-Code-", "$(EVR):FPIn28", "BPIN4 (TTL)"}
-{"$(SYS)-$(D):BPIn5-", "$(SYS)-$(D):BPIn5-Trig-", "$(SYS)-$(D):BPIn5-Code-", "$(EVR):FPIn29", "BPIN5 (TTL)"}
-{"$(SYS)-$(D):BPIn6-", "$(SYS)-$(D):BPIn6-Trig-", "$(SYS)-$(D):BPIn6-Code-", "$(EVR):FPIn30", "BPIN6 (TTL)"}
-{"$(SYS)-$(D):BPIn7-", "$(SYS)-$(D):BPIn7-Trig-", "$(SYS)-$(D):BPIn7-Code-", "$(EVR):FPIn31", "BPIN7 (TTL)"}
+{"$(SYS)-$(D):BPIn0-", "$(SYS)-$(D):BPIn0-Trig-", "$(SYS)-$(D):BPIn0-Code-", "$(EVR):FPIn24", "BPIN0 (MLVDS)"}
+{"$(SYS)-$(D):BPIn1-", "$(SYS)-$(D):BPIn1-Trig-", "$(SYS)-$(D):BPIn1-Code-", "$(EVR):FPIn25", "BPIN1 (MLVDS)"}
+{"$(SYS)-$(D):BPIn2-", "$(SYS)-$(D):BPIn2-Trig-", "$(SYS)-$(D):BPIn2-Code-", "$(EVR):FPIn26", "BPIN2 (MLVDS)"}
+{"$(SYS)-$(D):BPIn3-", "$(SYS)-$(D):BPIn3-Trig-", "$(SYS)-$(D):BPIn3-Code-", "$(EVR):FPIn27", "BPIN3 (MLVDS)"}
+{"$(SYS)-$(D):BPIn4-", "$(SYS)-$(D):BPIn4-Trig-", "$(SYS)-$(D):BPIn4-Code-", "$(EVR):FPIn28", "BPIN4 (MLVDS)"}
+{"$(SYS)-$(D):BPIn5-", "$(SYS)-$(D):BPIn5-Trig-", "$(SYS)-$(D):BPIn5-Code-", "$(EVR):FPIn29", "BPIN5 (MLVDS)"}
+{"$(SYS)-$(D):BPIn6-", "$(SYS)-$(D):BPIn6-Trig-", "$(SYS)-$(D):BPIn6-Code-", "$(EVR):FPIn30", "BPIN6 (MLVDS)"}
+{"$(SYS)-$(D):BPIn7-", "$(SYS)-$(D):BPIn7-Trig-", "$(SYS)-$(D):BPIn7-Code-", "$(EVR):FPIn31", "BPIN7 (MLVDS)"}
 }
