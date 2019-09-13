@@ -77,7 +77,14 @@ epicsEnvSet("MTCA_9U_PCIID12", "0c:00.0")
 # AMC3 3 xx
 # AMC4 4 xx
 # AMC5 5 xx
-# AMC6 6 xx
+# AMC6 6 0b:00.0
+
+# epicsEnvSet("MTCA_3U_PCIID1", "")
+# epicsEnvSet("MTCA_3U_PCIID2",  "")
+# epicsEnvSet("MTCA_3U_PCIID3",  "")
+# epicsEnvSet("MTCA_3U_PCIID4",  "")
+# epicsEnvSet("MTCA_3U_PCIID5",  "")
+epicsEnvSet("MTCA_3U_PCIID6",  "0b:00.0")
 
 
 # 5U MTCA create (lab works)
