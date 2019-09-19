@@ -15,9 +15,6 @@ dbpf $(IOC)-$(DEV):Evt-Blink0-SP $(EVT_14HZ)
 dbpf $(IOC)-$(DEV):Time-Clock-SP $(ESSEvtClockRate)
 dbpf $(IOC)-$(DEV):Link-Clk-SP $(ESSEvtClockRate)
 
-# Enable EVR
-dbpf $(IOC)-$(DEV):Ena-Sel "Enabled"
-
 ### TIMESTAMP CONFIGURATION
 ### =======================
 ### Get current time from system clock, this will be used for the timestamps ###
@@ -32,5 +29,8 @@ dbpf $(IOC)-$(DEV):TimeSrc-Sel 0
 ## dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=125"
 dbpf $(IOC)-$(DEV):Time-I.EVNT $(EVT_PPS)
 dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=$(EVT_PPS)"
+
+# Enable EVR
+dbpf $(IOC)-$(DEV):Ena-Sel "Enabled"
 
 #EOF
