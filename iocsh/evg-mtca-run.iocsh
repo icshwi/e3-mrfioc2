@@ -4,6 +4,9 @@
 # ESS EVG command file for mrfioc2
 # ================================
 # The file runs the EVG functionality.
+# ====================================
+# Set EVM as master (EVG) and run sequences
+dbpf $(IOC)-$(DEV):Enable-Sel "Ena Master"
 
 # Select the RF input
 $(INTREF=#)dbpf $(IOC)-$(DEV):EvtClk-Source-Sel "FracSyn (Int)"
@@ -18,6 +21,10 @@ $(EXTREF=#)dbpf $(IOC)-$(DEV):1ppsInp-MbbiDir_.TPRO 1
 $(EXTREF=#)dbpf $(IOC)-$(DEV):TrigEvt4-TrigSrc-Sel "Front0"
 $(EXTREF=#)dbpf $(IOC)-$(DEV):TrigEvt4-EvtCode-SP $(EVT_PPS)
 $(INTREF=#)dbpf $(IOC)-$(DEV):1ppsInp-Sel "Sys Clk"
+
+# Next settings require a delay
+epicsThreadSleep 1
+
 dbpf $(IOC)-$(DEV):SyncTimestamp-Cmd 1
 
 # Heart Beat 1 Hz
@@ -29,6 +36,9 @@ dbpf $(IOC)-$(DEV):TrigEvt7-TrigSrc-Sel "Mxc7"
 dbpf $(IOC)-$(DEV):SoftSeq0-RunMode-Sel "Normal"
 dbpf $(IOC)-$(DEV):SoftSeq0-TrigSrc-Sel "Mxc0"
 dbpf $(IOC)-$(DEV):SoftSeq0-TsResolution-Sel "uSec"
+
+# Just in case
+epicsThreadSleep 1
 dbpf $(IOC)-$(DEV):SoftSeq0-Load-Cmd 1
 dbpf $(IOC)-$(DEV):SoftSeq0-Enable-Cmd 1
 
@@ -38,8 +48,5 @@ dbpf $(IOC)-$(DEV):Mxc0-Prescaler-SP $(MXC_14HZ)
 # EVT_14HZ can be in use instead of the sequence which can be stopped
 dbpf $(IOC)-$(DEV):TrigEvt0-EvtCode-SP $(EVT_14HZ)
 dbpf $(IOC)-$(DEV):TrigEvt0-TrigSrc-Sel "Mxc0"
-
-# Set EVM as master (EVG) and run sequences
-dbpf $(IOC)-$(DEV):Enable-Sel "Ena Master"
 
 #EOF
