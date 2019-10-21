@@ -1,0 +1,26 @@
+[Unit]
+Description=procServ for PBI EVG001
+After=network.target remote-fs.target
+ConditionPathIsDirectory=/home/iocuser/e3-7.0.3/e3-mrfioc2/cmds/ex02
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/procServ \
+                    --foreground \
+                    --logfile=/var/log/procServ/out-BIEVG001.log \
+                    --info-file=/run/ioc@BIEVG001/info \
+                    --ignore=^C^D \
+                    --chdir=/home/iocuser/e3-7.0.3/e3-mrfioc2/cmds/ex02 \
+                    --name=BIEVG001 \
+                    --port=20000 \
+                    /epics/base-7.0.3/require/3.1.2/bin/iocsh.bash \
+                    evg_cpci_230.cmd
+SyslogIdentifier=ioc@BIEVG001
+RuntimeDirectory=ioc@BIEVG001
+RuntimeDirectoryMode=0755
+
+User=iocuser
+Group=iocgroup
+
+[Install]
+WantedBy=multi-user.target

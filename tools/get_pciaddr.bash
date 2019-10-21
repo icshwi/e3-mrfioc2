@@ -19,8 +19,8 @@
 #
 #   author  : Jeong Han Lee
 #   email   : jeonghan.lee@gmail.com
-#   date    : Tuesday, March 12 22:11:36 CET 2019
-#   version : 0.0.2
+#   date    : Monday, October 21 13:49:21 CEST 2019
+#   version : 0.0.3
 
 EXIST=1
 NON_EXIST=0
@@ -131,7 +131,7 @@ case "$1" in
 	DEVICEID=${CPICEVG220}
 	;;
     ${EVG_CPCI_230})
-	DEVICEID=${CPICEVG230}
+	DEVICEID=${CPCIEVG230}
 	;;
     ${EVG_CPCI_300})
 	DEVICEID=${CPICEVG300}
@@ -145,6 +145,8 @@ case "$1" in
 	;;
 
 esac
+
+echo ${DEVICEID}
 
 list="$(lspci -nm |grep ${DEVICEID} | cut -d' ' -f1)"
 
