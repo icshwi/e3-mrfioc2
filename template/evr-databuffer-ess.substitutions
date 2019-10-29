@@ -1,0 +1,30 @@
+# ESS EVR data buffer PVs
+
+# Documentation:
+## https://confluence.esss.lu.se/display/HAR/Data+Buffer
+
+global {P=$(PREFIX)}
+
+file "evr-databuffer-uint8.template" {
+pattern { PV, INDEX, MAXEL }
+{ "ProtocolNumber-RB",      "0",    "1"}
+{ "ProtocolVersion-RB",     "2",    "3"}
+{ "BeamPresent-RB",         "12",   "13"}
+{ "BeamDestination-RB",     "13",   "14"}
+{ "BeamMode-RB",            "14",   "15"}
+{ "RasterPattern-RB",       "28",   "29"}
+{ "TargetSegment-RB",       "29",   "30"}
+}
+
+file "evr-databuffer-uint32.template" {
+pattern { PV, INDEX, MAXEL }
+{ "BeamID-RB", "4", "5"}
+}
+
+file "evr-databuffer-float32.template" {
+pattern { PV, INDEX, MAXEL }
+{ "PulseLength-RB",     "16", "17"}
+{ "ProtonEnergy-RB",    "20", "21"}
+{ "BeamCurrent-RB",     "24", "25"}
+}
+#EOL

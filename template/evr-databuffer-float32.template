@@ -1,0 +1,24 @@
+# Databuffer Access Support
+
+# P=MTCA5U-EVR:
+# INDEX=0
+# MAXEL=INDEX+1 (it has to be redesigned)
+# PV=Protocol-RB
+
+record(subArray, "$(P)$(R=)dbus-u32indx$(INDEX)-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(P)$(R=)dbus-recv-u32 CPP")
+  field(INDX, "$(INDEX)")
+  field(NELM, "1") # "2046")
+  field(MALM, "$(MAXEL)") # "2046")
+  field(FTVL, "ULONG")
+}
+
+record(ai, "$(P)$(R=)$(PV)") {
+  field(DTYP, "Raw Soft Channel")
+  field(INP, "$(P)$(R=)dbus-u32indx$(INDEX)-subA_ CPP")
+  #field(EGU, "ms")
+  field(LINR, "LINEAR")
+  field(ESLO, "0.000001") # raw
+}
+#EOL
