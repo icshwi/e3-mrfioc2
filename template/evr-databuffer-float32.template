@@ -1,9 +1,4 @@
-# Databuffer Access Support
-
-# P=MTCA5U-EVR:
-# INDEX=0
-# MAXEL=INDEX+1 (it has to be redesigned)
-# PV=Protocol-RB
+# .template
 
 record(subArray, "$(P)$(R=)dbus-u32indx$(INDEX)-subA_") {
   field(DTYP, "Soft Channel")
