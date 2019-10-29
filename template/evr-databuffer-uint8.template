@@ -1,4 +1,8 @@
 # .template
+## P=MTCA5U-EVR:
+## INDEX=0-31
+## MAXEL=INDEX+1 (TODO)
+## PV=Protocol-RB
 
 record(subArray, "$(P)$(R=)dbus-s8indx$(INDEX)-subA_") {
   field(DTYP, "Soft Channel")
