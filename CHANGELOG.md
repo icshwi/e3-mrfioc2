@@ -1,7 +1,13 @@
 Changelog
 --
 
-# master
+# 2.2.1-rc7
+## Requirements
+- mrfioc2 <= 2.2.0-ess-rc7
+## Added
+- EVR databuffer support by EPICS in accordance to: https://confluence.esss.lu.se/display/HAR/Data+Buffer
+
+# 7.0.3-3.1.2/R-2.2.0-rc7
 ## Requirements
 - mrfioc2 <= 2.2.0-ess-rc7.
 ## Added
