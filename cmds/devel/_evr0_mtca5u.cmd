@@ -1,7 +1,7 @@
 # .cmd
 # ====
 
-epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
+epicsEnvSet("TOP", "$(E3_CMD_TOP)/../..")
 iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(TOP)/template")
 

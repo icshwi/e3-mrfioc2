@@ -4,7 +4,7 @@
 require mrfioc2, 2.2.0-rc6
 
 # Load timing global constants
-epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
+epicsEnvSet("TOP", "$(E3_CMD_TOP)/../..")
 iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 
 # PARAMS
