@@ -25,6 +25,7 @@ epicsEnvSet("EVT_HBEAT", 122)
 epicsEnvSet("EVT_PPS", 125)
 epicsEnvSet("EVT_SEQ_END", 127)
 epicsEnvSet("EVT_BEACON", 126)
+epicsEnvSet("EVT_DATA", 16)
 
 # Configure other defaults
 epicsEnvSet("DFT_WIDTH", 100)
