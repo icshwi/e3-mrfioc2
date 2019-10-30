@@ -1,0 +1,74 @@
+# .run.iocsh
+# ==========
+
+# Configure the EVR runtime:
+# Comment out all in order to run the production
+## Run the LABDEBUG mode - lab mini create
+#epicsEnvSet("LABDEBUG", "")
+# Run the LOOPBACK mode with the production beam pulses - it requires a loopback fiber
+# epicsEnvSet("LOOPBACK", "")
+# In order to test the asynchronous signals: $(EVT_PPS) $(EVT_PMORTEM) $(EVT_DOD)
+# epicsEnvSet("LOOPBACK_ASYNC", "")
+# ===========================
+
+# Purpose: tests only
+# Normal operation sequence added
+
+# SEQUENCE
+# ========
+### Set up the prescaler that will trigger the sequencer at 14 Hz ###
+dbpf $(IOC)-$(DEV):PS0-Div-SP $(MXC_14HZ)
+
+### Set up the sequencer ###
+### Set the runmode to normal, so that the sequencer re-arms after it finishes running
+dbpf $(IOC)-$(DEV):SoftSeq0-RunMode-Sel "Normal"
+### Set the trigger of the sequencer as prescaler 0
+dbpf $(IOC)-$(DEV):SoftSeq0-TrigSrc-2-Sel "Prescaler 0"
+
+### Set the engineering units (microseconds) for the delay of the events in the sequence (sequence timestamps) used in configure_sequencer_14Hz.sh; more information below
+dbpf $(IOC)-$(DEV):SoftSeq0-TsResolution-Sel "uSec"
+
+### Attach the soft sequence to a specific hardware sequence
+dbpf $(IOC)-$(DEV):SoftSeq0-Load-Cmd 1
+
+### Enable the sequencer
+dbpf $(IOC)-$(DEV):SoftSeq0-Enable-Cmd 1
+
+# Select the basic sequence
+# EVT_14HZ = 14, 127 is the end of sequence
+system("caput -a $(IOC)-$(DEV):SoftSeq0-EvtCode-SP 5 $(EVT_14HZ) $(EVT_BPULSE_CM) $(EVT_BPULSE_ST) $(EVT_BPULSE_END) $(EVT_SEQ_END)")
+# Defining time at which the event codes are sent in us (timestamps), as configured with $1-$2:SoftSeq0-TsResolution-Sel
+system("caput -a $(IOC)-$(DEV):SoftSeq0-Timestamp-SP 5 0 100 200 300 400")
+# Commit the sequence to HW
+dbpf $(IOC)-$(DEV):SoftSeq0-Commit-Cmd 1
+
+# Loopback EVT_PPS, EVT_PMORTEM, EVT_DOD
+# =====================================
+dbpf $(IOC)-$(DEV):PS1-Div-SP $(MXC_1HZ)
+
+### Set up the sequencer ###
+### Set the runmode to normal, so that the sequencer re-arms after it finishes running
+dbpf $(IOC)-$(DEV):SoftSeq1-RunMode-Sel "Normal"
+### Set the trigger of the sequencer as prescaler 1
+dbpf $(IOC)-$(DEV):SoftSeq1-TrigSrc-2-Sel "Prescaler 1"
+
+dbpf $(IOC)-$(DEV):SoftSeq1-TsResolution-Sel "uSec"
+
+### Attach the soft sequence to a specific hardware sequence
+dbpf $(IOC)-$(DEV):SoftSeq1-Load-Cmd 1
+
+### Enable the sequencer
+dbpf $(IOC)-$(DEV):SoftSeq1-Enable-Cmd 1
+
+# Select the basic sequence
+system("caput -a $(IOC)-$(DEV):SoftSeq1-EvtCode-SP 4 $(EVT_PPS) $(EVT_PMORTEM) $(EVT_DOD) $(EVT_SEQ_END)")
+# Defining time at which the event codes are sent in us (timestamps)
+system("caput -a $(IOC)-$(DEV):SoftSeq1-Timestamp-SP 4 0 100 200 300")
+# Commit the sequence to HW
+dbpf $(IOC)-$(DEV):SoftSeq1-Commit-Cmd 1
+
+# Apply the ASYNC loopback mode
+$(LOOPBACK_ASYNC=#)dbpf $(IOC)-$(DEV):SoftSeq0-Unload-Cmd 1
+$(LOOPBACK_ASYNC=#)dbpf $(IOC)-$(DEV):SoftSeq1-Load-Cmd 1
+
+#EOF
