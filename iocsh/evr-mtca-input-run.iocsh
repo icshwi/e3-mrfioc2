@@ -1,69 +1,42 @@
 # .run.iocsh
 # ==========
 
-# ESS AMC EVR command file for mrfioc2
-# ====================================
+$(BPIN0=#)dbpf $(IOC)-$(DEV):OutBack0-Src-RB "Tri-state"
+$(BPIN1=#)dbpf $(IOC)-$(DEV):OutBack1-Src-RB "Tri-state"
+$(BPIN2=#)dbpf $(IOC)-$(DEV):OutBack2-Src-RB "Tri-state"
+$(BPIN3=#)dbpf $(IOC)-$(DEV):OutBack3-Src-RB "Tri-state"
+$(BPIN4=#)dbpf $(IOC)-$(DEV):OutBack4-Src-RB "Tri-state"
+$(BPIN5=#)dbpf $(IOC)-$(DEV):OutBack5-Src-RB "Tri-state"
+$(BPIN6=#)dbpf $(IOC)-$(DEV):OutBack6-Src-RB "Tri-state"
+$(BPIN7=#)dbpf $(IOC)-$(DEV):OutBack7-Src-RB "Tri-state"
 
-### Generate pulses with outputs
-### ============================
-### Configure delay generators
-dbpf $(IOC)-$(DEV):DlyGen0-Evt-Trig0-SP $(EVT_14HZ)
-dbpf $(IOC)-$(DEV):DlyGen0-Width-SP $(DFT_WIDTH)
+$(BPIN0=#)dbpf $(IOC)-$(DEV):BPIn0-Trig-Ext-Sel "Edge"
+$(BPIN1=#)dbpf $(IOC)-$(DEV):BPIn1-Trig-Ext-Sel "Edge"
+$(BPIN2=#)dbpf $(IOC)-$(DEV):BPIn2-Trig-Ext-Sel "Edge"
+$(BPIN3=#)dbpf $(IOC)-$(DEV):BPIn3-Trig-Ext-Sel "Edge"
+$(BPIN4=#)dbpf $(IOC)-$(DEV):BPIn4-Trig-Ext-Sel "Edge"
+$(BPIN5=#)dbpf $(IOC)-$(DEV):BPIn5-Trig-Ext-Sel "Edge"
+$(BPIN6=#)dbpf $(IOC)-$(DEV):BPIn6-Trig-Ext-Sel "Edge"
+$(BPIN7=#)dbpf $(IOC)-$(DEV):BPIn7-Trig-Ext-Sel "Edge"
 
-dbpf $(IOC)-$(DEV):DlyGen1-Evt-Trig0-SP $(EVT_BPULSE_CM)
-dbpf $(IOC)-$(DEV):DlyGen1-Width-SP $(DFT_WIDTH)
+# Local EVR events
+$(BPIN0=#)dbpf $(IOC)-$(DEV):BPIn0-Code-Ext-SP $(EVT0)
+$(BPIN1=#)dbpf $(IOC)-$(DEV):BPIn1-Code-Ext-SP $(EVT1)
+$(BPIN2=#)dbpf $(IOC)-$(DEV):BPIn2-Code-Ext-SP $(EVT2)
+$(BPIN3=#)dbpf $(IOC)-$(DEV):BPIn3-Code-Ext-SP $(EVT3)
+$(BPIN4=#)dbpf $(IOC)-$(DEV):BPIn4-Code-Ext-SP $(EVT4)
+$(BPIN5=#)dbpf $(IOC)-$(DEV):BPIn5-Code-Ext-SP $(EVT5)
+$(BPIN6=#)dbpf $(IOC)-$(DEV):BPIn6-Code-Ext-SP $(EVT6)
+$(BPIN7=#)dbpf $(IOC)-$(DEV):BPIn7-Code-Ext-SP $(EVT7)
 
-# Symulation of beam pulse width: EVT_BPULSE_ST + EVT_BPULSE_END (future image release)
-dbpf $(IOC)-$(DEV):DlyGen2-Evt-Trig0-SP $(EVT_BPULSE_ST)
-# Symulating the EVT_BPULSE_END
-dbpf $(IOC)-$(DEV):DlyGen2-Width-SP $(DFT_WIDTH)
-
-# Required as there is no delay option for the ST END pulse
-dbpf $(IOC)-$(DEV):DlyGen3-Evt-Trig0-SP $(EVT_BPULSE_END)
-dbpf $(IOC)-$(DEV):DlyGen3-Width-SP $(DFT_WIDTH)
-
-dbpf $(IOC)-$(DEV):DlyGen4-Evt-Trig0-SP $(EVT_PMORTEM)
-dbpf $(IOC)-$(DEV):DlyGen4-Width-SP $(DFT_WIDTH)
-
-# Reserved for EVT_PMORTEMI
-#dbpf $(IOC)-$(DEV):DlyGen5-Evt-Trig0-SP $()
-#dbpf $(IOC)-$(DEV):DlyGen5-Width-SP $()
-
-dbpf $(IOC)-$(DEV):DlyGen6-Evt-Trig0-SP $(EVT_DOD)
-dbpf $(IOC)-$(DEV):DlyGen6-Width-SP $(DFT_WIDTH)
-
-# Reserved for EVT_DODI
-#dbpf $(IOC)-$(DEV):DlyGen7-Evt-Trig0-SP $()
-#dbpf $(IOC)-$(DEV):DlyGen7-Width-SP $()
-# Initially EVT_PPS for tests
-dbpf $(IOC)-$(DEV):DlyGen7-Evt-Trig0-SP $(EVT_PPS)
-dbpf $(IOC)-$(DEV):DlyGen7-Width-SP $(DFT_WIDTH)
-
-# FP outputs
-# =======================================
-### MTCA EVR Front Panel OUT0 trigger from DlyGen0 (delay generator 0)
-$(FPOUT=#)dbpf $(IOC)-$(DEV):OutFP0-Src-SP 0
-$(FPOUT=#)dbpf $(IOC)-$(DEV):OutFP1-Src-SP 1
-$(FPOUT=#)dbpf $(IOC)-$(DEV):OutFP2-Src-SP 2
-$(FPOUT=#)dbpf $(IOC)-$(DEV):OutFP3-Src-SP 3
-
-# Production AMC signals for mTCA
-# ===============================
-### MTCA EVR Backplane0, RX17 (0)
-$(BPOUT=#)dbpf $(IOC)-$(DEV):OutBack0-Src-SP 0
-### MTCA EVR Backplane1, TX17 (0)
-$(BPOUT=#)dbpf $(IOC)-$(DEV):OutBack1-Src-SP 1
-### MTCA EVR Backplane2, RX18 (0)
-$(BPOUT=#)dbpf $(IOC)-$(DEV):OutBack2-Src-SP 2
-### MTCA EVR Backplane3, TX18 (0)
-$(BPOUT=#)dbpf $(IOC)-$(DEV):OutBack3-Src-SP 3
-### MTCA EVR Backplane4, RX19 (0)
-$(BPOUT=#)dbpf $(IOC)-$(DEV):OutBack4-Src-SP 4
-### MTCA EVR Backplane5, TX19 (0)
-$(BPOUT=#)dbpf $(IOC)-$(DEV):OutBack5-Src-SP 5
-### MTCA EVR Backplane6, RX20 (0)
-$(BPOUT=#)dbpf $(IOC)-$(DEV):OutBack6-Src-SP 6
-### MTCA EVR Backplane7, TX20 (0)
-$(BPOUT=#)dbpf $(IOC)-$(DEV):OutBack7-Src-SP 7
+# Backplane sniffer
+#$(BPIN0=#)dbpf $(IOC)-$(DEV):EvtA-SP.OUT "@OBJ=$(DEV),Code=$(EVT0)"
+#$(BPIN1=#)dbpf $(IOC)-$(DEV):EvtB-SP.OUT "@OBJ=$(DEV),Code=$(EVT1)"
+#$(BPIN2=#)dbpf $(IOC)-$(DEV):EvtC-SP.OUT "@OBJ=$(DEV),Code=$(EVT2)"
+#$(BPIN3=#)dbpf $(IOC)-$(DEV):EvtD-SP.OUT "@OBJ=$(DEV),Code=$(EVT3)"
+#$(BPIN4=#)dbpf $(IOC)-$(DEV):EvtE-SP.OUT "@OBJ=$(DEV),Code=$(EVT4)"
+#$(BPIN5=#)dbpf $(IOC)-$(DEV):EvtF-SP.OUT "@OBJ=$(DEV),Code=$(EVT5)"
+#$(BPIN6=#)dbpf $(IOC)-$(DEV):EvtG-SP.OUT "@OBJ=$(DEV),Code=$(EVT6)"
+#$(BPIN7=#)dbpf $(IOC)-$(DEV):EvtH-SP.OUT "@OBJ=$(DEV),Code=$(EVT7)"
 
 #EOF
