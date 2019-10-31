@@ -1,6 +1,6 @@
 # .cmd
 # ====
-epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
+epicsEnvSet("TOP", "$(E3_CMD_TOP)/../..")
 iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 
 epicsEnvSet("LOCATION","MBL-070ROW:CNPW-U-017:AMC2")
