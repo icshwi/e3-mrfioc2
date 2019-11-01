@@ -2,14 +2,14 @@
 #====
 
 # Config section
-# ================
+# ==============
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/../..")
 iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 
 epicsEnvSet("LOCATION","MTCA:AMC2")
 
 # run with: iocsh.bash -c 'epicsEnvSet("IOC", "PBIxx")' evr.cmd
-epicsEnvSet("IOC", "PBILAB")
+epicsEnvSet("IOC", "MTCA5U")
 epicsEnvSet("DEV", "EVR")
 
 # Require section
@@ -19,7 +19,7 @@ require mrfioc2, 2.2.0-rc7
 # Init section
 # ============
 # mTCA-XU
-iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=$(MTCA_3U_PCIID6)")
+iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID2)")
 
 iocInit()
 

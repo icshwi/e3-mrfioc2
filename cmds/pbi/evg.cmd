@@ -5,13 +5,13 @@ iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 
 epicsEnvSet("LOCATION","PBI LAB")
 
-epicsEnvSet("IOC", "TMPBI")
+epicsEnvSet("IOC", "MTCA5U")
 epicsEnvSet("DEV", "EVG")
 
 # Select the software release
 require mrfioc2, 2.2.0-rc7
 
-iocshLoad("$(TOP)/iocsh/evg-mtca-init.iocsh", "IOC=$(IOC), DEV=$(DEV), PCIID=$(XXXX)")
+iocshLoad("$(TOP)/iocsh/evg-mtca-init.iocsh", "IOC=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID7)")
 
 iocInit()
 

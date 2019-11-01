@@ -2,35 +2,34 @@
 # ==========
 
 # ESS AMC EVR command file for mrfioc2
-# ================================
+# ====================================
+
+# Enable EVR
+dbpf $(IOC)-$(DEV):Ena-Sel "Enabled"
 
 # Set delay compensation to X ns, needed to avoid timestamp issue
-dbpf $(IOC)-$(DEV):DC-Tgt-SP $(DLY_COMPENSATION)
+dbpf $(IOC)-$(DEV):DC-Tgt-SP $(DFT_DLY_COMPENSATION)
 dbpf $(IOC)-$(DEV):DC-Ena-Sel "Enable"
 
 # Set the LED event 0 to event 14
 dbpf $(IOC)-$(DEV):Evt-Blink0-SP $(EVT_14HZ)
 
+# TIMESTAMP CONFIGURATION
+# =======================
+
 # Add proper ns calculation reference for the rf ticks
 dbpf $(IOC)-$(DEV):Time-Clock-SP $(ESSEvtClockRate)
 dbpf $(IOC)-$(DEV):Link-Clk-SP $(ESSEvtClockRate)
 
-### TIMESTAMP CONFIGURATION
-### =======================
-### Get current time from system clock, this will be used for the timestamps ###
-#it does not work dbpf $(IOC)-$(DEV):TimeSrc-Sel "Sys.Clock"
-#0-disabled EVT 125 comes from evg; 1-external; 2-Sys.Clock
-dbpf $(IOC)-$(DEV):TimeSrc-Sel 0
+# Get current time from system clock, this will be used for the timestamps ###
+# it does not work dbpf $(IOC)-$(DEV):TimeSrc-Sel "Sys.Clock"
+# 0-disabled; 1-external: EVT_PPS comes from evg; 2-Sys.Clock: locally generated EVT_PPS
+dbpf $(IOC)-$(DEV):TimeSrc-Sel 1
 ### Set the Time-I record, which holds the current time of the IOC and can be used as a timestamp source
 ### TSE field -2 to get timestamp from device support (timing)
 ##NOT SUPPORTED: dbpf $(IOC)-$(DEV):Time-I.TSE -2
-### EVT_PPS 125 to get processed on software (EPICS) event 14
-## dbpf $(IOC)-$(DEV):Time-I.EVNT 125
-## dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=125"
+## EVT_PPS 125 to get processed on software (EPICS) event 14
 dbpf $(IOC)-$(DEV):Time-I.EVNT $(EVT_PPS)
 dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=$(EVT_PPS)"
-
-# Enable EVR
-dbpf $(IOC)-$(DEV):Ena-Sel "Enabled"
 
 #EOF

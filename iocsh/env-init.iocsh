@@ -5,7 +5,6 @@
 # ======================
 epicsEnvSet("ENGINEER","ICS_HWI_WP04")
 epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES","10000000")
-var evrMrmTimeNSOverflowThreshold 100000
 # .cmd file defines the working directory
 # epicsEnvSet("mrfioc2_DIR", "..")
 # epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
@@ -30,9 +29,9 @@ epicsEnvSet("EVT_DATA", 16)
 
 # Configure other defaults
 epicsEnvSet("DFT_WIDTH", 100) #[ns]
-epicsEnvSet("BEAM_WIDTH", 2860000) #[ns]
+epicsEnvSet("DFT_BEAM_WIDTH", 2860000) #[ns]
 epicsEnvSet("ESSEvtClockRate", "88.0525") #[MHz]
-epicsEnvSet("DLY_COMPENSATION", 10000) #[ns]
+epicsEnvSet("DFT_DLY_COMPENSATION", 10000) #[ns]
 # epicsEnvSet("MainEvtCODE", "14")
 # epicsEnvSet("HeartBeatEvtCODE", "122")
 

@@ -20,23 +20,23 @@ $(BPIN6=#)dbpf $(IOC)-$(DEV):BPIn6-Trig-Ext-Sel "Edge"
 $(BPIN7=#)dbpf $(IOC)-$(DEV):BPIn7-Trig-Ext-Sel "Edge"
 
 # Local EVR events
-$(BPIN0=#)dbpf $(IOC)-$(DEV):BPIn0-Code-Ext-SP $(EVT0)
-$(BPIN1=#)dbpf $(IOC)-$(DEV):BPIn1-Code-Ext-SP $(EVT1)
-$(BPIN2=#)dbpf $(IOC)-$(DEV):BPIn2-Code-Ext-SP $(EVT2)
-$(BPIN3=#)dbpf $(IOC)-$(DEV):BPIn3-Code-Ext-SP $(EVT3)
-$(BPIN4=#)dbpf $(IOC)-$(DEV):BPIn4-Code-Ext-SP $(EVT4)
-$(BPIN5=#)dbpf $(IOC)-$(DEV):BPIn5-Code-Ext-SP $(EVT5)
-$(BPIN6=#)dbpf $(IOC)-$(DEV):BPIn6-Code-Ext-SP $(EVT6)
-$(BPIN7=#)dbpf $(IOC)-$(DEV):BPIn7-Code-Ext-SP $(EVT7)
+$(BPIN0=#)dbpf $(IOC)-$(DEV):BPIn0-Code-Ext-SP $(EVT0=)
+$(BPIN1=#)dbpf $(IOC)-$(DEV):BPIn1-Code-Ext-SP $(EVT1=)
+$(BPIN2=#)dbpf $(IOC)-$(DEV):BPIn2-Code-Ext-SP $(EVT2=)
+$(BPIN3=#)dbpf $(IOC)-$(DEV):BPIn3-Code-Ext-SP $(EVT3=)
+$(BPIN4=#)dbpf $(IOC)-$(DEV):BPIn4-Code-Ext-SP $(EVT4=)
+$(BPIN5=#)dbpf $(IOC)-$(DEV):BPIn5-Code-Ext-SP $(EVT5=)
+$(BPIN6=#)dbpf $(IOC)-$(DEV):BPIn6-Code-Ext-SP $(EVT6=)
+$(BPIN7=#)dbpf $(IOC)-$(DEV):BPIn7-Code-Ext-SP $(EVT7=)
 
 # Backplane sniffer
-#$(BPIN0=#)dbpf $(IOC)-$(DEV):EvtA-SP.OUT "@OBJ=$(DEV),Code=$(EVT0)"
-#$(BPIN1=#)dbpf $(IOC)-$(DEV):EvtB-SP.OUT "@OBJ=$(DEV),Code=$(EVT1)"
-#$(BPIN2=#)dbpf $(IOC)-$(DEV):EvtC-SP.OUT "@OBJ=$(DEV),Code=$(EVT2)"
-#$(BPIN3=#)dbpf $(IOC)-$(DEV):EvtD-SP.OUT "@OBJ=$(DEV),Code=$(EVT3)"
-#$(BPIN4=#)dbpf $(IOC)-$(DEV):EvtE-SP.OUT "@OBJ=$(DEV),Code=$(EVT4)"
-#$(BPIN5=#)dbpf $(IOC)-$(DEV):EvtF-SP.OUT "@OBJ=$(DEV),Code=$(EVT5)"
-#$(BPIN6=#)dbpf $(IOC)-$(DEV):EvtG-SP.OUT "@OBJ=$(DEV),Code=$(EVT6)"
-#$(BPIN7=#)dbpf $(IOC)-$(DEV):EvtH-SP.OUT "@OBJ=$(DEV),Code=$(EVT7)"
+#$(BPIN0=#)dbpf $(IOC)-$(DEV):EvtA-SP.OUT "@OBJ=$(DEV),Code=$(EVT0=)"
+#$(BPIN1=#)dbpf $(IOC)-$(DEV):EvtB-SP.OUT "@OBJ=$(DEV),Code=$(EVT1=)"
+#$(BPIN2=#)dbpf $(IOC)-$(DEV):EvtC-SP.OUT "@OBJ=$(DEV),Code=$(EVT2=)"
+#$(BPIN3=#)dbpf $(IOC)-$(DEV):EvtD-SP.OUT "@OBJ=$(DEV),Code=$(EVT3=)"
+#$(BPIN4=#)dbpf $(IOC)-$(DEV):EvtE-SP.OUT "@OBJ=$(DEV),Code=$(EVT4=)"
+#$(BPIN5=#)dbpf $(IOC)-$(DEV):EvtF-SP.OUT "@OBJ=$(DEV),Code=$(EVT5=)"
+#$(BPIN6=#)dbpf $(IOC)-$(DEV):EvtG-SP.OUT "@OBJ=$(DEV),Code=$(EVT6=)"
+#$(BPIN7=#)dbpf $(IOC)-$(DEV):EvtH-SP.OUT "@OBJ=$(DEV),Code=$(EVT7=)"
 
 #EOF
