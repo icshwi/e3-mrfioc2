@@ -41,16 +41,18 @@ dbpf $(IOC)-$(DEV):SoftSeq2-RunMode-Sel "Normal"
 dbpf $(IOC)-$(DEV):SoftSeq2-TrigSrc-Sel "Mxc0"
 dbpf $(IOC)-$(DEV):SoftSeq2-TsResolution-Sel "uSec"
 
+# Master Event Rate 14 Hz
+dbpf $(IOC)-$(DEV):Mxc0-Polarity-Sel "Orginal"
+dbpf $(IOC)-$(DEV):Mxc0-Prescaler-SP $(MXC_14HZ)
+# EVT_14HZ can be in use instead of the sequence which can be stopped
+dbpf $(IOC)-$(DEV):TrigEvt0-EvtCode-SP $(EVT_14HZ)
+dbpf $(IOC)-$(DEV):TrigEvt0-TrigSrc-Sel "Mxc0"
+
 # Heart Beat 1 Hz
+dbpf $(IOC)-$(DEV):Mxc7-Polarity-Sel "Orginal"
 dbpf $(IOC)-$(DEV):Mxc7-Prescaler-SP $(MXC_1HZ)
 dbpf $(IOC)-$(DEV):TrigEvt7-EvtCode-SP $(EVT_HBEAT)
 dbpf $(IOC)-$(DEV):TrigEvt7-TrigSrc-Sel "Mxc7"
 
-# Master Event Rate 14 Hz
-dbpf $(IOC)-$(DEV):Mxc0-Prescaler-SP $(MXC_14HZ)
-
-# EVT_14HZ can be in use instead of the sequence which can be stopped
-dbpf $(IOC)-$(DEV):TrigEvt0-EvtCode-SP $(EVT_14HZ)
-dbpf $(IOC)-$(DEV):TrigEvt0-TrigSrc-Sel "Mxc0"
 
 #EOF
