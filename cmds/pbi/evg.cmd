@@ -11,7 +11,7 @@ epicsEnvSet("DEV", "EVG")
 # Select the software release
 require mrfioc2, 2.2.0-rc7
 
-iocshLoad("$(TOP)/iocsh/evg-mtca-init.iocsh", "IOC=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID7)")
+iocshLoad("$(TOP)/iocsh/evm-mtca-init.iocsh", "IOC=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID7)")
 
 iocInit()
 

@@ -11,9 +11,9 @@ epicsEnvSet("DEV", "EVG")
 require mrfioc2, 2.2.0-rc7
 
 # mTCA-XU
-iocshLoad("$(TOP)/iocsh/evg-mtca-init.iocsh", "IOC=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID7)")
+iocshLoad("$(TOP)/iocsh/evm-mtca-init.iocsh", "IOC=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID7)")
 # Realtime kernel
-# iocshLoad("$(TOP)/iocsh/evg-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0b:00.0, RT=wtRT")
+# iocshLoad("$(TOP)/iocsh/evm-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0b:00.0, RT=wtRT")
 
 iocInit()
 
