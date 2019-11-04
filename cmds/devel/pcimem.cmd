@@ -1,11 +1,11 @@
 # .cmd
 # ====
-epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
+epicsEnvSet("TOP", "$(E3_CMD_TOP)/../..")
 iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 
 
 # Select the software release
-require mrfioc2, 2.2.0-rc6
+require mrfioc2, 2.2.0-rc7
 
 # pcidiagset 8 0 0
 # pciread 32 0x4000 0x1000
