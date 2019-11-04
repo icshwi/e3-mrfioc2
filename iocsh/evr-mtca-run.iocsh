@@ -23,8 +23,8 @@ dbpf $(IOC)-$(DEV):Link-Clk-SP $(ESSEvtClockRate)
 
 # Get current time from system clock, this will be used for the timestamps ###
 # it does not work dbpf $(IOC)-$(DEV):TimeSrc-Sel "Sys.Clock"
-# 0-disabled; 1-external: EVT_PPS comes from evg; 2-Sys.Clock: locally generated EVT_PPS
-dbpf $(IOC)-$(DEV):TimeSrc-Sel 1
+# 0-disabled: EVT_PPS comes from evg; 1-external; 2-Sys.Clock: locally generated EVT_PPS
+dbpf $(IOC)-$(DEV):TimeSrc-Sel 0
 ### Set the Time-I record, which holds the current time of the IOC and can be used as a timestamp source
 ### TSE field -2 to get timestamp from device support (timing)
 ##NOT SUPPORTED: dbpf $(IOC)-$(DEV):Time-I.TSE -2

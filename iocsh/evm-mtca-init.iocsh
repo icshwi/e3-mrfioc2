@@ -9,6 +9,7 @@ mrmEvgSetupPCI($(DEV), $(PCIID))
 
 dbLoadRecords("evm-mtca-300-ess.db", "SYS=$(IOC), D=$(DEV), EVG=$(DEV), FEVT=$(ESSEvtClockRate), FRF=$(ESSEvtClockRate), RFDIV=1")
 
-var evrMrmTimeNSOverflowThreshold 100000
+# Only for local debugging purposes.
+var evrMrmTimeNSOverflowThreshold 1000000
 
 #EOF
