@@ -9,7 +9,7 @@ epicsEnvSet("LOCATION","MTCA:AMC2")
 epicsEnvSet("IOC", "MTCA5U")
 epicsEnvSet("DEV", "EVR")
 
-require mrfioc2, 2.2.0-rc8
+require mrfioc2, 2.2.0-rc7
 
 # mTCA-XU
 iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID2)")
@@ -17,13 +17,12 @@ iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=$(MTC
 # dbLoadRecords("evrevent.db","EN=$(IOC)-$(DEV):Evt18, OBJ=$(DEV), CODE=18, EVNT=18")
 # dbLoadRecords("evr-databuffer.db","SYS=$(IOC), D=$(DEV)")
 # dbLoadTemplate("$(TOP)/template/evr-databuffer-ess.substitutions", "PREFIX=$(IOC)-$(DEV):")
-dbLoadRecords("evr-databuffer-ess.db", "PREFIX=$(IOC)-$(DEV):")
+# dbLoadRecords("evr-databuffer-ess.db", "PREFIX=$(IOC)-$(DEV):")
 
 iocInit()
 
-iocshLoad("$(TOP)/iocsh/evr-mtca-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
+iocshLoad("$(TOP)/iocsh/evr-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
 iocshLoad("$(TOP)/iocsh/evr-mtca-tclk-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
-# iocshLoad("$(TOP)/iocsh/evr-mtca-out-run.iocsh", "IOC=$(IOC), DEV=$(DEV), BPOUT='', FPOUT=''")
 
 dbl > "${IOC}-${DEV}_PVs.list"
 

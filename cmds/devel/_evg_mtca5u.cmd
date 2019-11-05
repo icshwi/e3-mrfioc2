@@ -3,7 +3,7 @@
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/../..")
 iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 
-epicsEnvSet("LOCATION","MBL-070ROW:CNPW-U-017:AMC2")
+#epicsEnvSet("LOCATION","MBL-070ROW:CNPW-U-017:AMC2")
 
 epicsEnvSet("IOC", "MTCA5U")
 epicsEnvSet("DEV", "EVG")
@@ -19,13 +19,10 @@ iocInit()
 
 # RUNTIME
 # =======
+iocshLoad("$(TOP)/iocsh/evg-run.iocsh", "IOC=$(IOC), DEV=$(DEV), INTREF=''")
+iocshLoad("$(TOP)/iocsh/evg-seq0-NBP-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
+iocshLoad("$(TOP)/iocsh/evr-output-run.iocsh", "IOC=$(IOC), DEV=$(DEV)U, FPOUT0=")
 
-iocshLoad("$(TOP)/iocsh/evg-mtca-run.iocsh", "IOC=$(IOC), DEV=$(DEV), INTREF=''")
-# Add normal operation sequencer0 for tests
-
-iocshLoad("$(TOP)/iocsh/_evg-seq0-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
-# iocshLoad("$(TOP)/iocsh/_evg-seq0-smoke.iocsh", "IOC=$(IOC), DEV=$(DEV)")
-# iocshLoad("$(TOP)/iocsh/_evg-seq01-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
 
 dbl > "${IOC}-${DEV}_PVs.list"
 

@@ -20,6 +20,6 @@ iocInit()
 iocshLoad("$(TOP)/iocsh/evg-mtca-run.iocsh", "IOC=$(IOC), DEV=$(DEV), INTREF=''")
 iocshLoad("$(TOP)/iocsh/evg-seq0-NBP-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
 
-# dbl > "${IOC}_PVs.list"
+dbl > "${IOC}_PVs.list"
 
 #EOF
