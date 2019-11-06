@@ -16,7 +16,7 @@ iocshLoad("$(TOP)/iocsh/evg-cpci-init.iocsh", "IOC=$(IOC), DEV=$(DEV), PCIID='01
 
 iocInit()
 
-iocshLoad("$(TOP)/iocsh/evg-mtca-run.iocsh", "IOC=$(IOC), DEV=$(DEV), INTREF=''")
+iocshLoad("$(TOP)/iocsh/evg-run.iocsh", "IOC=$(IOC), DEV=$(DEV), INTREF=''")
 iocshLoad("$(TOP)/iocsh/evg-seq0-NBP-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
 
 #dbl > "${IOC}_PVs.list"

@@ -23,7 +23,7 @@ dbpf $(IOC)-$(DEV):DlyGen6-Evt-Trig0-SP $(EVT6=136)
 dbpf $(IOC)-$(DEV):DlyGen7-Evt-Trig0-SP $(EVT7=137)
 
 # Push the pulser outputs into the physical one
-# ===============================
+# =============================================
 ### MTCA EVR Backplane0, RX17 (0)
 $(BPOUT0=#)dbpf $(IOC)-$(DEV):OutBack0-Src-SP 0
 ### MTCA EVR Backplane1, TX17 (0)
@@ -42,7 +42,7 @@ $(BPOUT6=#)dbpf $(IOC)-$(DEV):OutBack6-Src-SP 6
 $(BPOUT7=#)dbpf $(IOC)-$(DEV):OutBack7-Src-SP 7
 
 # FP outputs
-# =======================================
+# ==========
 ### MTCA EVR Front Panel OUT0 trigger from DlyGen0 (delay generator 0)
 $(FPOUT0=#)dbpf $(IOC)-$(DEV):OutFP0-Src-SP 0
 $(FPOUT1=#)dbpf $(IOC)-$(DEV):OutFP1-Src-SP 1

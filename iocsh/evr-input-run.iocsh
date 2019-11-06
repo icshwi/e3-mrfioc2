@@ -1,6 +1,7 @@
 # .run.iocsh
 # ==========
 
+# Backplane
 $(BPIN0=#)dbpf $(IOC)-$(DEV):OutBack0-Src-RB "Tri-state"
 $(BPIN1=#)dbpf $(IOC)-$(DEV):OutBack1-Src-RB "Tri-state"
 $(BPIN2=#)dbpf $(IOC)-$(DEV):OutBack2-Src-RB "Tri-state"
@@ -20,23 +21,43 @@ $(BPIN6=#)dbpf $(IOC)-$(DEV):BPIn6-Trig-Ext-Sel "Edge"
 $(BPIN7=#)dbpf $(IOC)-$(DEV):BPIn7-Trig-Ext-Sel "Edge"
 
 # Local EVR events
-$(BPIN0=#)dbpf $(IOC)-$(DEV):BPIn0-Code-Ext-SP $(EVT0=)
-$(BPIN1=#)dbpf $(IOC)-$(DEV):BPIn1-Code-Ext-SP $(EVT1=)
-$(BPIN2=#)dbpf $(IOC)-$(DEV):BPIn2-Code-Ext-SP $(EVT2=)
-$(BPIN3=#)dbpf $(IOC)-$(DEV):BPIn3-Code-Ext-SP $(EVT3=)
-$(BPIN4=#)dbpf $(IOC)-$(DEV):BPIn4-Code-Ext-SP $(EVT4=)
-$(BPIN5=#)dbpf $(IOC)-$(DEV):BPIn5-Code-Ext-SP $(EVT5=)
-$(BPIN6=#)dbpf $(IOC)-$(DEV):BPIn6-Code-Ext-SP $(EVT6=)
-$(BPIN7=#)dbpf $(IOC)-$(DEV):BPIn7-Code-Ext-SP $(EVT7=)
+$(BPIN0=#)dbpf $(IOC)-$(DEV):BPIn0-Code-Ext-SP $(EVT0=130)
+$(BPIN1=#)dbpf $(IOC)-$(DEV):BPIn1-Code-Ext-SP $(EVT1=131)
+$(BPIN2=#)dbpf $(IOC)-$(DEV):BPIn2-Code-Ext-SP $(EVT2=132)
+$(BPIN3=#)dbpf $(IOC)-$(DEV):BPIn3-Code-Ext-SP $(EVT3=133)
+$(BPIN4=#)dbpf $(IOC)-$(DEV):BPIn4-Code-Ext-SP $(EVT4=134)
+$(BPIN5=#)dbpf $(IOC)-$(DEV):BPIn5-Code-Ext-SP $(EVT5=135)
+$(BPIN6=#)dbpf $(IOC)-$(DEV):BPIn6-Code-Ext-SP $(EVT6=136)
+$(BPIN7=#)dbpf $(IOC)-$(DEV):BPIn7-Code-Ext-SP $(EVT7=137)
 
 # Backplane sniffer
-#$(BPIN0=#)dbpf $(IOC)-$(DEV):EvtA-SP.OUT "@OBJ=$(DEV),Code=$(EVT0=)"
-#$(BPIN1=#)dbpf $(IOC)-$(DEV):EvtB-SP.OUT "@OBJ=$(DEV),Code=$(EVT1=)"
-#$(BPIN2=#)dbpf $(IOC)-$(DEV):EvtC-SP.OUT "@OBJ=$(DEV),Code=$(EVT2=)"
-#$(BPIN3=#)dbpf $(IOC)-$(DEV):EvtD-SP.OUT "@OBJ=$(DEV),Code=$(EVT3=)"
-#$(BPIN4=#)dbpf $(IOC)-$(DEV):EvtE-SP.OUT "@OBJ=$(DEV),Code=$(EVT4=)"
-#$(BPIN5=#)dbpf $(IOC)-$(DEV):EvtF-SP.OUT "@OBJ=$(DEV),Code=$(EVT5=)"
-#$(BPIN6=#)dbpf $(IOC)-$(DEV):EvtG-SP.OUT "@OBJ=$(DEV),Code=$(EVT6=)"
-#$(BPIN7=#)dbpf $(IOC)-$(DEV):EvtH-SP.OUT "@OBJ=$(DEV),Code=$(EVT7=)"
+#$(BPIN0=#)dbpf $(IOC)-$(DEV):EvtA-SP.OUT "@OBJ=$(DEV),Code=$(EVT0=130)"
+#$(BPIN1=#)dbpf $(IOC)-$(DEV):EvtB-SP.OUT "@OBJ=$(DEV),Code=$(EVT1=131)"
+#$(BPIN2=#)dbpf $(IOC)-$(DEV):EvtC-SP.OUT "@OBJ=$(DEV),Code=$(EVT2=132)"
+#$(BPIN3=#)dbpf $(IOC)-$(DEV):EvtD-SP.OUT "@OBJ=$(DEV),Code=$(EVT3=133)"
+#$(BPIN4=#)dbpf $(IOC)-$(DEV):EvtE-SP.OUT "@OBJ=$(DEV),Code=$(EVT4=134)"
+#$(BPIN5=#)dbpf $(IOC)-$(DEV):EvtF-SP.OUT "@OBJ=$(DEV),Code=$(EVT5=135)"
+#$(BPIN6=#)dbpf $(IOC)-$(DEV):EvtG-SP.OUT "@OBJ=$(DEV),Code=$(EVT6=136)"
+#$(BPIN7=#)dbpf $(IOC)-$(DEV):EvtH-SP.OUT "@OBJ=$(DEV),Code=$(EVT7=137)"
+
+# Front panel
+$(FPIN0=#)dbpf $(IOC)-$(DEV):In0-Trig-Ext-Sel "Edge"
+$(FPIN1=#)dbpf $(IOC)-$(DEV):In1-Trig-Ext-Sel "Edge"
+$(FPIN2=#)dbpf $(IOC)-$(DEV):In2-Trig-Ext-Sel "Edge"
+$(FPIN3=#)dbpf $(IOC)-$(DEV):In3-Trig-Ext-Sel "Edge"
+$(FPIN4=#)dbpf $(IOC)-$(DEV):In4-Trig-Ext-Sel "Edge"
+$(FPIN5=#)dbpf $(IOC)-$(DEV):In5-Trig-Ext-Sel "Edge"
+$(FPIN6=#)dbpf $(IOC)-$(DEV):In6-Trig-Ext-Sel "Edge"
+$(FPIN7=#)dbpf $(IOC)-$(DEV):In7-Trig-Ext-Sel "Edge"
+
+# Local EVR events
+$(FPIN0=#)dbpf $(IOC)-$(DEV):In0-Code-Ext-SP $(EVT0=130)
+$(FPIN1=#)dbpf $(IOC)-$(DEV):In1-Code-Ext-SP $(EVT1=131)
+$(FPIN2=#)dbpf $(IOC)-$(DEV):In2-Code-Ext-SP $(EVT2=132)
+$(FPIN3=#)dbpf $(IOC)-$(DEV):In3-Code-Ext-SP $(EVT3=133)
+$(FPIN4=#)dbpf $(IOC)-$(DEV):In4-Code-Ext-SP $(EVT4=134)
+$(FPIN5=#)dbpf $(IOC)-$(DEV):In5-Code-Ext-SP $(EVT5=135)
+$(FPIN6=#)dbpf $(IOC)-$(DEV):In6-Code-Ext-SP $(EVT6=136)
+$(FPIN7=#)dbpf $(IOC)-$(DEV):In7-Code-Ext-SP $(EVT7=137)
 
 #EOF
