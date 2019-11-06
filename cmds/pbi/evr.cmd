@@ -25,9 +25,9 @@ iocInit()
 
 # Run section
 # ===========
-iocshLoad("$(TOP)/iocsh/evr-mtca-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
-iocshLoad("$(TOP)/iocsh/evr-mtca-output-run.iocsh", "IOC=$(IOC), DEV=$(DEV), BPOUT0='', EVT0=$(EVT_14HZ), BPOUT1='', EVT1=$(EVT_BPULSE_CM), BPOUT2='', EVT2=$(EVT_BPULSE_ST), BPOUT3='', EVT3=$(EVT_PPS), BPOUT4='', EVT4=$(EVT_PMORTEM), BPOUT5=#, EVT5=#, BPOUT6='', EVT6=$(EVT_DOD), BPOUT7=#, EVT7=#")
-iocshLoad("$(TOP)/iocsh/evr-mtca-input-run.iocsh", "IOC=$(IOC), DEV=$(DEV), BPIN0=#, BPIN1=#, BPIN2=#, BPIN3=#, BPIN4=#, BPIN5='', EVT5=$(EVT_PMORTEMI), BPIN6=#, BPIN7='', EVT7=$(EVT_DODI)")
+iocshLoad("$(TOP)/iocsh/evr-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
+iocshLoad("$(TOP)/iocsh/evr-output-run.iocsh", "IOC=$(IOC), DEV=$(DEV), BPOUT0='', EVT0=$(EVT_14HZ), BPOUT1='', EVT1=$(EVT_BPULSE_CM), BPOUT2='', EVT2=$(EVT_BPULSE_ST), BPOUT3='', EVT3=$(EVT_PPS), BPOUT4='', EVT4=$(EVT_PMORTEM), BPOUT5=#, EVT5=#, BPOUT6='', EVT6=$(EVT_DOD), BPOUT7=#, EVT7=#")
+iocshLoad("$(TOP)/iocsh/evr-input-run.iocsh", "IOC=$(IOC), DEV=$(DEV), BPIN0=#, BPIN1=#, BPIN2=#, BPIN3=#, BPIN4=#, BPIN5='', EVT5=$(EVT_PMORTEMI), BPIN6=#, BPIN7='', EVT7=$(EVT_DODI)")
 
 # dbl > "${IOC}_PVs.list"
 

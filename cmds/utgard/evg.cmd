@@ -23,7 +23,7 @@ iocInit()
 
 # RUNTIME
 # =======
-iocshLoad("$(TOP)/iocsh/evg-mtca-run.iocsh", "IOC=$(IOC), DEV=$(DEV), INTREF=''")
+iocshLoad("$(TOP)/iocsh/evg-run.iocsh", "IOC=$(IOC), DEV=$(DEV), INTREF=''")
 # Add normal operation sequencer0 for tests
 iocshLoad("$(TOP)/iocsh/_evg-seq0-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
 
