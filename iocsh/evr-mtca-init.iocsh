@@ -7,7 +7,7 @@
 mrmEvrSetupPCI("$(DEV)", $(PCIID))
 dbLoadRecords("evr-mtca-300u-ess.db","EVR=$(DEV), SYS=$(IOC), D=$(DEV), FEVT=$(ESSEvtClockRate)")
 
-# needed with software timestamp source w/o RT thread scheduling
-var evrMrmTimeNSOverflowThreshold 100000
+# needed with software timestamp [ns] source w/o RT thread scheduling
+var evrMrmTimeNSOverflowThreshold 1000000
 
 #EOF

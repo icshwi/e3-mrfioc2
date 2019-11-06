@@ -1,0 +1,28 @@
+# .run.iocsh
+# ==========
+
+# Purpose: tests only
+# Normal operation sequence added
+
+# SEQUENCE
+# ========
+## Select the basic sequence
+
+# Burn the system
+dbpf $(IOC)-$(DEV):TrigEvt0-EvtCode-SP 88052
+dbpf $(IOC)-$(DEV):TrigEvt0-TrigSrc-Sel "Mxc0"
+
+# Removes a possibility that the sequence is stopped
+dbpf $(IOC)-$(DEV):SoftSeq0-Disable-Cmd 1
+epicsThreadSleep 1
+#MTCA-EVG:SoftSeq0-Unload-Cmd
+## EVT_14HZ = 14, 127 is the end of sequence
+system("caput -a $(IOC)-$(DEV):SoftSeq0-EvtCode-SP 14 10 11 12 13 14 15 16 17 18 19 20 21 22 $(EVT_SEQ_END)")
+## Defining time at which the event codes are sent in us (timestamps), as configured with $1-$2:SoftSeq0-TsResolution-Sel
+system("caput -a $(IOC)-$(DEV):SoftSeq0-Timestamp-SP 14 100 150 200 250 300 350 400 450 500 550 600 700 800 1000")
+# Commit the sequence to HW
+epicsThreadSleep 1
+dbpf $(IOC)-$(DEV):SoftSeq0-Enable-Cmd 1
+dbpf $(IOC)-$(DEV):SoftSeq0-Commit-Cmd 1
+
+#EOF

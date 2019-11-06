@@ -25,13 +25,15 @@ epicsEnvSet("EVT_HBEAT", 122)
 epicsEnvSet("EVT_PPS", 125)
 epicsEnvSet("EVT_SEQ_END", 127)
 epicsEnvSet("EVT_BEACON", 126)
+epicsEnvSet("EVT_DATA", 16)
 
 # Configure other defaults
-epicsEnvSet("DFT_WIDTH", 100)
-epicsEnvSet("ESSEvtClockRate", "88.0525") #[MHz]
-epicsEnvSet("DLY_COMPENSATION", 10000) #[ns]
-# epicsEnvSet("MainEvtCODE", "14")
-# epicsEnvSet("HeartBeatEvtCODE", "122")
+epicsEnvSet("DFT_WIDTH", 100) #[ns]
+epicsEnvSet("DFT_BEAM_WIDTH", 2860000) #[ns]
+epicsEnvSet("ESSEvtClockRate", 88.0525) #[MHz]
+epicsEnvSet("DFT_DLY_COMPENSATION", 10000) #[ns]
+# epicsEnvSet("MainEvtCODE", 14)
+# epicsEnvSet("HeartBeatEvtCODE", 122)
 
 # Prescallers
 epicsEnvSet("MXC_14HZ", 6289464)

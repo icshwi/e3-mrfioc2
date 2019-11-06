@@ -5,6 +5,7 @@ db: conf
 	install -m 644 $(TOP)/template/evg-*-ess.substitutions  $(E3_MODULE_SRC_PATH)/evgMrmApp/Db/
 	install -m 644 $(TOP)/template/evm-*-ess.substitutions  $(E3_MODULE_SRC_PATH)/evgMrmApp/Db/
 	install -m 644 $(TOP)/template/evr-*-ess.substitutions  $(E3_MODULE_SRC_PATH)/evrMrmApp/Db/
+	install -m 644 $(TOP)/template/evr-*.template  $(E3_MODULE_SRC_PATH)/evrMrmApp/Db/
 	$(QUIET) $(E3_MODULE_MAKE_CMDS) db
 
 hdrs:

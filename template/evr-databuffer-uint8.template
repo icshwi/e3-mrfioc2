@@ -1,0 +1,21 @@
+# .template
+## P=MTCA5U-EVR:
+## INDEX=0-31
+## MAXEL=INDEX+1 (TODO)
+## PV=Protocol-RB
+
+record(subArray, "$(P)$(R=)dbus-s8indx$(INDEX)-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(P)$(R=)dbus-recv-s8 CPP")
+  field(INDX, "$(INDEX)")
+  field(NELM, "1") # "2046")
+  field(MALM, "$(MAXEL)") # "2046")
+  #field(MALM, "INDEX + 1") # "2046") # To add calc record?
+  field(FTVL, "UCHAR") # UCHAR has a bug as acts as CHAR
+}
+
+record(longin, "$(P)$(R=)$(PV)") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(P)$(R=)dbus-s8indx$(INDEX)-subA_ CPP")
+}
+#EOL

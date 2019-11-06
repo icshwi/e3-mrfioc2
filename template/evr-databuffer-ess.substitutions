@@ -1,0 +1,37 @@
+#.substitutions
+# ESS EVR data buffer PVs
+
+# Documentation:
+## https://confluence.esss.lu.se/display/HAR/Data+Buffer
+
+# Usage example:
+## PREFIX=MTCA5U-EVR:
+## INDEX=0-31
+## MAXEL=INDEX+1 (TODO)
+## PV=Protocol-RB
+
+global {P=$(PREFIX)}
+
+file "evr-databuffer-uint8.template" {
+pattern { PV, INDEX, MAXEL }
+{ "ProtoNum-RB",        "0",    "1"}
+{ "ProtoVer-RB",        "2",    "3"}
+{ "PBOn-RB",            "12",   "13"}
+{ "PBDest-RB",          "13",   "14"}
+{ "PBMod-RB",           "14",   "15"}
+{ "TgRast-RB",          "28",   "29"}
+{ "TgSeg-RB",           "29",   "30"}
+}
+
+file "evr-databuffer-uint32.template" {
+pattern { PV, INDEX, MAXEL }
+{ "CycleNum-RB", "4", "5"}
+}
+
+file "evr-databuffer-float32.template" {
+pattern { PV, INDEX, MAXEL }
+{ "PBLen-RB",       "16", "17"}
+{ "PBEn-RB",        "20", "21"}
+{ "PBCurr-RB",      "24", "25"}
+}
+#EOL

@@ -1,7 +1,7 @@
 #.img.iocsh
 
 # EVM img size: 11443722
-# EVR img size: 3011417
+# EVR img size: 3011417 changed to 3011434
 # MTCA-EVR and PCIe FPGA: Kintex7 7K70T, bits=24,090,592 page=32 and in .bit size: 3011417
 
 # Bit file examples
@@ -19,7 +19,7 @@
 # $(EVR=#)epicsEnvSet("DEV", "EVR")
 
 $(EVM=#)epicsEnvSet("BIN_SIZE", 11443722)
-$(EVR=#)epicsEnvSet("BIN_SIZE", 3011417)
+$(EVR=#)epicsEnvSet("BIN_SIZE", 3011434)
 
 # If EVM update
 $(EVM=#)mrmEvgSetupPCI("$(DEV)", "$(PCIID)")

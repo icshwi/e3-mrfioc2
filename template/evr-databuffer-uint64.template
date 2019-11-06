@@ -1,0 +1,30 @@
+# .template
+# WARNING: Not tested
+
+record(subArray, "$(P)$(R=)dbus-u32indx$(INDEX0)-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(P)$(R=)dbus-recv-u32 CPP")
+  field(INDX, "$(INDEX0)")
+  field(NELM, "1") # "2046")
+  field(MALM, "$(INDEX1)") # "2046")
+  field(FTVL, "ULONG")
+}
+
+record(subArray, "$(P)$(R=)dbus-u32indx$(INDEX1)-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(P)$(R=)dbus-recv-u32 CPP")
+  field(INDX, "$(INDEX1)")
+  field(NELM, "1") # "2046")
+  field(MALM, "$(MAXEL)") # "2046")
+  field(FTVL, "ULONG")
+}
+
+record(calc, "$(P)$(R=)$(PV)") {
+  field(CALC, "A+B<<32")
+  field(INPA, "$(P)$(R=)dbus-u32indx$(INDEX0)-subA_ CPP")
+  field(INPB, "$(P)$(R=)dbus-u32indx$(INDEX1)-subA_ CPP")
+  #field(PREC, "3") # only works if "caget -s SYS-D:Protocol-RB"
+  field(SCAN, "Passive")
+}
+
+#EOL
