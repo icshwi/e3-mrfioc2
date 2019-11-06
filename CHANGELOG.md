@@ -1,7 +1,7 @@
 Changelog
 --
 
-# 2.2.1-rc7
+# 2.2.0-rc7
 ## Requirements
 - mrfioc2 <= 2.2.0-ess-rc7
 ## Added
