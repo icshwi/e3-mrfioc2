@@ -1,9 +1,9 @@
 # .cmd
 # ====
-epicsEnvSet("TOP", "$(E3_CMD_TOP)/../..")
+epicsEnvSet("TOP", "$(E3_CMD_TOP)/..")
 iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 
-epicsEnvSet("LOCATION","PBI LAB")
+epicsEnvSet("LOCATION","LAB")
 
 epicsEnvSet("IOC", "MTCA5U")
 epicsEnvSet("DEV", "EVG")
