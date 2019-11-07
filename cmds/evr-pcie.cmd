@@ -17,7 +17,7 @@ require mrfioc2, 2.2.0-rc7
 
 # Init section
 # ============
-iocshLoad("$(mrfioc2_DIR)/evr-pcie-300dc.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=03:00.0")
+iocshLoad("$(TOP)/iocsh/evr-pcie-300dc-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=03:00.0")
 
 iocInit()
 
