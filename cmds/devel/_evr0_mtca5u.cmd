@@ -17,7 +17,7 @@ iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=$(MTC
 # dbLoadRecords("evrevent.db","EN=$(IOC)-$(DEV):Evt18, OBJ=$(DEV), CODE=18, EVNT=18")
 # dbLoadRecords("evr-databuffer.db","SYS=$(IOC), D=$(DEV)")
 # dbLoadTemplate("$(TOP)/template/evr-databuffer-ess.substitutions", "PREFIX=$(IOC)-$(DEV):")
-# dbLoadRecords("evr-databuffer-ess.db", "PREFIX=$(IOC)-$(DEV):")
+dbLoadRecords("evr-databuffer-ess.db", "PREFIX=$(IOC)-$(DEV):")
 
 iocInit()
 
