@@ -18,7 +18,7 @@ iocInit()
 iocshLoad("$(TOP)/iocsh/evr-run.iocsh", "IOC=$(IOC), DEV=$(DEV), INTREF=")
 #iocshLoad("$(TOP)/iocsh/evr-mtca-tclk-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
 iocshLoad("$(TOP)/iocsh/evr-lb-run.iocsh", "IOC=$(IOC), DEV=$(DEV)")
-iocshLoad("$(TOP)/iocsh/evr-output-run.iocsh", "IOC=$(IOC), DEV=$(DEV), FPOUT0=, FPOUT1=, FPOUT2=, FPOUT3=, EVT0=$(EVT_14HZ), EVT1=$(EVT_14HZ), EVT2=$(EVT_14HZ), EVT3=$(EVT_14HZ)")
+iocshLoad("$(TOP)/iocsh/evr-output-run.iocsh", "IOC=$(IOC), DEV=$(DEV), FPOUT0=, FPOUT1=, FPOUT2=, FPOUT3=, EVT0=$(EVT_14HZ), EVT1=$(EVT_14HZ), EVT2=$(EVT_14HZ), EVT3=$(EVT_14HZ), FPUVOUT0=, FPUVOUT1=, FPUVOUT2=, FPUVOUT3=")
 
 dbl > "${IOC}-${DEV}_PVs.list"
 

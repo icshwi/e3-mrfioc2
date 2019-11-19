@@ -49,4 +49,8 @@ $(FPOUT1=#)dbpf $(IOC)-$(DEV):OutFP1-Src-SP 1
 $(FPOUT2=#)dbpf $(IOC)-$(DEV):OutFP2-Src-SP 2
 $(FPOUT3=#)dbpf $(IOC)-$(DEV):OutFP3-Src-SP 3
 
+$(FPUVOUT0=#)dbpf $(IOC)-$(DEV):OutFPUV0-Src-SP 0
+$(FPUVOUT1=#)dbpf $(IOC)-$(DEV):OutFPUV1-Src-SP 1
+$(FPUVOUT2=#)dbpf $(IOC)-$(DEV):OutFPUV2-Src-SP 2
+$(FPUVOUT3=#)dbpf $(IOC)-$(DEV):OutFPUV3-Src-SP 3
 #EOF
