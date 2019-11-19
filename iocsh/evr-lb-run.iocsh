@@ -1,0 +1,29 @@
+
+# Set up the prescaler that will trigger the sequencer at 14 Hz ###
+dbpf $(IOC)-$(DEV):PS0-Div-SP $(MXC_14HZ)
+
+# Set up the sequencer
+# Set the runmode to normal, so that the sequencer re-arms after it finishes running
+dbpf $(IOC)-$(DEV):SoftSeq0-RunMode-Sel "Normal"
+# Set the trigger of the sequencer as prescaler 0
+dbpf $(IOC)-$(DEV):SoftSeq0-TrigSrc-2-Sel "Prescaler 0"
+
+# Set the engineering units (microseconds)
+dbpf $(IOC)-$(DEV):SoftSeq0-TsResolution-Sel "uSec"
+
+# Event code 14 (14 Hz), 127 is the end of sequence
+system("caput -a $(IOC)-$(DEV):SoftSeq0-EvtCode-SP 2 $(EVT_14HZ) $(EVT_SEQ_END)")
+
+# Defining time at which the event codes are sent in us (timestamps)
+system("caput -a $(IOC)-$(DEV):SoftSeq0-Timestamp-SP 2 0 1")
+
+epicsThreadSleep 0.1
+
+# Attach the soft sequence to a specific hardware sequence
+dbpf $(IOC)-$(DEV):SoftSeq0-Load-Cmd 1
+
+# Enable the sequencer
+dbpf $(IOC)-$(DEV):SoftSeq0-Enable-Cmd 1
+
+# Commit the sequence to HW
+dbpf $(IOC)-$(DEV):SoftSeq0-Commit-Cmd 1
