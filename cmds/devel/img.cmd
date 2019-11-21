@@ -22,9 +22,9 @@ iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 # mTCA-EVR-300DC-180E0207.bit
 # ===========================
 #iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR2, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID2), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
-#iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR3, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID3), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
-iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR4, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID4), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
-#iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR5, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID5), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
+#iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR3, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID3), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
+#iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR4, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID4), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
+iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR5, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID5), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
 # iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR2, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID2), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
 # iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR3, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID3), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
 # iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR4, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID4), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")

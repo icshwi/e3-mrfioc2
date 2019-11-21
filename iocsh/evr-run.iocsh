@@ -4,8 +4,14 @@
 # ESS AMC EVR command file for mrfioc2
 # ====================================
 
-# Enable EVR
-dbpf $(IOC)-$(DEV):Ena-Sel "Enabled"
+# Add proper ns calculation reference for the rf ticks
+
+dbpf $(IOC)-$(DEV):Link-Clk-SP 50
+
+epicsThreadSleep 1
+
+dbpf $(IOC)-$(DEV):Link-Clk-SP $(ESSEvtClockRate)
+dbpf $(IOC)-$(DEV):Time-Clock-SP $(ESSEvtClockRate)
 
 # Set delay compensation to X ns, needed to avoid timestamp issue
 dbpf $(IOC)-$(DEV):DC-Tgt-SP $(DFT_DLY_COMPENSATION)
@@ -16,11 +22,6 @@ dbpf $(IOC)-$(DEV):Evt-Blink0-SP $(EVT_14HZ)
 
 # TIMESTAMP CONFIGURATION
 # =======================
-
-# Add proper ns calculation reference for the rf ticks
-dbpf $(IOC)-$(DEV):Time-Clock-SP $(ESSEvtClockRate)
-dbpf $(IOC)-$(DEV):Link-Clk-SP $(ESSEvtClockRate)
-
 # Get current time from system clock, this will be used for the timestamps ###
 # it does not work dbpf $(IOC)-$(DEV):TimeSrc-Sel "Sys.Clock"
 # 0-disabled: EVT_PPS comes from evg; 1-external; 2-Sys.Clock: locally generated EVT_PPS
@@ -32,5 +33,8 @@ $(INTREF=#)dbpf $(IOC)-$(DEV):TimeSrc-Sel 2
 ## EVT_PPS 125 to get processed on software (EPICS) event 14
 dbpf $(IOC)-$(DEV):Time-I.EVNT $(EVT_PPS)
 dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=$(EVT_PPS)"
+
+# Enable EVR
+dbpf $(IOC)-$(DEV):Ena-Sel "Enabled"
 
 #EOF
