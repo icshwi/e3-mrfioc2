@@ -10,7 +10,7 @@ epicsEnvSet("DEV", "EVRL")
 
 require mrfioc2, 2.2.0-rc7
 
-iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID3)")
+iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID4)")
 
 iocInit()
 

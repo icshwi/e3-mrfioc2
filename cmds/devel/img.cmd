@@ -1,7 +1,7 @@
 # .cmd
 # ====
 
-require mrfioc2, 2.2.0-rc6
+require mrfioc2, 2.2.0-rc7
 
 # Load timing global constants
 epicsEnvSet("TOP", "$(E3_CMD_TOP)/../..")
@@ -15,14 +15,16 @@ iocshLoad("$(TOP)/iocsh/env-init.iocsh")
 # PCIID - PCI address
 # assumes that the image repo is ../../../../hwi-fw/mrf/ = TOP/../../
 
+# mTCA-EVM-300-280A0207.bit
+# =========================
 # iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVM6, EVM='', BIN_WR='', PCIID=$(MTCA_5U_PCIID6), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVM-300-280A0207.bit'")
 
 # mTCA-EVR-300DC-180E0207.bit
-
-iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR2, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID2), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
-iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR3, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID3), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
-iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR4, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID4), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
-iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR5, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID5), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
+# ===========================
+#iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR2, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID2), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
+#iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR3, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID3), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
+iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR4, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID4), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
+#iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR5, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID5), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-180E0207.bit'")
 # iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR2, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID2), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
 # iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR3, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID3), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
 # iocshLoad("$(TOP)/iocsh/img.iocsh", "DEV=EVR4, EVR='', BIN_WR='', PCIID=$(MTCA_5U_PCIID4), BIN_FILE='$(TOP)/../../hwi-fw/mrf/mTCA-EVR-300DC-18070207.bit'")
