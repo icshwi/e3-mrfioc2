@@ -4,14 +4,8 @@
 # ESS AMC EVR command file for mrfioc2
 # ====================================
 
-# Add proper ns calculation reference for the rf ticks
-
-dbpf $(IOC)-$(DEV):Link-Clk-SP 50
-
-epicsThreadSleep 1
-
-dbpf $(IOC)-$(DEV):Link-Clk-SP $(ESSEvtClockRate)
-dbpf $(IOC)-$(DEV):Time-Clock-SP $(ESSEvtClockRate)
+# Enable EVR
+dbpf $(IOC)-$(DEV):Ena-Sel "Enabled"
 
 # Set delay compensation to X ns, needed to avoid timestamp issue
 dbpf $(IOC)-$(DEV):DC-Tgt-SP $(DFT_DLY_COMPENSATION)
@@ -34,7 +28,12 @@ $(INTREF=#)dbpf $(IOC)-$(DEV):TimeSrc-Sel 2
 dbpf $(IOC)-$(DEV):Time-I.EVNT $(EVT_PPS)
 dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=$(EVT_PPS)"
 
-# Enable EVR
-dbpf $(IOC)-$(DEV):Ena-Sel "Enabled"
+# Silicon bug correction
+dbpf $(IOC)-$(DEV):Link-Clk-SP 80
+epicsThreadSleep 1
+
+# Add proper ns calculation reference for the rf ticks
+dbpf $(IOC)-$(DEV):Link-Clk-SP $(ESSEvtClockRate)
+dbpf $(IOC)-$(DEV):Time-Clock-SP $(ESSEvtClockRate)
 
 #EOF
