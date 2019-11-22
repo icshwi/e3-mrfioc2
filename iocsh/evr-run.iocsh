@@ -29,7 +29,7 @@ dbpf $(IOC)-$(DEV):Time-I.EVNT $(EVT_PPS)
 dbpf $(IOC)-$(DEV):Time-I.INP "@OBJ=$(DEV), Code=$(EVT_PPS)"
 
 # Silicon bug correction
-dbpf $(IOC)-$(DEV):Link-Clk-SP 80
+dbpf $(IOC)-$(DEV):Link-Clk-SP 100
 epicsThreadSleep 1
 
 # Add proper ns calculation reference for the rf ticks

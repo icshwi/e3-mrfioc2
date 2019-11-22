@@ -12,12 +12,12 @@ dbpf $(IOC)-$(DEV):SoftSeq0-TrigSrc-2-Sel "Prescaler 0"
 dbpf $(IOC)-$(DEV):SoftSeq0-TsResolution-Sel "uSec"
 
 # Event code 14 (14 Hz), 127 is the end of sequence
-system("caput -a $(IOC)-$(DEV):SoftSeq0-EvtCode-SP 2 $(EVT_14HZ) $(EVT_SEQ_END)")
+system("caput -a $(IOC)-$(DEV):SoftSeq0-EvtCode-SP 3 $(EVT_14HZ) $(EVT_HBEAT) $(EVT_SEQ_END)")
 
 # Defining time at which the event codes are sent in us (timestamps)
-system("caput -a $(IOC)-$(DEV):SoftSeq0-Timestamp-SP 2 0 1")
+system("caput -a $(IOC)-$(DEV):SoftSeq0-Timestamp-SP 3 0 1 10")
 
-epicsThreadSleep 0.1
+epicsThreadSleep 1
 
 # Attach the soft sequence to a specific hardware sequence
 dbpf $(IOC)-$(DEV):SoftSeq0-Load-Cmd 1
