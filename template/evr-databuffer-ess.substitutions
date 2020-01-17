@@ -13,25 +13,25 @@
 global {P=$(PREFIX)}
 
 file "evr-databuffer-uint8.template" {
-pattern { PV, INDEX, MAXEL }
-{ "ProtoNum-RB",        "0",    "1"}
-{ "ProtoVer-RB",        "2",    "3"}
-{ "PBOn-RB",            "12",   "13"}
-{ "PBDest-RB",          "13",   "14"}
-{ "PBMod-RB",           "14",   "15"}
-{ "TgRast-RB",          "28",   "29"}
-{ "TgSeg-RB",           "29",   "30"}
+pattern { PV, INDEX, MAXEL, OFFSET }
+{ "ProtoNum-RB", "0", "1", "0"}
+{ "ProtoVer-RB", "0", "1", "2"}
+{ "PBOn-RB",     "3", "4", "0"}
+{ "PBDest-RB",   "3", "4", "1"}
+{ "PBMod-RB",    "3", "4", "2"}
+{ "TgRast-RB",   "7", "8", "0"}
+{ "TgSeg-RB",    "7", "8", "1"}
 }
 
 file "evr-databuffer-uint32.template" {
 pattern { PV, INDEX, MAXEL }
-{ "CycleNum-RB", "4", "5"}
+{ "CycleNum-RB", "1", "2"}
 }
 
 file "evr-databuffer-float32.template" {
 pattern { PV, INDEX, MAXEL }
-{ "PBLen-RB",       "16", "17"}
-{ "PBEn-RB",        "20", "21"}
-{ "PBCurr-RB",      "24", "25"}
+{ "PBLen-RB",    "4", "5"}
+{ "PBEn-RB",     "5", "6"}
+{ "PBCurr-RB",   "6", "7"}
 }
 #EOL
