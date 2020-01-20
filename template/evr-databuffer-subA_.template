@@ -1,0 +1,12 @@
+# Init subA_ for the databuffer records
+
+record(subArray, "$(P)$(R=)dbus-u32indx$(INDEX)-subA_") {
+  field(DTYP, "Soft Channel")
+  field(INP, "$(P)$(R=)dbus-recv-u32 CPP")
+  field(INDX, "$(INDEX)")
+  field(NELM, "1") # "2046")
+  field(MALM, "$(MAXEL)") # "2046")
+  field(FTVL, "ULONG")
+}
+
+#EOL

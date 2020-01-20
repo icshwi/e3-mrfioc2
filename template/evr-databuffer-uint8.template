@@ -1,24 +1,9 @@
 # .template
-## P=MTCA5U-EVR:
-## INDEX[unit32]=0-31
-## OFFSET[B] within uint32
-## MAXEL=INDEX+1 (TODO)
-## PV=Protocol-RB
-
-record(subArray, "$(P)$(R=)dbus-u32indx$(INDEX)-subA_") {
-  field(DTYP, "Soft Channel")
-  field(INP, "$(P)$(R=)dbus-recv-u32 CPP")
-  field(INDX, "$(INDEX)")
-  field(NELM, "1") # "2046")
-  field(MALM, "$(MAXEL)") # "2046")
-  field(FTVL, "ULONG")
-}
 
 record(calcout, "$(P)$(R=)$(PV)") {
   field(INPA, "$(P)$(R=)dbus-u32indx$(INDEX)-subA_ CPP")
   field(SCAN, "Passive")
-  field(CALC, "(A>>($(OFFSET)*8))&(255)")
-  #field(CALC, "17>>($(OFFSET)*4)")
+  field(CALC, "(A>>($(OFFSET)*8))&255")
 }
 
 #EOL

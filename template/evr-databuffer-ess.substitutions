@@ -6,32 +6,42 @@
 
 # Usage example:
 ## PREFIX=MTCA5U-EVR:
-## INDEX=0-31
+## INDEX=0-8
 ## MAXEL=INDEX+1 (TODO)
 ## PV=Protocol-RB
 
 global {P=$(PREFIX)}
 
+# Split and init the int32 databuffer records - subA_
+file "evr-databuffer-subA_.template" {
+pattern { INDEX, MAXEL }
+{ "0", "1" }
+{ "1", "2" }
+{ "2", "3" }
+{ "3", "4" }
+{ "4", "5" }
+{ "5", "6" }
+{ "6", "7" }
+{ "7", "8" }
+}
+
 file "evr-databuffer-uint8.template" {
-pattern { PV, INDEX, MAXEL, OFFSET }
-{ "ProtoNum-RB", "0", "1", "0"}
-{ "ProtoVer-RB", "0", "1", "2"}
-{ "PBOn-RB",     "3", "4", "0"}
-{ "PBDest-RB",   "3", "4", "1"}
-{ "PBMod-RB",    "3", "4", "2"}
-{ "TgRast-RB",   "7", "8", "0"}
-{ "TgSeg-RB",    "7", "8", "1"}
+pattern { PV, INDEX, OFFSET }
+{ "ProtNum",  "0", "0"}
+{ "ProtVer",  "0", "2"}
+{ "PBCfg",    "3", "0"}
+{ "PBDest",   "3", "1"}
+{ "PBMod",    "3", "2"}
+{ "TgRast",   "7", "0"}
+{ "TgSeg",    "7", "1"}
 }
 
 file "evr-databuffer-uint32.template" {
-pattern { PV, INDEX, MAXEL }
-{ "CycleNum-RB", "1", "2"}
+pattern { PV, INDEX }
+{ "IdCycle",  "1"}
+{ "PBLen",    "4"}
+{ "PBEn",     "5"}
+{ "PBCurr",   "6"}
 }
 
-file "evr-databuffer-float32.template" {
-pattern { PV, INDEX, MAXEL }
-{ "PBLen-RB",    "4", "5"}
-{ "PBEn-RB",     "5", "6"}
-{ "PBCurr-RB",   "6", "7"}
-}
 #EOL
