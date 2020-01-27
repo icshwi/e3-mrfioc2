@@ -9,7 +9,8 @@ epicsEnvSet("LOCATION","MTCA:AMC2")
 epicsEnvSet("IOC", "MTCA5U")
 epicsEnvSet("DEV", "EVR")
 
-require mrfioc2, 2.2.0-rc7
+#require mrfioc2, 2.2.0-rc7
+require mrfioc2, master
 
 # mTCA-XU
 iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=$(MTCA_5U_PCIID2)")
