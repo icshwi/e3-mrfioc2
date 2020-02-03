@@ -29,7 +29,7 @@ file "evr-databuffer-uint8.template" {
 pattern { PV, INDEX, OFFSET }
 { "ProtNum",  "0", "0"}
 { "ProtVer",  "0", "2"}
-{ "PBCfg",    "3", "0"}
+{ "PBState",  "3", "0"}
 { "PBDest",   "3", "1"}
 { "PBMod",    "3", "2"}
 { "TgRast",   "7", "0"}
