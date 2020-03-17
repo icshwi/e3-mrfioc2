@@ -1,0 +1,10 @@
+# .init.iocsh
+# ===========
+
+mrmEvgSetupPCI $(DEV) $(PCIID)
+
+dbLoadRecords "evm-mtca-300-ess.db" "SYS=$(P), D=$(DEV), EVG=$(DEV), FEVT=$(TS_CLK), FRF=$(TS_CLK), RFDIV=1"
+
+var evrMrmTimeNSOverflowThreshold 1000000
+
+#EOF
