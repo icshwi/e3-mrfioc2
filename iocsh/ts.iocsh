@@ -1,0 +1,37 @@
+# .init.iocsh
+# ===========
+
+# GLOBAL TIMING SETTINGS
+# ======================
+epicsEnvSet "ENGINEER" "ICS_HWI_WP04"
+epicsEnvSet "EPICS_CA_MAX_ARRAY_BYTES" "10000000"
+
+# Configure Event codes:
+
+epicsEnvSet "EVT_ION_ST"       "10"
+epicsEnvSet "EVT_ION_END"      "11"
+epicsEnvSet "EVT_BPULSE_ST"    "12"
+epicsEnvSet "EVT_BPULSE_END"   "13"
+epicsEnvSet "EVT_14HZ"         "14"
+epicsEnvSet "EVT_BPULSE_CM"    "15"
+epicsEnvSet "EVT_PMORTEM"      "40"
+epicsEnvSet "EVT_PMORTEMI"     "41"
+epicsEnvSet "EVT_DOD"          "42"
+epicsEnvSet "EVT_DODI"         "43"
+epicsEnvSet "EVT_HBEAT"        "122"
+epicsEnvSet "EVT_PPS"          "125"
+epicsEnvSet "EVT_SEQ_END"      "127"
+epicsEnvSet "EVT_BEACON"       "126"
+epicsEnvSet "EVT_CEND"         "17"
+
+# Configure other defaults
+epicsEnvSet "DFT_WIDTH"      "100"      #[ns]
+epicsEnvSet "DFT_WIDTH_BEAM" "2860000"  #[ns]
+epicsEnvSet "TS_CLK"         "88.0525"  #[MHz]
+epicsEnvSet "DFT_DLY_COMP"   "10000"    #[ns]
+
+# Prescallers
+epicsEnvSet "MXC_14HZ" "6289464"
+epicsEnvSet "MXC_1HZ"  "88052500"
+
+#EOF
