@@ -1,87 +1,87 @@
 file evgAcTrig.db {
 pattern { P, OBJ }
-{ "$(SYS)-$(D):AcTrig-", "$(EVG):AcTrig" }
+{ "\$(P)\$(R=)\$(S=:)AcTrig-", "\$(OBJ):AcTrig" }
 }
 
 file evgDbus.db {
 pattern { P, PSRC, OBJ, EVG, dbusBit }
-{ "$(SYS)-$(D):Dbus0-", "$(SYS)-$(D):Dbus0-Src-", "$(EVG):Dbus0", $(EVG), 0 }
-{ "$(SYS)-$(D):Dbus1-", "$(SYS)-$(D):Dbus1-Src-", "$(EVG):Dbus1", $(EVG), 1 }
-{ "$(SYS)-$(D):Dbus2-", "$(SYS)-$(D):Dbus2-Src-", "$(EVG):Dbus2", $(EVG), 2 }
-{ "$(SYS)-$(D):Dbus3-", "$(SYS)-$(D):Dbus3-Src-", "$(EVG):Dbus3", $(EVG), 3 }
-{ "$(SYS)-$(D):Dbus4-", "$(SYS)-$(D):Dbus4-Src-", "$(EVG):Dbus4", $(EVG), 4 }
-{ "$(SYS)-$(D):Dbus5-", "$(SYS)-$(D):Dbus5-Src-", "$(EVG):Dbus5", $(EVG), 5 }
-{ "$(SYS)-$(D):Dbus6-", "$(SYS)-$(D):Dbus6-Src-", "$(EVG):Dbus6", $(EVG), 6 }
-{ "$(SYS)-$(D):Dbus7-", "$(SYS)-$(D):Dbus7-Src-", "$(EVG):Dbus7", $(EVG), 7 }
+{ "\$(P)\$(R=)\$(S=:)Dbus0-", "\$(P)\$(R=)\$(S=:)Dbus0-Src-", "\$(OBJ):Dbus0", \$(OBJ), 0 }
+{ "\$(P)\$(R=)\$(S=:)Dbus1-", "\$(P)\$(R=)\$(S=:)Dbus1-Src-", "\$(OBJ):Dbus1", \$(OBJ), 1 }
+{ "\$(P)\$(R=)\$(S=:)Dbus2-", "\$(P)\$(R=)\$(S=:)Dbus2-Src-", "\$(OBJ):Dbus2", \$(OBJ), 2 }
+{ "\$(P)\$(R=)\$(S=:)Dbus3-", "\$(P)\$(R=)\$(S=:)Dbus3-Src-", "\$(OBJ):Dbus3", \$(OBJ), 3 }
+{ "\$(P)\$(R=)\$(S=:)Dbus4-", "\$(P)\$(R=)\$(S=:)Dbus4-Src-", "\$(OBJ):Dbus4", \$(OBJ), 4 }
+{ "\$(P)\$(R=)\$(S=:)Dbus5-", "\$(P)\$(R=)\$(S=:)Dbus5-Src-", "\$(OBJ):Dbus5", \$(OBJ), 5 }
+{ "\$(P)\$(R=)\$(S=:)Dbus6-", "\$(P)\$(R=)\$(S=:)Dbus6-Src-", "\$(OBJ):Dbus6", \$(OBJ), 6 }
+{ "\$(P)\$(R=)\$(S=:)Dbus7-", "\$(P)\$(R=)\$(S=:)Dbus7-Src-", "\$(OBJ):Dbus7", \$(OBJ), 7 }
 }
 
 
 file evgEvtClk.db {
-{P="$(SYS)-$(D):EvtClk-", OBJ="$(EVG)", FRF="\$(FRF=499.68)", FDIV="\$(FDIV=4)", FEVT="\$(FEVT=124.916)"}
+{P="\$(P)\$(R=)\$(S=:)EvtClk-", OBJ="\$(OBJ)", FRF="\$(FRF=499.68)", FDIV="\$(FDIV=4)", FEVT="\$(FEVT=124.916)"}
 }
 
 
 
 file evgInput.db {
-pattern { P, OBJ, SYS, D, SYSD, Num }
-{ "$(SYS)-$(D):InpUniv0-",  "$(EVG):UnivInp0",  $(SYS), $(D), "$(SYS)-$(D):", 2 }
-{ "$(SYS)-$(D):InpUniv1-",  "$(EVG):UnivInp1",  $(SYS), $(D), "$(SYS)-$(D):", 3 }
-{ "$(SYS)-$(D):InpUniv2-",  "$(EVG):UnivInp2",  $(SYS), $(D), "$(SYS)-$(D):", 4 }
-{ "$(SYS)-$(D):InpUniv3-",  "$(EVG):UnivInp3",  $(SYS), $(D), "$(SYS)-$(D):", 5 }
+pattern { P, OBJ, SYSD, Num }
+{ "\$(P)\$(R=)\$(S=:)InpUniv0-", "\$(OBJ):UnivInp0", "\$(P)\$(R=)\$(S=:)", 2 }
+{ "\$(P)\$(R=)\$(S=:)InpUniv1-", "\$(OBJ):UnivInp1", "\$(P)\$(R=)\$(S=:)", 3 }
+{ "\$(P)\$(R=)\$(S=:)InpUniv2-", "\$(OBJ):UnivInp2", "\$(P)\$(R=)\$(S=:)", 4 }
+{ "\$(P)\$(R=)\$(S=:)InpUniv3-", "\$(OBJ):UnivInp3", "\$(P)\$(R=)\$(S=:)", 5 }
 }
 
 file evgMrm.db {
-{ P="$(SYS)-$(D):", SOFTEVT="$(SYS)-$(D):SoftEvt-", OBJ="$(EVG)", EVG="$(EVG)" }
+{ P="\$(P)\$(R=)\$(S=:)", SOFTEVT="\$(P)\$(R=)\$(S=:)SoftEvt-", OBJ="\$(OBJ)", EVG="\$(OBJ)" }
 }
 
 
 file evgMxc.db {
-pattern { P, OBJ, SYS, D, SYSD, SYSDEVTCLK }
-{ "$(SYS)-$(D):Mxc0-", "$(EVG):Mxc0", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc1-", "$(EVG):Mxc1", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc2-", "$(EVG):Mxc2", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc3-", "$(EVG):Mxc3", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc4-", "$(EVG):Mxc4", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc5-", "$(EVG):Mxc5", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc6-", "$(EVG):Mxc6", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
-{ "$(SYS)-$(D):Mxc7-", "$(EVG):Mxc7", $(SYS), $(D), "$(SYS)-$(D):", "$(SYS)-$(D):EvtClk-" }
+pattern { P, OBJ, SYSD, SYSDEVTCLK }
+{ "\$(P)\$(R=)\$(S=:)Mxc0-", "\$(OBJ):Mxc0", "\$(P)\$(R=)\$(S=:)", "\$(P)\$(R=)\$(S=:)EvtClk-" }
+{ "\$(P)\$(R=)\$(S=:)Mxc1-", "\$(OBJ):Mxc1", "\$(P)\$(R=)\$(S=:)", "\$(P)\$(R=)\$(S=:)EvtClk-" }
+{ "\$(P)\$(R=)\$(S=:)Mxc2-", "\$(OBJ):Mxc2", "\$(P)\$(R=)\$(S=:)", "\$(P)\$(R=)\$(S=:)EvtClk-" }
+{ "\$(P)\$(R=)\$(S=:)Mxc3-", "\$(OBJ):Mxc3", "\$(P)\$(R=)\$(S=:)", "\$(P)\$(R=)\$(S=:)EvtClk-" }
+{ "\$(P)\$(R=)\$(S=:)Mxc4-", "\$(OBJ):Mxc4", "\$(P)\$(R=)\$(S=:)", "\$(P)\$(R=)\$(S=:)EvtClk-" }
+{ "\$(P)\$(R=)\$(S=:)Mxc5-", "\$(OBJ):Mxc5", "\$(P)\$(R=)\$(S=:)", "\$(P)\$(R=)\$(S=:)EvtClk-" }
+{ "\$(P)\$(R=)\$(S=:)Mxc6-", "\$(OBJ):Mxc6", "\$(P)\$(R=)\$(S=:)", "\$(P)\$(R=)\$(S=:)EvtClk-" }
+{ "\$(P)\$(R=)\$(S=:)Mxc7-", "\$(OBJ):Mxc7", "\$(P)\$(R=)\$(S=:)", "\$(P)\$(R=)\$(S=:)EvtClk-" }
 }
 
 file mrmSoftSeq.template {
 pattern { P, PINITSEQ, PTRIGSRC, EVG, seqNum, NELM }
-{ "$(SYS)-$(D):SoftSeq0-", "$(SYS)-$(D):SoftSeq0-InitSeq-", "$(SYS)-$(D):SoftSeq0-TrigSrc-", "$(EVG)", 0, 2047 }
-{ "$(SYS)-$(D):SoftSeq1-", "$(SYS)-$(D):SoftSeq1-InitSeq-", "$(SYS)-$(D):SoftSeq1-TrigSrc-", "$(EVG)", 1, 2047 }
-{ "$(SYS)-$(D):SoftSeq2-", "$(SYS)-$(D):SoftSeq2-InitSeq-", "$(SYS)-$(D):SoftSeq2-TrigSrc-", "$(EVG)", 2, 2047 }
+{ "\$(P)\$(R=)\$(S=:)SoftSeq0-", "\$(P)\$(R=)\$(S=:)SoftSeq0-InitSeq-", "\$(P)\$(R=)\$(S=:)SoftSeq0-TrigSrc-", "\$(OBJ)", 0, 2047 }
+{ "\$(P)\$(R=)\$(S=:)SoftSeq1-", "\$(P)\$(R=)\$(S=:)SoftSeq1-InitSeq-", "\$(P)\$(R=)\$(S=:)SoftSeq1-TrigSrc-", "\$(OBJ)", 1, 2047 }
+{ "\$(P)\$(R=)\$(S=:)SoftSeq2-", "\$(P)\$(R=)\$(S=:)SoftSeq2-InitSeq-", "\$(P)\$(R=)\$(S=:)SoftSeq2-TrigSrc-", "\$(OBJ)", 2, 2047 }
 }
 
 file evgSoftSeq.template {
 pattern { P, PTRIGSRC, PEVTCLKFREQ, SYSDEVTCLK, EVG, seqNum, NELM }
-{ "$(SYS)-$(D):SoftSeq0-", "$(SYS)-$(D):SoftSeq0-TrigSrc-", "$(SYS)-$(D):SoftSeq0-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(EVG), 0, 2047 }
-{ "$(SYS)-$(D):SoftSeq1-", "$(SYS)-$(D):SoftSeq1-TrigSrc-", "$(SYS)-$(D):SoftSeq1-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(EVG), 1, 2047 }
-{ "$(SYS)-$(D):SoftSeq2-", "$(SYS)-$(D):SoftSeq2-TrigSrc-", "$(SYS)-$(D):SoftSeq2-EvtClkFreq-", "$(SYS)-$(D):EvtClk-", $(EVG), 2, 2047 }
+{ "\$(P)\$(R=)\$(S=:)SoftSeq0-", "\$(P)\$(R=)\$(S=:)SoftSeq0-TrigSrc-", "\$(P)\$(R=)\$(S=:)SoftSeq0-EvtClkFreq-", "\$(P)\$(R=)\$(S=:)EvtClk-", \$(OBJ), 0, 2047 }
+{ "\$(P)\$(R=)\$(S=:)SoftSeq1-", "\$(P)\$(R=)\$(S=:)SoftSeq1-TrigSrc-", "\$(P)\$(R=)\$(S=:)SoftSeq1-EvtClkFreq-", "\$(P)\$(R=)\$(S=:)EvtClk-", \$(OBJ), 1, 2047 }
+{ "\$(P)\$(R=)\$(S=:)SoftSeq2-", "\$(P)\$(R=)\$(S=:)SoftSeq2-TrigSrc-", "\$(P)\$(R=)\$(S=:)SoftSeq2-EvtClkFreq-", "\$(P)\$(R=)\$(S=:)EvtClk-", \$(OBJ), 2, 2047 }
 }
 
 file evgTrigEvt.db {
 pattern { P, PTRIGSRC, POMSL, OBJ, EVG, trigEvtNum }
-{ "$(SYS)-$(D):TrigEvt0-", "$(SYS)-$(D):TrigEvt0-TrigSrc-", "$(SYS)-$(D):TrigEvt0-Omsl-", "$(EVG):TrigEvt0", $(EVG), 0 }
-{ "$(SYS)-$(D):TrigEvt1-", "$(SYS)-$(D):TrigEvt1-TrigSrc-", "$(SYS)-$(D):TrigEvt1-Omsl-", "$(EVG):TrigEvt1", $(EVG), 1 }
-{ "$(SYS)-$(D):TrigEvt2-", "$(SYS)-$(D):TrigEvt2-TrigSrc-", "$(SYS)-$(D):TrigEvt2-Omsl-", "$(EVG):TrigEvt2", $(EVG), 2 }
-{ "$(SYS)-$(D):TrigEvt3-", "$(SYS)-$(D):TrigEvt3-TrigSrc-", "$(SYS)-$(D):TrigEvt3-Omsl-", "$(EVG):TrigEvt3", $(EVG), 3 }
-{ "$(SYS)-$(D):TrigEvt4-", "$(SYS)-$(D):TrigEvt4-TrigSrc-", "$(SYS)-$(D):TrigEvt4-Omsl-", "$(EVG):TrigEvt4", $(EVG), 4 }
-{ "$(SYS)-$(D):TrigEvt5-", "$(SYS)-$(D):TrigEvt5-TrigSrc-", "$(SYS)-$(D):TrigEvt5-Omsl-", "$(EVG):TrigEvt5", $(EVG), 5 }
-{ "$(SYS)-$(D):TrigEvt6-", "$(SYS)-$(D):TrigEvt6-TrigSrc-", "$(SYS)-$(D):TrigEvt6-Omsl-", "$(EVG):TrigEvt6", $(EVG), 6 }
-{ "$(SYS)-$(D):TrigEvt7-", "$(SYS)-$(D):TrigEvt7-TrigSrc-", "$(SYS)-$(D):TrigEvt7-Omsl-", "$(EVG):TrigEvt7", $(EVG), 7 }
+{ "\$(P)\$(R=)\$(S=:)TrigEvt0-", "\$(P)\$(R=)\$(S=:)TrigEvt0-TrigSrc-", "\$(P)\$(R=)\$(S=:)TrigEvt0-Omsl-", "\$(OBJ):TrigEvt0", \$(OBJ), 0 }
+{ "\$(P)\$(R=)\$(S=:)TrigEvt1-", "\$(P)\$(R=)\$(S=:)TrigEvt1-TrigSrc-", "\$(P)\$(R=)\$(S=:)TrigEvt1-Omsl-", "\$(OBJ):TrigEvt1", \$(OBJ), 1 }
+{ "\$(P)\$(R=)\$(S=:)TrigEvt2-", "\$(P)\$(R=)\$(S=:)TrigEvt2-TrigSrc-", "\$(P)\$(R=)\$(S=:)TrigEvt2-Omsl-", "\$(OBJ):TrigEvt2", \$(OBJ), 2 }
+{ "\$(P)\$(R=)\$(S=:)TrigEvt3-", "\$(P)\$(R=)\$(S=:)TrigEvt3-TrigSrc-", "\$(P)\$(R=)\$(S=:)TrigEvt3-Omsl-", "\$(OBJ):TrigEvt3", \$(OBJ), 3 }
+{ "\$(P)\$(R=)\$(S=:)TrigEvt4-", "\$(P)\$(R=)\$(S=:)TrigEvt4-TrigSrc-", "\$(P)\$(R=)\$(S=:)TrigEvt4-Omsl-", "\$(OBJ):TrigEvt4", \$(OBJ), 4 }
+{ "\$(P)\$(R=)\$(S=:)TrigEvt5-", "\$(P)\$(R=)\$(S=:)TrigEvt5-TrigSrc-", "\$(P)\$(R=)\$(S=:)TrigEvt5-Omsl-", "\$(OBJ):TrigEvt5", \$(OBJ), 5 }
+{ "\$(P)\$(R=)\$(S=:)TrigEvt6-", "\$(P)\$(R=)\$(S=:)TrigEvt6-TrigSrc-", "\$(P)\$(R=)\$(S=:)TrigEvt6-Omsl-", "\$(OBJ):TrigEvt6", \$(OBJ), 6 }
+{ "\$(P)\$(R=)\$(S=:)TrigEvt7-", "\$(P)\$(R=)\$(S=:)TrigEvt7-TrigSrc-", "\$(P)\$(R=)\$(S=:)TrigEvt7-Omsl-", "\$(OBJ):TrigEvt7", \$(OBJ), 7 }
 }
 
 file databuftx.db
 {pattern
 { P, OBJ, PROTO }
-{ "$(SYS)-$(D):dbus-send-", "$(EVG):BUFTX", 1 }
+{ "\$(P)\$(R=)\$(S=:)dbus-send-", "\$(OBJ):BUFTX", 1 }
 }
 
 file "databuftxCtrl.db"
 {pattern
 { P, OBJ }
-{ "$(SYS)-$(D):Link-", "$(EVG):BUFTX" }
+{ "\$(P)\$(R=)\$(S=:)Link-", "\$(OBJ):BUFTX" }
 }
 

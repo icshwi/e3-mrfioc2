@@ -1,14 +1,13 @@
 # Delay Module control
 #
 # Macros:
-#  EVR = Card name (same as mrmEvrSetupPCI())
-#  SYS = System name (ie SR-TM)
-#  D = Device name (ie EVR:Diag2)
+#  OBJ = Card name (same as mrmEvrSetupPCI())
+#  P and R = System and Device name
 #  SLOT = populated universal module slot
 
 file "mrmevrdlymodule.template"
 {pattern
 {P, OBJ}
-{"$(SYS)-$(D):UnivDlyModule$(SLOT)-", "$(EVR)"}
+{"\$(P)\$(R=)\$(S=:)UnivDlyModule$(SLOT)-", "$(OBJ)"}
 }
 
