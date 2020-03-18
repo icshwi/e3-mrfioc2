@@ -1,0 +1,20 @@
+# .run.iocsh
+# ==========
+
+# Trigger embedded EVR U with the post-mortem upstream input event
+dbpf $(P)$(R=)$(U=U:)DlyGen0-Evt-Trig0-SP $(EVT_PMORTEMI)
+dbpf $(P)$(R=)$(U=U:)DlyGen0-Width-SP 1
+dbpf $(P)$(R=)$(U=U:)OutFP0-Src-Pulse-SP "Pulser 0"
+# Broadcast the post-mortemevent
+dbpf $(P)$(R=)$(S=:)TrigEvt2-EvtCode-SP $(EVT_PMORTEM)
+dbpf $(P)$(R=)$(S=:)TrigEvt2-TrigSrc-Cont-Sel "Univ8"
+
+# Trigger embedded EVR U with the data-on-demand upstream input event
+dbpf $(P)$(R=)$(U=U:)DlyGen1-Evt-Trig0-SP $(EVT_DODI)
+dbpf $(P)$(R=)$(U=U:)DlyGen1-Width-SP 1
+dbpf $(P)$(R=)$(U=U:)OutFP1-Src-Pulse-SP "Pulser 1"
+# Broadcast the data-on-demand event
+dbpf $(P)$(R=)$(S=:)TrigEvt3-EvtCode-SP $(EVT_DOD)
+dbpf $(P)$(R=)$(S=:)TrigEvt3-TrigSrc-Cont-Sel "Univ9"
+
+#EOF
