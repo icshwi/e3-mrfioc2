@@ -300,166 +300,166 @@ file "evrin.db"
 
 file "evrbase.db"
 {
-{P="\$(P)\$(R=)$(D=D:)", PCNT="\$(P)\$(R=)$(D=D:)Cnt-", PLINK="\$(P)\$(R=)$(D=D:)Link-", PRATE="\$(P)\$(R=)$(D=D:)Rate-", PTIME="\$(P)\$(R=)$(D=D:)Time-", OBJ="\$(OBJ):EVRD", OBJBUFRX="\$(OBJ):EVRD:BUFRX", EVNT1HZ="\$(EVNT1HZ=125)", FEVT="\$(FEVT=88.0525)"}
+{P="\$(P)\$(R=)\$(D=D:)", PCNT="\$(P)\$(R=)\$(D=D:)Cnt-", PLINK="\$(P)\$(R=)\$(D=D:)Link-", PRATE="\$(P)\$(R=)\$(D=D:)Rate-", PTIME="\$(P)\$(R=)\$(D=D:)Time-", OBJ="\$(OBJ):EVRD", OBJBUFRX="\$(OBJ):EVRD:BUFRX", EVNT1HZ="\$(EVNT1HZ=125)", FEVT="\$(FEVT=88.0525)"}
 }
 
 file "mrmevrdc.template"
 {
-{P="\$(P)\$(R=)$(D=D:)DC-", OBJ="\$(OBJ):EVRD"}
+{P="\$(P)\$(R=)\$(D=D:)DC-", OBJ="\$(OBJ):EVRD"}
 }
 
 file "evrevent.db"
 {pattern
 {EN, OBJ, CODE, EVNT}
-{"\$(P)\$(R=)$(D=D:)1hz",  "\$(OBJ):EVRD", 0x7d, 125}
-{"\$(P)\$(R=)$(D=D:)EvtA", "\$(OBJ):EVRD", 10, 10}
-{"\$(P)\$(R=)$(D=D:)EvtB", "\$(OBJ):EVRD", 11, 11}
-{"\$(P)\$(R=)$(D=D:)EvtC", "\$(OBJ):EVRD", 12, 12}
-{"\$(P)\$(R=)$(D=D:)EvtD", "\$(OBJ):EVRD", 13, 13}
-{"\$(P)\$(R=)$(D=D:)EvtE", "\$(OBJ):EVRD", 14, 14}
-{"\$(P)\$(R=)$(D=D:)EvtF", "\$(OBJ):EVRD", 15, 15}
-{"\$(P)\$(R=)$(D=D:)EvtG", "\$(OBJ):EVRD", 16, 16}
-{"\$(P)\$(R=)$(D=D:)EvtH", "\$(OBJ):EVRD", 17, 17}
+{"\$(P)\$(R=)\$(D=D:)1hz",  "\$(OBJ):EVRD", 0x7d, 125}
+{"\$(P)\$(R=)\$(D=D:)EvtA", "\$(OBJ):EVRD", 10, 10}
+{"\$(P)\$(R=)\$(D=D:)EvtB", "\$(OBJ):EVRD", 11, 11}
+{"\$(P)\$(R=)\$(D=D:)EvtC", "\$(OBJ):EVRD", 12, 12}
+{"\$(P)\$(R=)\$(D=D:)EvtD", "\$(OBJ):EVRD", 13, 13}
+{"\$(P)\$(R=)\$(D=D:)EvtE", "\$(OBJ):EVRD", 14, 14}
+{"\$(P)\$(R=)\$(D=D:)EvtF", "\$(OBJ):EVRD", 15, 15}
+{"\$(P)\$(R=)\$(D=D:)EvtG", "\$(OBJ):EVRD", 16, 16}
+{"\$(P)\$(R=)\$(D=D:)EvtH", "\$(OBJ):EVRD", 17, 17}
 }
 
 file "mrmevrout.db"
 {pattern
 {ON, ONSRC, OBJ, DESC}
-{"\$(P)\$(R=)$(D=D:)OutFP0-", "\$(P)\$(R=)$(D=D:)OutFP0-Src-", "\$(OBJ):EVRD:FrontOut0", "FP0, Src EVG UVIN 0, EVRU FPIN 0"}
-{"\$(P)\$(R=)$(D=D:)OutFP1-", "\$(P)\$(R=)$(D=D:)OutFP1-Src-", "\$(OBJ):EVRD:FrontOut1", "FP1, Src EVG UVIN 1, EVRU FPIN 1"}
-{"\$(P)\$(R=)$(D=D:)OutFP2-", "\$(P)\$(R=)$(D=D:)OutFP2-Src-", "\$(OBJ):EVRD:FrontOut2", "FP2, Src EVG UVIN 2, EVRU FPIN 2"}
-{"\$(P)\$(R=)$(D=D:)OutFP3-", "\$(P)\$(R=)$(D=D:)OutFP3-Src-", "\$(OBJ):EVRD:FrontOut3", "FP3, Src EVG UVIN 3, EVRU FPIN 3"}
-{"\$(P)\$(R=)$(D=D:)OutFP4-", "\$(P)\$(R=)$(D=D:)OutFP4-Src-", "\$(OBJ):EVRD:FrontOut4", "FP4, Src EVG UVIN 4, EVRU FPIN 4"}
-{"\$(P)\$(R=)$(D=D:)OutFP5-", "\$(P)\$(R=)$(D=D:)OutFP5-Src-", "\$(OBJ):EVRD:FrontOut5", "FP5, Src EVG UVIN 5, EVRU FPIN 5"}
-{"\$(P)\$(R=)$(D=D:)OutFP6-", "\$(P)\$(R=)$(D=D:)OutFP6-Src-", "\$(OBJ):EVRD:FrontOut6", "FP6, Src EVG UVIN 6, EVRU FPIN 6"}
-{"\$(P)\$(R=)$(D=D:)OutFP7-", "\$(P)\$(R=)$(D=D:)OutFP7-Src-", "\$(OBJ):EVRD:FrontOut7", "FP7, Src EVG UVIN 7, EVRU FPIN 7"}
+{"\$(P)\$(R=)\$(D=D:)OutFP0-", "\$(P)\$(R=)\$(D=D:)OutFP0-Src-", "\$(OBJ):EVRD:FrontOut0", "FP0, Src EVG UVIN 0, EVRU FPIN 0"}
+{"\$(P)\$(R=)\$(D=D:)OutFP1-", "\$(P)\$(R=)\$(D=D:)OutFP1-Src-", "\$(OBJ):EVRD:FrontOut1", "FP1, Src EVG UVIN 1, EVRU FPIN 1"}
+{"\$(P)\$(R=)\$(D=D:)OutFP2-", "\$(P)\$(R=)\$(D=D:)OutFP2-Src-", "\$(OBJ):EVRD:FrontOut2", "FP2, Src EVG UVIN 2, EVRU FPIN 2"}
+{"\$(P)\$(R=)\$(D=D:)OutFP3-", "\$(P)\$(R=)\$(D=D:)OutFP3-Src-", "\$(OBJ):EVRD:FrontOut3", "FP3, Src EVG UVIN 3, EVRU FPIN 3"}
+{"\$(P)\$(R=)\$(D=D:)OutFP4-", "\$(P)\$(R=)\$(D=D:)OutFP4-Src-", "\$(OBJ):EVRD:FrontOut4", "FP4, Src EVG UVIN 4, EVRU FPIN 4"}
+{"\$(P)\$(R=)\$(D=D:)OutFP5-", "\$(P)\$(R=)\$(D=D:)OutFP5-Src-", "\$(OBJ):EVRD:FrontOut5", "FP5, Src EVG UVIN 5, EVRU FPIN 5"}
+{"\$(P)\$(R=)\$(D=D:)OutFP6-", "\$(P)\$(R=)\$(D=D:)OutFP6-Src-", "\$(OBJ):EVRD:FrontOut6", "FP6, Src EVG UVIN 6, EVRU FPIN 6"}
+{"\$(P)\$(R=)\$(D=D:)OutFP7-", "\$(P)\$(R=)\$(D=D:)OutFP7-Src-", "\$(OBJ):EVRD:FrontOut7", "FP7, Src EVG UVIN 7, EVRU FPIN 7"}
 }
 
 # Pulse generators w/o a prescaler set NOPS=1
 file "evrpulser.db"
 {pattern
 {PID, P, PLINK, PN, PNDELAY, PNWIDTH, OBJ, DMAX, WMAX, PMAX, NOPS}
-{0, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
-{1, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
-{2, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
-{3, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
-{4, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{5, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{6, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{7, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{8, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{9, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{10,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{11,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{12,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{13,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{14,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{15,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{0, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
+{1, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
+{2, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
+{3, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffffffff", "0xffff", 0}
+{4, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{5, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{6, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{7, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{8, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{9, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{10,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{11,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{12,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{13,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{14,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{15,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
 # gate generators
-{28,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{29,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{30,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
-{31,"\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)Link-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{28,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{29,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{30,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
+{31,"\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)Link-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Delay-", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Width-", "\$(OBJ):EVRD:Pul$(PID)", "0xffffffff", "0xffff", "1", 1}
 }
 
 # Default to 3 possible trigger mappings per pulser
 file "evrpulsermap.db"
 {pattern
 {PID, NAME, OBJ, F, EVT}
-{0, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{0, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{0, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{1, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{1, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{1, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{2, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{2, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{2, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{3, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{3, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{3, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{4, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{4, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{4, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{5, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{5, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{5, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{6, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{6, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{6, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{7, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{7, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{7, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{8, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{8, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{8, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{9, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{9, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{9, "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{10,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{10,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{10,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{11,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{11,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{11,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{12,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{12,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{12,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{13,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{13,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{13,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{14,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{14,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{14,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{15,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{15,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{15,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{0, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{0, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{0, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{1, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{1, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{1, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{2, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{2, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{2, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{3, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{3, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{3, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{4, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{4, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{4, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{5, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{5, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{5, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{6, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{6, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{6, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{7, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{7, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{7, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{8, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{8, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{8, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{9, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{9, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{9, "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{10,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{10,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{10,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{11,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{11,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{11,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{12,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{12,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{12,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{13,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{13,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{13,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{14,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{14,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{14,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{15,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{15,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{15,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
 # gate generators mappings
-{28,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{28,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{28,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{29,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{29,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{29,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{30,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{30,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{30,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{31,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{31,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
-{31,"\$(P)\$(R=)$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{28,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{28,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{28,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{29,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{29,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{29,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{30,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{30,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{30,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{31,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig0-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{31,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig1-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
+{31,"\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-Evt-Trig2-SP", "\$(OBJ):EVRD:Pul$(PID)", Trig, 0}
 }
 
 # pulser masking controls
 file "evrdcpulser.template"
 {pattern
 {PID, P, PN, OBJ}
-{0, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{1, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{2, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{3, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{4, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{5, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{6, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{7, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{8, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{9, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{10, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{11, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{12, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{13, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{14, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
-{15, "\$(P)\$(R=)$(D=D:)", "\$(P)\$(R=)$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{0, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{1, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{2, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{3, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{4, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{5, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{6, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{7, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{8, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{9, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{10, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{11, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{12, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{13, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{14, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
+{15, "\$(P)\$(R=)\$(D=D:)", "\$(P)\$(R=)\$(D=D:)DlyGen$(PID)-", "\$(OBJ):EVRD:Pul$(PID)"}
 }
 
 file "evrin.db"
 {pattern
 {IN, INTRIG, INCODE, OBJ, DESC}
-{"\$(P)\$(R=)$(D=D:)In0-", "\$(P)\$(R=)$(D=D:)In0-Trig-", "\$(P)\$(R=)$(D=D:)In0-Code-", "\$(OBJ):EVRD:FPIn0", "IN0, Src EVRU FP0"}
-{"\$(P)\$(R=)$(D=D:)In1-", "\$(P)\$(R=)$(D=D:)In1-Trig-", "\$(P)\$(R=)$(D=D:)In1-Code-", "\$(OBJ):EVRD:FPIn1", "IN1, Src EVRU FP1"}
-{"\$(P)\$(R=)$(D=D:)In2-", "\$(P)\$(R=)$(D=D:)In2-Trig-", "\$(P)\$(R=)$(D=D:)In2-Code-", "\$(OBJ):EVRD:FPIn2", "IN2, Src EVRU FP2"}
-{"\$(P)\$(R=)$(D=D:)In3-", "\$(P)\$(R=)$(D=D:)In3-Trig-", "\$(P)\$(R=)$(D=D:)In3-Code-", "\$(OBJ):EVRD:FPIn3", "IN3, Src EVRU FP3"}
-{"\$(P)\$(R=)$(D=D:)In4-", "\$(P)\$(R=)$(D=D:)In4-Trig-", "\$(P)\$(R=)$(D=D:)In4-Code-", "\$(OBJ):EVRD:FPIn4", "IN4, Src EVRU FP4"}
-{"\$(P)\$(R=)$(D=D:)In5-", "\$(P)\$(R=)$(D=D:)In5-Trig-", "\$(P)\$(R=)$(D=D:)In5-Code-", "\$(OBJ):EVRD:FPIn5", "IN5, Src EVRU FP5"}
-{"\$(P)\$(R=)$(D=D:)In6-", "\$(P)\$(R=)$(D=D:)In6-Trig-", "\$(P)\$(R=)$(D=D:)In6-Code-", "\$(OBJ):EVRD:FPIn6", "IN6, Src EVRU FP6"}
-{"\$(P)\$(R=)$(D=D:)In7-", "\$(P)\$(R=)$(D=D:)In7-Trig-", "\$(P)\$(R=)$(D=D:)In7-Code-", "\$(OBJ):EVRD:FPIn7", "IN7, Src EVRU FP7"}
+{"\$(P)\$(R=)\$(D=D:)In0-", "\$(P)\$(R=)\$(D=D:)In0-Trig-", "\$(P)\$(R=)\$(D=D:)In0-Code-", "\$(OBJ):EVRD:FPIn0", "IN0, Src EVRU FP0"}
+{"\$(P)\$(R=)\$(D=D:)In1-", "\$(P)\$(R=)\$(D=D:)In1-Trig-", "\$(P)\$(R=)\$(D=D:)In1-Code-", "\$(OBJ):EVRD:FPIn1", "IN1, Src EVRU FP1"}
+{"\$(P)\$(R=)\$(D=D:)In2-", "\$(P)\$(R=)\$(D=D:)In2-Trig-", "\$(P)\$(R=)\$(D=D:)In2-Code-", "\$(OBJ):EVRD:FPIn2", "IN2, Src EVRU FP2"}
+{"\$(P)\$(R=)\$(D=D:)In3-", "\$(P)\$(R=)\$(D=D:)In3-Trig-", "\$(P)\$(R=)\$(D=D:)In3-Code-", "\$(OBJ):EVRD:FPIn3", "IN3, Src EVRU FP3"}
+{"\$(P)\$(R=)\$(D=D:)In4-", "\$(P)\$(R=)\$(D=D:)In4-Trig-", "\$(P)\$(R=)\$(D=D:)In4-Code-", "\$(OBJ):EVRD:FPIn4", "IN4, Src EVRU FP4"}
+{"\$(P)\$(R=)\$(D=D:)In5-", "\$(P)\$(R=)\$(D=D:)In5-Trig-", "\$(P)\$(R=)\$(D=D:)In5-Code-", "\$(OBJ):EVRD:FPIn5", "IN5, Src EVRU FP5"}
+{"\$(P)\$(R=)\$(D=D:)In6-", "\$(P)\$(R=)\$(D=D:)In6-Trig-", "\$(P)\$(R=)\$(D=D:)In6-Code-", "\$(OBJ):EVRD:FPIn6", "IN6, Src EVRU FP6"}
+{"\$(P)\$(R=)\$(D=D:)In7-", "\$(P)\$(R=)\$(D=D:)In7-Trig-", "\$(P)\$(R=)\$(D=D:)In7-Code-", "\$(OBJ):EVRD:FPIn7", "IN7, Src EVRU FP7"}
 }
