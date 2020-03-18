@@ -2,7 +2,7 @@
 # ==========
 
 # Set EVM as master (EVG) and run sequences
-dbpf $(P)$(R=)Enable-Sel "Ena Master"
+dbpf $(P)$(R=)$(S=:)Enable-Sel "Ena Master"
 # Select the RF input
 $(INTRF="#")dbpf $(P)$(R=)$(S=:)EvtClk-Source-Sel "FracSyn (Int)"
 $(EXTRF="#")dbpf $(P)$(R=)$(S=:)EvtClk-Source-Sel "RF (Ext)"

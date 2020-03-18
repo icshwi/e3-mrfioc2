@@ -17,6 +17,7 @@ core*
 random_cpci_evr.cmd
 random_cpci_evg.cmd
 *.list
+*.pvlist
 *.bit
 *.local
 
