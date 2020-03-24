@@ -1,0 +1,15 @@
+# .init.iocsh
+# ===========
+
+# ESS EVG command file for mrfioc2
+# ================================
+
+# PCIID address
+mrmEvgSetupPCI($(DEV), $(PCIID))
+
+$(CPCI230="#")dbLoadRecords("evg-cpci-230-ess.db", "SYS=$(IOC), D=$(DEV), EVG=$(DEV), FEVT=$(TS_CLK), FRF=$(TS_CLK), RFDIV=1")
+
+# Only for local debugging purposes.
+var evrMrmTimeNSOverflowThreshold 1000000
+
+#EOF
