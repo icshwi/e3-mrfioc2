@@ -1,23 +1,20 @@
 # .init.iocsh
 # ===========
 
-# GLOBAL MTCA ENVIRONMENT
-# =======================
-
 # 9U MTCA create (production)
-# AMC	Slot	Addr
-# AMC1	CPU	CPU
-# AMC2	2-1	0e:00.0
-# AMC3	3	08:00.0
-# AMC4	4	06:00.0
-# AMC5	5	09:00.0
-# AMC6	6	0b:00.0
-# AMC7	7	0f:00.0
-# AMC8	8	0d:00.0
-# AMC9	9	07:00.0
-# AMC10	10	05:00.0
-# AMC11	11	0a:00.0
-# AMC12	12	0c:00.0
+# AMC	Slot    Addr
+# AMC1	CPU	    CPU
+# AMC2	2-1	    0e:00.0
+# AMC3	3	    08:00.0
+# AMC4	4	    06:00.0
+# AMC5	5	    09:00.0
+# AMC6	6	    0b:00.0
+# AMC7	7	    0f:00.0
+# AMC8	8	    0d:00.0
+# AMC9	9	    07:00.0
+# AMC10	10	    05:00.0
+# AMC11	11	    0a:00.0
+# AMC12	12	    0c:00.0
 
 #epicsEnvSet "MTCA_9U_PCIID1"  ""
 epicsEnvSet "MTCA_9U_PCIID2"  "0e:00.0"
@@ -35,31 +32,31 @@ epicsEnvSet "MTCA_9U_PCIID12" "0c:00.0"
 
 # 3U MTCA create (production)
 # TODO
-# AMC Slot Addr
-# AMC1 CPU CPU
-# AMC2 2 xx
-# AMC3 3 xx
-# AMC4 4 xx
-# AMC5 5 xx
-# AMC6 6 0b:00.0
+# AMC  Slot Addr
+# AMC1 x    x
+# AMC2 CPU  CPU
+# AMC3 3-1  08:00.0
+# AMC4 4-1  06:00.0
+# AMC5 5    09:00.0
+# AMC6 6    0b:00.0
 
 # epicsEnvSet "MTCA_3U_PCIID1" ""
 # epicsEnvSet "MTCA_3U_PCIID2"  ""
-# epicsEnvSet "MTCA_3U_PCIID3"  ""
-# epicsEnvSet "MTCA_3U_PCIID4"  ""
-# epicsEnvSet "MTCA_3U_PCIID5"  ""
+epicsEnvSet "MTCA_3U_PCIID3"  "08:00.0"
+epicsEnvSet "MTCA_3U_PCIID4"  "06:00.0"
+epicsEnvSet "MTCA_3U_PCIID5"  "09:00.0"
 epicsEnvSet "MTCA_3U_PCIID6"  "0b:00.0"
 
 
 # 5U MTCA create (lab works)
-# AMC Slot Addr
-# AMC1 CPU CPU
-# AMC2 1 0a:00.0
-# AMC3 2 09:00.0
-# AMC4 3 06:00.0
-# AMC5 4 05:00.0
-# AMC6 5 07:00.0
-# AMC7 6 08:00.0
+# AMC  Slot Addr
+# AMC1 CPU  CPU
+# AMC2 1    0a:00.0
+# AMC3 2    09:00.0
+# AMC4 3    06:00.0
+# AMC5 4    05:00.0
+# AMC6 5    07:00.0
+# AMC7 6    08:00.0
 
 #epicsEnvSet("MTCA_5U_PCIID1", "")
 epicsEnvSet "MTCA_5U_PCIID2" "0a:00.0"
@@ -71,13 +68,13 @@ epicsEnvSet "MTCA_5U_PCIID7" "08:00.0"
 
 
 # 6U Elma MTCA create (not standard)
-# AMC Slot Addr
-# AMC1 CPU CPU
-# AMC2 2 07:00.0
-# AMC3 3 06:00.0
-# AMC4 4 05:00.0
-# AMC5 5 08:00.0
-# AMC6 6 09:00.0
+# AMC  Slot Addr
+# AMC1 CPU  CPU
+# AMC2 2    07:00.0
+# AMC3 3    06:00.0
+# AMC4 4    05:00.0
+# AMC5 5    08:00.0
+# AMC6 6    09:00.0
 
 #epicsEnvSet("MTCA_6U_ELMA_PCIID1", "")
 epicsEnvSet "MTCA_6U_ELMA_PCIID2" "07:00.0"
