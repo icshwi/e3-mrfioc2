@@ -1,0 +1,10 @@
+# .init.iocsh
+
+mrmEvgSetupPCI "$(OBJ)" "$(PCIID)"
+
+dbLoadRecords "$(FILE_DB)" "P=$(P), OBJ=$(OBJ), FEVT=$(TS_CLK)"
+
+# needed with software timestamp [ns] source w/o RT thread scheduling
+var evrMrmTimeNSOverflowThreshold 500000000
+
+#EOF

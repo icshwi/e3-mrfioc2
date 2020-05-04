@@ -1,7 +1,7 @@
 # .init.iocsh
 # ===========
 
-mrmEvgSetupPCI $(OBJ) $(PCIID)
+mrmEvgSetupPCI "$(OBJ)" "$(PCIID)"
 
 dbLoadRecords "evm-mtca-300-ess.db" "P=$(P), OBJ=$(OBJ), FEVT=$(TS_CLK), FRF=$(TS_CLK), RFDIV=1, U=$(U), D=$(D)"
 
