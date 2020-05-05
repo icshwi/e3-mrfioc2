@@ -1,0 +1,111 @@
+# .run.iocsh
+# ==========
+
+# Set special functions
+# dbpf $(P)$(R=)$(S=":")OutBack0-Src-Scale-SP "Flip-flop 0"
+
+# Define pulsers - width
+dbpf $(P)$(R=)$(S=":")DlyGen0-Width-SP  $(WIDTH0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen1-Width-SP  $(WIDTH1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen2-Width-SP  $(WIDTH2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen3-Width-SP  $(WIDTH3=0)
+dbpf $(P)$(R=)$(S=":")DlyGen4-Width-SP  $(WIDTH4=0)
+dbpf $(P)$(R=)$(S=":")DlyGen5-Width-SP  $(WIDTH5=0)
+dbpf $(P)$(R=)$(S=":")DlyGen6-Width-SP  $(WIDTH6=0)
+dbpf $(P)$(R=)$(S=":")DlyGen7-Width-SP  $(WIDTH7=0)
+dbpf $(P)$(R=)$(S=":")DlyGen8-Width-SP  $(WIDTH8=0)
+dbpf $(P)$(R=)$(S=":")DlyGen9-Width-SP  $(WIDTH9=0)
+dbpf $(P)$(R=)$(S=":")DlyGen10-Width-SP $(WIDTH10=0)
+dbpf $(P)$(R=)$(S=":")DlyGen11-Width-SP $(WIDTH11=0)
+dbpf $(P)$(R=)$(S=":")DlyGen12-Width-SP $(WIDTH12=0)
+dbpf $(P)$(R=)$(S=":")DlyGen13-Width-SP $(WIDTH13=0)
+dbpf $(P)$(R=)$(S=":")DlyGen14-Width-SP $(WIDTH14=0)
+# NULL pulser
+dbpf $(P)$(R=)$(S=":")DlyGen15-Width-SP $(WIDTH15=0)
+
+### Define pulsers - trigger events
+dbpf $(P)$(R=)$(S=":")DlyGen0-Evt-Trig0-SP $(EVT0T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen1-Evt-Trig0-SP $(EVT1T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen2-Evt-Trig0-SP $(EVT2T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen3-Evt-Trig0-SP $(EVT3T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen4-Evt-Trig0-SP $(EVT4T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen5-Evt-Trig0-SP $(EVT5T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen6-Evt-Trig0-SP $(EVT6T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen7-Evt-Trig0-SP $(EVT7T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen8-Evt-Trig0-SP $(EVT8T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen9-Evt-Trig0-SP $(EVT9T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen10-Evt-Trig0-SP $(EVT10T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen11-Evt-Trig0-SP $(EVT11T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen12-Evt-Trig0-SP $(EVT12T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen13-Evt-Trig0-SP $(EVT13T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen14-Evt-Trig0-SP $(EVT14T0=0)
+dbpf $(P)$(R=)$(S=":")DlyGen15-Evt-Trig0-SP $(EVT15T0=0)
+
+dbpf $(P)$(R=)$(S=":")DlyGen0-Evt-Trig1-SP $(EVT0T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen1-Evt-Trig1-SP $(EVT1T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen2-Evt-Trig1-SP $(EVT2T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen3-Evt-Trig1-SP $(EVT3T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen4-Evt-Trig1-SP $(EVT4T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen5-Evt-Trig1-SP $(EVT5T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen6-Evt-Trig1-SP $(EVT6T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen7-Evt-Trig1-SP $(EVT7T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen8-Evt-Trig1-SP $(EVT8T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen9-Evt-Trig1-SP $(EVT9T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen10-Evt-Trig1-SP $(EVT10T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen11-Evt-Trig1-SP $(EVT11T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen12-Evt-Trig1-SP $(EVT12T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen13-Evt-Trig1-SP $(EVT13T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen14-Evt-Trig1-SP $(EVT14T1=0)
+dbpf $(P)$(R=)$(S=":")DlyGen15-Evt-Trig1-SP $(EVT15T1=0)
+
+dbpf $(P)$(R=)$(S=":")DlyGen0-Evt-Trig2-SP $(EVT0T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen1-Evt-Trig2-SP $(EVT1T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen2-Evt-Trig2-SP $(EVT2T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen3-Evt-Trig2-SP $(EVT3T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen4-Evt-Trig2-SP $(EVT4T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen5-Evt-Trig2-SP $(EVT5T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen6-Evt-Trig2-SP $(EVT6T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen7-Evt-Trig2-SP $(EVT7T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen8-Evt-Trig2-SP $(EVT8T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen9-Evt-Trig2-SP $(EVT9T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen10-Evt-Trig2-SP $(EVT10T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen11-Evt-Trig2-SP $(EVT11T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen12-Evt-Trig2-SP $(EVT12T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen13-Evt-Trig2-SP $(EVT13T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen14-Evt-Trig2-SP $(EVT14T2=0)
+dbpf $(P)$(R=)$(S=":")DlyGen15-Evt-Trig2-SP $(EVT15T2=0)
+
+# SRC configuration
+# Push the pulser outputs into the physical one
+# =============================================
+### MTCA EVR Backplane0, RX17 (0)
+dbpf $(P)$(R=)$(S=":")OutBack0-Src-SP $(BP0SRC=15)
+### MTCA EVR Backplane1, TX17 (0)
+dbpf $(P)$(R=)$(S=":")OutBack1-Src-SP $(BP1SRC=15)
+### MTCA EVR Backplane2, RX18 (0)
+dbpf $(P)$(R=)$(S=":")OutBack2-Src-SP $(BP2SRC=15)
+### MTCA EVR Backplane3, TX18 (0)
+dbpf $(P)$(R=)$(S=":")OutBack3-Src-SP $(BP3SRC=15)
+### MTCA EVR Backplane4, RX19 (0)
+dbpf $(P)$(R=)$(S=":")OutBack4-Src-SP $(BP4SRC=15)
+### MTCA EVR Backplane5, TX19 (0)
+dbpf $(P)$(R=)$(S=":")OutBack5-Src-SP $(BP5SRC=15)
+### MTCA EVR Backplane6, RX20 (0)
+dbpf $(P)$(R=)$(S=":")OutBack6-Src-SP $(BP6SRC=15)
+### MTCA EVR Backplane7, TX20 (0)
+dbpf $(P)$(R=)$(S=":")OutBack7-Src-SP $(BP7SRC=15)
+
+# FP outputs
+# ==========
+### MTCA EVR Front Panel OUT0 trigger from DlyGen0 (delay generator 0)
+dbpf $(P)$(R=)$(S=":")OutFP0-Src-SP $(FP0SRC=15)
+dbpf $(P)$(R=)$(S=":")OutFP1-Src-SP $(FP1SRC=15)
+dbpf $(P)$(R=)$(S=":")OutFP2-Src-SP $(FP2SRC=15)
+dbpf $(P)$(R=)$(S=":")OutFP3-Src-SP $(FP3SRC=15)
+
+dbpf $(P)$(R=)$(S=":")OutFPUV0-Src-SP $(FPUV0SRC=15)
+dbpf $(P)$(R=)$(S=":")OutFPUV1-Src-SP $(FPUV1SRC=15)
+dbpf $(P)$(R=)$(S=":")OutFPUV2-Src-SP $(FPUV2SRC=15)
+dbpf $(P)$(R=)$(S=":")OutFPUV3-Src-SP $(FPUV3SRC=15)
+
+#EOF

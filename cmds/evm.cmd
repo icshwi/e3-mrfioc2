@@ -6,7 +6,7 @@ iocshLoad "$(mrfioc2_DIR)/mtca.iocsh"
 iocshLoad "$(mrfioc2_DIR)/ts.iocsh"
 
 ## Load record instances
-iocshLoad "$(mrfioc2_DIR)/evm.iocsh" "P=MTCA-EVM, OBJ=EVM, PCIID=$(MTCA_3U_PCIID3), U=:EVRU-, D=:EVRD-"
+iocshLoad "$(mrfioc2_DIR)/evm.iocsh" "P=TD-TEST, OBJ=EVM, PCIID=$(MTCA_5U_PCIID6), U=:EVRU-, D=:EVRD-"
 
 iocInit
 

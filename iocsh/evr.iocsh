@@ -1,8 +1,8 @@
 # .init.iocsh
 
-mrmEvgSetupPCI "$(OBJ)" "$(PCIID)"
+mrmEvrSetupPCI "$(OBJ=EVR)" "$(PCIID)"
 
-dbLoadRecords "$(FILE_DB)" "P=$(P), OBJ=$(OBJ), FEVT=$(TS_CLK)"
+dbLoadRecords "$(FILE_DB=evr-mtca-300u-ess.db)" "P=$(P), OBJ=$(OBJ=EVR), FEVT=$(TS_CLK=88.0525)"
 
 # needed with software timestamp [ns] source w/o RT thread scheduling
 var evrMrmTimeNSOverflowThreshold 500000000

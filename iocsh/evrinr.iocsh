@@ -1,0 +1,53 @@
+# .run.iocsh
+# ==========
+
+# Backplane
+$(BPIN0="#")dbpf $(P)$(R=)$(S=":")OutBack0-Src-Scale-SP "Tri-state"
+$(BPIN1="#")dbpf $(P)$(R=)$(S=":")OutBack1-Src-Scale-SP "Tri-state"
+$(BPIN2="#")dbpf $(P)$(R=)$(S=":")OutBack2-Src-Scale-SP "Tri-state"
+$(BPIN3="#")dbpf $(P)$(R=)$(S=":")OutBack3-Src-Scale-SP "Tri-state"
+$(BPIN4="#")dbpf $(P)$(R=)$(S=":")OutBack4-Src-Scale-SP "Tri-state"
+$(BPIN5="#")dbpf $(P)$(R=)$(S=":")OutBack5-Src-Scale-SP "Tri-state"
+$(BPIN6="#")dbpf $(P)$(R=)$(S=":")OutBack6-Src-Scale-SP "Tri-state"
+$(BPIN7="#")dbpf $(P)$(R=)$(S=":")OutBack7-Src-Scale-SP "Tri-state"
+
+$(BPIN0="#")dbpf $(P)$(R=)$(S=":")BPIn0-Trig-Ext-Sel "Edge"
+$(BPIN1="#")dbpf $(P)$(R=)$(S=":")BPIn1-Trig-Ext-Sel "Edge"
+$(BPIN2="#")dbpf $(P)$(R=)$(S=":")BPIn2-Trig-Ext-Sel "Edge"
+$(BPIN3="#")dbpf $(P)$(R=)$(S=":")BPIn3-Trig-Ext-Sel "Edge"
+$(BPIN4="#")dbpf $(P)$(R=)$(S=":")BPIn4-Trig-Ext-Sel "Edge"
+$(BPIN5="#")dbpf $(P)$(R=)$(S=":")BPIn5-Trig-Ext-Sel "Edge"
+$(BPIN6="#")dbpf $(P)$(R=)$(S=":")BPIn6-Trig-Ext-Sel "Edge"
+$(BPIN7="#")dbpf $(P)$(R=)$(S=":")BPIn7-Trig-Ext-Sel "Edge"
+
+# Local EVR events
+$(BPIN0="#")dbpf $(P)$(R=)$(S=":")BPIn0-Code-Ext-SP $(BP0EVT=0)
+$(BPIN1="#")dbpf $(P)$(R=)$(S=":")BPIn1-Code-Ext-SP $(BP1EVT=0)
+$(BPIN2="#")dbpf $(P)$(R=)$(S=":")BPIn2-Code-Ext-SP $(BP2EVT=0)
+$(BPIN3="#")dbpf $(P)$(R=)$(S=":")BPIn3-Code-Ext-SP $(BP3EVT=0)
+$(BPIN4="#")dbpf $(P)$(R=)$(S=":")BPIn4-Code-Ext-SP $(BP4EVT=0)
+$(BPIN5="#")dbpf $(P)$(R=)$(S=":")BPIn5-Code-Ext-SP $(BP5EVT=0)
+$(BPIN6="#")dbpf $(P)$(R=)$(S=":")BPIn6-Code-Ext-SP $(BP6EVT=0)
+$(BPIN7="#")dbpf $(P)$(R=)$(S=":")BPIn7-Code-Ext-SP $(BP7EVT=0)
+
+# Front panel
+$(FPIN0="#")dbpf $(P)$(R=)$(S=":")In0-Trig-Ext-Sel "Edge"
+$(FPIN1="#")dbpf $(P)$(R=)$(S=":")In1-Trig-Ext-Sel "Edge"
+$(FPIN2="#")dbpf $(P)$(R=)$(S=":")In2-Trig-Ext-Sel "Edge"
+$(FPIN3="#")dbpf $(P)$(R=)$(S=":")In3-Trig-Ext-Sel "Edge"
+$(FPIN4="#")dbpf $(P)$(R=)$(S=":")In4-Trig-Ext-Sel "Edge"
+$(FPIN5="#")dbpf $(P)$(R=)$(S=":")In5-Trig-Ext-Sel "Edge"
+$(FPIN6="#")dbpf $(P)$(R=)$(S=":")In6-Trig-Ext-Sel "Edge"
+$(FPIN7="#")dbpf $(P)$(R=)$(S=":")In7-Trig-Ext-Sel "Edge"
+
+# Local EVR events
+$(FPIN0="#")dbpf $(P)$(R=)$(S=":")In0-Code-Ext-SP $(FP0EVT=0)
+$(FPIN1="#")dbpf $(P)$(R=)$(S=":")In1-Code-Ext-SP $(FP1EVT=0)
+$(FPIN2="#")dbpf $(P)$(R=)$(S=":")In2-Code-Ext-SP $(FP2EVT=0)
+$(FPIN3="#")dbpf $(P)$(R=)$(S=":")In3-Code-Ext-SP $(FP3EVT=0)
+$(FPIN4="#")dbpf $(P)$(R=)$(S=":")In4-Code-Ext-SP $(FP4EVT=0)
+$(FPIN5="#")dbpf $(P)$(R=)$(S=":")In5-Code-Ext-SP $(FP5EVT=0)
+$(FPIN6="#")dbpf $(P)$(R=)$(S=":")In6-Code-Ext-SP $(FP6EVT=0)
+$(FPIN7="#")dbpf $(P)$(R=)$(S=":")In7-Code-Ext-SP $(FP7EVT=0)
+
+#EOF

@@ -11,7 +11,8 @@ epicsEnvSet("DEV", "EVRL")
 require mrfioc2, 2.2.0-rc7
 
 # 0e:00.0 - 2U timtest crate
-iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0e:00.0")
+#iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0e:00.0")
+iocshLoad("$(TOP)/iocsh/evr-mtca-init.iocsh", "S=$(IOC), DEV=$(DEV), PCIID=0a:00.0")
 
 iocInit()
 
