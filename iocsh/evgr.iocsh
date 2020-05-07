@@ -2,24 +2,24 @@
 # ==========
 
 # Set EVM as master (EVG) and run sequences
-dbpf $(P)$(R=)$(S=:)Enable-Sel "Ena Master"
+dbpf $(P)$(R=)$(S=":")Enable-Sel "Ena Master"
 # Select the RF input
-$(INTRF="#")dbpf $(P)$(R=)$(S=:)EvtClk-Source-Sel "FracSyn (Int)"
-$(EXTRF="#")dbpf $(P)$(R=)$(S=:)EvtClk-Source-Sel "RF (Ext)"
+$(INTRF="#")dbpf $(P)$(R=)$(S=":")EvtClk-Source-Sel "FracSyn (Int)"
+$(EXTRF="#")dbpf $(P)$(R=)$(S=":")EvtClk-Source-Sel "RF (Ext)"
 # Change to PPS once connected
-$(INTPPS="#")dbpf $(P)$(R=)$(S=:)1ppsInp-Sel "Sys Clk"
-$(EXTPPS="#")dbpf $(P)$(R=)$(S=:)1ppsInp-Sel "Front0"
-$(EXTPPS="#")dbpf $(P)$(R=)$(S=:)1ppsInp-MbbiDir_.TPRO "1"
-$(EXTPPS="#")dbpf $(P)$(R=)$(S=:)TrigEvt4-TrigSrc-Sel "Front0"
-$(EXTPPS="#")dbpf $(P)$(R=)$(S=:)TrigEvt4-EvtCode-SP "$(EVT_PPS=125)"
+$(INTPPS="#")dbpf $(P)$(R=)$(S=":")1ppsInp-Sel "Sys Clk"
+$(EXTPPS="#")dbpf $(P)$(R=)$(S=":")1ppsInp-Sel "Front0"
+$(EXTPPS="#")dbpf $(P)$(R=)$(S=":")1ppsInp-MbbiDir_.TPRO "1"
+$(EXTPPS="#")dbpf $(P)$(R=)$(S=":")TrigEvt4-TrigSrc-Sel "Front0"
+$(EXTPPS="#")dbpf $(P)$(R=)$(S=":")TrigEvt4-EvtCode-SP "$(EVT_PPS=125)"
 epicsThreadSleep "1"
 
-dbpf $(P)$(R=)$(S=:)SyncTimestamp-Cmd "1"
+dbpf $(P)$(R=)$(S=":")SyncTimestamp-Cmd "1"
 
 # Heartbeat 1Hz
-dbpf $(P)$(R=)$(S=:)Mxc7-Polarity-Sel "Orginal"
-dbpf $(P)$(R=)$(S=:)Mxc7-Prescaler-SP "$(MXC_1HZ=88052500)"
-dbpf $(P)$(R=)$(S=:)TrigEvt7-EvtCode-SP "$(EVT_HBEAT=122)"
-dbpf $(P)$(R=)$(S=:)TrigEvt7-TrigSrc-Sel "Mxc7"
+dbpf $(P)$(R=)$(S=":")Mxc7-Polarity-Sel "Orginal"
+dbpf $(P)$(R=)$(S=":")Mxc7-Prescaler-SP "$(MXC_1HZ=88052500)"
+dbpf $(P)$(R=)$(S=":")TrigEvt7-EvtCode-SP "$(EVT_HBEAT=122)"
+dbpf $(P)$(R=)$(S=":")TrigEvt7-TrigSrc-Sel "Mxc7"
 
 #EOF
