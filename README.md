@@ -1,5 +1,6 @@
 # e3-mrfioc2
-
+## Prerequisites  
+In addition to EPICS_BASE and E3 Require, it is required to install the devlib2 library prior to installing mrfioc2 E3 module.  
 ## Check the PCI Address of MRF HW
 One can find the correct PCI Address by `lspci` command, and e3 also provide a wrapper script for this. 
 ```
