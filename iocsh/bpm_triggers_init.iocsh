@@ -1,0 +1,33 @@
+# EVR triggers for BPM system
+
+#- BPM uses these backplane trigger lines
+epicsEnvSet("ROI_START_EVENT"               "12")
+epicsEnvSet("ROI_END_EVENT"                 "13")
+epicsEnvSet("ACQUISITION_EVENT"             "10")
+epicsEnvSet("PULSE_WIDTH"                   "1")
+
+# BPM acquisition start
+dbpf $(PREFIX)DlyGen0-Evt-Trig0-SP $(ACQUISITION_EVENT)
+dbpf $(PREFIX)DlyGen0-Width-SP $(PULSE_WIDTH)
+dbpf $(PREFIX)DlyGen0-Delay-SP 0
+#- backplane 0 line
+dbpf $(PREFIX)OutBack0-Src-SP 0
+
+# BPM pulse (ROI) start
+dbpf $(PREFIX)DlyGen1-Evt-Trig0-SP $(ROI_START_EVENT)
+dbpf $(PREFIX)DlyGen1-Width-SP $(PULSE_WIDTH)
+dbpf $(PREFIX)DlyGen1-Delay-SP 0
+#- backplane 1 line
+dbpf $(PREFIX)OutBack1-Src-SP 1
+
+# BPM pulse (ROI) end
+dbpf $(PREFIX)DlyGen2-Evt-Trig0-SP $(ROI_END_EVENT)
+dbpf $(PREFIX)DlyGen2-Width-SP $(PULSE_WIDTH)
+dbpf $(PREFIX)DlyGen2-Delay-SP 0
+#- backplane 2 line
+dbpf $(PREFIX)OutBack2-Src-SP 2
+
+#- debug front panel outputs
+dbpf $(PREFIX)OutFP0-Src-SP 0
+dbpf $(PREFIX)OutFP1-Src-SP 1
+dbpf $(PREFIX)OutFP2-Src-SP 2
