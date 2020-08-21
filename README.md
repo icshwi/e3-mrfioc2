@@ -1,3 +1,7 @@
+# Deprecation notice
+
+2020-08-21: This remote has been deprecated. Moved to https://gitlab.esss.lu.se/e3/timing/e3-mrfioc2
+
 # e3-mrfioc2
 ## Prerequisites  
 In addition to EPICS_BASE and E3 Require, it is required to install the devlib2 library prior to installing mrfioc2 E3 module.  
