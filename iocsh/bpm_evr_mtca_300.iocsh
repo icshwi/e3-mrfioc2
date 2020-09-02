@@ -20,5 +20,7 @@ mrmEvrSetupPCI("$(DEV)",  "$(PCIID)")
 dbLoadRecords("evr-mtca-300u-ess.db","P=$(P), R=$(R=), S=$(S=:), OBJ=$(DEV), FEVT=$(EVTCLOCKRATE=88.0525)")
 iocshRun('$(SWTIMESTAMP_$(RT=woRT)=) var(evrMrmTimeNSOverflowThreshold, 100000)', "SWTIMESTAMP_wtRT=#") 
 #-
+#- EVR databuffer
+dbLoadRecords("evr-databuffer-ess.db","PREFIX=$(P)$(R=)$(S=:)")
 #- Don't forget the new line
 
